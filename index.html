@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SyncVision Systems | Strategic Digital Infrastructure</title>
+    <meta name="description" content="SyncVision Systems - High-performance digital architecture and strategic SEO dominance." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              titanium: '#0f172a',
+              armor: '#1e293b',
+              interstellar: '#3b82f6',
+              growth: '#10b981',
+              mist: '#f8fafc',
+              steel: '#cbd5e1',
+              electric: '#6366f1',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700;800&display=swap');
+      
+      html {
+        scroll-behavior: smooth;
+        background-color: #0f172a;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0f172a;
+        color: #cbd5e1;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+      .bg-grid-subtle {
+        background-image: radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.04) 1px, transparent 0);
+        background-size: 50px 50px;
+      }
+
+      .glass-navbar {
+        background: rgba(15, 23, 42, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #3b82f6 }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .card-glow:hover {
+        border-color: #6366f1;
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.2);
+      }
+
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0f172a; }
+      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.39.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-grid-subtle overflow-x-hidden">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
