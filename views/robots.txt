@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Tell Google where the map is
+Sitemap: https://syncvisionlabs.com/sitemap.xml

@@ -18,7 +18,7 @@ const WorkView: React.FC = () => {
     <section className="py-40 px-6 animate-fade-in bg-slate-950 min-h-screen relative">
       <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-emerald-500/5 blur-[150px] pointer-events-none"></div>
       <Helmet>
-        <title>Verified Results | SyncVision Systems</title>
+        <title>Verified Results | SyncVision Labs</title>
         <meta name="description" content="Proven success connecting industrial client dominance with proprietary R&D innovations. View our case studies and internal labs." />
       </Helmet>
 

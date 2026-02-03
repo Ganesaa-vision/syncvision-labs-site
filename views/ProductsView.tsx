@@ -14,7 +14,7 @@ const ProductsView: React.FC = () => {
   return (
     <section className="py-40 px-6 animate-fade-in bg-slate-950 min-h-screen relative">
       <Helmet>
-        <title>Internal R&D Labs | SyncVision Systems</title>
+        <title>Internal R&D Labs | SyncVision Labs</title>
         <meta name="description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
       </Helmet>
 

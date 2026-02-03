@@ -15,7 +15,7 @@ const ContactView: React.FC = () => {
     <section className="py-40 px-6 animate-fade-in min-h-screen bg-slate-950 relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
       <Helmet>
-        <title>Initiate Protocol | SyncVision Systems</title>
+        <title>Initiate Protocol | SyncVision Labs</title>
         <meta name="description" content="Select your mission objective. Validated requests receive engineering protocols within 12 hours. Secure channel active." />
       </Helmet>
 

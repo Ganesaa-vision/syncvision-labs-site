@@ -33,7 +33,7 @@ const Automation = () => {
       }
     },
     
-    canonicalUrl: "https://syncvisionlabs.com/services/business-automation",
+    canonicalUrl: "https://syncvisionlabs.com/services/automation",
     ogTitle: "Business Automation | SyncVision Labs",
     ogDescription: "Hire the employee that never sleeps. Custom automation scripts.",
     ogImage: "https://syncvisionlabs.com/assets/automation-preview.jpg"

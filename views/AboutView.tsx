@@ -66,7 +66,7 @@ const AboutView: React.FC = () => {
     <div className="bg-slate-950 min-h-screen text-slate-100 py-32 px-6 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.05),transparent_60%)] pointer-events-none"></div>
       <Helmet>
-        <title>The Architects | SyncVision Systems</title>
+        <title>The Architects | SyncVision Labs</title>
         <meta name="description" content="Meet the builders who bridge the gap between deep engineering and strategic market impact. Enterprise engineering at student rates." />
       </Helmet>
 

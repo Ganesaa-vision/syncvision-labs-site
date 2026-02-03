@@ -1,142 +1,196 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { 
-  Search, 
-  Code, 
-  Smartphone, 
-  Bot, 
-  ArrowRight, 
-  History, 
-  Trophy, 
-  ShoppingCart,
-  BrainCircuit,
-  Zap,
-  Globe,
-  Server
-} from 'lucide-react';
-import { SERVICES } from '../constants';
-import { DetailedService } from '../types';
+  Code, Smartphone, ShoppingBag, 
+  Bot, BarChart, HardDrive, ArrowRight, CheckCircle2, ShieldCheck 
+} from 'lucide-react'; 
 
-const IconMap: { [key: string]: any } = {
-  Search: Search,
-  Code: Code,
-  Smartphone: Smartphone,
-  Bot: Bot,
-  History: History,
-  Trophy: Trophy,
-  ShoppingCart: ShoppingCart,
-  BrainCircuit: BrainCircuit,
-  Zap: Zap,
-  Globe: Globe,
-  Server: Server
-};
+// === MASTER STRATEGY: MALAYSIA SEO & GEO ===
+// Keywords Targeted: "SME Web Design", "FPX Payment", "WhatsApp Bot", "Google Maps Ranking"
+// Why: These are high-intent keywords. People searching these are ready to spend money.
 
-const serviceUrlMapping: { [key: string]: string } = {
-  'full-stack-dev': '/services/web-architecture',
-  'strategic-redesign': '/services/strategic-redesign',
-  'seo-dominance': '/services/seo-dominance',
-  'custom-app-dev': '/services/app-engineering',
-  'whatsapp-business': '/services/automation',
-  'ecommerce-engineering': '/services/ecommerce',
-  'custom-ai-agents': '/services/ai-agents',
-  'digital-presence': '/services/digital-presence',
-};
-
-const ACHIEVEMENTS = [
+const services = [
   {
-    label: "SEO Dominance",
-    value: "RANK #1",
-    desc: "In < 20 Days"
+    id: 'web-development',
+    // TITLE UPDATE: Hits both "Custom" and "WordPress" searchers
+    title: 'Custom Web Development & WordPress', 
+    // DESCRIPTION UPDATE: Mentions "SME" and speed metrics for GEO trust
+    description: 'We engineer high-performance websites for Malaysian SMEs and Startups. Whether you need a proprietary Next.js Web App or an easy-to-edit WordPress (Elementor) site, we guarantee <2s load times.',
+    features: ['Custom React/Next.js Coding', 'Enterprise WordPress Design', '100% Source Code Ownership'],
+    icon: <Code className="w-8 h-8 text-indigo-400" />,
+    link: '/services/web-architecture',
+    tags: ['NextJS', 'Elementor', 'React']
   },
   {
-    label: "Client Retention",
-    value: "420%",
-    desc: "Post-Optimization"
+    id: 'mobile-app',
+    title: 'iOS & Android App Development',
+    // DESCRIPTION UPDATE: Focuses on "Play Store" and "Internal System"
+    description: 'Launch your own mobile app on the Apple App Store and Google Play Store. We build "Offline-First" Flutter apps perfect for internal company operations, loyalty programs, or customer portals.',
+    features: ['Cross-Platform (Flutter)', 'Offline Database Sync', 'Push Notifications'],
+    icon: <Smartphone className="w-8 h-8 text-blue-400" />,
+    link: '/services/app-engineering',
+    tags: ['Flutter', 'iOS', 'Android']
   },
   {
-    label: "System Latency",
-    value: "< 100ms",
-    desc: "Global Average"
+    id: 'seo-ranking',
+    title: 'SEO & Google Map Ranking', 
+    // DESCRIPTION UPDATE: Adds "Google Maps" (Critical for local businesses)
+    description: 'Dominate the search results. We optimize your site for "Google Malaysia" and "Google Maps" (Local Pack). We use advanced Schema Markup so AI engines like Gemini recommend you first.',
+    features: ['Rank #1 on Google Malaysia', 'Google Map Pack Optimization', 'Programmatic SEO'],
+    icon: <BarChart className="w-8 h-8 text-green-400" />,
+    link: '/services/seo-dominance',
+    tags: ['Local SEO', 'Schema', 'Traffic']
+  },
+  {
+    id: 'ai-chatbots',
+    title: 'WhatsApp Automation & AI Agents',
+    // DESCRIPTION UPDATE: Hits the "WhatsApp" keyword hard
+    description: 'Automate your customer service. We deploy intelligent AI Bots (Gemini/OpenAI) that plug directly into WhatsApp to answer inquiries, qualify leads, and close sales 24/7 without human fatigue.',
+    features: ['WhatsApp Business API', 'Auto-Reply Workflows', 'Lead Qualification'],
+    icon: <Bot className="w-8 h-8 text-purple-400" />,
+    link: '/services/automation',
+    tags: ['WhatsApp', 'Chatbots', 'Gemini']
+  },
+  {
+    id: 'ecommerce',
+    title: 'E-Commerce & Payment Gateways',
+    // DESCRIPTION UPDATE: Specifically names Malaysian banks/gateways
+    description: 'Sell to customers using local banking. We integrate secure Payment Gateways (Stripe, ToyyibPay, Billplz) so you can accept FPX, Credit Cards, and E-Wallets immediately.',
+    features: ['WooCommerce / Shopify', 'FPX & ToyyibPay Integration', 'Secure Checkout Flow'],
+    icon: <ShoppingBag className="w-8 h-8 text-yellow-400" />,
+    link: '/services/ecommerce',
+    tags: ['Billplz', 'Stripe', 'FPX']
+  },
+  {
+    id: 'web-management',
+    title: 'Website Management & DevOps',
+    // DESCRIPTION UPDATE: Focus on "Internal Team" and "Security" for long-term value
+    description: 'Your dedicated technical team. We handle 24/7 uptime monitoring, security patches, and content updates so you never have to worry about your site going down.',
+    features: ['24/7 Uptime Monitoring', 'Daily Security Backups', 'Plugin & Core Updates', 'Priority Support'],
+    icon: <ShieldCheck className="w-8 h-8 text-cyan-400" />,
+    link: '/services/digital-presence',
+    tags: ['DevOps', 'Security', 'Updates']
+  },
+  {
+    id: 'server-setup',
+    title: 'Domain, Email & Server Setup',
+    // DESCRIPTION UPDATE: Solves the "Boss" problem (Email)
+    description: 'Stop fighting with technology. We handle the technical "plumbing" for you. We register your .com/.my domain, configure fast Cloud Hosting, and set up professional "boss@company.com" emails.',
+    features: ['Domain Reg (.com / .my)', 'Corporate Email Setup', 'Free SSL Security'],
+    icon: <HardDrive className="w-8 h-8 text-slate-400" />,
+    link: '/services/digital-presence',
+    tags: ['Titan Email', 'DNS', 'Hosting']
   }
 ];
 
 const ServicesView: React.FC = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
-    <section className="animate-fade-in bg-slate-950 pt-48 pb-32 px-6 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.1),transparent_70%)] pointer-events-none"></div>
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-indigo-500/30">
+      
+      {/* === ULTIMATE SEO HEAD === */}
+      {/* Targeted specifically for Malaysian Business Owners */}
       <Helmet>
-        <title>Engineering Services | SyncVision Systems</title>
-        <meta name="description" content="Strategic segments designed for absolute market clarity. From Web Architecture and Industrial SEO to App Engineering and Automation." />
+        <title>Services | Web Design, App Dev & SEO Malaysia - SyncVision Labs</title>
+        <meta name="description" content="Top-rated Digital Agency in Malaysia. We provide Custom Web Development, Mobile Apps (Flutter), WhatsApp Chatbots, and SEO Ranking for SMEs. View our pricelist." />
+        <meta name="keywords" content="Web Design Malaysia, Mobile App Developer KL, SEO Expert Malaysia, WhatsApp Bot, Company Email Setup, FPX Payment Integration, React Developer" />
+        
+        {/* GEO: Open Graph for Social Sharing (WhatsApp/LinkedIn) */}
+        <meta property="og:title" content="SyncVision Labs - Digital Engineering" />
+        <meta property="og:description" content="We build high-performance websites and AI systems for Malaysian businesses." />
+        <meta property="og:type" content="website" />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto">
-        {/* Achievements Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 border-y border-white/5 py-12 bg-white/[0.02] backdrop-blur-sm">
-          {ACHIEVEMENTS.map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-indigo font-mono text-sm font-black uppercase tracking-[0.2em] mb-2">{stat.label}</div>
-              <div className="text-4xl md:text-5xl font-black text-slate-100 tracking-tighter mb-1">{stat.value}</div>
-              <div className="text-slate-500 font-mono text-sm uppercase tracking-widest">{stat.desc}</div>
-            </div>
-          ))}
-        </div>
+      <Navbar />
 
-        <div className="mb-24">
-          <span className="font-mono text-indigo text-xs font-black uppercase tracking-[1em] mb-10 block">Engineering Portfolio</span>
-          <h2 className="text-5xl md:text-7xl font-mono font-black text-slate-100 tracking-tighter uppercase leading-[0.85] mb-12">
-            STRATEGIC <br/><span className="text-indigo italic underline decoration-indigo/20 underline-offset-8">SEGMENTS.</span>
-          </h2>
-          <p className="text-slate-200 font-medium text-lg max-w-3xl leading-relaxed text-balance border-l-2 border-indigo pl-8">
-            We don't just build websites; we engineer systems. Each segment is designed for absolute market clarity and high-logic performance.
+      <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        
+        {/* HERO SECTION */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-900/30 border border-indigo-500/30 mb-6">
+            <ShieldCheck className="w-4 h-4 text-indigo-400" />
+            <span className="text-indigo-300 text-xs font-bold tracking-wider uppercase">Engineered in Malaysia</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white">
+            TECHNICAL <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">
+              INFRASTRUCTURE.
+            </span>
+          </h1>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            From deep-tech <span className="text-indigo-400">Custom Engineering</span> to rapid <span className="text-pink-400">WordPress Deployment</span>. We provide the exact technical solution your business needs to scale.
           </p>
         </div>
 
-        {/* Compact Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SERVICES.filter(s => serviceUrlMapping[s.id] && !['strategic-redesign', 'digital-presence'].includes(s.id)).map((s) => {
-            const Icon = IconMap[s.icon] || Code;
-            const url = serviceUrlMapping[s.id] || '/services';
-            return (
-              <Link
-                key={s.id} 
-                to={url}
-                className="p-8 bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl transition-all duration-500 hover:bg-white/[0.05] group flex flex-col justify-between hover:border-indigo-500/50 cursor-pointer hover:-translate-y-2 hover:shadow-[0_20px_50px_-12px_rgba(99,102,241,0.2)]"
-              >
-                <div>
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="p-4 bg-slate-900 rounded-xl text-indigo-400 border border-white/5 group-hover:text-white group-hover:border-indigo-500/50 group-hover:bg-indigo-600/20 transition-all duration-500">
-                      <Icon size={20} strokeWidth={2} />
-                    </div>
-                    <ArrowRight size={16} className="text-slate-600 group-hover:text-indigo -rotate-45 group-hover:rotate-0 transition-all duration-300" />
-                  </div>
-                  
-                  <h4 className="text-lg font-mono font-bold text-slate-100 uppercase mb-3 tracking-tight leading-none group-hover:text-indigo transition-colors">{s.title}</h4>
-                  <p className="text-slate-400 text-sm font-medium leading-relaxed mb-6 line-clamp-2">
-                    {s.fullDesc}
-                  </p>
+        {/* SERVICES GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service) => (
+            <Link 
+              to={service.link} 
+              key={service.id}
+              className="group relative bg-slate-900/40 border border-slate-800 rounded-2xl p-8 hover:bg-slate-900/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] overflow-hidden"
+            >
+              {/* Laser Hover Effect */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+
+              {/* Icon & Title */}
+              <div className="flex items-start justify-between mb-6">
+                <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 group-hover:border-indigo-500/40 transition-colors">
+                  {service.icon}
                 </div>
-                
-                <div className="pt-6 border-t border-white/5">
-                   <div className="flex flex-wrap gap-2">
-                      {s.features.slice(0, 2).map(f => (
-                        <span key={f} className="px-2 py-1 bg-white/5 rounded text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">{f}</span>
-                      ))}
-                   </div>
-                </div>
-              </Link>
-            );
-          })}
+                <ArrowRight className="w-5 h-5 text-slate-600 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all" />
+              </div>
+
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-indigo-400 transition-colors">
+                {service.title}
+              </h3>
+
+              <p className="text-slate-400 mb-8 leading-relaxed text-sm">
+                {service.description}
+              </p>
+
+              {/* GEO Optimized Bullet Points */}
+              <ul className="space-y-3 mb-8 border-t border-slate-800/50 pt-6">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
+                    <CheckCircle2 className="w-4 h-4 text-indigo-500" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              {/* Tech Tags for AI Recognition */}
+              <div className="flex flex-wrap gap-2">
+                {service.tags.map((tag) => (
+                  <span key={tag} className="px-3 py-1 text-xs font-mono rounded-full bg-slate-950 border border-slate-800 text-slate-400 group-hover:border-indigo-500/30 transition-colors">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+
+            </Link>
+          ))}
         </div>
 
-      </div>
-    </section>
+        {/* BOTTOM CTA */}
+        <div className="mt-24 text-center">
+          <p className="text-slate-500 mb-6 uppercase tracking-widest text-xs font-bold">
+            Project Availability: Open for Q1 2026
+          </p>
+          <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-indigo-500 to-purple-500">
+            <Link to="/contact" className="block bg-[#0a0a0a] rounded-full px-10 py-4 text-white font-bold hover:bg-slate-900 transition-all">
+              Initialize Consultation &rarr;
+            </Link>
+          </div>
+        </div>
+
+      </main>
+
+      <Footer />
+    </div>
   );
 };
 
