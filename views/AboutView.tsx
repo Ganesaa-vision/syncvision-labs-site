@@ -53,8 +53,8 @@ const AboutView: React.FC = () => {
             <h3 className="text-4xl font-bold font-mono text-slate-100 tracking-tighter mt-2 mb-4">{name}</h3>
             <p className="text-slate-200 leading-relaxed mb-6">{bio}</p>
             <div className="flex items-center gap-4">
-              <a href="#" className="text-slate-400 hover:text-indigo transition-colors"><Github size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-indigo transition-colors"><Linkedin size={20} /></a>
+              <div className="text-slate-400/50"><Github size={20} /></div>
+              <div className="text-slate-400/50"><Linkedin size={20} /></div>
             </div>
           </div>
         </div>

@@ -1,12 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BRAND_NAME, TAGLINE, BRAND_DOMAIN } from '../constants';
-import { PageType } from '../types';
 
-interface FooterProps {
-  onNavigate: (page: PageType) => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-titanium pt-32 pb-12 px-6 border-t border-white/5 font-mono">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
@@ -25,10 +21,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="md:col-span-3">
           <h4 className="text-slate-100 text-[10px] uppercase font-bold tracking-[0.3em] mb-8">Digital Infrastructure</h4>
           <ul className="space-y-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-            <li><button onClick={() => onNavigate('home')} className="hover:text-interstellar transition-colors">System Overview</button></li>
-            <li><button onClick={() => onNavigate('services')} className="hover:text-interstellar transition-colors">Service Matrix</button></li>
-            <li><button onClick={() => onNavigate('work')} className="hover:text-interstellar transition-colors">Verified Work</button></li>
-            <li><button onClick={() => onNavigate('about')} className="hover:text-interstellar transition-colors">Architect Team</button></li>
+            <li><Link to="/" className="hover:text-interstellar transition-colors">System Overview</Link></li>
+            <li><Link to="/services" className="hover:text-interstellar transition-colors">Service Matrix</Link></li>
+            <li><Link to="/work" className="hover:text-interstellar transition-colors">Verified Work</Link></li>
+            <li><Link to="/about" className="hover:text-interstellar transition-colors">Architect Team</Link></li>
           </ul>
         </div>
 

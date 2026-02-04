@@ -5,7 +5,6 @@ import { HelmetProvider } from 'react-helmet-async';
 // Component Imports
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Assistant from './components/Assistant';
 
 // View Imports
 const HomeView = lazy(() => import('./views/HomeView'));
@@ -16,14 +15,13 @@ const ContactView = lazy(() => import('./views/ContactView'));
 const ProductsView = lazy(() => import('./views/ProductsView'));
 
 // Service Page Imports
-const WebArchitecture = lazy(() => import('./src/pages/services/WebArchitecture'));
-const SeoDominance = lazy(() => import('./src/pages/services/SeoDominance'));
-const AppEngineering = lazy(() => import('./src/pages/services/AppEngineering'));
-const Automation = lazy(() => import('./src/pages/services/Automation'));
-const Ecommerce = lazy(() => import('./src/pages/services/Ecommerce'));
-const StrategicRedesign = lazy(() => import('./src/pages/services/StrategicRedesign'));
-const AiAgents = lazy(() => import('./src/pages/services/AiAgents'));
-const DigitalPresence = lazy(() => import('./src/pages/services/DigitalPresence'));
+const WebArchitecture = lazy(() => import('./views/WebArchitectureView'));
+const SeoDominance = lazy(() => import('./views/SeoDominanceView'));
+const AppEngineering = lazy(() => import('./views/AppEngineeringView'));
+const Automation = lazy(() => import('./views/AutomationView'));
+const Ecommerce = lazy(() => import('./views/EcommerceView'));
+const WebManagement = lazy(() => import('./views/WebManagementView'));
+const ServerSetup = lazy(() => import('./views/ServerSetupView'));
 
 function App() {
   return (
@@ -49,15 +47,13 @@ function App() {
                 <Route path="/services/app-engineering" element={<AppEngineering />} />
                 <Route path="/services/automation" element={<Automation />} />
                 <Route path="/services/ecommerce" element={<Ecommerce />} />
-                <Route path="/services/strategic-redesign" element={<StrategicRedesign />} />
-                <Route path="/services/ai-agents" element={<AiAgents />} />
-                <Route path="/services/digital-presence" element={<DigitalPresence />} />
+                <Route path="/services/web-management" element={<WebManagement />} />
+                <Route path="/services/server-setup" element={<ServerSetup />} />
               </Routes>
             </Suspense>
           </main>
 
           <Footer />
-          <Assistant />
         </div>
       </Router>
     </HelmetProvider>

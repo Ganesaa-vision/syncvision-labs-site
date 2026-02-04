@@ -1,8 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { 
   Code, Smartphone, ShoppingBag, 
   Bot, BarChart, HardDrive, ArrowRight, CheckCircle2, ShieldCheck 
@@ -71,7 +69,7 @@ const services = [
     description: 'Your dedicated technical team. We handle 24/7 uptime monitoring, security patches, and content updates so you never have to worry about your site going down.',
     features: ['24/7 Uptime Monitoring', 'Daily Security Backups', 'Plugin & Core Updates', 'Priority Support'],
     icon: <ShieldCheck className="w-8 h-8 text-cyan-400" />,
-    link: '/services/digital-presence',
+    link: '/services/web-management',
     tags: ['DevOps', 'Security', 'Updates']
   },
   {
@@ -81,7 +79,7 @@ const services = [
     description: 'Stop fighting with technology. We handle the technical "plumbing" for you. We register your .com/.my domain, configure fast Cloud Hosting, and set up professional "boss@company.com" emails.',
     features: ['Domain Reg (.com / .my)', 'Corporate Email Setup', 'Free SSL Security'],
     icon: <HardDrive className="w-8 h-8 text-slate-400" />,
-    link: '/services/digital-presence',
+    link: '/services/server-setup',
     tags: ['Titan Email', 'DNS', 'Hosting']
   }
 ];
@@ -103,9 +101,7 @@ const ServicesView: React.FC = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <Navbar />
-
-      <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
         
         {/* HERO SECTION */}
         <div className="text-center mb-20">
@@ -187,9 +183,7 @@ const ServicesView: React.FC = () => {
           </div>
         </div>
 
-      </main>
-
-      <Footer />
+      </div>
     </div>
   );
 };

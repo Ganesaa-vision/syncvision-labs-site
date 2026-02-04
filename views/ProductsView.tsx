@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
 import { Terminal, Activity, ArrowRight } from 'lucide-react';
 
@@ -68,9 +68,9 @@ const ProductsView: React.FC = () => {
                      ))}
                    </div>
 
-                   <button className="w-full mt-10 py-6 bg-interstellar text-slate-100 font-mono text-sm font-black uppercase tracking-[0.4em] hover:opacity-90 transition-all rounded-2xl shadow-xl shadow-interstellar/20 flex items-center justify-center gap-4 group">
+                   <Link to="/contact" className="w-full mt-10 py-6 bg-interstellar text-slate-100 font-mono text-sm font-black uppercase tracking-[0.4em] hover:opacity-90 transition-all rounded-2xl shadow-xl shadow-interstellar/20 flex items-center justify-center gap-4 group">
                      Beta Interest Protocol <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                   </button>
+                   </Link>
                  </div>
               </div>
             </div>
