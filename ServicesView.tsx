@@ -1,7 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import { 
   Code, Smartphone, Globe, ShoppingBag, 
   Bot, Search, RefreshCw, Server, CheckCircle2 
@@ -78,8 +77,6 @@ const ServicesView: React.FC = () => {
         <meta name="description" content="Full-service digital agency. From Custom Next.js coding and Mobile Apps to fast WordPress design and SEO ranking. View our full service list." />
       </Helmet>
 
-      <Navbar />
-
       <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
         
         {/* Header Section */}
@@ -141,14 +138,12 @@ const ServicesView: React.FC = () => {
             Tell us your goal (e.g., "I need more sales" or "I need a professional look"), 
             and we will recommend the right architecture.
           </p>
-          <a href="/contact" className="inline-block bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-indigo-50 transition-colors">
+          <Link to="/contact" className="inline-block bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-indigo-50 transition-colors">
             Get a Free Consultation
-          </a>
+          </Link>
         </div>
 
       </main>
-
-      <Footer />
     </div>
   );
 };
