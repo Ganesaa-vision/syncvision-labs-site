@@ -81,7 +81,7 @@ const ServicesView: React.FC = () => {
         
         {/* Header Section */}
         <div className="text-center mb-20">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-white">
             DIGITAL INFRASTRUCTURE <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">
               FULL SERVICE LIST.

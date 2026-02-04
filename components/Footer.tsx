@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.4em] font-black text-slate-500">
-        <p>&copy; 2025 SYNCVISION SYSTEMS GLOBAL. ALL SYSTEMS NOMINAL.</p>
+        <p>&copy; 2025 SYNCVISION LABS GLOBAL. ALL SYSTEMS NOMINAL.</p>
         <div className="flex gap-8 mt-6 md:mt-0">
           <span className="hover:text-slate-100 cursor-pointer">Security_Protocol</span>
           <span className="hover:text-slate-100 cursor-pointer">Logic_Privacy</span>

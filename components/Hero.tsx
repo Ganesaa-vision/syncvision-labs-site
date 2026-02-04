@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
           Now Available: Syncore Enterprise 2025
         </div>
         
-        <h1 className="text-5xl md:text-8xl lg:text-9xl font-black text-white leading-[0.9] tracking-tighter mb-8">
+        <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-black text-white leading-[0.9] tracking-tighter mb-8">
           STRATEGIC <br/>
           <span className="text-indigo-500">DIGITAL</span> <br/>
           INFRASTRUCTURE.

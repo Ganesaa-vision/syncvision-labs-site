@@ -38,7 +38,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, onAddToC
 
           <div className="flex flex-col">
              <span className="text-indigo-500 text-xs font-black uppercase tracking-[0.4em] mb-4 block">System Specification</span>
-             <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6 leading-none uppercase">{product.name}</h1>
+             <h1 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-6 leading-none uppercase">{product.name}</h1>
              <div className="inline-flex items-center gap-4 mb-10">
                <span className="text-2xl font-light text-slate-200">Starting from ${product.price}</span>
                <div className="h-px w-12 bg-white/20"></div>
