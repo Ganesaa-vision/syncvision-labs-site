@@ -73,19 +73,19 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Mobile Menu Overlay */}
-        <div className={`fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] lg:hidden ${isOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto visible' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none invisible'}`}>
+        <div className={`fixed inset-0 bg-slate-950/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-6 sm:gap-8 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] lg:hidden ${isOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto visible' : 'opacity-0 -translate-y-4 scale-95 pointer-events-none invisible'}`}>
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`font-mono text-xl uppercase tracking-[0.3em] font-black transition-all ${
+              className={`font-mono text-base sm:text-xl uppercase tracking-[0.2em] sm:tracking-[0.3em] font-black transition-all ${
                 currentView === item.path ? 'text-interstellar' : 'text-slate-400 hover:text-slate-100'
               }`}
             >
               {item.label}
             </Link>
           ))}
-          <Link to="/contact" className="mt-8 px-10 py-4 rounded-xl bg-interstellar text-slate-100 font-mono text-sm font-black uppercase tracking-widest hover:opacity-90 transition-all shadow-xl active:scale-95">
+          <Link to="/contact" className="mt-6 sm:mt-8 px-8 sm:px-10 py-3 sm:py-4 rounded-xl bg-interstellar text-slate-100 font-mono text-xs sm:text-sm font-black uppercase tracking-widest hover:opacity-90 transition-all shadow-xl active:scale-95">
             Initialize
           </Link>
         </div>
