@@ -19,7 +19,7 @@ const EcommerceView: React.FC = () => {
   const monthsToROI = estimatedLoss > 0 ? (3299 / estimatedLoss).toFixed(1) : "0";
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-yellow-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-yellow-500/30 animate-fade-in-up">
       <Helmet>
         <title>E-Commerce Development & Payment Gateway Integration | Malaysia</title>
         <meta name="description" content="Build a high-converting online store. We integrate FPX Payment Gateways (Billplz, ToyyibPay, Stripe) and build on WooCommerce or Shopify. Sell to Malaysian customers instantly." />

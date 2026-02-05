@@ -12,7 +12,7 @@ const WebManagementView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-cyan-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-cyan-500/30 animate-fade-in-up">
       <Helmet>
         <title>Website Maintenance & DevOps | Security & Updates Malaysia</title>
         <meta name="description" content="We manage your website so you don't have to. 24/7 Uptime Monitoring, Daily Backups, Security Patching, and Content Updates for Malaysian businesses." />

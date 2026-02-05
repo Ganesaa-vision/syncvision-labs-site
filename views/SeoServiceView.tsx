@@ -12,7 +12,7 @@ const SeoServiceView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-emerald-500/30 animate-fade-in-up">
       <Helmet>
         <title>SEO Services | Rank #1 in Malaysia - SyncVision Labs</title>
         <meta name="description" content="Affordable SEO Packages in Malaysia. From Local SEO (RM 399) to National Dominance. We optimize Google Maps, fix technical errors, and write content that ranks." />

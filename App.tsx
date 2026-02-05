@@ -5,6 +5,7 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 // Component Imports
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 // View Imports
 const HomeView = lazy(() => import('./views/HomeView'));
@@ -33,6 +34,7 @@ function App() {
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </Helmet>
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
           <Navbar />
           

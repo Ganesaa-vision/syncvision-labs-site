@@ -12,7 +12,7 @@ const AutomationView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-purple-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-purple-500/30 animate-fade-in-up">
       <Helmet>
         <title>AI Automation & WhatsApp Chatbots | Business Automation Malaysia</title>
         <meta name="description" content="Automate your sales and support with AI Agents. We build WhatsApp Chatbots and AI workflows that qualify leads and answer inquiries 24/7." />

@@ -12,7 +12,7 @@ const SeoDominanceView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans animate-fade-in-up">
       <Helmet>
         <title>SEO & Google Maps Ranking | Rank #1 in Malaysia</title>
         <meta name="description" content="Dominate Google Malaysia search results. We specialize in Local SEO, Google Map Pack ranking, and AEO (Answer Engine Optimization) for AI search." />

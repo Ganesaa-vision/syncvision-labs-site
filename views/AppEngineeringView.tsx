@@ -12,7 +12,7 @@ const AppEngineeringView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans animate-fade-in-up">
       <Helmet>
         <title>Mobile App Development | iOS & Android Flutter Developer Malaysia</title>
         <meta name="description" content="We build offline-first mobile apps for iOS and Android using Flutter. Perfect for internal company systems, loyalty apps, and customer portals." />

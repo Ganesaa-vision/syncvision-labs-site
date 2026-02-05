@@ -12,7 +12,7 @@ const ServerSetupView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-slate-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-slate-500/30 animate-fade-in-up">
       <Helmet>
         <title>Domain, Hosting & Corporate Email Setup | Malaysia</title>
         <meta name="description" content="Professional IT setup for businesses. We register .com.my domains, configure high-speed Cloud Hosting (VPS), and set up Corporate Emails (Google Workspace/Titan)." />
