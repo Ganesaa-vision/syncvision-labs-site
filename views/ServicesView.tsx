@@ -14,7 +14,7 @@ const services = [
   {
     id: 'web-development',
     // TITLE UPDATE: Hits both "Custom" and "WordPress" searchers
-    title: 'Custom Web Development & WordPress', 
+    title: 'Web Development', 
     // DESCRIPTION UPDATE: Mentions "SME" and speed metrics for GEO trust
     description: 'We engineer high-performance websites for Malaysian SMEs and Startups. Whether you need a proprietary Next.js Web App or an easy-to-edit WordPress (Elementor) site, we guarantee <2s load times.',
     features: ['Custom React/Next.js Coding', 'Enterprise WordPress Design', '100% Source Code Ownership'],
@@ -39,7 +39,7 @@ const services = [
     description: 'Dominate the search results. We optimize your site for "Google Malaysia" and "Google Maps" (Local Pack). We use advanced Schema Markup so AI engines like Gemini recommend you first.',
     features: ['Rank #1 on Google Malaysia', 'Google Map Pack Optimization', 'Programmatic SEO'],
     icon: <BarChart className="w-8 h-8 text-green-400" />,
-    link: '/services/seo-dominance',
+    link: '/services/seo-service',
     tags: ['Local SEO', 'Schema', 'Traffic']
   },
   {
@@ -91,8 +91,8 @@ const ServicesView: React.FC = () => {
       {/* === ULTIMATE SEO HEAD === */}
       {/* Targeted specifically for Malaysian Business Owners */}
       <Helmet>
-        <title>Services | Web Design, App Dev & SEO Malaysia - SyncVision Labs</title>
-        <meta name="description" content="Top-rated Digital Agency in Malaysia. We provide Custom Web Development, Mobile Apps (Flutter), WhatsApp Chatbots, and SEO Ranking for SMEs. View our pricelist." />
+        <title>Services | Web Design, App Dev & SEO Services Malaysia - SyncVision Labs</title>
+        <meta name="description" content="Top-rated Digital Agency in Malaysia. We provide Custom Web Development, Mobile Apps (Flutter), WhatsApp Chatbots, and SEO & Google Map Ranking for SMEs. View our pricelist." />
         <meta name="keywords" content="Web Design Malaysia, Mobile App Developer KL, SEO Expert Malaysia, WhatsApp Bot, Company Email Setup, FPX Payment Integration, React Developer" />
         
         {/* GEO: Open Graph for Social Sharing (WhatsApp/LinkedIn) */}
@@ -101,7 +101,7 @@ const ServicesView: React.FC = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         
         {/* HERO SECTION */}
         <div className="text-center mb-20">
@@ -110,7 +110,7 @@ const ServicesView: React.FC = () => {
             <span className="text-indigo-300 text-xs font-bold tracking-wider uppercase">Engineered in Malaysia</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white">
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter mb-6 text-white">
             TECHNICAL <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">
               INFRASTRUCTURE.

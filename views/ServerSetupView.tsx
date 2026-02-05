@@ -19,10 +19,10 @@ const ServerSetupView: React.FC = () => {
         <meta name="keywords" content="Domain Registration Malaysia, Cloud Hosting, VPS Setup, Corporate Email, Google Workspace Reseller, SSL Certificate" />
       </Helmet>
 
-      <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-24">
           <span className="font-mono text-slate-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">IT Infrastructure</span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-8">
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-white mb-8">
             FOUNDATION <span className="text-slate-500">SETUP.</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">

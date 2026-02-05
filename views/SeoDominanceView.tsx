@@ -19,10 +19,10 @@ const SeoDominanceView: React.FC = () => {
         <meta name="keywords" content="SEO Malaysia, Google Maps Ranking, Local SEO Expert, AEO Optimization, Voice Search Ranking, SEO Audit" />
       </Helmet>
 
-      <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <span className="font-mono text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6">
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-white mb-6">
             RANK <span className="text-emerald-500">#1.</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">

@@ -95,7 +95,7 @@ const Home = () => {
         </div>
         
         {/* --- HERO SECTION --- */}
-        <section className="relative pt-32 pb-24 px-6 max-w-7xl mx-auto flex flex-col items-center text-center z-10">
+        <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-6 max-w-7xl mx-auto flex flex-col items-center text-center z-10">
           
           {/* THE "SERVICE TICKER" - Immediate visual confirmation of services */}
           <motion.div 
@@ -116,7 +116,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-black font-mono text-white mb-8 tracking-tighter leading-[1.0]"
+            className="text-4xl md:text-7xl font-black font-mono text-white mb-8 tracking-tighter leading-[1.0]"
           >
             WE BUILD <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">WEBSITES</span>. <br />
             WE RANK <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-400">#1</span>. <br />
@@ -214,6 +214,8 @@ const Home = () => {
                     <img 
                       src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop" 
                       alt="AI Neural Network" 
+                      loading="lazy"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
@@ -298,6 +300,8 @@ const Home = () => {
                 <img 
                     src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop" 
                     alt="Code Architecture" 
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-opacity duration-700 scale-105 group-hover:scale-100"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/60 to-transparent"></div>
@@ -352,7 +356,7 @@ const Home = () => {
               </Link>
 
               {/* 2. SEO / GEO - Keyword: "Rank #1" */}
-              <Link to="/services/seo-dominance" className="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/seo-service" className="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
                  <div className="flex justify-between items-start mb-6">
                     <Zap className="text-indigo group-hover:scale-110 transition-transform" size={40} />
                     <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">02</span>
@@ -448,6 +452,21 @@ const Home = () => {
                     we bring enterprise-grade engineering to ambitious businesses.
                   </p>
                </div>
+
+               {/* --- REBELLION BANNER (STRATEGIC PLACEMENT) --- */}
+               <Link to="/about" className="block bg-green-950/10 border border-green-500/20 p-6 rounded-xl relative overflow-hidden group hover:bg-green-950/20 transition-all">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <div className="p-3 bg-green-500/10 rounded-lg text-green-500 group-hover:scale-110 transition-transform">
+                            <Terminal size={20} />
+                        </div>
+                        <div>
+                            <div className="text-green-500 font-mono text-[10px] font-bold uppercase tracking-[0.2em] mb-1 animate-pulse">Transmission Incoming</div>
+                            <div className="text-slate-300 font-mono text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">
+                                We are the glitch in the matrix. Read the Manifesto &rarr;
+                            </div>
+                        </div>
+                    </div>
+               </Link>
 
                <div className="flex flex-col sm:flex-row gap-6 pt-4">
                   <div className="flex items-center gap-4">

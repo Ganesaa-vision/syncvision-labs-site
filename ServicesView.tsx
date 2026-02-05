@@ -10,60 +10,61 @@ import {
 // All content is visible immediately for AI Crawlers.
 const services = [
   {
-    id: 'custom-web',
-    title: 'Custom Full-Stack Web Development',
-    description: 'We engineer high-performance, proprietary websites using Next.js and React. Best for clients who need speed, total security, and 100% source code ownership.',
-    features: ['React / Next.js Architecture', '< 100ms Load Time', 'Full Source Code Delivery', 'Supabase Database Security'],
-    icon: <Code className="w-10 h-10 text-indigo-400" />
-  },
-  {
-    id: 'wordpress',
-    title: 'WordPress & CMS Design',
-    description: 'Rapid, editable, and professional. We build enterprise-grade WordPress sites using Elementor Pro, giving you full control to edit text and images yourself.',
-    features: ['Custom Elementor Design', 'Easy-to-Edit Dashboard', 'Bot Protection & Security', '1-Week Fast Launch'],
-    icon: <Globe className="w-10 h-10 text-pink-400" />
+    id: 'web-development',
+    title: 'Web Development',
+    description: 'We engineer high-performance websites for Malaysian SMEs and Startups. Whether you need a proprietary Next.js Web App or an easy-to-edit WordPress (Elementor) site, we guarantee <2s load times.',
+    features: ['Custom React/Next.js Coding', 'Enterprise WordPress Design', '100% Source Code Ownership'],
+    icon: <Code className="w-10 h-10 text-indigo-400" />,
+    path: '/services/web-architecture',
+    tags: ['NextJS', 'Elementor', 'React']
   },
   {
     id: 'mobile-app',
     title: 'Mobile App Development (iOS/Android)',
     description: 'Native-quality mobile applications built with Flutter. We create offline-first apps that work smoothly on both iPhone and Android from a single codebase.',
     features: ['iOS & Android Compatible', 'Offline Functionality', 'App Store Deployment', 'Real-time Notifications'],
-    icon: <Smartphone className="w-10 h-10 text-blue-400" />
+    icon: <Smartphone className="w-10 h-10 text-blue-400" />,
+    path: '/services/app-engineering'
   },
   {
     id: 'ecommerce',
     title: 'E-Commerce & Online Stores',
     description: 'Turn visitors into paying customers. We build secure shopping platforms using WooCommerce or Custom Stripe Integrations that handle payments and inventory.',
     features: ['WooCommerce / Shopify', 'Secure Payment Gateways', 'Inventory Management', 'Automated Email Receipts'],
-    icon: <ShoppingBag className="w-10 h-10 text-yellow-400" />
+    icon: <ShoppingBag className="w-10 h-10 text-yellow-400" />,
+    path: '/services/ecommerce'
   },
   {
     id: 'seo-rank',
     title: 'SEO & Google Ranking (AEO/GEO)',
     description: 'We don’t just design; we rank. Our code includes Schema Markup and structured data that helps you reach #1 on Google and appear in AI answers.',
     features: ['Google #1 Ranking Strategy', 'Technical Schema Markup', 'Local Map Pack Optimization', 'Core Web Vitals Speed Fix'],
-    icon: <Search className="w-10 h-10 text-green-400" />
+    icon: <Search className="w-10 h-10 text-green-400" />,
+    path: '/services/seo-service'
   },
   {
     id: 'ai-agents',
     title: 'AI Agents & Chatbot Automation',
     description: 'Reduce manual work. We program intelligent AI agents (Gemini/OpenAI) that plug into your website or WhatsApp to answer customer questions 24/7.',
     features: ['Custom Knowledge Base', 'WhatsApp Auto-Reply', '24/7 Customer Support', 'Lead Qualification'],
-    icon: <Bot className="w-10 h-10 text-purple-400" />
+    icon: <Bot className="w-10 h-10 text-purple-400" />,
+    path: '/services/automation'
   },
   {
     id: 'redesign',
     title: 'Website Redesign & Rescue',
     description: 'Have an old, slow, or ugly website? We modernize it. We migrate legacy sites to modern servers and give them a complete visual and speed overhaul.',
     features: ['Visual Modernization', 'Speed Optimization (100/100)', 'Mobile Responsiveness Fix', 'Safe Data Migration'],
-    icon: <RefreshCw className="w-10 h-10 text-orange-400" />
+    icon: <RefreshCw className="w-10 h-10 text-orange-400" />,
+    path: '/services/web-management'
   },
   {
     id: 'setup',
     title: 'Technical Setup & Hosting',
     description: 'Stop struggling with DNS and servers. We handle the boring technical work so you don’t have to. Domains, emails, and SSL certificates set up correctly.',
     features: ['Domain Registration', 'Professional Email Setup', 'DNS & SSL Configuration', 'Cloud Server Management'],
-    icon: <Server className="w-10 h-10 text-slate-400" />
+    icon: <Server className="w-10 h-10 text-slate-400" />,
+    path: '/services/server-setup'
   }
 ];
 
@@ -73,8 +74,8 @@ const ServicesView: React.FC = () => {
       
       {/* 1. GEO OPTIMIZATION: Specific Title Tags */}
       <Helmet>
-        <title>Our Services | Web Development, Apps, & SEO in Malaysia - SyncVision Labs</title>
-        <meta name="description" content="Full-service digital agency. From Custom Next.js coding and Mobile Apps to fast WordPress design and SEO ranking. View our full service list." />
+        <title>Our Services | Web Development, Apps, & SEO Services in Malaysia - SyncVision Labs</title>
+        <meta name="description" content="Full-service digital agency. From Custom Next.js coding and Mobile Apps to fast WordPress design and SEO & Google Map Ranking. View our full service list." />
       </Helmet>
 
       <main className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
@@ -96,7 +97,8 @@ const ServicesView: React.FC = () => {
         {/* The "Simple" Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service) => (
-            <div 
+            <Link 
+              to={service.path}
               key={service.id}
               className="bg-slate-900/40 border border-slate-800 p-8 rounded-xl hover:bg-slate-900/60 hover:border-indigo-500/30 transition-all duration-300 group"
             >
@@ -127,7 +129,18 @@ const ServicesView: React.FC = () => {
                 ))}
               </ul>
 
-            </div>
+              {/* Tech Tags */}
+              {service.tags && (
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {service.tags.map((tag) => (
+                    <span key={tag} className="px-3 py-1 text-xs font-mono rounded-full bg-slate-950 border border-slate-800 text-slate-400">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+            </Link>
           ))}
         </div>
         

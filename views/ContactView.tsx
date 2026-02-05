@@ -12,7 +12,7 @@ const ContactView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <section className="py-40 px-6 animate-fade-in min-h-screen bg-slate-950 relative overflow-hidden">
+    <section className="py-24 md:py-40 px-6 animate-fade-in min-h-screen bg-slate-950 relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
       <Helmet>
         <title>Initiate Protocol | SyncVision Labs</title>
@@ -22,7 +22,7 @@ const ContactView: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="mb-24">
           <span className="font-mono text-indigo text-sm font-black uppercase tracking-[1em] mb-8 block">Communication Protocol</span>
-          <h2 className="text-5xl md:text-8xl font-mono font-black text-slate-100 tracking-tighter uppercase leading-none">LET'S <span className="text-indigo italic">BUILD.</span></h2>
+          <h2 className="text-4xl md:text-8xl font-mono font-black text-slate-100 tracking-tighter uppercase leading-none">LET'S <span className="text-indigo italic">BUILD.</span></h2>
           <p className="mt-12 text-slate-200 font-mono text-lg md:text-xl max-w-4xl uppercase tracking-[0.2em] font-black leading-relaxed border-l-4 border-indigo pl-8">
             Select your mission objective. Validated requests receive engineering protocols within 12 hours.
           </p>

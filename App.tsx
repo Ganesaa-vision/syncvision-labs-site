@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 // Component Imports
 import Navbar from './components/Navbar';
@@ -16,7 +16,7 @@ const ProductsView = lazy(() => import('./views/ProductsView'));
 
 // Service Page Imports
 const WebArchitecture = lazy(() => import('./views/WebArchitectureView'));
-const SeoDominance = lazy(() => import('./views/SeoDominanceView'));
+const SeoService = lazy(() => import('./views/SeoServiceView'));
 const AppEngineering = lazy(() => import('./views/AppEngineeringView'));
 const Automation = lazy(() => import('./views/AutomationView'));
 const Ecommerce = lazy(() => import('./views/EcommerceView'));
@@ -26,6 +26,12 @@ const ServerSetup = lazy(() => import('./views/ServerSetupView'));
 function App() {
   return (
     <HelmetProvider>
+      <Helmet>
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://images.pexels.com" />
+        <link rel="preconnect" href="https://grainy-gradients.vercel.app" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </Helmet>
       <Router>
         <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
           <Navbar />
@@ -43,7 +49,7 @@ function App() {
 
                 {/* Service Detail Page Routes */}
                 <Route path="/services/web-architecture" element={<WebArchitecture />} />
-                <Route path="/services/seo-dominance" element={<SeoDominance />} />
+                <Route path="/services/seo-service" element={<SeoService />} />
                 <Route path="/services/app-engineering" element={<AppEngineering />} />
                 <Route path="/services/automation" element={<Automation />} />
                 <Route path="/services/ecommerce" element={<Ecommerce />} />

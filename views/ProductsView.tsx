@@ -12,7 +12,7 @@ const ProductsView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <section className="py-40 px-6 animate-fade-in bg-slate-950 min-h-screen relative">
+    <section className="py-24 md:py-40 px-6 animate-fade-in bg-slate-950 min-h-screen relative">
       <Helmet>
         <title>Internal R&D Labs | SyncVision Labs</title>
         <meta name="description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
@@ -21,7 +21,7 @@ const ProductsView: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="mb-24">
           <span className="font-mono text-interstellar text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Internal R&D Labs</span>
-          <h2 className="text-5xl md:text-7xl font-mono font-black text-slate-100 tracking-tighter uppercase leading-none">IN-HOUSE <br/><span className="text-interstellar italic">INNOVATION.</span></h2>
+          <h2 className="text-4xl md:text-7xl font-mono font-black text-slate-100 tracking-tighter uppercase leading-none">IN-HOUSE <br/><span className="text-interstellar italic">INNOVATION.</span></h2>
           <p className="mt-8 text-slate-200 font-mono text-sm md:text-base max-w-2xl uppercase tracking-widest leading-relaxed font-bold">
             These are our high-logic internal systems. Proof of our architectural engineering capability.
           </p>
@@ -36,6 +36,7 @@ const ProductsView: React.FC = () => {
                      src={product.imageUrl} 
                      alt={product.name} 
                      loading="lazy"
+                     decoding="async"
                      className="w-full h-full object-cover brightness-[0.4] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s]"
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>

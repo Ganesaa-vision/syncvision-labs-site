@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
-import { Globe, Code2, ShoppingBag, ShieldCheck, Server, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Globe, Code2, ShoppingBag, ShieldCheck, Server, ArrowRight, CheckCircle2, Zap, Layout, Smartphone, Lock, Database, PenTool, Gauge } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 
 const WebArchitectureView: React.FC = () => {
@@ -14,17 +14,17 @@ const WebArchitectureView: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-indigo-500/30">
       <Helmet>
-        <title>Web Architecture & Development | React, Next.js & WordPress Malaysia</title>
-        <meta name="description" content="We build high-performance websites using React, Next.js, and Enterprise WordPress. Includes FPX Payment Gateway integration, Cloud Hosting, and 24/7 DevOps support." />
+        <title>Web Development | Custom Code & WordPress - SyncVision Labs</title>
+        <meta name="description" content="Choose between rapid WordPress deployment or high-performance Custom Next.js Engineering. We build digital assets that you own 100%." />
         <meta name="keywords" content="Web Design Malaysia, Custom Website Development, Next.js Developer, WordPress Elementor, E-commerce Malaysia, FPX Payment Integration, Server Management" />
       </Helmet>
 
-      <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         {/* HERO */}
         <div className="mb-24">
-          <span className="font-mono text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Core Infrastructure</span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-8">
-            WEB <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">ARCHITECTURE.</span>
+          <span className="font-mono text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Digital Assets</span>
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-white mb-8">
+            WEB <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">DEVELOPMENT.</span>
           </h1>
           <p className="text-xl text-slate-400 max-w-3xl leading-relaxed">
             We don't just "design" websites. We engineer digital platforms. From proprietary 
@@ -33,106 +33,179 @@ const WebArchitectureView: React.FC = () => {
           </p>
         </div>
 
-        {/* MAIN SERVICES */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
-          {/* Custom Dev */}
-          <div className="p-10 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-indigo-500/30 transition-all">
-            <Code2 className="w-12 h-12 text-indigo-400 mb-6" />
-            <h3 className="text-2xl font-bold text-white mb-4">Custom Engineering (Next.js)</h3>
-            <p className="text-slate-400 mb-8 leading-relaxed">
-              For businesses that need more than a template. We build proprietary web applications using the same tech stack as Netflix and TikTok.
-            </p>
-            <ul className="space-y-3 mb-8">
-              {['< 1 Second Load Times', '100% Source Code Ownership', 'Complex Data Visualization', 'Progressive Web App (PWA) Capable'].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-indigo-500" /> {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* === THE PROOF SECTION === */}
+        <div className="mb-32 relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
+            <div className="relative bg-[#0f0f0f] border border-white/10 rounded-[2rem] p-12 md:p-20 overflow-hidden">
+                <div className="absolute top-0 right-0 p-20 opacity-[0.03] text-indigo-500 pointer-events-none">
+                    <Gauge size={400} />
+                </div>
+                
+                <div className="relative z-10">
+                    <span className="text-emerald-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-6 block">Live Demonstration</span>
+                    
+                    <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-10 uppercase leading-none">
+                        This Website Is <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">The Proof.</span>
+                    </h2>
 
-          {/* WordPress */}
-          <div className="p-10 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-pink-500/30 transition-all">
-            <Globe className="w-12 h-12 text-pink-400 mb-6" />
-            <h3 className="text-2xl font-bold text-white mb-4">Enterprise WordPress</h3>
-            <p className="text-slate-400 mb-8 leading-relaxed">
-              Rapid deployment using Elementor Pro. Perfect for marketing sites, blogs, and SMEs who need full content control without coding.
-            </p>
-            <ul className="space-y-3 mb-8">
-              {['Easy-to-Edit Admin Panel', 'Yoast SEO Optimized', 'Mobile Responsive Design', 'Fast Deployment (2-3 Weeks)'].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-sm text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-pink-500" /> {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+                    <p className="text-slate-400 text-lg md:text-xl leading-relaxed max-w-4xl font-medium">
+                        You are experiencing the speed of a custom-engineered Next.js application right now. 
+                        Zero load times. Fluid transitions. Top-notch design. 
+                        This is the standard we build for you.
+                    </p>
 
-        {/* E-COMMERCE SECTION */}
-        <div className="mb-32 p-12 bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-[3rem] relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-20 opacity-5"><ShoppingBag size={300} /></div>
-          <div className="relative z-10">
-            <span className="text-yellow-400 font-mono text-xs font-bold uppercase tracking-widest mb-4 block">Transactional Systems</span>
-            <h2 className="text-4xl font-bold text-white mb-6">E-Commerce & Payments</h2>
-            <p className="text-slate-400 max-w-2xl mb-10 text-lg">
-              We integrate Malaysian payment gateways directly into your site. Accept payments via FPX (Maybank2u, CIMB Clicks), Credit Cards, and E-Wallets (GrabPay, TnG) instantly.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              {['Stripe', 'ToyyibPay', 'Billplz', 'WooCommerce', 'Shopify Sync'].map(tag => (
-                <span key={tag} className="px-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-slate-300 text-sm font-mono">{tag}</span>
-              ))}
+                    <div className="mt-12 flex flex-wrap gap-6">
+                        <div className="flex items-center gap-3 text-slate-300 font-mono text-sm">
+                            <Zap className="text-yellow-400" size={18} /> 0.1s Latency
+                        </div>
+                        <div className="flex items-center gap-3 text-slate-300 font-mono text-sm">
+                            <CheckCircle2 className="text-emerald-400" size={18} /> 100/100 Performance
+                        </div>
+                        <div className="flex items-center gap-3 text-slate-300 font-mono text-sm">
+                            <Lock className="text-indigo-400" size={18} /> Enterprise Security
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
 
-        {/* INFRASTRUCTURE */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-          <div className="p-8 bg-slate-950 border border-slate-800 rounded-2xl">
-            <Server className="w-8 h-8 text-slate-400 mb-4" />
-            <h4 className="text-lg font-bold text-white mb-2">Cloud Hosting</h4>
-            <p className="text-sm text-slate-500">High-speed VPS setup (DigitalOcean/AWS) or managed Cloud hosting. We handle the DNS and SSL.</p>
-          </div>
-          <div className="p-8 bg-slate-950 border border-slate-800 rounded-2xl">
-            <ShieldCheck className="w-8 h-8 text-emerald-400 mb-4" />
-            <h4 className="text-lg font-bold text-white mb-2">DevOps & Security</h4>
-            <p className="text-sm text-slate-500">Daily backups, firewall configuration, and 24/7 uptime monitoring. We fix it before you know it's broken.</p>
-          </div>
-          <div className="p-8 bg-slate-950 border border-slate-800 rounded-2xl">
-            <Globe className="w-8 h-8 text-blue-400 mb-4" />
-            <h4 className="text-lg font-bold text-white mb-2">Corporate Email</h4>
-            <p className="text-sm text-slate-500">Professional "boss@company.com" email setup using Titan or Google Workspace. Look professional.</p>
-          </div>
+        {/* === PORTFOLIO PREVIEW === */}
+        <div className="mb-32">
+            <div className="flex items-center justify-between mb-12">
+                <h2 className="text-3xl font-bold text-white">Recent Deployments</h2>
+                <Link to="/work" className="text-indigo-400 hover:text-white transition-colors text-sm font-mono uppercase tracking-widest flex items-center gap-2">
+                    View Full Portfolio <ArrowRight size={16} />
+                </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                    { title: "Industrial Manufacturing", desc: "B2B Catalog & Inquiry System", color: "bg-blue-500/10 border-blue-500/20" },
+                    { title: "Medical Tech", desc: "Clinic Management Dashboard", color: "bg-emerald-500/10 border-emerald-500/20" },
+                    { title: "Luxury Retail", desc: "High-Performance E-Commerce", color: "bg-purple-500/10 border-purple-500/20" }
+                ].map((item, i) => (
+                    <div key={i} className={`aspect-video rounded-2xl border ${item.color} p-8 flex flex-col justify-end hover:scale-[1.02] transition-transform cursor-default`}>
+                        <h3 className="text-xl font-bold text-white mb-1">{item.title}</h3>
+                        <p className="text-slate-400 text-sm">{item.desc}</p>
+                    </div>
+                ))}
+            </div>
         </div>
 
         {/* PRICING */}
         <PricingSection 
           title="Development Packages"
-          description="Transparent pricing for high-performance engineering."
+          description="Choose your engine. Rapid deployment or custom engineering."
           plans={[
             {
-              name: "Landing Page",
-              price: "RM 1,800",
-              description: "High-conversion single page site. Perfect for ads.",
-              features: ["Custom Design", "Next.js / React", "Mobile Responsive", "Speed Optimization (90+)", "Contact Form"],
-              buttonText: "Build Landing"
+              name: "The Smart Editor",
+              price: "RM 1,299",
+              period: "/ one-time",
+              description: "The \"Do-It-Yourself\" Friendly Option. We build a custom-branded foundation, then hand you the keys.",
+              features: [
+                  "5 Custom Pages (Home, About, etc.)",
+                  "Elementor Pro Included (Worth RM 250)",
+                  "Mobile Perfect Design",
+                  "Google SEO Ready",
+                  "WhatsApp Click-to-Chat",
+                  "Zero-Lock In (You own it)",
+                  "15-Min Video Training Guide"
+              ],
+              buttonText: "Start WordPress"
             },
             {
-              name: "Corporate Site",
-              price: "RM 3,500",
-              description: "Professional multi-page presence for established companies.",
-              features: ["5-10 Unique Pages", "CMS Integration (Sanity/WP)", "SEO Structure", "Blog Setup", "Analytics Setup"],
+              name: "The Innovator Stack",
+              price: "RM 4,500",
+              period: "/ one-time",
+              description: "The \"Tesla\" of Websites. Pure Speed & Power. Coded from scratch using Next.js.",
+              features: [
+                  "100% Custom Code (No Themes)",
+                  "Instant Load Time (< 0.8s)",
+                  "Hacker-Proof Security",
+                  "Interactive UI & Animations",
+                  "PWA Ready (Installable)",
+                  "Scalable to 1M+ Visitors",
+                  "Requires 'Tech Partner' Plan"
+              ],
               isPopular: true,
-              buttonText: "Go Corporate"
-            },
-            {
-              name: "Web Application",
-              price: "RM 8,000+",
-              description: "Full-stack software with database and user login.",
-              features: ["User Authentication", "Database Design", "Admin Dashboard", "API Integration", "Complex Logic"],
-              buttonText: "Engineer App"
+              buttonText: "Go Full Code"
             }
           ]}
         />
+
+        {/* === E-COMMERCE UPGRADE === */}
+        <div className="mb-32">
+            <div className="p-10 bg-gradient-to-r from-yellow-900/20 to-orange-900/20 border border-yellow-500/20 rounded-[2.5rem] relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-12 opacity-10 text-yellow-500"><ShoppingBag size={200} /></div>
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
+                    <div className="flex-1">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-yellow-500/30 bg-yellow-900/10 text-yellow-400 text-xs font-mono mb-6">
+                            <Zap className="w-3 h-3" /> UPGRADE OPTION
+                        </div>
+                        <h3 className="text-3xl font-bold text-white mb-4">"The Digital Store" Add-on</h3>
+                        <p className="text-slate-400 mb-8 leading-relaxed">
+                            Turn your website into a 24/7 sales machine. Don't just display products, sell them.
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {['FPX / Stripe Gateway', '20 Product Upload', 'Inventory System', 'Order Dashboard', 'SSL & Firewall'].map((feat, i) => (
+                                <div key={i} className="flex items-center gap-3 text-sm text-slate-300">
+                                    <CheckCircle2 className="w-4 h-4 text-yellow-500" /> {feat}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="text-center md:text-right">
+                        <div className="text-4xl font-black text-white mb-2">+ RM 1,500</div>
+                        <div className="text-sm text-slate-500 uppercase tracking-widest font-bold mb-6">One-Time Add-on</div>
+                        <Link to="/contact" className="inline-block bg-yellow-500 text-black px-8 py-3 rounded-xl font-bold hover:bg-yellow-400 transition-colors">
+                            Add to Package
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* === MAINTENANCE PLANS === */}
+        <div className="mb-32">
+            <h2 className="text-3xl font-bold text-white mb-12 text-center">Maintenance & Insurance</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Plan 1 */}
+                <div className="p-8 bg-slate-900/30 border border-slate-800 rounded-3xl hover:border-slate-600 transition-all">
+                    <div className="flex justify-between items-start mb-6">
+                        <Globe className="w-10 h-10 text-slate-400" />
+                        <div className="text-right">
+                            <div className="text-2xl font-bold text-white">RM 80<span className="text-sm text-slate-500 font-normal">/mo</span></div>
+                        </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Just Hosting</h3>
+                    <p className="text-slate-500 text-sm mb-6">Essential for WordPress sites.</p>
+                    <ul className="space-y-3 text-sm text-slate-300">
+                        <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-slate-500" /> High-speed Cloud Hosting</li>
+                        <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-slate-500" /> SSL Certificate</li>
+                        <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-slate-500" /> Daily Backups</li>
+                    </ul>
+                </div>
+
+                {/* Plan 2 */}
+                <div className="p-8 bg-slate-900/60 border border-indigo-500/30 rounded-3xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl">RECOMMENDED</div>
+                    <div className="flex justify-between items-start mb-6">
+                        <Server className="w-10 h-10 text-indigo-400" />
+                        <div className="text-right">
+                            <div className="text-2xl font-bold text-white">RM 250<span className="text-sm text-slate-500 font-normal">/mo</span></div>
+                        </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">The Tech Partner</h3>
+                    <p className="text-slate-500 text-sm mb-6">Required for Full Stack Apps.</p>
+                    <ul className="space-y-3 text-sm text-slate-300">
+                        <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Server Management (AWS/Vercel)</li>
+                        <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Code Updates & Bug Fixes</li>
+                        <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> 2 Hours Content Updates</li>
+                        <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Priority WhatsApp Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
         {/* CTA */}
         <div className="text-center">

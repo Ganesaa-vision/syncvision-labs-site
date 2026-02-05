@@ -53,11 +53,47 @@ export const PORTFOLIO: PortfolioItem[] = [
   },
   {
     id: '2',
+    type: 'CLIENT',
+    image: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=2000',
+    title: 'E-commerce Giant',
+    role: 'Headless Commerce',
+    mission: 'Build a scalable and flexible e-commerce platform.',
+    results: ['30% increase in conversion rate', '100ms average page load time']
+  },
+  {
+    id: '3',
+    type: 'CLIENT',
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=2000',
+    title: 'Fintech Startup',
+    role: 'Mobile App Development',
+    mission: 'Create a cross-platform mobile app for personal finance.',
+    results: ['App Store rating of 4.8 stars', '50,000+ downloads in the first 3 months']
+  },
+  {
+    id: '4',
     type: 'INTERNAL',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2000',
     title: 'Project Alpha',
     role: 'R&D',
     concept: 'Autonomous trading bot.',
     status: 'Beta'
+  },
+  {
+    id: '5',
+    type: 'INTERNAL',
+    image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=2000',
+    title: 'Project Beta',
+    role: 'R&D',
+    concept: 'AI-powered code generation.',
+    status: 'In Development'
+  },
+  {
+    id: '6',
+    type: 'INTERNAL',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=2000',
+    title: 'Project Gamma',
+    role: 'R&D',
+    concept: 'Decentralized social media platform.',
+    status: 'Alpha'
   }
 ];
