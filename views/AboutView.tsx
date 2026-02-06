@@ -6,7 +6,7 @@ import {
   Terminal, Zap, ShieldCheck, Rocket,
   Target, Users
 } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const AboutView: React.FC = () => {
   const { pathname } = useLocation();
@@ -14,10 +14,6 @@ const AboutView: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 1000], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 1000], [0, -150]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -47,8 +43,8 @@ const AboutView: React.FC = () => {
 
       {/* Background Elements */}
       <div className="fixed inset-0 w-full h-full pointer-events-none">
-          <motion.div style={{ y: y1 }} className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px]" />
-          <motion.div style={{ y: y2 }} className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px]" />
+          <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-green-500/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px]" />
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
       </div>
 
