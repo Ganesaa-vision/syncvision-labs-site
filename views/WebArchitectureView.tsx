@@ -12,7 +12,7 @@ const WebArchitectureView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-indigo-500/30 animate-fade-in-up">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-indigo-500/30">
       <Helmet>
         <title>Web Development | Custom Code & WordPress - SyncVision Labs</title>
         <meta name="description" content="Choose between rapid WordPress deployment or high-performance Custom Next.js Engineering. We build digital assets that you own 100%." />

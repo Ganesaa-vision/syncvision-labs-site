@@ -5,6 +5,7 @@ import {
   ArrowUpRight, Factory, BrainCircuit, HeartPulse, 
   Cpu, GitBranch, Terminal, Globe, Lock, TrendingUp, MessageSquare, ShoppingCart
 } from 'lucide-react'; 
+import { motion } from 'framer-motion';
 
 const Work: React.FC = () => {
   const { pathname } = useLocation();
@@ -14,7 +15,7 @@ const Work: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-indigo-500/30 animate-fade-in-up">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden">
       
       {/* === SEO & GEO STRATEGY === */}
       {/* Targeted Keywords: "Industrial Web Design", "Clinic Management System", "Productivity App Developer" */}
@@ -24,10 +25,21 @@ const Work: React.FC = () => {
         <meta name="keywords" content="Industrial Web Design Malaysia, Clinic Management System, Flutter App Developer, LifeSync App, Manufacturing Digitalization" />
       </Helmet>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20">
+      {/* Background Ambient Glow */}
+      <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
+          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/5 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20">
         
         {/* === HERO SECTION === */}
-        <section className="px-6 max-w-7xl mx-auto mb-24 text-center">
+        <motion.section 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="px-6 max-w-7xl mx-auto mb-24 text-center"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-indigo-500/30 bg-indigo-900/10 text-indigo-400 text-xs font-mono mb-6">
             <GitBranch className="w-3 h-3" />
             DEPLOYMENT LOG: 2024-2025
@@ -42,10 +54,16 @@ const Work: React.FC = () => {
             We don't just design websites; we architect digital ecosystems. 
             From <span className="text-white">Industrial Manufacturing</span> to <span className="text-white">Healthcare Operations</span>.
           </p>
-        </section>
+        </motion.section>
 
         {/* === SECTION 1: CLIENT CASE STUDY (THE PIPE MANUFACTURER) === */}
-        <section className="px-6 max-w-7xl mx-auto mb-32">
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="px-6 max-w-7xl mx-auto mb-32"
+        >
           <div className="flex items-center gap-4 mb-12">
             <h2 className="text-3xl font-bold text-white">CLIENT OPERATIONS</h2>
             <div className="h-[1px] bg-slate-800 flex-grow"></div>
@@ -77,7 +95,7 @@ const Work: React.FC = () => {
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-slate-900/80 backdrop-blur border border-green-500/30 p-3 rounded-lg">
                       <div className="text-green-400 font-bold text-lg">RANK #1</div>
-                      <div className="text-[10px] text-slate-400 font-mono">IN 20 DAYS</div>
+                      <div className="text-[10px] text-slate-400 font-mono">IN 17 DAYS</div>
                     </div>
                     <div className="bg-slate-900/80 backdrop-blur border border-indigo-500/30 p-3 rounded-lg">
                       <div className="text-indigo-400 font-bold text-lg">1,000+</div>
@@ -116,7 +134,7 @@ const Work: React.FC = () => {
                   </p>
                   <p>
                     <strong className="text-white block mb-1">SEO DOMINANCE:</strong> 
-                    Using "Programmatic SEO," we targeted industrial keywords aggressively. The site went from zero visibility to <span className="text-green-400 font-bold">Rank #1 on Google in just 20 days</span>.
+                    Using "Programmatic SEO," we targeted industrial keywords aggressively. The site went from zero visibility to <span className="text-green-400 font-bold">Rank #1 on Google in just 17 days</span>.
                   </p>
                 </div>
 
@@ -126,13 +144,13 @@ const Work: React.FC = () => {
                     <div className="flex items-center gap-2 text-white font-bold mb-1">
                       <TrendingUp className="w-4 h-4 text-green-400" /> TOP 3 RANK
                     </div>
-                    <p className="text-xs text-slate-500">FOR 5 MAJOR KEYWORDS</p>
+                    <p className="text-xs text-slate-500">FOR 4 MAJOR KEYWORDS</p>
                   </div>
                   <div>
                     <div className="flex items-center gap-2 text-white font-bold mb-1">
                       <TrendingUp className="w-4 h-4 text-green-400" /> TOP 10 RANK
                     </div>
-                    <p className="text-xs text-slate-500">FOR 5 SECONDARY KEYWORDS</p>
+                    <p className="text-xs text-slate-500">FOR 10+ SECONDARY KEYWORDS</p>
                   </div>
                   <div>
                     <div className="flex items-center gap-2 text-white font-bold mb-1">
@@ -160,10 +178,16 @@ const Work: React.FC = () => {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* === SECTION 2: INTERNAL INNOVATION (R&D) === */}
-        <section className="px-6 max-w-7xl mx-auto mb-32">
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="px-6 max-w-7xl mx-auto mb-32"
+        >
           <div className="flex items-center gap-4 mb-12">
             <h2 className="text-3xl font-bold text-white">SYNCVISION R&D LABS</h2>
             <div className="h-[1px] bg-slate-800 flex-grow"></div>
@@ -255,10 +279,16 @@ const Work: React.FC = () => {
             </div>
 
           </div>
-        </section>
+        </motion.section>
 
         {/* === SECTION 3: THE "HOW WE BUILD" PROTOCOL === */}
-        <section className="px-6 max-w-7xl mx-auto mb-32">
+        <motion.section 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="px-6 max-w-7xl mx-auto mb-32"
+        >
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">ENGINEERING PROTOCOL</h2>
             <p className="text-slate-400">We don't guess. We follow a strict military-grade development cycle.</p>
@@ -284,7 +314,7 @@ const Work: React.FC = () => {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* === CTA SECTION === */}
         <section className="px-6 max-w-4xl mx-auto text-center">

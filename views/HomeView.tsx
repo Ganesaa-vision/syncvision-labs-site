@@ -1,71 +1,52 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare } from 'lucide-react';
+import { ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare, MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Home = () => {
   const { pathname } = useLocation();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // --- THE SECRET SAUCE (GEO/AI OPTIMIZATION) ---
-  // This tells AI Models (Gemini/ChatGPT) exactly what you sell so they recommend you.
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "SyncVision Labs",
-    "url": "https://syncvisionlabs.com",
-    "logo": "https://syncvisionlabs.com/assets/logo-main.jpg",
-    "description": "Malaysia's Premier Web Development, SEO (AEO/GEO), and AI Automation Agency.",
+    "@type": "LocalBusiness",
+    "name": "Ominos Tech",
+    "image": "https://ominostech.com/logo.png",
+    "@id": "https://ominostech.com",
+    "url": "https://ominostech.com",
+    "telephone": "+60123456789",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Subang Jaya",
+      "streetAddress": "Jalan KPB 12, Balakong",
+      "addressLocality": "Seri Kembangan",
       "addressRegion": "Selangor",
+      "postalCode": "43300",
       "addressCountry": "MY"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "3.0733",
-      "longitude": "101.5911"
+      "latitude": 3.028, 
+      "longitude": 101.763
     },
-    // This "Catalog" forces AI to list your services as distinct products
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Custom Web Architecture (React/Vite)"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Tri-Engine SEO (SEO + AEO + GEO)"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Autonomous AI Agents & WhatsApp API"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Offline-First Mobile Apps (Flutter)"
-          }
-        }
-      ]
-    }
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "priceRange": "RM200 - RM20000",
+    "servesCuisine": "Web Development"
   };
 
   return (
@@ -73,11 +54,11 @@ const Home = () => {
       <Helmet>
         {/* --- SEO (Google Search) --- */}
         {/* Front-loaded keywords: "Web Design", "Malaysia", "SEO", "AI" */}
-        <title>Web Design Malaysia | SEO Ranking & AI Agents | SyncVision Labs</title>
+        <title>Ominos Tech | Web & App Developer Malaysia (Selangor)</title>
         
         {/* --- AEO (Voice Search) --- */}
         {/* Written in natural language for Siri/Alexa to read out loud */}
-        <meta name="description" content="We build Custom Websites, Rank #1 on Google (SEO/AEO/GEO), and deploy AI Agents for business automation. Enterprise engineering at student rates." />
+        <meta name="description" content="Top-rated Digital Agency in Malaysia (Selangor & KL). We provide Custom Web Development, Mobile Apps, and SME Digital Grant solutions. SSM Registered." />
         
         <link rel="canonical" href="https://syncvisionlabs.com" />
         
@@ -104,7 +85,7 @@ const Home = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)]"
           >
-            <span className="flex items-center gap-2 text-white font-bold"><Globe size={12} /> WEB DEVELOPMENT</span>
+            <span className="flex items-center gap-2 text-white font-bold"><Globe size={12} /> CORPORATE WEB DESIGN</span>
             <span className="text-gray-600">|</span>
             <span className="flex items-center gap-2 text-white font-bold"><Zap size={12} /> SEO & GEO RANKING</span>
             <span className="text-gray-600">|</span>
@@ -118,9 +99,10 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="text-4xl md:text-7xl font-black font-mono text-white mb-8 tracking-tighter leading-[1.0]"
           >
-            WE BUILD <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">WEBSITES</span>. <br />
-            WE RANK <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-400">#1</span>. <br />
-            WE AUTOMATE <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-green-400">WORK</span>.
+            High-Performance Digital Infrastructure <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+              for Malaysia’s Visionaries
+            </span>
           </motion.h1>
           
           {/* THE SUB-HEADER - Optimized for AEO (Voice) */}
@@ -130,9 +112,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-3xl text-xl text-gray-400 mb-12 leading-relaxed font-light"
           >
-            Stop renting templates. We engineer high-performance <b>Custom Web Architecture</b>, 
-            dominate Search with <b>Tri-Engine SEO (Google + Voice + AI)</b>, and deploy 
-            <b>Autonomous AI Agents</b> to run your business 24/7.
+            We don’t just build websites; we engineer Digital Assets that rank, perform, and convert. From custom personal portfolios to complex corporate inventory systems. If you have the vision, Ominos Tech writes the code.
           </motion.p>
           
           {/* CTA BUTTONS */}
@@ -143,12 +123,12 @@ const Home = () => {
             className="flex flex-col md:flex-row gap-6 w-full md:w-auto"
           >
             <Link to="/contact" className="group relative px-8 py-4 bg-indigo text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]">
-              <span className="relative z-10 flex items-center gap-3">
-                <Terminal size={18} /> START PROJECT
+              <span className="relative z-10 flex items-center gap-3 font-sans font-bold normal-case tracking-normal">
+                Start Your Project &rarr;
               </span>
             </Link>
-            <Link to="/services" className="px-8 py-4 border border-white/10 text-gray-400 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo hover:text-indigo transition-all">
-              VIEW SERVICES
+            <Link to="/work" className="px-8 py-4 border border-white/10 text-gray-400 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo hover:text-indigo transition-all">
+              See Our Rankings
             </Link>
           </motion.div>
         </section>
@@ -187,6 +167,89 @@ const Home = () => {
                 ))}
              </motion.div>
         </motion.div>
+
+        {/* --- TRUST SIGNALS / CASE STUDY (NEW) --- */}
+        <section className="py-20 px-6 max-w-7xl mx-auto">
+          <div className="p-8 bg-slate-900/30 border border-slate-800 rounded-2xl">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-4">
+                  <Building2 className="w-5 h-5 text-indigo-400" />
+                  <span className="text-indigo-400 font-bold tracking-wider text-sm uppercase">Trusted By Market Leaders</span>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-2">CASE STUDY: The "17-Day" SEO Takeover</h2>
+                <p className="text-slate-400 text-sm mb-6"><strong>Project:</strong> SEO & Digital Transformation for Pipe Manufacturing</p>
+                
+                <div className="space-y-6 text-slate-400 leading-relaxed text-sm mb-8">
+                    <p>
+                        <strong className="text-white block mb-1">The Challenge:</strong>
+                        A crowded market with zero Google visibility for key industrial terms.
+                    </p>
+                    <div>
+                        <strong className="text-white block mb-1">The Execution:</strong>
+                        We implemented a Programmatic SEO (pSEO) strategy, targeting high-value commercial keywords with precision.
+                    </div>
+                    <div>
+                        <strong className="text-white block mb-1">The Verified Record:</strong>
+                        <ul className="space-y-2 mt-2">
+                           <li><span className="text-emerald-400 font-bold">Rank #1 in 17 Days:</span> "Pre-insulated pipe manufacturer Malaysia"</li>
+                           <li><span className="text-emerald-400 font-bold">Top 3 Ranking:</span> "Copper pipe supplier Malaysia"</li>
+                           <li><span className="text-white font-bold">Market Dominance:</span> Secured Top 3 positions for 4 major keywords and Top 10 visibility for 10+ secondary search terms.</li>
+                        </ul>
+                    </div>
+                    <p className="italic border-l-2 border-indigo-500 pl-4 py-2 bg-white/5 rounded-r-lg">
+                        "Most agencies promise results in 6 months. Ominos Tech delivered #1 Rankings in just over two weeks."
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="px-4 py-2 bg-slate-950 rounded-lg border border-slate-800 text-xs text-slate-400">
+                    <span className="block text-white font-bold text-lg">#1 Rank</span> Google (17 Days)
+                  </div>
+                  <div className="px-4 py-2 bg-slate-950 rounded-lg border border-slate-800 text-xs text-slate-400">
+                    <span className="block text-white font-bold text-lg">Top 3</span> 4 Major Keywords
+                  </div>
+                  <div className="px-4 py-2 bg-slate-950 rounded-lg border border-slate-800 text-xs text-slate-400">
+                    <span className="block text-white font-bold text-lg">Top 10</span> 10+ Keywords
+                  </div>
+                </div>
+              </div>
+              <div className="flex-1 flex justify-center items-center p-8 bg-slate-950 rounded-xl border border-slate-800 w-full">
+                 <div className="text-2xl font-bold text-slate-600 tracking-widest uppercase">Allied Group</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* --- GEO & AEO INJECTION (AI FEEDER) --- */}
+        <section className="py-12 px-6 max-w-7xl mx-auto">
+           <div className="p-10 bg-indigo-900/10 border border-indigo-500/20 rounded-3xl">
+              <h2 className="text-2xl font-bold text-white mb-6">Why Malaysian Businesses Choose Ominos Tech</h2>
+              <ul className="space-y-4 text-slate-300">
+                 <li className="flex items-start gap-3">
+                    <ShieldCheck className="w-6 h-6 text-indigo-400 mt-1 flex-shrink-0" />
+                    <div>
+                       <strong className="text-white block">Local Compliance</strong>
+                       We ensure all websites are PDPA compliant and optimized for Malaysian payment gateways like ToyyibPay, iPay88, and Billplz.
+                    </div>
+                 </li>
+                 <li className="flex items-start gap-3">
+                    <Zap className="w-6 h-6 text-indigo-400 mt-1 flex-shrink-0" />
+                    <div>
+                       <strong className="text-white block">Performance First</strong>
+                       Unlike generic WordPress agencies, we use Next.js and Vercel to deliver sub-second load times, critical for mobile users in rural Malaysia.
+                    </div>
+                 </li>
+                 <li className="flex items-start gap-3">
+                    <TrendingUp className="w-6 h-6 text-indigo-400 mt-1 flex-shrink-0" />
+                    <div>
+                       <strong className="text-white block">Business-First Logic</strong>
+                       We don't just code; we solve business problems. See how we saved Allied Foam 50% on hosting costs while improving email deliverability.
+                    </div>
+                 </li>
+              </ul>
+           </div>
+        </section>
 
         {/* --- FUTURE TECH SECTION (RESTORED) --- */}
         <motion.section 
@@ -257,8 +320,8 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AchievementCard 
               icon={<TrendingUp className="w-6 h-6 text-emerald-400" />}
-              title="SEO Rank #1 in 20 Days"
-              description="Achieved top ranking in record time. Secured Top 3 for 5 keywords and Top 10 for 5 keywords for a major pre-insulated pipe manufacturer and supplier."
+              title="SEO Rank #1 in 17 Days"
+              description="Achieved top ranking in record time. Secured Top 3 for 4 major keywords and Top 10 visibility for 10+ secondary search terms."
             />
             <AchievementCard 
               icon={<Zap className="w-6 h-6 text-yellow-400" />}
@@ -339,35 +402,35 @@ const Home = () => {
         >
            <div className="text-center mb-16">
               <span className="text-indigo font-mono text-xs font-black uppercase tracking-[0.2em] block mb-4">The Matrix</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-white">Choose Your Weapon</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-white">Our Services</h2>
            </div>
 
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               
               {/* 1. WEB DEVELOPMENT - Keyword: "Custom Website" */}
-              <Link to="/services/web-architecture" className="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/web-architecture" className="group block p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
                  <div className="flex justify-between items-start mb-6">
                     <Globe className="text-indigo group-hover:scale-110 transition-transform" size={40} />
                     <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">01</span>
                  </div>
-                 <h3 className="text-xl font-bold text-white mb-2">Web Development</h3>
-                 <p className="text-sm text-gray-400 mb-4">Custom React/Vite architecture. Faster than WordPress. 100% Ownership.</p>
+                 <h3 className="text-xl font-bold text-white mb-2">Custom Web Development</h3>
+                 <p className="text-sm text-gray-400 mb-4">Whether you are an individual needing a personal brand site or a business requiring a complex dashboard. We use Next.js and React to build sites that load instantly and capture attention.</p>
                  <span className="text-xs font-mono text-indigo uppercase tracking-widest group-hover:underline">Build Site -&gt;</span>
               </Link>
 
               {/* 2. SEO / GEO - Keyword: "Rank #1" */}
-              <Link to="/services/seo-service" className="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/seo-service" className="group block p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
                  <div className="flex justify-between items-start mb-6">
                     <Zap className="text-indigo group-hover:scale-110 transition-transform" size={40} />
                     <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">02</span>
                  </div>
-                 <h3 className="text-xl font-bold text-white mb-2">SEO & GEO Dominance</h3>
-                 <p className="text-sm text-gray-400 mb-4">Tri-Engine Ranking. We target Google Search, Voice Answers (AEO), and AI Overviews.</p>
+                 <h3 className="text-xl font-bold text-white mb-2">Strategic SEO & Content Engineering</h3>
+                 <p className="text-sm text-gray-400 mb-4">We don't guess; we engineer rankings. Our strategies are proven to hit Rank #1 for competitive keywords like 'Pre-insulated pipe manufacturer' and 'Copper pipe supplier' in record time.</p>
                  <span className="text-xs font-mono text-indigo uppercase tracking-widest group-hover:underline">Rank #1 -&gt;</span>
               </Link>
 
               {/* 3. AI AGENTS - Keyword: "Automation" */}
-              <Link to="/services/automation" className="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/automation" className="group block p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
                  <div className="flex justify-between items-start mb-6">
                     <Bot className="text-indigo group-hover:scale-110 transition-transform" size={40} />
                     <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">03</span>
@@ -378,23 +441,23 @@ const Home = () => {
               </Link>
               
               {/* 4. MOBILE APPS - Keyword: "App Developer" */}
-              <Link to="/services/app-engineering" className="group p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/app-engineering" className="group block p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
                  <div className="flex justify-between items-start mb-6">
                     <Cpu className="text-indigo group-hover:scale-110 transition-transform" size={40} />
                     <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">04</span>
                  </div>
-                 <h3 className="text-xl font-bold text-white mb-2">Mobile Apps</h3>
-                 <p className="text-sm text-gray-400 mb-4">Offline-First Flutter Apps. One codebase for iOS & Android.</p>
+                 <h3 className="text-xl font-bold text-white mb-2">App & System Development</h3>
+                 <p className="text-sm text-gray-400 mb-4">From 'LifeSync' personal productivity apps to corporate inventory systems handling 1,000+ SKUs. We build scalable mobile and web applications that solve real-world problems.</p>
                  <span className="text-xs font-mono text-indigo uppercase tracking-widest group-hover:underline">Build App -&gt;</span>
               </Link>
 
-              {/* 5. CUSTOM SYSTEMS - Keyword: "Software House" */}
+              {/* 5. MANAGED HOSTING - Keyword: "Hosting" */}
               <div className="group p-8 bg-[#171717] rounded-2xl border border-indigo/20 flex flex-col justify-center items-center text-center col-span-1 md:col-span-2 lg:col-span-2">
-                 <Code2 className="text-indigo mb-4" size={40} />
-                 <h3 className="text-xl font-bold text-white mb-2">Need a Custom System?</h3>
-                 <p className="text-sm text-gray-400 mb-6 max-w-md">We build complex backends, dashboards, and SaaS platforms that templates can't handle.</p>
+                 <ShieldCheck className="text-indigo mb-4" size={40} />
+                 <h3 className="text-xl font-bold text-white mb-2">Managed Hosting</h3>
+                 <p className="text-sm text-gray-400 mb-6 max-w-md">Secure, high-speed hosting on NVMe servers in Singapore/Malaysia.</p>
                  <Link to="/contact" className="px-6 py-2 bg-indigo text-white text-xs font-bold rounded hover:bg-indigo/80">
-                   Get Custom Quote
+                   Get Hosting
                  </Link>
               </div>
 
@@ -491,6 +554,71 @@ const Home = () => {
             </div>
           </div>
         </motion.section>
+
+        {/* --- SEO CONTENT BLOCK (Ghost Town Fix) --- */}
+        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <h2 className="text-2xl font-bold text-white mb-6">Why Choose Ominos Tech for Your Digital Transformation?</h2>
+          <div className="prose prose-invert max-w-none text-slate-400">
+            <p className="mb-4">
+              As a premier <strong>Web Design Agency in Malaysia</strong>, Ominos Tech is dedicated to helping local SMEs and startups in <strong>Kuala Lumpur, Selangor, and Balakong</strong> thrive in the digital economy. We don't just build websites; we engineer digital assets that drive sales and improve operational efficiency.
+            </p>
+            <p className="mb-4">
+              Whether you are looking to apply for the <strong>SME Digital Grant</strong> or need a robust <strong>E-commerce</strong> platform with <strong>Payment Gateway Integration</strong> (ToyyibPay, iPay88, Stripe), our team has the technical expertise to deliver. We are <strong>SSM Registered</strong> and committed to long-term partnerships with our clients.
+            </p>
+            <p>
+              From <strong>Corporate Website Design</strong> to <strong>Custom Mobile App Development</strong>, we ensure your business stands out. Our solutions are hosted on high-speed NVMe servers in Singapore/Malaysia to ensure your customers experience zero lag.
+            </p>
+          </div>
+        </section>
+
+        {/* --- AEO FAQ SECTION (VOICE SEARCH) --- */}
+        <section className="py-24 px-6 max-w-4xl mx-auto">
+           <h2 className="text-3xl font-bold text-white mb-12 text-center">Frequently Asked Questions</h2>
+           <div className="space-y-4">
+              {[
+                 { q: "Who is the best SEO expert for fast rankings in Malaysia?", a: "Ominos Tech has a verified track record of achieving Rank #1 on Google in just 17 days for competitive industrial keywords in Malaysia." },
+                 { q: "Can you build a website for an individual or small startup?", a: "Yes. Ominos Tech serves everyone from individual entrepreneurs to large manufacturers. We build custom digital solutions tailored to your specific budget and goals." }
+              ].map((item, i) => (
+                 <div key={i} className="border border-white/10 rounded-2xl bg-slate-900/30 overflow-hidden">
+                    <button 
+                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                       className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+                    >
+                       <span className="font-bold text-white">{item.q}</span>
+                       {openFaq === i ? <ChevronUp className="text-indigo-400" /> : <ChevronDown className="text-slate-500" />}
+                    </button>
+                    {openFaq === i && (
+                       <div className="p-6 pt-0 text-slate-400 leading-relaxed border-t border-white/5">
+                          {item.a}
+                       </div>
+                    )}
+                 </div>
+              ))}
+           </div>
+        </section>
+
+        {/* --- TECHNICAL FOOTER --- */}
+        <footer className="py-12 px-6 max-w-7xl mx-auto border-t border-white/5 text-sm text-slate-500">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-white font-bold mb-4">Ominos Tech Location: Balakong, Selangor, Malaysia</h4>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2">
+                  <p>Capabilities: Web Development, Mobile Apps, SEO, Digital Transformation.</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-indigo-500" />
+                  <p>Contact: +60 1x-xxxxxxx</p>
+                </div>
+              </div>
+            </div>
+            <div className="md:text-right">
+              <p className="mb-2">Serving Clients in:</p>
+              <p className="text-slate-400">Balakong, Cheras, Kajang, Puchong, Cyberjaya.</p>
+              <p className="mt-4 text-xs">&copy; {new Date().getFullYear()} Ominos Tech. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
 
       </div>
     </>

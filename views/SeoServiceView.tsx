@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { TrendingUp, MapPin, Search, BarChart, ArrowRight, FileText, Trophy, Target, Bot, Cpu, CheckCircle2 } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import { motion } from 'framer-motion';
 
 const SeoServiceView: React.FC = () => {
   const { pathname } = useLocation();
@@ -12,17 +13,28 @@ const SeoServiceView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-emerald-500/30 animate-fade-in-up">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-emerald-500/30 relative overflow-hidden">
       <Helmet>
         <title>SEO Services | Rank #1 in Malaysia - SyncVision Labs</title>
         <meta name="description" content="Affordable SEO Packages in Malaysia. From Local SEO (RM 399) to National Dominance. We optimize Google Maps, fix technical errors, and write content that ranks." />
         <meta name="keywords" content="SEO Malaysia Price, Local SEO Package, Google Maps Ranking, SEO Audit Malaysia, Backlink Service" />
       </Helmet>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
+      {/* Background Ambient Glow */}
+      <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         
         {/* HERO SECTION */}
-        <div className="text-center mb-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-24"
+        >
           <span className="font-mono text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
           <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-white mb-6">
             RANK <span className="text-emerald-500">#1.</span>
@@ -30,10 +42,16 @@ const SeoServiceView: React.FC = () => {
           <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We don't just target keywords; we target <strong>Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
           </p>
-        </div>
+        </motion.div>
 
         {/* === NEW: ACHIEVEMENTS SECTION === */}
-        <div className="mb-32 relative">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-32 relative"
+        >
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
             
@@ -54,7 +72,7 @@ const SeoServiceView: React.FC = () => {
                         <p className="text-slate-400 text-lg leading-relaxed mb-10 border-l-4 border-emerald-500/50 pl-6">
                             Target: <strong>Pre-Insulated Pipe Manufacturer</strong>.<br/>
                             Objective: Total Search Monopoly.<br/>
-                            Result: <span className="text-white font-bold">Rank #1 in 20 Days.</span>
+                            Result: <span className="text-white font-bold">Rank #1 in 17 Days.</span>
                         </p>
 
                         <div className="grid grid-cols-2 gap-4">
@@ -63,7 +81,7 @@ const SeoServiceView: React.FC = () => {
                                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Google Rank</div>
                             </div>
                             <div className="p-6 bg-black/40 rounded-2xl border border-white/5">
-                                <div className="text-3xl font-black text-emerald-400 mb-1">20</div>
+                                <div className="text-3xl font-black text-emerald-400 mb-1">17</div>
                                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Days to Rank</div>
                             </div>
                             <div className="p-6 bg-black/40 rounded-2xl border border-white/5">
@@ -126,7 +144,7 @@ const SeoServiceView: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
 
         {/* === NEW: TRI-ENGINE EXPLANATION === */}
         <div className="mb-40">
@@ -140,7 +158,12 @@ const SeoServiceView: React.FC = () => {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+            >
                 {/* SEO Card */}
                 <div className="group relative bg-slate-900 border border-white/5 rounded-[2.5rem] p-10 hover:bg-blue-950/10 hover:border-blue-500/30 transition-all duration-500">
                     <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
@@ -201,7 +224,7 @@ const SeoServiceView: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
 
         {/* PRICING */}

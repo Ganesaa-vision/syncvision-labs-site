@@ -12,7 +12,7 @@ const ContactView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <section className="py-24 md:py-40 px-6 animate-fade-in-up min-h-screen bg-slate-950 relative overflow-hidden">
+    <section className="py-24 md:py-40 px-6 min-h-screen bg-slate-950 relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
       <Helmet>
         <title>Initiate Protocol | SyncVision Labs</title>

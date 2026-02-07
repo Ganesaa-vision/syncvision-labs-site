@@ -12,7 +12,7 @@ const ProductsView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <section className="py-24 md:py-40 px-6 animate-fade-in-up bg-slate-950 min-h-screen relative">
+    <section className="py-24 md:py-40 px-6 bg-slate-950 min-h-screen relative">
       <Helmet>
         <title>Internal R&D Labs | SyncVision Labs</title>
         <meta name="description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
