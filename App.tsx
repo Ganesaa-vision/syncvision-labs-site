@@ -14,6 +14,8 @@ const WorkView = lazy(() => import('./views/WorkView'));
 const AboutView = lazy(() => import('./views/AboutView'));
 const ContactView = lazy(() => import('./views/ContactView'));
 const ProductsView = lazy(() => import('./views/ProductsView'));
+const TermsView = lazy(() => import('./views/TermsView'));
+const PrivacyView = lazy(() => import('./views/PrivacyView'));
 
 // Service Page Imports
 const WebArchitecture = lazy(() => import('./views/WebArchitectureView'));
@@ -48,6 +50,8 @@ function App() {
                 <Route path="/about" element={<AboutView />} />
                 <Route path="/contact" element={<ContactView />} />
                 <Route path="/products" element={<ProductsView />} />
+                <Route path="/terms" element={<TermsView />} />
+                <Route path="/privacy" element={<PrivacyView />} />
 
                 {/* Service Detail Page Routes */}
                 <Route path="/services/web-architecture" element={<WebArchitecture />} />

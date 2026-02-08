@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare, MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare, MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp, Palette, Layout, BarChart, CheckCircle2 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -67,29 +67,29 @@ const Home = () => {
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden">
+      <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden transition-colors duration-300">
         
         {/* Background Ambient Glow */}
         <div className="fixed inset-0 w-full h-full pointer-events-none">
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 rounded-full blur-[120px]" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[120px]" />
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500/5 dark:bg-emerald-500/5 rounded-full blur-[120px]" />
         </div>
         
         {/* --- HERO SECTION --- */}
         <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-6 max-w-7xl mx-auto flex flex-col items-center text-center z-10">
-          
+
           {/* THE "SERVICE TICKER" - Immediate visual confirmation of services */}
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)]"
+            className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-600 dark:text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)]"
           >
-            <span className="flex items-center gap-2 text-white font-bold"><Globe size={12} /> CORPORATE WEB DESIGN</span>
-            <span className="text-gray-600">|</span>
-            <span className="flex items-center gap-2 text-white font-bold"><Zap size={12} /> SEO & GEO RANKING</span>
-            <span className="text-gray-600">|</span>
-            <span className="flex items-center gap-2 text-white font-bold"><Bot size={12} /> AI AGENTS</span>
+            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Globe size={12} /> CORPORATE WEB DESIGN</span>
+            <span className="text-slate-500 dark:text-gray-600">|</span>
+            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Zap size={12} /> SEO & GEO RANKING</span>
+            <span className="text-slate-500 dark:text-gray-600">|</span>
+            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Bot size={12} /> AI AGENTS</span>
           </motion.div>
           
           {/* THE H1 TITLE - Optimized for High Volume Keywords */}
@@ -97,10 +97,10 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl md:text-7xl font-black font-mono text-white mb-8 tracking-tighter leading-[1.0]"
+            className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-[1.0]"
           >
             High-Performance Digital Infrastructure <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
               for Malaysia’s Visionaries
             </span>
           </motion.h1>
@@ -110,7 +110,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl text-xl text-gray-400 mb-12 leading-relaxed font-light"
+            className="max-w-3xl text-xl text-slate-600 dark:text-gray-400 mb-12 leading-relaxed font-light"
           >
             We don’t just build websites; we engineer Digital Assets that rank, perform, and convert. From custom personal portfolios to complex corporate inventory systems. If you have the vision, Ominos Tech writes the code.
           </motion.p>
@@ -122,12 +122,12 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col md:flex-row gap-6 w-full md:w-auto"
           >
-            <Link to="/contact" className="group relative px-8 py-4 bg-indigo text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]">
+            <Link to="/contact" className="group relative px-8 py-4 bg-indigo-600 dark:bg-indigo text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]">
               <span className="relative z-10 flex items-center gap-3 font-sans font-bold normal-case tracking-normal">
                 Start Your Project &rarr;
               </span>
             </Link>
-            <Link to="/work" className="px-8 py-4 border border-white/10 text-gray-400 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo hover:text-indigo transition-all">
+            <Link to="/work" className="px-8 py-4 border border-slate-300 dark:border-white/10 text-slate-600 dark:text-gray-400 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo-500 dark:hover:border-indigo hover:text-indigo-600 dark:hover:text-indigo transition-all">
               See Our Rankings
             </Link>
           </motion.div>
@@ -138,7 +138,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="w-full border-y border-white/5 bg-slate-950/50 backdrop-blur-xl overflow-hidden py-6"
+          className="w-full border-y border-slate-200 dark:border-white/5 bg-white/50 dark:bg-slate-950/50 backdrop-blur-xl overflow-hidden py-6"
         >
              <motion.div 
                 className="flex gap-32 whitespace-nowrap items-center"
@@ -146,22 +146,22 @@ const Home = () => {
                 transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
              >
                 {[...Array(8)].map((_, i) => (
-                  <div key={i} className="flex gap-32 text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-500 items-center">
+                  <div key={i} className="flex gap-32 text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-500 items-center">
                     <span className="flex items-center gap-3">
                       <TrendingUp size={14} className="text-emerald-500"/> 
-                      <span className="text-slate-300">Rank #1 on Google</span>
+                      <span className="text-slate-700 dark:text-slate-300">Rank #1 on Google</span>
                     </span>
                     <span className="flex items-center gap-3">
                       <Zap size={14} className="text-indigo-500"/> 
-                      <span className="text-slate-300">AI Overview Captured</span>
+                      <span className="text-slate-700 dark:text-slate-300">AI Overview Captured</span>
                     </span>
                     <span className="flex items-center gap-3">
                       <Activity size={14} className="text-emerald-500"/> 
-                      <span className="text-slate-300">420% Lead Increase</span>
+                      <span className="text-slate-700 dark:text-slate-300">420% Lead Increase</span>
                     </span>
                     <span className="flex items-center gap-3">
                       <Code2 size={14} className="text-indigo-500" /> 
-                      <span className="text-slate-300">Active R&D Labs</span>
+                      <span className="text-slate-700 dark:text-slate-300">Active R&D Labs</span>
                     </span>
                   </div>
                 ))}
@@ -170,51 +170,51 @@ const Home = () => {
 
         {/* --- TRUST SIGNALS / CASE STUDY (NEW) --- */}
         <section className="py-20 px-6 max-w-7xl mx-auto">
-          <div className="p-8 bg-slate-900/30 border border-slate-800 rounded-2xl">
+          <div className="p-8 bg-white/50 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800 rounded-2xl">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-4">
-                  <Building2 className="w-5 h-5 text-indigo-400" />
-                  <span className="text-indigo-400 font-bold tracking-wider text-sm uppercase">Trusted By Market Leaders</span>
+                  <Building2 className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                  <span className="text-indigo-600 dark:text-indigo-400 font-bold tracking-wider text-sm uppercase">Trusted By Market Leaders</span>
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-2">CASE STUDY: The "17-Day" SEO Takeover</h2>
-                <p className="text-slate-400 text-sm mb-6"><strong>Project:</strong> SEO & Digital Transformation for Pipe Manufacturing</p>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">CASE STUDY: The "17-Day" SEO Takeover</h2>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6"><strong>Project:</strong> SEO & Digital Transformation for Pipe Manufacturing</p>
                 
-                <div className="space-y-6 text-slate-400 leading-relaxed text-sm mb-8">
+                <div className="space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed text-sm mb-8">
                     <p>
-                        <strong className="text-white block mb-1">The Challenge:</strong>
+                        <strong className="text-slate-900 dark:text-white block mb-1">The Challenge:</strong>
                         A crowded market with zero Google visibility for key industrial terms.
                     </p>
                     <div>
-                        <strong className="text-white block mb-1">The Execution:</strong>
+                        <strong className="text-slate-900 dark:text-white block mb-1">The Execution:</strong>
                         We implemented a Programmatic SEO (pSEO) strategy, targeting high-value commercial keywords with precision.
                     </div>
                     <div>
-                        <strong className="text-white block mb-1">The Verified Record:</strong>
+                        <strong className="text-slate-900 dark:text-white block mb-1">The Verified Record:</strong>
                         <ul className="space-y-2 mt-2">
-                           <li><span className="text-emerald-400 font-bold">Rank #1 in 17 Days:</span> "Pre-insulated pipe manufacturer Malaysia"</li>
-                           <li><span className="text-emerald-400 font-bold">Top 3 Ranking:</span> "Copper pipe supplier Malaysia"</li>
-                           <li><span className="text-white font-bold">Market Dominance:</span> Secured Top 3 positions for 4 major keywords and Top 10 visibility for 10+ secondary search terms.</li>
+                           <li><span className="text-emerald-600 dark:text-emerald-400 font-bold">Rank #1 in 17 Days:</span> "Pre-insulated pipe manufacturer Malaysia"</li>
+                           <li><span className="text-emerald-600 dark:text-emerald-400 font-bold">Top 3 Ranking:</span> "Copper pipe supplier Malaysia"</li>
+                           <li><span className="text-slate-900 dark:text-white font-bold">Market Dominance:</span> Secured Top 3 positions for 4 major keywords and Top 10 visibility for 10+ secondary search terms.</li>
                         </ul>
                     </div>
-                    <p className="italic border-l-2 border-indigo-500 pl-4 py-2 bg-white/5 rounded-r-lg">
+                    <p className="italic border-l-2 border-indigo-500 pl-4 py-2 bg-slate-100 dark:bg-white/5 rounded-r-lg">
                         "Most agencies promise results in 6 months. Ominos Tech delivered #1 Rankings in just over two weeks."
                     </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="px-4 py-2 bg-slate-950 rounded-lg border border-slate-800 text-xs text-slate-400">
-                    <span className="block text-white font-bold text-lg">#1 Rank</span> Google (17 Days)
+                  <div className="px-4 py-2 bg-slate-100 dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+                    <span className="block text-slate-900 dark:text-white font-bold text-lg">#1 Rank</span> Google (17 Days)
                   </div>
-                  <div className="px-4 py-2 bg-slate-950 rounded-lg border border-slate-800 text-xs text-slate-400">
-                    <span className="block text-white font-bold text-lg">Top 3</span> 4 Major Keywords
+                  <div className="px-4 py-2 bg-slate-100 dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+                    <span className="block text-slate-900 dark:text-white font-bold text-lg">Top 3</span> 4 Major Keywords
                   </div>
-                  <div className="px-4 py-2 bg-slate-950 rounded-lg border border-slate-800 text-xs text-slate-400">
-                    <span className="block text-white font-bold text-lg">Top 10</span> 10+ Keywords
+                  <div className="px-4 py-2 bg-slate-100 dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+                    <span className="block text-slate-900 dark:text-white font-bold text-lg">Top 10</span> 10+ Keywords
                   </div>
                 </div>
               </div>
-              <div className="flex-1 flex justify-center items-center p-8 bg-slate-950 rounded-xl border border-slate-800 w-full">
+              <div className="flex-1 flex justify-center items-center p-8 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 w-full">
                  <div className="text-2xl font-bold text-slate-600 tracking-widest uppercase">Allied Group</div>
               </div>
             </div>
@@ -223,27 +223,27 @@ const Home = () => {
 
         {/* --- GEO & AEO INJECTION (AI FEEDER) --- */}
         <section className="py-12 px-6 max-w-7xl mx-auto">
-           <div className="p-10 bg-indigo-900/10 border border-indigo-500/20 rounded-3xl">
-              <h2 className="text-2xl font-bold text-white mb-6">Why Malaysian Businesses Choose Ominos Tech</h2>
-              <ul className="space-y-4 text-slate-300">
+           <div className="p-10 bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-200 dark:border-indigo-500/20 rounded-3xl">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Why Malaysian Businesses Choose Ominos Tech</h2>
+              <ul className="space-y-4 text-slate-700 dark:text-slate-300">
                  <li className="flex items-start gap-3">
                     <ShieldCheck className="w-6 h-6 text-indigo-400 mt-1 flex-shrink-0" />
                     <div>
-                       <strong className="text-white block">Local Compliance</strong>
+                       <strong className="text-slate-900 dark:text-white block">Local Compliance</strong>
                        We ensure all websites are PDPA compliant and optimized for Malaysian payment gateways like ToyyibPay, iPay88, and Billplz.
                     </div>
                  </li>
                  <li className="flex items-start gap-3">
                     <Zap className="w-6 h-6 text-indigo-400 mt-1 flex-shrink-0" />
                     <div>
-                       <strong className="text-white block">Performance First</strong>
+                       <strong className="text-slate-900 dark:text-white block">Performance First</strong>
                        Unlike generic WordPress agencies, we use Next.js and Vercel to deliver sub-second load times, critical for mobile users in rural Malaysia.
                     </div>
                  </li>
                  <li className="flex items-start gap-3">
                     <TrendingUp className="w-6 h-6 text-indigo-400 mt-1 flex-shrink-0" />
                     <div>
-                       <strong className="text-white block">Business-First Logic</strong>
+                       <strong className="text-slate-900 dark:text-white block">Business-First Logic</strong>
                        We don't just code; we solve business problems. See how we saved Allied Foam 50% on hosting costs while improving email deliverability.
                     </div>
                  </li>
@@ -257,7 +257,7 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="py-32 px-6 max-w-7xl mx-auto border-b border-white/5"
+          className="py-32 px-6 max-w-7xl mx-auto border-b border-slate-200 dark:border-white/5"
         >
           <div className="flex flex-col md:flex-row gap-16 items-center">
               <div className="flex-1 space-y-8">
@@ -265,15 +265,15 @@ const Home = () => {
                     <Cpu className="w-6 h-6 text-indigo-500" />
                     <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase font-mono">Future Tech</span>
                 </div>
-                <h2 className="text-4xl md:text-6xl font-mono font-black text-white leading-tight uppercase tracking-tighter">
+                <h2 className="text-4xl md:text-6xl font-mono font-black text-slate-900 dark:text-white leading-tight uppercase tracking-tighter">
                     The Era of <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400">AI Agents.</span>
                 </h2>
-                <p className="text-lg text-slate-400 leading-relaxed max-w-xl">
+                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
                     We are merging human intent with autonomous technology. The future is not just about browsing; it is about commanding. We build the infrastructure where complex tasks are executed by <strong>AI Agents</strong> simply by your command.
                 </p>
               </div>
               <div className="flex-1 w-full">
-                 <div className="relative aspect-video bg-slate-900 rounded-3xl border border-white/10 overflow-hidden shadow-2xl group">
+                 <div className="relative aspect-video bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl group">
                     <img 
                       src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop" 
                       alt="AI Neural Network" 
@@ -283,15 +283,15 @@ const Home = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
                     
-                    <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/80 dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                         <div className="flex items-center gap-4 mb-3">
-                            <div className="p-2 bg-indigo-500/20 rounded-lg text-indigo-400"><Bot size={20} /></div>
+                            <div className="p-2 bg-indigo-100 dark:bg-indigo-500/20 rounded-lg text-indigo-600 dark:text-indigo-400"><Bot size={20} /></div>
                             <div>
-                                <div className="text-white font-mono font-bold uppercase tracking-widest text-xs">Neural Core</div>
-                                <div className="text-slate-400 text-[10px] font-mono">Status: Active Learning</div>
+                                <div className="text-slate-900 dark:text-white font-mono font-bold uppercase tracking-widest text-xs">Neural Core</div>
+                                <div className="text-slate-600 dark:text-slate-400 text-[10px] font-mono">Status: Active Learning</div>
                             </div>
                         </div>
-                        <div className="h-1 w-full bg-slate-700 rounded-full overflow-hidden">
+                        <div className="h-1 w-full bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div className="h-full bg-indigo-500 w-[70%] animate-pulse"></div>
                         </div>
                     </div>
@@ -309,27 +309,27 @@ const Home = () => {
           className="py-24 px-6 max-w-7xl mx-auto"
         >
           <div className="mb-16 text-center md:text-left">
-            <h3 className="text-3xl md:text-4xl font-mono font-black text-white uppercase tracking-tighter mb-4">
+            <h3 className="text-3xl md:text-4xl font-mono font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">
               Verified Achievements
             </h3>
-            <p className="text-slate-400 text-lg">
+            <p className="text-slate-600 dark:text-slate-400 text-lg">
               Proven results in SEO, Automation, and Engineering.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AchievementCard 
-              icon={<TrendingUp className="w-6 h-6 text-emerald-400" />}
+              icon={<TrendingUp className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
               title="SEO Rank #1 in 17 Days"
               description="Achieved top ranking in record time. Secured Top 3 for 4 major keywords and Top 10 visibility for 10+ secondary search terms."
             />
             <AchievementCard 
-              icon={<Zap className="w-6 h-6 text-yellow-400" />}
+              icon={<Zap className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />}
               title="402% Quality Boost"
               description="Designed and implemented a high-performance shop page, improving user interaction and website quality scores by over 400%."
             />
             <AchievementCard 
-              icon={<Rocket className="w-6 h-6 text-red-400" />}
+              icon={<Rocket className="w-6 h-6 text-red-600 dark:text-red-400" />}
               title="Ultimate Speed"
               description="Developed platforms with no visible load time. Whether hard-coded or managed WordPress, we engineer for raw performance and speed."
             />
@@ -359,7 +359,7 @@ const Home = () => {
           transition={{ duration: 0.8 }}
           className="py-12 px-6 max-w-7xl mx-auto"
         >
-            <div className="relative rounded-[3rem] overflow-hidden border border-white/10 aspect-[21/9] group shadow-2xl">
+            <div className="relative rounded-[3rem] overflow-hidden border border-slate-200 dark:border-white/10 aspect-[21/9] group shadow-2xl">
                 <img 
                     src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop" 
                     alt="Code Architecture" 
@@ -398,64 +398,64 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5"
+          className="py-24 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5"
         >
            <div className="text-center mb-16">
               <span className="text-indigo font-mono text-xs font-black uppercase tracking-[0.2em] block mb-4">The Matrix</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-white">Our Services</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">Our Services</h2>
            </div>
 
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               
               {/* 1. WEB DEVELOPMENT - Keyword: "Custom Website" */}
-              <Link to="/services/web-architecture" className="group block p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/web-architecture" className="group block p-6 md:p-8 bg-white dark:bg-[#111] rounded-2xl border border-slate-200 dark:border-white/5 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-[#151515] transition-all shadow-sm dark:shadow-none">
                  <div className="flex justify-between items-start mb-6">
                     <Globe className="text-indigo group-hover:scale-110 transition-transform" size={40} />
-                    <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">01</span>
+                    <span className="text-xs font-mono text-slate-500 dark:text-gray-600 group-hover:text-indigo">01</span>
                  </div>
-                 <h3 className="text-xl font-bold text-white mb-2">Custom Web Development</h3>
-                 <p className="text-sm text-gray-400 mb-4">Whether you are an individual needing a personal brand site or a business requiring a complex dashboard. We use Next.js and React to build sites that load instantly and capture attention.</p>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Custom Web Development</h3>
+                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-4">Whether you are an individual needing a personal brand site or a business requiring a complex dashboard. We use Next.js and React to build sites that load instantly and capture attention.</p>
                  <span className="text-xs font-mono text-indigo uppercase tracking-widest group-hover:underline">Build Site -&gt;</span>
               </Link>
 
               {/* 2. SEO / GEO - Keyword: "Rank #1" */}
-              <Link to="/services/seo-service" className="group block p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/seo-service" className="group block p-6 md:p-8 bg-white dark:bg-[#111] rounded-2xl border border-slate-200 dark:border-white/5 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-[#151515] transition-all shadow-sm dark:shadow-none">
                  <div className="flex justify-between items-start mb-6">
                     <Zap className="text-indigo group-hover:scale-110 transition-transform" size={40} />
-                    <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">02</span>
+                    <span className="text-xs font-mono text-slate-500 dark:text-gray-600 group-hover:text-indigo">02</span>
                  </div>
-                 <h3 className="text-xl font-bold text-white mb-2">Strategic SEO & Content Engineering</h3>
-                 <p className="text-sm text-gray-400 mb-4">We don't guess; we engineer rankings. Our strategies are proven to hit Rank #1 for competitive keywords like 'Pre-insulated pipe manufacturer' and 'Copper pipe supplier' in record time.</p>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Strategic SEO & Content Engineering</h3>
+                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-4">We don't guess; we engineer rankings. Our strategies are proven to hit Rank #1 for competitive keywords like 'Pre-insulated pipe manufacturer' and 'Copper pipe supplier' in record time.</p>
                  <span className="text-xs font-mono text-indigo uppercase tracking-widest group-hover:underline">Rank #1 -&gt;</span>
               </Link>
 
               {/* 3. AI AGENTS - Keyword: "Automation" */}
-              <Link to="/services/automation" className="group block p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/automation" className="group block p-6 md:p-8 bg-white dark:bg-[#111] rounded-2xl border border-slate-200 dark:border-white/5 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-[#151515] transition-all shadow-sm dark:shadow-none">
                  <div className="flex justify-between items-start mb-6">
                     <Bot className="text-indigo group-hover:scale-110 transition-transform" size={40} />
-                    <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">03</span>
+                    <span className="text-xs font-mono text-slate-500 dark:text-gray-600 group-hover:text-indigo">03</span>
                  </div>
-                 <h3 className="text-xl font-bold text-white mb-2">AI Agents</h3>
-                 <p className="text-sm text-gray-400 mb-4">Autonomous bots and WhatsApp API integration to automate sales 24/7.</p>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">AI Agents</h3>
+                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-4">Autonomous bots and WhatsApp API integration to automate sales 24/7.</p>
                  <span className="text-xs font-mono text-indigo uppercase tracking-widest group-hover:underline">Automate -&gt;</span>
               </Link>
               
               {/* 4. MOBILE APPS - Keyword: "App Developer" */}
-              <Link to="/services/app-engineering" className="group block p-8 bg-[#111] rounded-2xl border border-white/5 hover:border-indigo/50 hover:bg-[#151515] transition-all">
+              <Link to="/services/app-engineering" className="group block p-6 md:p-8 bg-white dark:bg-[#111] rounded-2xl border border-slate-200 dark:border-white/5 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-[#151515] transition-all shadow-sm dark:shadow-none">
                  <div className="flex justify-between items-start mb-6">
                     <Cpu className="text-indigo group-hover:scale-110 transition-transform" size={40} />
-                    <span className="text-xs font-mono text-gray-600 group-hover:text-indigo">04</span>
+                    <span className="text-xs font-mono text-slate-500 dark:text-gray-600 group-hover:text-indigo">04</span>
                  </div>
-                 <h3 className="text-xl font-bold text-white mb-2">App & System Development</h3>
-                 <p className="text-sm text-gray-400 mb-4">From 'LifeSync' personal productivity apps to corporate inventory systems handling 1,000+ SKUs. We build scalable mobile and web applications that solve real-world problems.</p>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">App & System Development</h3>
+                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-4">From 'LifeSync' personal productivity apps to corporate inventory systems handling 1,000+ SKUs. We build scalable mobile and web applications that solve real-world problems.</p>
                  <span className="text-xs font-mono text-indigo uppercase tracking-widest group-hover:underline">Build App -&gt;</span>
               </Link>
 
               {/* 5. MANAGED HOSTING - Keyword: "Hosting" */}
-              <div className="group p-8 bg-[#171717] rounded-2xl border border-indigo/20 flex flex-col justify-center items-center text-center col-span-1 md:col-span-2 lg:col-span-2">
+              <div className="group p-6 md:p-8 bg-slate-100 dark:bg-[#171717] rounded-2xl border border-indigo-200 dark:border-indigo/20 flex flex-col justify-center items-center text-center col-span-1 md:col-span-2 lg:col-span-2 shadow-sm dark:shadow-none">
                  <ShieldCheck className="text-indigo mb-4" size={40} />
-                 <h3 className="text-xl font-bold text-white mb-2">Managed Hosting</h3>
-                 <p className="text-sm text-gray-400 mb-6 max-w-md">Secure, high-speed hosting on NVMe servers in Singapore/Malaysia.</p>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Managed Hosting</h3>
+                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-6 max-w-md">Secure, high-speed hosting on NVMe servers in Singapore/Malaysia.</p>
                  <Link to="/contact" className="px-6 py-2 bg-indigo text-white text-xs font-bold rounded hover:bg-indigo/80">
                    Get Hosting
                  </Link>
@@ -464,8 +464,136 @@ const Home = () => {
            </div>
         </motion.section>
 
+        {/* --- LAUNCHPAD PACKAGE SECTION (NEW) --- */}
+        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
+           {/* Background Elements */}
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
+           
+           <div className="text-center mb-16 relative z-10">
+              <span className="text-emerald-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The "All-In-One" Launchpad</span>
+              <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">
+                 The "Zero to Hero" Launchpad <br/>
+                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Stop Dreaming. Start Selling.</span>
+              </h2>
+              <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                 Your Entire Business Setup, Done in 7 Days. Don't pay RM 10,000 for a logo and a website. We use AI-driven workflows to cut the cost by 70%, giving you a Fortune 500 look on a startup budget.
+              </p>
+           </div>
+
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+              {/* Value Breakdown */}
+              <div className="space-y-8">
+                 {[
+                    {
+                       title: "Professional Branding Suite",
+                       value: "Value: RM 700",
+                       desc: "Clean, corporate identity design to build trust instantly.",
+                       points: ["Custom Logo Design (Vector-based)", "Brand Color Palette (Hex codes)"],
+                       icon: <Palette className="w-6 h-6 text-purple-400" />
+                    },
+                    {
+                       title: "\"Business-Ready\" Website",
+                       value: "Value: RM 2,500",
+                       desc: "A high-performance digital asset that converts visitors into customers.",
+                       points: ["5-Page Corporate Site", "Mobile Optimized", "CMS Ownership (Next.js/WordPress)"],
+                       icon: <Layout className="w-6 h-6 text-indigo-400" />
+                    },
+                    {
+                       title: "Digital Footprint Setup",
+                       value: "Value: RM 800",
+                       desc: "If they can't find you, they can't pay you.",
+                       points: ["Google Maps Verification", "Social Media Prime (FB & Insta)"],
+                       icon: <MapPin className="w-6 h-6 text-red-400" />
+                    },
+                    {
+                       title: "The \"Growth\" Bonus",
+                       value: "Value: RM 500",
+                       desc: "Traffic Analytics Suite & Maintenance.",
+                       points: ["Google Analytics 4 Setup", "1 Month FREE Maintenance"],
+                       icon: <BarChart className="w-6 h-6 text-emerald-400" />
+                    }
+                 ].map((item, i) => (
+                    <div key={i} className="flex gap-6">
+                       <div className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center flex-shrink-0">
+                          {item.icon}
+                       </div>
+                       <div>
+                          <div className="flex items-center gap-3 mb-1">
+                             <h3 className="text-lg font-bold text-slate-900 dark:text-white">{item.title}</h3>
+                             <span className="text-xs font-mono text-slate-500 border border-slate-200 dark:border-slate-800 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-950">{item.value}</span>
+                          </div>
+                          <p className="text-slate-600 dark:text-slate-400 text-sm mb-3">{item.desc}</p>
+                          <ul className="space-y-1">
+                             {item.points.map((p, j) => (
+                                <li key={j} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 font-mono">
+                                   <CheckCircle2 className="w-3 h-3 text-emerald-500" /> {p}
+                                </li>
+                             ))}
+                          </ul>
+                       </div>
+                    </div>
+                 ))}
+              </div>
+
+              {/* Pricing Card */}
+              <div className="relative">
+                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 blur-3xl rounded-[3rem]"></div>
+                 <div className="relative bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 overflow-hidden shadow-2xl dark:shadow-none">
+                    <div className="absolute top-0 right-0 bg-emerald-500 text-black font-bold text-xs px-4 py-2 rounded-bl-2xl uppercase tracking-widest">
+                       Only 5 Spots / Month
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">The "No-Brainer" Offer</h3>
+
+                    {/* Comparison Table */}
+                    <div className="bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 p-6 mb-8">
+                       <div className="grid grid-cols-3 gap-4 text-xs font-mono uppercase tracking-widest border-b border-slate-200 dark:border-slate-800 pb-4 mb-4 text-slate-500">
+                          <div className="col-span-1">Service</div>
+                          <div className="col-span-1 text-center">Agency</div>
+                          <div className="col-span-1 text-right text-emerald-400">Ominos</div>
+                       </div>
+                       {[
+                          { name: "Logo & Branding", agency: "RM 1,500", us: "Included" },
+                          { name: "Corporate Website", agency: "RM 4,500", us: "Included" },
+                          { name: "SEO & Maps Setup", agency: "RM 1,200", us: "Included" },
+                       ].map((row, i) => (
+                          <div key={i} className="grid grid-cols-3 gap-4 text-sm mb-3 last:mb-0">
+                             <div className="col-span-1 text-slate-700 dark:text-slate-300 font-bold">{row.name}</div>
+                             <div className="col-span-1 text-center text-red-400 decoration-red-500/50 line-through decoration-2">{row.agency}</div>
+                             <div className="col-span-1 text-right text-emerald-400 font-bold">{row.us}</div>
+                          </div>
+                       ))}
+                       <div className="grid grid-cols-3 gap-4 text-sm pt-4 border-t border-slate-200 dark:border-slate-800 mt-4">
+                          <div className="col-span-1 text-slate-900 dark:text-white font-black">TOTAL</div>
+                          <div className="col-span-1 text-center text-red-400 font-black line-through">RM 7,200</div>
+                          <div className="col-span-1 text-right text-emerald-400 font-black">RM 2,999</div>
+                       </div>
+                    </div>
+
+                    <div className="text-center">
+                       <div className="text-slate-500 dark:text-slate-400 text-sm mb-2 line-through">Total Value: RM 7,200+</div>
+                       <div className="text-5xl font-black text-slate-900 dark:text-white mb-2 tracking-tighter">RM 2,999</div>
+                       <div className="text-emerald-400 font-mono text-xs uppercase tracking-widest mb-8">One-Time Payment</div>
+                       
+                       <div className="flex flex-col gap-4">
+                          <Link to="/contact" className="w-full py-4 bg-indigo-600 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:bg-indigo-700 dark:hover:bg-slate-200 transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                             Claim This Package
+                          </Link>
+                          <Link to="/contact" className="w-full py-4 bg-transparent border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all">
+                             Book a Strategy Call
+                          </Link>
+                       </div>
+                       <p className="text-slate-500 dark:text-slate-500 text-xs mt-6 leading-relaxed">
+                          Why so affordable? We automate the boring stuff. You pay for strategy and speed, not bloated agency hours.
+                       </p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+
         {/* --- MOVING PREVIEW (MARQUEE) (RESTORED) --- */}
-        <section className="w-full overflow-hidden py-12 border-y border-white/5 bg-slate-900/30">
+        <section className="w-full overflow-hidden py-12 border-y border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-slate-900/30">
           <motion.div 
             className="flex gap-24 whitespace-nowrap items-center"
             animate={{ x: [0, -1000] }}
@@ -493,38 +621,38 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="py-32 px-6 max-w-7xl mx-auto border-t border-white/5"
+          className="py-32 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-10">
                <div>
                   <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.4em] mb-4 block">Identity Protocol</span>
-                  <h2 className="text-4xl md:text-6xl font-mono font-black text-white uppercase tracking-tighter leading-none">
+                  <h2 className="text-4xl md:text-6xl font-mono font-black text-slate-900 dark:text-white uppercase tracking-tighter leading-none">
                     Not An Agency.<br/>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">A Digital Foundry.</span>
                   </h2>
                </div>
                
-               <div className="space-y-6 text-lg text-slate-400 leading-relaxed">
+               <div className="space-y-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                   <p>
-                    Most "web designers" are decorators. We are <strong className="text-white">Systems Architects</strong>. 
+                    Most "web designers" are decorators. We are <strong className="text-slate-900 dark:text-white">Systems Architects</strong>. 
                     We don't just make things look good; we engineer them to perform.
                   </p>
                   <p>
-                    From <strong className="text-white">High-Frequency Trading Algorithms</strong> to <strong className="text-white">SEO Dominance Protocols</strong>, 
+                    From <strong className="text-slate-900 dark:text-white">High-Frequency Trading Algorithms</strong> to <strong className="text-slate-900 dark:text-white">SEO Dominance Protocols</strong>, 
                     we bring enterprise-grade engineering to ambitious businesses.
                   </p>
                </div>
 
                {/* --- REBELLION BANNER (STRATEGIC PLACEMENT) --- */}
-               <Link to="/about" className="block bg-green-950/10 border border-green-500/20 p-6 rounded-xl relative overflow-hidden group hover:bg-green-950/20 transition-all">
+               <Link to="/about" className="block bg-green-50 dark:bg-green-950/10 border border-green-500/20 p-6 rounded-xl relative overflow-hidden group hover:bg-green-100 dark:hover:bg-green-950/20 transition-all">
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                        <div className="p-3 bg-green-500/10 rounded-lg text-green-500 group-hover:scale-110 transition-transform">
+                        <div className="p-3 bg-green-100 dark:bg-green-500/10 rounded-lg text-green-600 dark:text-green-500 group-hover:scale-110 transition-transform">
                             <Terminal size={20} />
                         </div>
                         <div>
-                            <div className="text-green-500 font-mono text-[10px] font-bold uppercase tracking-[0.2em] mb-1 animate-pulse">Transmission Incoming</div>
-                            <div className="text-slate-300 font-mono text-xs font-bold uppercase tracking-widest group-hover:text-white transition-colors">
+                            <div className="text-green-600 dark:text-green-500 font-mono text-[10px] font-bold uppercase tracking-[0.2em] mb-1 animate-pulse">Transmission Incoming</div>
+                            <div className="text-slate-700 dark:text-slate-300 font-mono text-xs font-bold uppercase tracking-widest group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                                 We are the glitch in the matrix. Read the Manifesto &rarr;
                             </div>
                         </div>
@@ -533,21 +661,21 @@ const Home = () => {
 
                <div className="flex flex-col sm:flex-row gap-6 pt-4">
                   <div className="flex items-center gap-4">
-                     <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 border border-indigo-500/20">
+                     <div className="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20">
                         <Code2 size={24} />
                      </div>
                      <div>
-                        <h4 className="text-white font-bold font-mono uppercase tracking-wider text-sm">Custom Core</h4>
-                        <p className="text-slate-500 text-xs">No Templates. Pure Code.</p>
+                        <h4 className="text-slate-900 dark:text-white font-bold font-mono uppercase tracking-wider text-sm">Custom Core</h4>
+                        <p className="text-slate-500 dark:text-slate-500 text-xs">No Templates. Pure Code.</p>
                      </div>
                   </div>
                   <div className="flex items-center gap-4">
-                     <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20">
+                     <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
                         <TrendingUp size={24} />
                      </div>
                      <div>
-                        <h4 className="text-white font-bold font-mono uppercase tracking-wider text-sm">Growth Logic</h4>
-                        <p className="text-slate-500 text-xs">Built to Rank & Convert.</p>
+                        <h4 className="text-slate-900 dark:text-white font-bold font-mono uppercase tracking-wider text-sm">Growth Logic</h4>
+                        <p className="text-slate-500 dark:text-slate-500 text-xs">Built to Rank & Convert.</p>
                      </div>
                   </div>
                </div>
@@ -556,9 +684,9 @@ const Home = () => {
         </motion.section>
 
         {/* --- SEO CONTENT BLOCK (Ghost Town Fix) --- */}
-        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-          <h2 className="text-2xl font-bold text-white mb-6">Why Choose Ominos Tech for Your Digital Transformation?</h2>
-          <div className="prose prose-invert max-w-none text-slate-400">
+        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Why Choose Ominos Tech for Your Digital Transformation?</h2>
+          <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
             <p className="mb-4">
               As a premier <strong>Web Design Agency in Malaysia</strong>, Ominos Tech is dedicated to helping local SMEs and startups in <strong>Kuala Lumpur, Selangor, and Balakong</strong> thrive in the digital economy. We don't just build websites; we engineer digital assets that drive sales and improve operational efficiency.
             </p>
@@ -573,22 +701,22 @@ const Home = () => {
 
         {/* --- AEO FAQ SECTION (VOICE SEARCH) --- */}
         <section className="py-24 px-6 max-w-4xl mx-auto">
-           <h2 className="text-3xl font-bold text-white mb-12 text-center">Frequently Asked Questions</h2>
+           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Frequently Asked Questions</h2>
            <div className="space-y-4">
               {[
                  { q: "Who is the best SEO expert for fast rankings in Malaysia?", a: "Ominos Tech has a verified track record of achieving Rank #1 on Google in just 17 days for competitive industrial keywords in Malaysia." },
                  { q: "Can you build a website for an individual or small startup?", a: "Yes. Ominos Tech serves everyone from individual entrepreneurs to large manufacturers. We build custom digital solutions tailored to your specific budget and goals." }
               ].map((item, i) => (
-                 <div key={i} className="border border-white/10 rounded-2xl bg-slate-900/30 overflow-hidden">
+                 <div key={i} className="border border-slate-200 dark:border-white/10 rounded-2xl bg-white/50 dark:bg-slate-900/30 overflow-hidden">
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                       className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+                       className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
                     >
-                       <span className="font-bold text-white">{item.q}</span>
+                       <span className="font-bold text-slate-900 dark:text-white">{item.q}</span>
                        {openFaq === i ? <ChevronUp className="text-indigo-400" /> : <ChevronDown className="text-slate-500" />}
                     </button>
                     {openFaq === i && (
-                       <div className="p-6 pt-0 text-slate-400 leading-relaxed border-t border-white/5">
+                       <div className="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-200 dark:border-white/5">
                           {item.a}
                        </div>
                     )}
@@ -598,10 +726,10 @@ const Home = () => {
         </section>
 
         {/* --- TECHNICAL FOOTER --- */}
-        <footer className="py-12 px-6 max-w-7xl mx-auto border-t border-white/5 text-sm text-slate-500">
+        <footer className="py-12 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 text-sm text-slate-500">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h4 className="text-white font-bold mb-4">Ominos Tech Location: Balakong, Selangor, Malaysia</h4>
+              <h4 className="text-slate-900 dark:text-white font-bold mb-4">Ominos Tech Location: Balakong, Selangor, Malaysia</h4>
               <div className="space-y-2">
                 <div className="flex items-start gap-2">
                   <p>Capabilities: Web Development, Mobile Apps, SEO, Digital Transformation.</p>
@@ -626,17 +754,17 @@ const Home = () => {
 };
 
 const AchievementCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
-  <div className="p-8 bg-white/[0.02] backdrop-blur-xl rounded-3xl border border-white/10 hover:border-indigo-500/30 transition-all duration-500 group hover:-translate-y-1">
-    <div className="mb-6 p-4 bg-slate-900 rounded-2xl w-fit border border-white/5 group-hover:border-indigo-500/30 transition-colors">{icon}</div>
-    <h4 className="text-xl font-mono font-bold mb-4 text-slate-100 group-hover:text-indigo-400 transition-colors">{title}</h4>
-    <p className="text-sm text-slate-400 leading-relaxed font-medium">{description}</p>
+  <div className="p-8 bg-white dark:bg-white/[0.02] backdrop-blur-xl rounded-3xl border border-slate-200 dark:border-white/10 hover:border-indigo-500/30 transition-all duration-500 group hover:-translate-y-1 shadow-lg dark:shadow-none">
+    <div className="mb-6 p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl w-fit border border-slate-200 dark:border-white/5 group-hover:border-indigo-500/30 transition-colors">{icon}</div>
+    <h4 className="text-xl font-mono font-bold mb-4 text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{title}</h4>
+    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">{description}</p>
   </div>
 );
 
 const PreviewStat = ({ label, value }: { label: string, value: string }) => (
   <div className="flex flex-col">
     <span className="text-xs font-mono font-black text-slate-500 uppercase tracking-[0.2em] mb-2">{label}</span>
-    <span className="text-2xl font-mono font-black text-white uppercase tracking-tighter">{value}</span>
+    <span className="text-2xl font-mono font-black text-slate-900 dark:text-white uppercase tracking-tighter">{value}</span>
   </div>
 );
 

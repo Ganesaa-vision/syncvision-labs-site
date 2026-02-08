@@ -12,7 +12,7 @@ const ServerSetupView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-slate-500/30">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-slate-500/30 transition-colors duration-300">
       <Helmet>
         <title>Domain, Hosting & Corporate Email Setup | Malaysia</title>
         <meta name="description" content="Professional IT setup for businesses. We register .com.my domains, configure high-speed Cloud Hosting (VPS), and set up Corporate Emails (Google Workspace/Titan)." />
@@ -21,39 +21,39 @@ const ServerSetupView: React.FC = () => {
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-24">
-          <span className="font-mono text-slate-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">IT Infrastructure</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-white mb-8">
+          <span className="font-mono text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">IT Infrastructure</span>
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
             FOUNDATION <span className="text-slate-500">SETUP.</span>
           </h1>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Stop struggling with DNS records and CPanel. We handle the boring but critical "plumbing" of your digital business. Professional, secure, and done right the first time.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-32">
             {/* Domain */}
-            <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-slate-600 transition-all">
+            <div className="p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
                 <Globe className="w-12 h-12 text-blue-400 mb-6" />
-                <h3 className="text-2xl font-bold text-white mb-4">Domain Registration</h3>
-                <p className="text-slate-400 mb-6 text-sm">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Domain Registration</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
                     We register and manage your identity. Whether it's a global <strong>.com</strong> or a local <strong>.com.my</strong> (requires SSM), we handle the paperwork and DNS pointing.
                 </p>
             </div>
 
             {/* Hosting */}
-            <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-slate-600 transition-all">
+            <div className="p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
                 <Cloud className="w-12 h-12 text-indigo-400 mb-6" />
-                <h3 className="text-2xl font-bold text-white mb-4">Cloud Hosting</h3>
-                <p className="text-slate-400 mb-6 text-sm">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Cloud Hosting</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
                     Forget slow shared hosting. We deploy your site on high-performance Cloud VPS (DigitalOcean / AWS) optimized for speed and traffic spikes.
                 </p>
             </div>
 
             {/* Email */}
-            <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-slate-600 transition-all">
+            <div className="p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
                 <Mail className="w-12 h-12 text-yellow-400 mb-6" />
-                <h3 className="text-2xl font-bold text-white mb-4">Corporate Email</h3>
-                <p className="text-slate-400 mb-6 text-sm">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Corporate Email</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
                     Look professional with <strong>name@yourcompany.com</strong>. We set up Google Workspace or Titan Email, ensuring high deliverability and spam protection.
                 </p>
             </div>
@@ -89,17 +89,17 @@ const ServerSetupView: React.FC = () => {
           ]}
         />
 
-        <div className="p-12 bg-slate-900 border border-slate-800 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="p-12 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center gap-6">
-                <div className="p-4 bg-green-500/10 rounded-2xl text-green-500">
+                <div className="p-4 bg-green-100 dark:bg-green-500/10 rounded-2xl text-green-600 dark:text-green-500">
                     <Lock size={32} />
                 </div>
                 <div>
-                    <h4 className="text-xl font-bold text-white">Free SSL Security</h4>
-                    <p className="text-slate-400 text-sm">Included with every setup. The green padlock that Google loves.</p>
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-white">Free SSL Security</h4>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">Included with every setup. The green padlock that Google loves.</p>
                 </div>
             </div>
-            <Link to="/contact" className="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-slate-200 transition-all">
+            <Link to="/contact" className="px-8 py-4 bg-indigo-600 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:bg-indigo-500 dark:hover:bg-slate-200 transition-all">
                 Get Setup Quote
             </Link>
         </div>
