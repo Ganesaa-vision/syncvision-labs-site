@@ -6,6 +6,7 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './views/ScrollToTopButton';
 
 // View Imports
 const HomeView = lazy(() => import('./views/HomeView'));
@@ -38,6 +39,7 @@ function App() {
       <Router>
         <ScrollToTop />
         <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
+          <ScrollToTopButton />
           <Navbar />
           
           <main>

@@ -9,7 +9,7 @@ const Home = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   const schemaData = {
@@ -71,8 +71,8 @@ const Home = () => {
         
         {/* Background Ambient Glow */}
         <div className="fixed inset-0 w-full h-full pointer-events-none">
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500/5 dark:bg-emerald-500/5 rounded-full blur-[120px]" />
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px] transform-gpu" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[120px] transform-gpu" />
         </div>
         
         {/* --- HERO SECTION --- */}
@@ -83,7 +83,7 @@ const Home = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-600 dark:text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)]"
+            className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-600 dark:text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)] will-change-transform"
           >
             <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Globe size={12} /> CORPORATE WEB DESIGN</span>
             <span className="text-slate-500 dark:text-gray-600">|</span>
@@ -93,11 +93,12 @@ const Home = () => {
           </motion.div>
           
           {/* THE H1 TITLE - Optimized for High Volume Keywords */}
+          {/* Switched from scale to y for smoother animation */}
           <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-[1.0]"
+            className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-[1.0] will-change-transform"
           >
             High-Performance Digital Infrastructure <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
@@ -110,7 +111,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl text-xl text-slate-600 dark:text-gray-400 mb-12 leading-relaxed font-light"
+            className="max-w-3xl text-xl text-slate-600 dark:text-gray-400 mb-12 leading-relaxed font-light will-change-transform"
           >
             We don’t just build websites; we engineer Digital Assets that rank, perform, and convert. From custom personal portfolios to complex corporate inventory systems. If you have the vision, Ominos Tech writes the code.
           </motion.p>
@@ -120,7 +121,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col md:flex-row gap-6 w-full md:w-auto"
+            className="flex flex-col md:flex-row gap-6 w-full md:w-auto will-change-transform"
           >
             <Link to="/contact" className="group relative px-8 py-4 bg-indigo-600 dark:bg-indigo text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)]">
               <span className="relative z-10 flex items-center gap-3 font-sans font-bold normal-case tracking-normal">
@@ -141,14 +142,14 @@ const Home = () => {
           className="w-full border-y border-slate-200 dark:border-white/5 bg-white/50 dark:bg-slate-950/50 backdrop-blur-xl overflow-hidden py-6"
         >
              <motion.div 
-                className="flex gap-32 whitespace-nowrap items-center"
+                className="flex gap-32 whitespace-nowrap items-center will-change-transform"
                 animate={{ x: [0, -1000] }}
                 transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
              >
                 {[...Array(8)].map((_, i) => (
                   <div key={i} className="flex gap-32 text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-500 items-center">
                     <span className="flex items-center gap-3">
-                      <TrendingUp size={14} className="text-emerald-500"/> 
+                      <TrendingUp size={14} className="text-purple-500"/> 
                       <span className="text-slate-700 dark:text-slate-300">Rank #1 on Google</span>
                     </span>
                     <span className="flex items-center gap-3">
@@ -156,7 +157,7 @@ const Home = () => {
                       <span className="text-slate-700 dark:text-slate-300">AI Overview Captured</span>
                     </span>
                     <span className="flex items-center gap-3">
-                      <Activity size={14} className="text-emerald-500"/> 
+                      <Activity size={14} className="text-purple-500"/> 
                       <span className="text-slate-700 dark:text-slate-300">420% Lead Increase</span>
                     </span>
                     <span className="flex items-center gap-3">
@@ -192,8 +193,8 @@ const Home = () => {
                     <div>
                         <strong className="text-slate-900 dark:text-white block mb-1">The Verified Record:</strong>
                         <ul className="space-y-2 mt-2">
-                           <li><span className="text-emerald-600 dark:text-emerald-400 font-bold">Rank #1 in 17 Days:</span> "Pre-insulated pipe manufacturer Malaysia"</li>
-                           <li><span className="text-emerald-600 dark:text-emerald-400 font-bold">Top 3 Ranking:</span> "Copper pipe supplier Malaysia"</li>
+                           <li><span className="text-purple-600 dark:text-purple-400 font-bold">Rank #1 in 17 Days:</span> "Pre-insulated pipe manufacturer Malaysia"</li>
+                           <li><span className="text-purple-600 dark:text-purple-400 font-bold">Top 3 Ranking:</span> "Copper pipe supplier Malaysia"</li>
                            <li><span className="text-slate-900 dark:text-white font-bold">Market Dominance:</span> Secured Top 3 positions for 4 major keywords and Top 10 visibility for 10+ secondary search terms.</li>
                         </ul>
                     </div>
@@ -266,7 +267,7 @@ const Home = () => {
                     <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase font-mono">Future Tech</span>
                 </div>
                 <h2 className="text-4xl md:text-6xl font-mono font-black text-slate-900 dark:text-white leading-tight uppercase tracking-tighter">
-                    The Era of <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400">AI Agents.</span>
+                    The Era of <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">AI Agents.</span>
                 </h2>
                 <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
                     We are merging human intent with autonomous technology. The future is not just about browsing; it is about commanding. We build the infrastructure where complex tasks are executed by <strong>AI Agents</strong> simply by your command.
@@ -319,7 +320,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AchievementCard 
-              icon={<TrendingUp className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />}
+              icon={<TrendingUp className="w-6 h-6 text-purple-600 dark:text-purple-400" />}
               title="SEO Rank #1 in 17 Days"
               description="Achieved top ranking in record time. Secured Top 3 for 4 major keywords and Top 10 visibility for 10+ secondary search terms."
             />
@@ -369,22 +370,22 @@ const Home = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/60 to-transparent"></div>
                 <div className="absolute inset-0 flex flex-col justify-center p-10 md:p-20 max-w-4xl">
-                    <span className="text-emerald-400 font-mono text-xs font-black uppercase tracking-[0.4em] mb-6 block">System Architecture</span>
+                    <span className="text-purple-400 font-mono text-xs font-black uppercase tracking-[0.4em] mb-6 block">System Architecture</span>
                     <h2 className="text-3xl md:text-5xl font-mono font-black text-white mb-6 leading-tight">
                         Clean Code. <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Pure Performance.</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Pure Performance.</span>
                     </h2>
                     <p className="text-slate-300 text-lg leading-relaxed max-w-xl mb-8">
                         We don't hide behind builders. We write semantic, high-performance code that Google loves and hackers hate.
                     </p>
                     <div className="flex items-center gap-4">
-                        <div className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-xs font-mono font-bold uppercase tracking-wider">
+                        <div className="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg text-purple-400 text-xs font-mono font-bold uppercase tracking-wider">
                             React / Next.js
                         </div>
                         <div className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400 text-xs font-mono font-bold uppercase tracking-wider">
                             TypeScript
                         </div>
-                        <div className="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg text-purple-400 text-xs font-mono font-bold uppercase tracking-wider">
+                        <div className="px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-indigo-400 text-xs font-mono font-bold uppercase tracking-wider">
                             Tailwind
                         </div>
                     </div>
@@ -394,6 +395,7 @@ const Home = () => {
 
         {/* --- SERVICE MATRIX (Internal Linking Structure) --- */}
         <motion.section 
+          id="products"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -467,13 +469,13 @@ const Home = () => {
         {/* --- LAUNCHPAD PACKAGE SECTION (NEW) --- */}
         <section className="py-24 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
            {/* Background Elements */}
-           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none transform-gpu" />
            
            <div className="text-center mb-16 relative z-10">
-              <span className="text-emerald-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The "All-In-One" Launchpad</span>
+              <span className="text-purple-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The "All-In-One" Launchpad</span>
               <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">
                  The "Zero to Hero" Launchpad <br/>
-                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Stop Dreaming. Start Selling.</span>
+                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Stop Dreaming. Start Selling.</span>
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
                  Your Entire Business Setup, Done in 7 Days. Don't pay RM 10,000 for a logo and a website. We use AI-driven workflows to cut the cost by 70%, giving you a Fortune 500 look on a startup budget.
@@ -510,7 +512,7 @@ const Home = () => {
                        value: "Value: RM 500",
                        desc: "Traffic Analytics Suite & Maintenance.",
                        points: ["Google Analytics 4 Setup", "1 Month FREE Maintenance"],
-                       icon: <BarChart className="w-6 h-6 text-emerald-400" />
+                       icon: <BarChart className="w-6 h-6 text-purple-400" />
                     }
                  ].map((item, i) => (
                     <div key={i} className="flex gap-6">
@@ -526,7 +528,7 @@ const Home = () => {
                           <ul className="space-y-1">
                              {item.points.map((p, j) => (
                                 <li key={j} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 font-mono">
-                                   <CheckCircle2 className="w-3 h-3 text-emerald-500" /> {p}
+                                   <CheckCircle2 className="w-3 h-3 text-purple-500" /> {p}
                                 </li>
                              ))}
                           </ul>
@@ -537,9 +539,9 @@ const Home = () => {
 
               {/* Pricing Card */}
               <div className="relative">
-                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 blur-3xl rounded-[3rem]"></div>
+                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 blur-3xl rounded-[3rem] transform-gpu"></div>
                  <div className="relative bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 overflow-hidden shadow-2xl dark:shadow-none">
-                    <div className="absolute top-0 right-0 bg-emerald-500 text-black font-bold text-xs px-4 py-2 rounded-bl-2xl uppercase tracking-widest">
+                    <div className="absolute top-0 right-0 bg-purple-500 text-black font-bold text-xs px-4 py-2 rounded-bl-2xl uppercase tracking-widest">
                        Only 5 Spots / Month
                     </div>
                     
@@ -550,7 +552,7 @@ const Home = () => {
                        <div className="grid grid-cols-3 gap-4 text-xs font-mono uppercase tracking-widest border-b border-slate-200 dark:border-slate-800 pb-4 mb-4 text-slate-500">
                           <div className="col-span-1">Service</div>
                           <div className="col-span-1 text-center">Agency</div>
-                          <div className="col-span-1 text-right text-emerald-400">Ominos</div>
+                          <div className="col-span-1 text-right text-purple-400">Ominos</div>
                        </div>
                        {[
                           { name: "Logo & Branding", agency: "RM 1,500", us: "Included" },
@@ -560,20 +562,20 @@ const Home = () => {
                           <div key={i} className="grid grid-cols-3 gap-4 text-sm mb-3 last:mb-0">
                              <div className="col-span-1 text-slate-700 dark:text-slate-300 font-bold">{row.name}</div>
                              <div className="col-span-1 text-center text-red-400 decoration-red-500/50 line-through decoration-2">{row.agency}</div>
-                             <div className="col-span-1 text-right text-emerald-400 font-bold">{row.us}</div>
+                             <div className="col-span-1 text-right text-purple-400 font-bold">{row.us}</div>
                           </div>
                        ))}
                        <div className="grid grid-cols-3 gap-4 text-sm pt-4 border-t border-slate-200 dark:border-slate-800 mt-4">
                           <div className="col-span-1 text-slate-900 dark:text-white font-black">TOTAL</div>
                           <div className="col-span-1 text-center text-red-400 font-black line-through">RM 7,200</div>
-                          <div className="col-span-1 text-right text-emerald-400 font-black">RM 2,999</div>
+                          <div className="col-span-1 text-right text-purple-400 font-black">RM 2,999</div>
                        </div>
                     </div>
 
                     <div className="text-center">
                        <div className="text-slate-500 dark:text-slate-400 text-sm mb-2 line-through">Total Value: RM 7,200+</div>
                        <div className="text-5xl font-black text-slate-900 dark:text-white mb-2 tracking-tighter">RM 2,999</div>
-                       <div className="text-emerald-400 font-mono text-xs uppercase tracking-widest mb-8">One-Time Payment</div>
+                       <div className="text-purple-400 font-mono text-xs uppercase tracking-widest mb-8">One-Time Payment</div>
                        
                        <div className="flex flex-col gap-4">
                           <Link to="/contact" className="w-full py-4 bg-indigo-600 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:bg-indigo-700 dark:hover:bg-slate-200 transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
@@ -595,7 +597,7 @@ const Home = () => {
         {/* --- MOVING PREVIEW (MARQUEE) (RESTORED) --- */}
         <section className="w-full overflow-hidden py-12 border-y border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-slate-900/30">
           <motion.div 
-            className="flex gap-24 whitespace-nowrap items-center"
+            className="flex gap-24 whitespace-nowrap items-center will-change-transform"
             animate={{ x: [0, -1000] }}
             transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
           >
@@ -670,7 +672,7 @@ const Home = () => {
                      </div>
                   </div>
                   <div className="flex items-center gap-4">
-                     <div className="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
+                     <div className="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-500/20">
                         <TrendingUp size={24} />
                      </div>
                      <div>

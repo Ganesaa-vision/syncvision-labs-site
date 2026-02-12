@@ -27,7 +27,7 @@ const About: React.FC = () => {
             </div>
             <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-8 leading-[0.9]">
               WE ARE THE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-purple-500">
                 ARCHITECTS.
               </span>
             </h1>
@@ -81,7 +81,7 @@ const About: React.FC = () => {
 
         {/* === NEW SECTION: THE COLLECTIVE === */}
         <div className="mb-32 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-purple-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
             <div className="relative bg-[#0f0f0f] border border-white/10 rounded-[2rem] p-12 md:p-20 overflow-hidden">
                 <div className="absolute top-0 right-0 p-20 opacity-[0.03] text-indigo-500 pointer-events-none">
                     <BrainCircuit size={400} />
@@ -92,7 +92,7 @@ const About: React.FC = () => {
                     
                     <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-10 uppercase leading-none">
                         Enterprise Engineering. <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Student Rates.</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Student Rates.</span>
                     </h2>
 
                     <blockquote className="text-2xl md:text-3xl text-slate-200 font-medium leading-relaxed italic mb-12 border-l-4 border-indigo-500 pl-8">
@@ -110,7 +110,7 @@ const About: React.FC = () => {
                         <div className="px-6 py-3 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-400 text-xs font-bold uppercase tracking-widest">
                             Startup Founders
                         </div>
-                        <div className="px-6 py-3 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400 text-xs font-bold uppercase tracking-widest">
+                        <div className="px-6 py-3 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-xs font-bold uppercase tracking-widest">
                             Portfolio Focused
                         </div>
                     </div>

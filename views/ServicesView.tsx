@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -6,7 +6,7 @@ import {
   Bot, BarChart, HardDrive, ArrowRight, ShieldCheck,
   MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp
 } from 'lucide-react'; 
-import { motion } from 'framer-motion';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 // === MASTER STRATEGY: MALAYSIA SEO & GEO ===
 // Keywords Targeted: "SME Web Design", "FPX Payment", "WhatsApp Bot", "Google Maps Ranking"
@@ -81,8 +81,11 @@ const ServicesView: React.FC = () => {
   const { pathname } = useLocation();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    if (window.history.scrollRestoration) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   const containerVariants = {
@@ -114,6 +117,7 @@ const ServicesView: React.FC = () => {
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
       
       {/* === ULTIMATE SEO HEAD === */}
@@ -132,14 +136,14 @@ const ServicesView: React.FC = () => {
 
       {/* Background Ambient Glow */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[120px]" />
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu" />
       </div>
 
       <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
 
         {/* HERO SECTION */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -150,19 +154,19 @@ const ServicesView: React.FC = () => {
             <span className="text-indigo-600 dark:text-indigo-300 text-xs font-bold tracking-wider uppercase">Engineered in Malaysia</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 text-slate-900 dark:text-white leading-tight">
+          <h1 className="text-4xl md:text-7xl font-black font-mono tracking-tighter mb-6 text-slate-900 dark:text-white leading-none">
             Complete Digital Infrastructure <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
               for Malaysian Businesses
             </span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             From custom Next.js engineering to rapid WordPress deployment. We provide the exact technical solutions your business needs to scale in the digital economy.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* TRUST SIGNALS / CASE STUDY */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -193,17 +197,17 @@ const ServicesView: React.FC = () => {
                <div className="text-2xl font-bold text-slate-600 tracking-widest uppercase">Allied Group</div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* SERVICES GRID */}
-        <motion.div 
+        <m.div 
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service) => (
-            <motion.div key={service.id} variants={itemVariants} className="h-full">
+            <m.div key={service.id} variants={itemVariants} className="h-full">
             <Link 
               to={service.link} 
               className="group relative bg-white dark:bg-white/[0.02] backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full"
@@ -239,9 +243,9 @@ const ServicesView: React.FC = () => {
               </div>
 
             </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* BOTTOM CTA */}
         <div className="mt-24 text-center">
@@ -319,6 +323,7 @@ const ServicesView: React.FC = () => {
 
       </div>
     </div>
+    </LazyMotion>
   );
 };
 

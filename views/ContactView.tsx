@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { CheckCircle2, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
@@ -7,8 +7,8 @@ const ContactView: React.FC = () => {
   const [sent, setSent] = useState(false);
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return (
@@ -22,7 +22,7 @@ const ContactView: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="mb-24">
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-sm font-black uppercase tracking-[1em] mb-8 block">Communication Protocol</span>
-          <h2 className="text-4xl md:text-8xl font-mono font-black text-slate-900 dark:text-slate-100 tracking-tighter uppercase leading-none">LET'S <span className="text-indigo-600 dark:text-indigo-400 italic">BUILD.</span></h2>
+          <h2 className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-none uppercase">LET'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 italic">BUILD.</span></h2>
           <p className="mt-12 text-slate-700 dark:text-slate-200 font-mono text-lg md:text-xl max-w-4xl uppercase tracking-[0.2em] font-black leading-relaxed border-l-4 border-indigo pl-8">
             Select your mission objective. Validated requests receive engineering protocols within 12 hours.
           </p>

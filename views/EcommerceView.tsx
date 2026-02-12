@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ShoppingBag, CreditCard, Truck, ArrowRight, CheckCircle2, X, Check, Zap, Globe, ShieldCheck } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 
 const EcommerceView: React.FC = () => {
-  const { pathname } = useLocation();
   const [monthlySales, setMonthlySales] = useState(10000);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   const shopifyMonthly = 150; 
   const shopifyTransFee = 0.025; 

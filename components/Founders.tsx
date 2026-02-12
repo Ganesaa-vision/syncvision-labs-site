@@ -29,8 +29,8 @@ const Founders: React.FC = () => {
     <section className="mb-32 relative">
       <div className="text-center mb-20">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-          Built by <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Engineers</span>, <br />
-          Driven by <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Strategy</span>.
+          Built by <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Engineers</span>, <br />
+          Driven by <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Strategy</span>.
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
           We are not just developers; we are your technical partners. 

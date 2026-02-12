@@ -1,40 +1,32 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { TrendingUp, MapPin, Search, BarChart, ArrowRight, FileText, Trophy, Target, Bot, Cpu, CheckCircle2 } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
-import { motion } from 'framer-motion';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const SeoServiceView: React.FC = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-emerald-500/30 relative overflow-hidden transition-colors duration-300">
+
       <Helmet>
         <title>SEO Services | Rank #1 in Malaysia - SyncVision Labs</title>
         <meta name="description" content="Affordable SEO Packages in Malaysia. From Local SEO (RM 399) to National Dominance. We optimize Google Maps, fix technical errors, and write content that ranks." />
         <meta name="keywords" content="SEO Malaysia Price, Local SEO Package, Google Maps Ranking, SEO Audit Malaysia, Backlink Service" />
       </Helmet>
 
-      {/* Background Ambient Glow */}
-      <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
-      </div>
-
       <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         
         {/* HERO SECTION */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-24"
         >
+
           <span className="font-mono text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
           <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-6">
             RANK <span className="text-emerald-500">#1.</span>
@@ -42,20 +34,18 @@ const SeoServiceView: React.FC = () => {
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We don't just target keywords; we target <strong>Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
           </p>
-        </motion.div>
+        </m.div>
 
         {/* === NEW: ACHIEVEMENTS SECTION === */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="mb-32 relative"
         >
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none"></div>
             
-            <div className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-[3rem] p-6 md:p-16 overflow-hidden shadow-2xl">
+            <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[3rem] p-6 md:p-16 overflow-hidden shadow-2xl">
                 {/* Decorative Grid Background */}
                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
                 <div className="absolute inset-0 bg-grid-slate-900/[0.05] dark:bg-grid-white/[0.02]"></div>
@@ -144,7 +134,7 @@ const SeoServiceView: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </m.div>
 
         {/* === NEW: TRI-ENGINE EXPLANATION === */}
         <div className="mb-40">
@@ -158,7 +148,7 @@ const SeoServiceView: React.FC = () => {
                 </p>
             </div>
 
-            <motion.div 
+            <m.div 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -224,7 +214,7 @@ const SeoServiceView: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </m.div>
         </div>
 
         {/* PRICING */}
@@ -285,6 +275,7 @@ const SeoServiceView: React.FC = () => {
 
       </div>
     </div>
+    </LazyMotion>
   );
 };
 

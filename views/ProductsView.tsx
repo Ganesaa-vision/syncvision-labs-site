@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation, Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
@@ -7,8 +7,8 @@ import { Terminal, Activity, ArrowRight } from 'lucide-react';
 const ProductsView: React.FC = () => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return (
@@ -19,10 +19,12 @@ const ProductsView: React.FC = () => {
       </Helmet>
 
       <div className="max-w-7xl mx-auto">
-        <div className="mb-24">
-          <span className="font-mono text-indigo-600 dark:text-interstellar text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Internal R&D Labs</span>
-          <h2 className="text-4xl md:text-7xl font-mono font-black text-slate-900 dark:text-slate-100 tracking-tighter uppercase leading-none">IN-HOUSE <br/><span className="text-interstellar italic">INNOVATION.</span></h2>
-          <p className="mt-8 text-slate-600 dark:text-slate-200 font-mono text-sm md:text-base max-w-2xl uppercase tracking-widest leading-relaxed font-bold">
+        <div className="mb-24 text-center">
+          <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Internal R&D Labs</span>
+          <h1 className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white tracking-tighter uppercase leading-none">
+            IN-HOUSE <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 italic">INNOVATION.</span>
+          </h1>
+          <p className="mt-8 text-slate-600 dark:text-slate-200 font-mono text-sm md:text-base max-w-2xl mx-auto uppercase tracking-widest leading-relaxed font-bold">
             These are our high-logic internal systems. Proof of our architectural engineering capability.
           </p>
         </div>

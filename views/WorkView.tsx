@@ -1,20 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   ArrowUpRight, Factory, BrainCircuit, HeartPulse, 
   Cpu, GitBranch, Terminal, Globe, Lock, TrendingUp, MessageSquare, ShoppingCart
 } from 'lucide-react'; 
-import { motion } from 'framer-motion';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const Work: React.FC = () => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden transition-colors duration-300">
       
       {/* === SEO & GEO STRATEGY === */}
@@ -34,7 +35,7 @@ const Work: React.FC = () => {
       <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20">
 
         {/* === HERO SECTION === */}
-        <motion.section 
+        <m.section 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -44,9 +45,9 @@ const Work: React.FC = () => {
             <GitBranch className="w-3 h-3" />
             DEPLOYMENT LOG: 2024-2025
           </div>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-7xl font-black font-mono tracking-tighter text-slate-900 dark:text-white mb-6 leading-none">
             ENGINEERED <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
               REALITY.
             </span>
           </h1>
@@ -54,10 +55,10 @@ const Work: React.FC = () => {
             We don't just design websites; we architect digital ecosystems. 
             From <span className="text-slate-900 dark:text-white">Industrial Manufacturing</span> to <span className="text-slate-900 dark:text-white">Healthcare Operations</span>.
           </p>
-        </motion.section>
+        </m.section>
 
         {/* === SECTION 1: CLIENT CASE STUDY (THE PIPE MANUFACTURER) === */}
-        <motion.section 
+        <m.section 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -178,10 +179,10 @@ const Work: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </m.section>
 
         {/* === SECTION 2: INTERNAL INNOVATION (R&D) === */}
-        <motion.section 
+        <m.section 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -279,10 +280,10 @@ const Work: React.FC = () => {
             </div>
 
           </div>
-        </motion.section>
+        </m.section>
 
         {/* === SECTION 3: THE "HOW WE BUILD" PROTOCOL === */}
-        <motion.section 
+        <m.section 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -314,7 +315,7 @@ const Work: React.FC = () => {
               ))}
             </div>
           </div>
-        </motion.section>
+        </m.section>
 
         {/* === CTA SECTION === */}
         <section className="px-6 max-w-4xl mx-auto text-center">
@@ -333,6 +334,7 @@ const Work: React.FC = () => {
 
       </div>
     </div>
+    </LazyMotion>
   );
 };
 

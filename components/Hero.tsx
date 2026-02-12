@@ -4,6 +4,7 @@
 */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -13,7 +14,8 @@ const Hero: React.FC = () => {
       const headerOffset = 85;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      // Changed behavior to 'auto' for instant jump, solving the "lagging while scrolling up" issue
+      window.scrollTo({ top: offsetPosition, behavior: "auto" });
       try { window.history.pushState(null, '', `#${targetId}`); } catch (err) {}
     }
   };
@@ -52,13 +54,12 @@ const Hero: React.FC = () => {
           >
             Explore Services
           </a>
-          <a 
-            href="#about" 
-            onClick={(e) => handleNavClick(e, 'about')}
+          <Link 
+            to="/about" 
             className="w-full sm:w-auto px-10 py-4 bg-white/5 border border-white/10 text-white rounded-lg text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all"
           >
             Learn Philosophy
-          </a>
+          </Link>
         </div>
       </div>
 

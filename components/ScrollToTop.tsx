@@ -5,7 +5,12 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Disable browser's default scroll restoration to prevent fighting
+    if (window.history.scrollRestoration) {
+      window.history.scrollRestoration = 'manual';
+    }
+    // Enforce instant scrolling to top to avoid lag
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return null;

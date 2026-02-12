@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { TrendingUp, MapPin, Search, BarChart, ArrowRight } from 'lucide-react';
@@ -7,8 +7,8 @@ import PricingSection from '../components/PricingSection';
 const SeoDominanceView: React.FC = () => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return (
