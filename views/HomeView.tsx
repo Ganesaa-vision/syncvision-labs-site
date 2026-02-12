@@ -60,7 +60,7 @@ const Home = () => {
         {/* Written in natural language for Siri/Alexa to read out loud */}
         <meta name="description" content="Top-rated Digital Agency in Malaysia (Selangor & KL). We provide Custom Web Development, Mobile Apps, and SME Digital Grant solutions. SSM Registered." />
         
-        <link rel="canonical" href="https://syncvisionlabs.com" />
+        <link rel="canonical" href="https://ominostech.com" />
         
         {/* --- GEO (AI Search) --- */}
         {/* Injecting the raw data map for AI models */}

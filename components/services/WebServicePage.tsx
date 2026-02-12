@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Database, Globe, Zap } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 const WebServicePage = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
   const cardVariants = {
     offscreen: { y: 50, opacity: 0 },
     onscreen: { y: 0, opacity: 1, transition: { type: "spring", bounce: 0.4, duration: 1 } }
   };
 
   return (
-    <div className="bg-obsidian text-slate-100 py-32 px-6">
+    <>
+      <Helmet>
+        <title>Web Infrastructure & Architecture | Ominos Tech</title>
+        <meta name="description" content="Custom Web Development and Infrastructure engineering. We build assets you own, with full source code delivery and high-performance architecture." />
+        <link rel="canonical" href="https://ominostech.com/services/web-architecture" />
+      </Helmet>
+      <div className="bg-obsidian text-slate-100 py-32 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Top Half: Big text on the left, 3D/Abstract image on the right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
@@ -72,6 +86,7 @@ const WebServicePage = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 
