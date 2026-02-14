@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 // Component Imports
-import Navbar from './components/Navbar';
+import { Navbar } from './views/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './views/ScrollToTopButton';
