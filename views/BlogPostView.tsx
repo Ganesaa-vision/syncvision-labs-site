@@ -1,0 +1,331 @@
+import React, { useLayoutEffect, useState, useEffect } from 'react';
+import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Facebook, Mail, List, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { BLOG_POSTS } from './BlogView';
+
+const BlogPostView: React.FC = () => {
+  const { slug } = useParams();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  const [showShareBar, setShowShareBar] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  
+  const post = BLOG_POSTS.find(p => p.slug === slug);
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+        const shouldShow = window.scrollY > 500;
+        setShowShareBar(prev => prev !== shouldShow ? shouldShow : prev);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!post) {
+      return (
+          <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-white">
+              <div className="text-center">
+                  <h1 className="text-4xl font-bold mb-4">404</h1>
+                  <p className="mb-8 text-slate-500">Article not found.</p>
+                  <Link to="/blog" className="px-6 py-3 bg-indigo-600 text-white rounded-full font-bold hover:bg-indigo-700 transition-colors">
+                      Back to Insights
+                  </Link>
+              </div>
+          </div>
+      );
+  }
+
+  // Mock content generation (In a real app, this would come from the CMS)
+  const MockContent = () => (
+      <div className="space-y-8 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose">
+              {post.excerpt} This article explores the fundamental shifts in the digital landscape and how Malaysian businesses can adapt to survive and thrive.
+          </p>
+          <p>
+              In the rapidly evolving world of digital technology, standing still is equivalent to moving backward. We are seeing a massive migration from traditional static web pages to dynamic, AI-driven ecosystems.
+          </p>
+          
+          <h2 id="strategic-advantage" className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-32">The Strategic Advantage</h2>
+          <p>
+              Why do some businesses explode overnight while others struggle to get a single lead? The answer often lies in their <strong>Digital Infrastructure</strong>.
+          </p>
+          <ul className="list-disc pl-6 space-y-4 my-8 marker:text-indigo-500">
+              <li><strong>Speed is Currency:</strong> Google's Core Web Vitals update has made speed a ranking factor. If your site takes more than 3 seconds to load, you are losing 40% of your traffic instantly.</li>
+              <li><strong>AI is the New UI:</strong> Chatbots are no longer clunky scripts. They are intelligent agents capable of closing deals.</li>
+              <li><strong>Data Sovereignty:</strong> Owning your platform means owning your customer data. Relying solely on social media is building a house on rented land.</li>
+          </ul>
+
+          <div className="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 p-8 my-12 rounded-r-2xl">
+              <p className="italic text-slate-700 dark:text-slate-200 font-medium text-xl">
+                  "The future of digital is not just about being online, it's about being dominant. It's about engineering a system that works while you sleep."
+              </p>
+          </div>
+
+          <h2 id="engineering-growth" className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-32">Engineering for Growth</h2>
+          <p>
+              At Ominos Tech, we don't just write code; we engineer outcomes. Whether it's through Programmatic SEO to capture thousands of keywords or bespoke Next.js applications for instant interactivity, our goal is simple: <strong>Market Dominance</strong>.
+          </p>
+          <p>
+              The businesses that will win in 2025 are those that treat their digital presence as a high-performance asset, not a digital brochure.
+          </p>
+      </div>
+  );
+
+  const tableOfContents = [
+      { id: "strategic-advantage", title: "The Strategic Advantage" },
+      { id: "engineering-growth", title: "Engineering for Growth" }
+  ];
+
+  const relatedPosts = BLOG_POSTS.filter(p => p.id !== post.id).slice(0, 2);
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": post.image,
+    "author": {
+      "@type": "Person",
+      "name": post.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ominos Tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ominostech.com/logo.png"
+      }
+    },
+    "datePublished": "2024-10-12", // In a real app, use post.date
+    "description": post.excerpt,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://ominostech.com/blog/${post.slug}`
+    }
+  };
+
+  return (
+    <LazyMotion features={domAnimation}>
+        <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
+            <Helmet>
+                <title>{post.title} | Ominos Tech Insights</title>
+                <meta name="description" content={post.excerpt} />
+                <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+            </Helmet>
+
+            {/* Progress Bar could go here */}
+
+            <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+                {/* Breadcrumbs (SEO Structure) */}
+                <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-500 mb-8">
+                    <Link to="/" className="hover:text-indigo-500 transition-colors">Home</Link>
+                    <ChevronRight size={12} />
+                    <Link to="/blog" className="hover:text-indigo-500 transition-colors">Insights</Link>
+                    <ChevronRight size={12} />
+                    <span className="text-slate-900 dark:text-white truncate max-w-[200px]">{post.title}</span>
+                </nav>
+
+                <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-12 group">
+                    <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Insights
+                </Link>
+
+                <m.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-12"
+                >
+                    <div className="lg:col-span-8">
+                        {/* Meta Tags */}
+                        <div className="flex flex-wrap gap-4 mb-8 text-xs font-mono font-bold uppercase tracking-widest">
+                            <span className="px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 flex items-center gap-2 border border-indigo-200 dark:border-indigo-500/30">
+                                <Tag size={12} /> {post.category}
+                            </span>
+                            <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center gap-2 border border-slate-200 dark:border-slate-700">
+                                <Clock size={12} /> {post.readTime}
+                            </span>
+                        </div>
+
+                    {/* Title */}
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-10 leading-[1.1] tracking-tight">
+                        {post.title}
+                    </h1>
+
+                    {/* Author Bar */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between border-y border-slate-200 dark:border-white/10 py-6 mb-12 gap-6">
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold shadow-lg">
+                                <User size={20} />
+                            </div>
+                            <div>
+                                <div className="font-bold text-slate-900 dark:text-white text-sm">{post.author}</div>
+                                <div className="text-xs text-slate-500 flex items-center gap-2 mt-1 font-mono">
+                                    <Calendar size={12} /> {post.date}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex gap-2">
+                            <button className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-500 transition-all"><Twitter size={18} /></button>
+                            <button className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-700 transition-all"><Linkedin size={18} /></button>
+                            <button className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 text-slate-400 hover:text-indigo-500 transition-all"><Share2 size={18} /></button>
+                        </div>
+                    </div>
+
+                    {/* Featured Image */}
+                    <div className="aspect-video w-full rounded-[2rem] overflow-hidden mb-16 shadow-2xl border border-slate-200 dark:border-white/10">
+                        <img src={post.image} alt={post.title} className="w-full h-full object-cover" decoding="async" />
+                    </div>
+
+                    {/* Article Content */}
+                    <MockContent />
+
+                    {/* Author Bio (E-E-A-T Signal) */}
+                    <div className="mt-16 p-8 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg flex-shrink-0">
+                            {post.author.charAt(0)}
+                        </div>
+                        <div className="text-center sm:text-left">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About the Author</h3>
+                            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                                {post.author} is a Lead Engineer at Ominos Tech, specializing in high-performance web architecture and AI integration. With over 5 years of experience in the Malaysian digital landscape.
+                            </p>
+                            <div className="flex gap-4 justify-center sm:justify-start">
+                                <a href="#" className="text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider hover:underline">LinkedIn</a>
+                                <a href="#" className="text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider hover:underline">Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* FAQ Section (AEO Boost) */}
+                    <div className="mt-16">
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Frequently Asked Questions</h3>
+                        <div className="space-y-4">
+                            {[
+                                { q: "Why is AEO important for Malaysian businesses?", a: "AEO ensures your business appears in AI-generated answers (like Google's AI Overview), which is becoming the primary way users find information." },
+                                { q: "How does Next.js improve SEO?", a: "Next.js offers Server-Side Rendering (SSR), which provides search crawlers with fully rendered HTML, improving indexability and ranking potential compared to client-side React apps." }
+                            ].map((faq, i) => (
+                                <m.div 
+                                    key={i} 
+                                    className={`border rounded-xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg shadow-indigo-500/10' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:border-indigo-500/30'}`}
+                                >
+                                    <button 
+                                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                                        className="w-full flex items-center justify-between p-4 text-left"
+                                    >
+                                        <span className={`font-bold text-sm md:text-base ${openFaq === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{faq.q}</span>
+                                        {openFaq === i ? <ChevronUp size={16} className="text-indigo-500" /> : <ChevronDown size={16} className="text-slate-500" />}
+                                    </button>
+                                    <AnimatePresence>
+                                        {openFaq === i && (
+                                            <m.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            >
+                                                <div className="p-4 pt-0 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-transparent">
+                                                    <div className="pt-2 border-t border-dashed border-slate-200 dark:border-slate-800">{faq.a}</div>
+                                                </div>
+                                            </m.div>
+                                        )}
+                                    </AnimatePresence>
+                                </m.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Related Posts */}
+                    <div className="mt-24 pt-12 border-t border-slate-200 dark:border-white/10">
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Related Insights</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {relatedPosts.map(related => (
+                                <Link key={related.id} to={`/blog/${related.slug}`} className="group block">
+                                    <div className="aspect-video rounded-2xl overflow-hidden mb-4 border border-slate-200 dark:border-white/10 shadow-sm">
+                                        <img src={related.image} alt={related.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+                                    </div>
+                                    <div className="text-xs font-mono text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider font-bold">{related.category}</div>
+                                    <h4 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-tight">{related.title}</h4>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Newsletter Section */}
+                    <div className="mt-24 p-8 md:p-12 bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-500/20 rounded-3xl text-center">
+                        <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-indigo-600 dark:text-indigo-400">
+                            <Mail size={32} />
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">Join the Inner Circle</h3>
+                        <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-lg mx-auto">
+                            Get the latest engineering insights, SEO strategies, and digital transformation tips delivered straight to your inbox. No fluff, just code and growth.
+                        </p>
+                        <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+                            <input 
+                                type="email" 
+                                placeholder="Enter your email" 
+                                className="flex-1 px-6 py-4 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl outline-none focus:border-indigo-500 transition-colors text-slate-900 dark:text-white"
+                                required
+                            />
+                            <button type="submit" className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-500/20">
+                                Subscribe
+                            </button>
+                        </form>
+                        <p className="text-xs text-slate-500 mt-6">
+                            We respect your privacy. Unsubscribe at any time.
+                        </p>
+                    </div>
+                    </div>
+
+                    {/* Sidebar / Table of Contents */}
+                    <div className="hidden lg:block lg:col-span-4 relative">
+                        <div className="sticky top-32 p-8 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-3xl">
+                            <div className="flex items-center gap-3 mb-6 text-slate-900 dark:text-white font-bold uppercase tracking-widest text-xs">
+                                <List size={16} className="text-indigo-500" /> Table of Contents
+                            </div>
+                            <ul className="space-y-4">
+                                {tableOfContents.map((item) => (
+                                    <li key={item.id}>
+                                        <a href={`#${item.id}`} className="text-sm text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors block border-l-2 border-transparent hover:border-indigo-500 pl-4 -ml-4 py-1">
+                                            {item.title}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                </m.div>
+            </div>
+
+            {/* Floating Share Bar */}
+            <AnimatePresence>
+                {showShareBar && (
+                    <m.div 
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 100 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        className="fixed bottom-10 left-1/2 -translate-x-1/2 z-40 flex items-center gap-2 p-2 pl-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border border-slate-200 dark:border-slate-800 rounded-full shadow-2xl shadow-indigo-500/10"
+                    >
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mr-2">Share</span>
+                        <div className="flex gap-1">
+                            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#1DA1F2] transition-colors"><Twitter size={18} /></button>
+                            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#0A66C2] transition-colors"><Linkedin size={18} /></button>
+                            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#1877F2] transition-colors"><Facebook size={18} /></button>
+                            <div className="w-px h-4 bg-slate-200 dark:bg-slate-700 my-auto mx-1"></div>
+                            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-indigo-500 transition-colors"><Share2 size={18} /></button>
+                        </div>
+                    </m.div>
+                )}
+            </AnimatePresence>
+        </div>
+    </LazyMotion>
+  );
+};
+
+export default BlogPostView;

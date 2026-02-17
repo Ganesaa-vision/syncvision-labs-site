@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, RefreshCw, Server, Activity, ArrowRight, Check, X, HelpCircle, Unlock } from 'lucide-react';
+import { ShieldCheck, RefreshCw, Server, Activity, ArrowRight, Check, X, HelpCircle, Unlock, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 
 const WebManagementView: React.FC = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-cyan-500/30 transition-colors duration-300">
       <Helmet>
         <title>Website Maintenance & DevOps | Security & Updates Malaysia</title>
@@ -145,31 +148,50 @@ const WebManagementView: React.FC = () => {
 
         {/* FAQ SECTION */}
         <div className="mt-32 mb-20">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Frequently Asked Questions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-cyan-500/30 transition-all group shadow-sm dark:shadow-none">
-              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-500/10 rounded-xl flex items-center justify-center mb-6 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform">
-                <HelpCircle size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Can I manage the website myself?</h3>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                Of course! If you choose our WordPress package, you have full control. However, without a maintenance plan, you are responsible for security, backups, and fixing the site if an update breaks it. Our plans are simply peace of mind.
-              </p>
-            </div>
-            <div className="p-8 bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-cyan-500/30 transition-all group shadow-sm dark:shadow-none">
-              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-500/10 rounded-xl flex items-center justify-center mb-6 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform">
-                <Unlock size={24} />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">What happens if I cancel?</h3>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                You can cancel anytime. We will package your website files and database and send them to you to host elsewhere. You own your data, always.
-              </p>
-            </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">Frequently Asked Questions</h2>
+          <div className="max-w-3xl mx-auto space-y-4">
+            {[
+              { q: "Can I manage the website myself?", a: "Of course! If you choose our WordPress package, you have full control. However, without a maintenance plan, you are responsible for security, backups, and fixing the site if an update breaks it. Our plans are simply peace of mind." },
+              { q: "What happens if I cancel?", a: "You can cancel anytime. We will package your website files and database and send them to you to host elsewhere. You own your data, always." },
+              { q: "Do you handle content updates?", a: "Yes. Depending on your plan, we include dedicated hours for content updates (changing text, images, banners) so you don't have to touch the code." }
+            ].map((item, i) => (
+               <m.div 
+                  key={i} 
+                  className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-cyan-500 bg-white dark:bg-slate-900 shadow-lg shadow-cyan-500/10' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 hover:border-cyan-500/30'}`}
+               >
+                  <button 
+                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                     className="w-full flex items-center justify-between p-6 text-left"
+                  >
+                     <span className={`font-bold text-lg ${openFaq === i ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</span>
+                     <div className={`p-2 rounded-full transition-colors ${openFaq === i ? 'bg-cyan-100 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+                        {openFaq === i ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                     </div>
+                  </button>
+                  <AnimatePresence>
+                      {openFaq === i && (
+                         <m.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                         >
+                            <div className="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-transparent">
+                               <div className="pt-4 border-t border-dashed border-slate-200 dark:border-slate-800">
+                                   {item.a}
+                               </div>
+                            </div>
+                         </m.div>
+                      )}
+                  </AnimatePresence>
+               </m.div>
+            ))}
           </div>
         </div>
 
       </div>
     </div>
+    </LazyMotion>
   );
 };
 

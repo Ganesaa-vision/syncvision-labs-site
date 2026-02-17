@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, Sun, Moon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence, LazyMotion, domAnimation, useScroll, useSpring } from 'framer-motion';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,11 +27,21 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(prev => {
+        const next = window.scrollY > 20;
+        return prev !== next ? next : prev;
+      });
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
@@ -42,10 +52,16 @@ export const Navbar = () => {
     { name: 'Services', path: '/services' },
     { name: 'Work', path: '/work' },
     { name: 'About', path: '/about' },
+    { name: 'Blog', path: '/blog' },
   ];
 
   return (
     <>
+      <LazyMotion features={domAnimation}>
+      <m.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 origin-left z-[100]"
+        style={{ scaleX }}
+      />
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
@@ -92,14 +108,14 @@ export const Navbar = () => {
                 className="p-2.5 rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
                 aria-label="Toggle Theme"
             >
-                <motion.div
+                <m.div
                   key={theme}
                   initial={{ rotate: -90, scale: 0 }}
                   animate={{ rotate: 0, scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 >
                   {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-                </motion.div>
+                </m.div>
             </button>
 
             <Link 
@@ -116,14 +132,14 @@ export const Navbar = () => {
                 onClick={toggleTheme}
                 className="p-2 rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-200"
             >
-                <motion.div
+                <m.div
                   key={theme}
                   initial={{ rotate: -90, scale: 0 }}
                   animate={{ rotate: 0, scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 >
                   {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-                </motion.div>
+                </m.div>
             </button>
             <button 
                 className="p-2 text-slate-900 dark:text-white"
@@ -138,16 +154,16 @@ export const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl pt-32 px-6 md:hidden flex flex-col"
+            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 pt-32 px-6 md:hidden flex flex-col"
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link, i) => (
-                <motion.div
+                <m.div
                     key={link.path}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -165,11 +181,11 @@ export const Navbar = () => {
                         location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-500 dark:text-slate-200'
                     }`} />
                     </Link>
-                </motion.div>
+                </m.div>
               ))}
             </div>
             
-            <motion.div 
+            <m.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -182,10 +198,11 @@ export const Navbar = () => {
                 >
                     Start Project
                 </Link>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
+      </LazyMotion>
     </>
   );
 };

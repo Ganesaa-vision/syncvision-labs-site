@@ -1,75 +1,48 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
-
-// Component Imports
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './views/Navbar';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
+import Home from './views/HomeView';
+import ServicesView from './views/ServicesView';
+import Work from './views/WorkView';
+import AboutView from './views/AboutView';
+import ContactView from './views/ContactView';
+import BlogView from './views/BlogView';
+import BlogPostView from './views/BlogPostView';
+import WebArchitectureView from './views/WebArchitectureView';
+import AppEngineeringView from './views/AppEngineeringView';
+import SeoServiceView from './views/SeoServiceView';
+import AutomationView from './views/AutomationView';
+import EcommerceView from './views/EcommerceView';
+import WebManagementView from './views/WebManagementView';
+import ServerSetupView from './views/ServerSetupView';
+import PrivacyView from './views/PrivacyView';
+import TermsView from './views/TermsView';
 import ScrollToTopButton from './views/ScrollToTopButton';
-
-// View Imports
-const HomeView = lazy(() => import('./views/HomeView'));
-const ServicesView = lazy(() => import('./views/ServicesView'));
-const WorkView = lazy(() => import('./views/WorkView'));
-const AboutView = lazy(() => import('./views/AboutView'));
-const ContactView = lazy(() => import('./views/ContactView'));
-const ProductsView = lazy(() => import('./views/ProductsView'));
-const TermsView = lazy(() => import('./views/TermsView'));
-const PrivacyView = lazy(() => import('./views/PrivacyView'));
-
-// Service Page Imports
-const WebArchitecture = lazy(() => import('./views/WebArchitectureView'));
-const SeoService = lazy(() => import('./views/SeoServiceView'));
-const AppEngineering = lazy(() => import('./views/AppEngineeringView'));
-const Automation = lazy(() => import('./views/AutomationView'));
-const Ecommerce = lazy(() => import('./views/EcommerceView'));
-const WebManagement = lazy(() => import('./views/WebManagementView'));
-const ServerSetup = lazy(() => import('./views/ServerSetupView'));
 
 function App() {
   return (
     <HelmetProvider>
-      <Helmet>
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        <link rel="preconnect" href="https://images.pexels.com" />
-        <link rel="preconnect" href="https://grainy-gradients.vercel.app" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
-      </Helmet>
-      <Router>
-        <ScrollToTop />
-        <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
-          <ScrollToTopButton />
-          <Navbar />
-          
-          <main>
-            <Suspense fallback={<div className="min-h-screen bg-slate-950 flex items-center justify-center text-indigo-500 font-mono animate-pulse">INITIALIZING...</div>}>
-              <Routes>
-                {/* Main View Routes */}
-                <Route path="/" element={<HomeView />} />
-                <Route path="/services" element={<ServicesView />} />
-                <Route path="/work" element={<WorkView />} />
-                <Route path="/about" element={<AboutView />} />
-                <Route path="/contact" element={<ContactView />} />
-                <Route path="/products" element={<ProductsView />} />
-                <Route path="/terms" element={<TermsView />} />
-                <Route path="/privacy" element={<PrivacyView />} />
-
-                {/* Service Detail Page Routes */}
-                <Route path="/services/web-architecture" element={<WebArchitecture />} />
-                <Route path="/services/seo-service" element={<SeoService />} />
-                <Route path="/services/app-engineering" element={<AppEngineering />} />
-                <Route path="/services/automation" element={<Automation />} />
-                <Route path="/services/ecommerce" element={<Ecommerce />} />
-                <Route path="/services/web-management" element={<WebManagement />} />
-                <Route path="/services/server-setup" element={<ServerSetup />} />
-              </Routes>
-            </Suspense>
-          </main>
-
-          <Footer />
-        </div>
-      </Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesView />} />
+        <Route path="/services/web-architecture" element={<WebArchitectureView />} />
+        <Route path="/services/app-engineering" element={<AppEngineeringView />} />
+        <Route path="/services/seo-service" element={<SeoServiceView />} />
+        <Route path="/services/automation" element={<AutomationView />} />
+        <Route path="/services/ecommerce" element={<EcommerceView />} />
+        <Route path="/services/web-management" element={<WebManagementView />} />
+        <Route path="/services/server-setup" element={<ServerSetupView />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/about" element={<AboutView />} />
+        <Route path="/contact" element={<ContactView />} />
+        <Route path="/blog" element={<BlogView />} />
+        <Route path="/blog/:slug" element={<BlogPostView />} />
+        <Route path="/privacy" element={<PrivacyView />} />
+        <Route path="/terms" element={<TermsView />} />
+      </Routes>
+      <ScrollToTopButton />
     </HelmetProvider>
   );
 }

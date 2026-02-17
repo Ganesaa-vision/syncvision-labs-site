@@ -6,7 +6,7 @@ import {
   Bot, BarChart, HardDrive, ArrowRight, ShieldCheck,
   MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp
 } from 'lucide-react'; 
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 
 // === MASTER STRATEGY: MALAYSIA SEO & GEO ===
 // Keywords Targeted: "SME Web Design", "FPX Payment", "WhatsApp Bot", "Google Maps Ranking"
@@ -260,24 +260,40 @@ const ServicesView: React.FC = () => {
         </div>
 
         {/* AEO FAQ SECTION */}
-        <div className="mt-24 max-w-4xl mx-auto">
-           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Frequently Asked Questions</h2>
+        <div className="mt-16 md:mt-24 max-w-4xl mx-auto">
+           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-8 md:mb-12 text-center">Frequently Asked Questions</h2>
            <div className="space-y-4">
               {faqs.map((item, i) => (
-                 <div key={i} className="border border-slate-200 dark:border-white/10 rounded-2xl bg-white/50 dark:bg-slate-900/30 overflow-hidden">
+                 <m.div 
+                    key={i} 
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg shadow-indigo-500/10' : 'border-slate-200 dark:border-white/10 bg-white/50 dark:bg-slate-900/30 hover:border-indigo-500/30'}`}
+                 >
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                       className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                       className="w-full flex items-center justify-between p-6 text-left"
                     >
-                       <span className="font-bold text-slate-900 dark:text-white">{item.q}</span>
-                       {openFaq === i ? <ChevronUp className="text-indigo-400" /> : <ChevronDown className="text-slate-500" />}
-                    </button>
-                    {openFaq === i && (
-                       <div className="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-200 dark:border-white/5">
-                          {item.a}
+                       <span className={`font-bold text-lg ${openFaq === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</span>
+                       <div className={`p-2 rounded-full transition-colors ${openFaq === i ? 'bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+                          {openFaq === i ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                        </div>
-                    )}
-                 </div>
+                    </button>
+                    <AnimatePresence>
+                        {openFaq === i && (
+                           <m.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                           >
+                              <div className="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-transparent">
+                                 <div className="pt-4 border-t border-dashed border-slate-200 dark:border-slate-800">
+                                     {item.a}
+                                 </div>
+                              </div>
+                           </m.div>
+                        )}
+                    </AnimatePresence>
+                 </m.div>
               ))}
            </div>
         </div>
