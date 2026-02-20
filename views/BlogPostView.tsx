@@ -1,18 +1,19 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
-import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Facebook, Mail, List, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
-import { BLOG_POSTS } from './BlogView';
+import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Facebook, Mail, ChevronRight, ChevronDown, ChevronUp, Check } from 'lucide-react';
+import { BLOG_POSTS } from '../constants';
+import Footer from '../components/Footer';
 
 const BlogPostView: React.FC = () => {
   const { slug } = useParams();
   const { pathname } = useLocation();
-  const navigate = useNavigate();
   const [showShareBar, setShowShareBar] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [copied, setCopied] = useState(false);
   
-  const post = BLOG_POSTS.find(p => p.slug === slug);
+  const post = BLOG_POSTS?.find(p => p.slug === slug);
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -26,6 +27,14 @@ const BlogPostView: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleCopyLink = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   if (!post) {
       return (
@@ -41,48 +50,7 @@ const BlogPostView: React.FC = () => {
       );
   }
 
-  // Mock content generation (In a real app, this would come from the CMS)
-  const MockContent = () => (
-      <div className="space-y-8 text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          <p className="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose">
-              {post.excerpt} This article explores the fundamental shifts in the digital landscape and how Malaysian businesses can adapt to survive and thrive.
-          </p>
-          <p>
-              In the rapidly evolving world of digital technology, standing still is equivalent to moving backward. We are seeing a massive migration from traditional static web pages to dynamic, AI-driven ecosystems.
-          </p>
-          
-          <h2 id="strategic-advantage" className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-32">The Strategic Advantage</h2>
-          <p>
-              Why do some businesses explode overnight while others struggle to get a single lead? The answer often lies in their <strong>Digital Infrastructure</strong>.
-          </p>
-          <ul className="list-disc pl-6 space-y-4 my-8 marker:text-indigo-500">
-              <li><strong>Speed is Currency:</strong> Google's Core Web Vitals update has made speed a ranking factor. If your site takes more than 3 seconds to load, you are losing 40% of your traffic instantly.</li>
-              <li><strong>AI is the New UI:</strong> Chatbots are no longer clunky scripts. They are intelligent agents capable of closing deals.</li>
-              <li><strong>Data Sovereignty:</strong> Owning your platform means owning your customer data. Relying solely on social media is building a house on rented land.</li>
-          </ul>
-
-          <div className="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 p-8 my-12 rounded-r-2xl">
-              <p className="italic text-slate-700 dark:text-slate-200 font-medium text-xl">
-                  "The future of digital is not just about being online, it's about being dominant. It's about engineering a system that works while you sleep."
-              </p>
-          </div>
-
-          <h2 id="engineering-growth" className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mt-12 mb-6 scroll-mt-32">Engineering for Growth</h2>
-          <p>
-              At Ominos Tech, we don't just write code; we engineer outcomes. Whether it's through Programmatic SEO to capture thousands of keywords or bespoke Next.js applications for instant interactivity, our goal is simple: <strong>Market Dominance</strong>.
-          </p>
-          <p>
-              The businesses that will win in 2025 are those that treat their digital presence as a high-performance asset, not a digital brochure.
-          </p>
-      </div>
-  );
-
-  const tableOfContents = [
-      { id: "strategic-advantage", title: "The Strategic Advantage" },
-      { id: "engineering-growth", title: "Engineering for Growth" }
-  ];
-
-  const relatedPosts = BLOG_POSTS.filter(p => p.id !== post.id).slice(0, 2);
+  const relatedPosts = BLOG_POSTS?.filter(p => p.id !== post.id).slice(0, 2) || [];
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -111,16 +79,37 @@ const BlogPostView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-        <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
+        <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300 relative">
             <Helmet>
                 <title>{post.title} | Ominos Tech Insights</title>
                 <meta name="description" content={post.excerpt} />
-                <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+                
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="article" />
+                <meta property="og:url" content={`https://ominostech.com/blog/${post.slug}`} />
+                <meta property="og:title" content={post.title} />
+                <meta property="og:description" content={post.excerpt} />
+                <meta property="og:image" content={post.image} />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:url" content={`https://ominostech.com/blog/${post.slug}`} />
+                <meta name="twitter:title" content={post.title} />
+                <meta name="twitter:description" content={post.excerpt} />
+                <meta name="twitter:image" content={post.image} />
+
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             </Helmet>
+
+            {/* Background Ambient Glow */}
+            <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
+            </div>
 
             {/* Progress Bar could go here */}
 
-            <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+            <div className="relative z-10 pt-32 pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
                 {/* Breadcrumbs (SEO Structure) */}
                 <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-500 mb-8">
                     <Link to="/" className="hover:text-indigo-500 transition-colors">Home</Link>
@@ -182,7 +171,10 @@ const BlogPostView: React.FC = () => {
                     </div>
 
                     {/* Article Content */}
-                    <MockContent />
+                    <div 
+                        className="space-y-8 text-lg leading-relaxed text-slate-600 dark:text-slate-300"
+                        dangerouslySetInnerHTML={{ __html: post.content || "" }}
+                    />
 
                     {/* Author Bio (E-E-A-T Signal) */}
                     <div className="mt-16 p-8 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
@@ -244,12 +236,33 @@ const BlogPostView: React.FC = () => {
                         <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Related Insights</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {relatedPosts.map(related => (
-                                <Link key={related.id} to={`/blog/${related.slug}`} className="group block">
-                                    <div className="aspect-video rounded-2xl overflow-hidden mb-4 border border-slate-200 dark:border-white/10 shadow-sm">
-                                        <img src={related.image} alt={related.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+                                <Link key={related.id} to={`/blog/${related.slug}`} className="group block h-full bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden hover:border-indigo-500/30 transition-all duration-500 hover:-translate-y-1 shadow-sm dark:shadow-none flex flex-col">
+                                    <div className="aspect-video w-full overflow-hidden relative">
+                                        <img 
+                                            src={related.image} 
+                                            alt={related.title} 
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                        <div className="absolute top-4 left-4">
+                                            <span className="px-3 py-1 bg-white/90 dark:bg-black/60 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider rounded-lg border border-slate-200 dark:border-white/10 text-indigo-600 dark:text-white">
+                                                {related.category}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className="text-xs font-mono text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wider font-bold">{related.category}</div>
-                                    <h4 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-tight">{related.title}</h4>
+                                    <div className="p-8 flex flex-col flex-grow">
+                                        <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-4 font-mono">
+                                            <span className="flex items-center gap-1"><Calendar size={12} /> {related.date}</span>
+                                            <span className="flex items-center gap-1"><Clock size={12} /> {related.readTime}</span>
+                                        </div>
+                                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                            {related.title}
+                                        </h3>
+                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+                                            Read Article <ArrowRight size={16} />
+                                        </span>
+                                    </div>
                                 </Link>
                             ))}
                         </div>
@@ -284,23 +297,20 @@ const BlogPostView: React.FC = () => {
                     {/* Sidebar / Table of Contents */}
                     <div className="hidden lg:block lg:col-span-4 relative">
                         <div className="sticky top-32 p-8 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-3xl">
-                            <div className="flex items-center gap-3 mb-6 text-slate-900 dark:text-white font-bold uppercase tracking-widest text-xs">
-                                <List size={16} className="text-indigo-500" /> Table of Contents
-                            </div>
-                            <ul className="space-y-4">
-                                {tableOfContents.map((item) => (
-                                    <li key={item.id}>
-                                        <a href={`#${item.id}`} className="text-sm text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors block border-l-2 border-transparent hover:border-indigo-500 pl-4 -ml-4 py-1">
-                                            {item.title}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
+                            <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4">Need a System Like This?</h4>
+                            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                                We build high-performance digital assets that rank #1 and convert visitors into customers.
+                            </p>
+                            <Link to="/contact" className="block w-full py-3 bg-indigo-600 text-white text-center font-bold rounded-xl hover:bg-indigo-700 transition-colors">
+                                Start Your Project
+                            </Link>
                         </div>
                     </div>
 
                 </m.div>
             </div>
+
+            <Footer />
 
             {/* Floating Share Bar */}
             <AnimatePresence>
@@ -318,7 +328,12 @@ const BlogPostView: React.FC = () => {
                             <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#0A66C2] transition-colors"><Linkedin size={18} /></button>
                             <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#1877F2] transition-colors"><Facebook size={18} /></button>
                             <div className="w-px h-4 bg-slate-200 dark:bg-slate-700 my-auto mx-1"></div>
-                            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-indigo-500 transition-colors"><Share2 size={18} /></button>
+                            <button 
+                                onClick={handleCopyLink}
+                                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-indigo-500 transition-colors"
+                            >
+                                {copied ? <Check size={18} className="text-green-500" /> : <Share2 size={18} />}
+                            </button>
                         </div>
                     </m.div>
                 )}

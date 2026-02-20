@@ -4,8 +4,9 @@ import { useLocation, Link } from 'react-router-dom';
 import { 
   Code, BrainCircuit, 
   Terminal, Zap, ShieldCheck, Rocket,
-  Target, Users
+  Target, Users, Quote
 } from 'lucide-react';
+import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const AboutView: React.FC = () => {
@@ -36,20 +37,19 @@ const AboutView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="bg-slate-50 dark:bg-[#050505] min-h-screen text-slate-900 dark:text-slate-100 font-sans selection:bg-green-500/30 overflow-x-hidden transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-[#050505] min-h-screen flex flex-col text-slate-900 dark:text-slate-100 font-sans selection:bg-green-500/30 overflow-x-hidden transition-colors duration-300">
       <Helmet>
-        <title>About Us | The Rebellion - SyncVision Labs</title>
+        <title>About Us | The Rebellion - Ominos Tech</title>
         <meta name="description" content="We are the glitch in the matrix. A team of student innovators building the future while agencies bill for meeting hours." />
       </Helmet>
 
       {/* Background Elements */}
       <div className="fixed inset-0 w-full h-full pointer-events-none overflow-hidden">
-          <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[120px]" />
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+          <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[80px] transform-gpu will-change-transform" />
+          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[80px] transform-gpu will-change-transform" />
       </div>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto relative z-10">
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto relative z-10 flex-grow w-full">
 
         {/* HERO SECTION */}
         <m.div 
@@ -71,7 +71,7 @@ const AboutView: React.FC = () => {
           </m.h1>
           
           <m.p variants={itemVariants} className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto">
-            While big agencies are still billing you for 'meeting hours,' we are building the future. <span className="text-slate-900 dark:text-white font-bold">We are SyncVision Labs.</span>
+            While big agencies are still billing you for 'meeting hours,' we are building the future. <span className="text-slate-900 dark:text-white font-bold">We are Ominos Tech.</span>
           </m.p>
         </m.div>
 
@@ -89,7 +89,7 @@ const AboutView: React.FC = () => {
                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6 font-mono uppercase tracking-tight">The Rebellion Against Bloat</h2>
                  <div className="space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                     <p>
-                      <strong className="text-slate-900 dark:text-white">SyncVision Labs wasn't started in a boardroom.</strong> It started in a dorm room at 3 AM, fueled by coffee and code.
+                      <strong className="text-slate-900 dark:text-white">Ominos Tech wasn't started in a boardroom.</strong> It started in a dorm room at 3 AM, fueled by coffee and code.
                     </p>
                     <p>
                       We looked at the Malaysian digital landscape and saw a problem. Traditional agencies were charging RM 15,000 for websites that looked like they were built in 2015. They had fancy offices, expensive coffee machines, and layers of 'account managers'—and you were paying for all of it.
@@ -98,7 +98,7 @@ const AboutView: React.FC = () => {
                       We realized that in the age of AI and modern tech, quality doesn't need to be expensive. It just needs to be smart.
                     </p>
                     <p>
-                       We are a team of Computer Science innovators. We don't have overhead. We don't have 'office hours.' We have obsession. We built SyncVision Labs to prove a point: That a hungry team of innovators with the latest tech can outperform a sluggish corporate giant any day of the week.
+                       We are a team of Computer Science innovators. We don't have overhead. We don't have 'office hours.' We have obsession. We built Ominos Tech to prove a point: That a hungry team of innovators with the latest tech can outperform a sluggish corporate giant any day of the week.
                     </p>
                  </div>
               </div>
@@ -120,7 +120,7 @@ const AboutView: React.FC = () => {
                     </div>
                     <div>
                         <div className="text-slate-900 dark:text-white font-bold text-sm">Ganesaa</div>
-                        <div className="text-slate-500 text-xs uppercase tracking-widest">Founder, SyncVision Labs</div>
+                        <div className="text-slate-500 text-xs uppercase tracking-widest">Founder, Ominos Tech</div>
                     </div>
                  </div>
               </div>
@@ -203,7 +203,8 @@ const AboutView: React.FC = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
-                      className="flex gap-6 p-6 bg-white dark:bg-slate-900/20 border border-slate-200 dark:border-white/5 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-900/40 transition-colors shadow-sm dark:shadow-none"
+                      whileHover={{ scale: 1.02, x: 10 }}
+                      className="flex gap-6 p-6 bg-white dark:bg-slate-900/20 border border-slate-200 dark:border-white/5 rounded-2xl hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 hover:border-indigo-500/30 transition-all shadow-sm dark:shadow-none group"
                     >
                        <div className="text-indigo-500 font-mono font-bold text-xl">0{i+1}</div>
                        <div>
@@ -243,17 +244,112 @@ const AboutView: React.FC = () => {
            </div>
         </div>
 
+        {/* 4. LEADERSHIP CORE */}
+        <div className="mb-40 relative">
+           <div className="text-center mb-24 relative z-10">
+              <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">System Architects</span>
+              <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">
+                THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">CORE.</span>
+              </h2>
+              <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg font-medium">
+                The minds behind the machine. We engineer digital dominance.
+              </p>
+           </div>
+
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto relative z-10">
+              {/* Founder Card */}
+              <m.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="group relative"
+              >
+                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[2.5rem] opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                 <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center text-center overflow-hidden group-hover:border-transparent transition-colors duration-300">
+                    
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px]" />
+                    
+                    <div className="relative w-40 h-40 md:w-48 md:h-48 mb-8">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+                        <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-900 group-hover:from-indigo-500 group-hover:to-purple-500 transition-colors duration-500">
+                            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10">
+                            <img 
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" 
+                                alt="Ganesaa" 
+                                className="w-full h-full object-cover transition-all duration-500"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-2 relative z-10">Ganesaa</h3>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-[10px] font-mono font-bold uppercase tracking-widest mb-8 relative z-10">
+                        <Terminal size={12} /> Lead Architect
+                    </div>
+                    
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium relative z-10">
+                        "We don't just write code; we engineer digital dominance. My vision is to provide Malaysian businesses with Silicon Valley caliber technology."
+                    </p>
+                 </div>
+              </m.div>
+
+              {/* Co-Founder Card */}
+              <m.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="group relative"
+              >
+                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-[2.5rem] opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                 <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center text-center overflow-hidden group-hover:border-transparent transition-colors duration-300">
+                    
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]" />
+                    
+                    <div className="relative w-40 h-40 md:w-48 md:h-48 mb-8">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+                        <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-900 group-hover:from-blue-500 group-hover:to-cyan-500 transition-colors duration-500">
+                            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10">
+                            <img 
+                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop" 
+                                alt="Co-Founder" 
+                                className="w-full h-full object-cover transition-all duration-500"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-2 relative z-10">Co-Founder</h3>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 text-[10px] font-mono font-bold uppercase tracking-widest mb-8 relative z-10">
+                        <Target size={12} /> Strategy Lead
+                    </div>
+                    
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium relative z-10">
+                        "Innovation is not just about new technology, it's about new value. We ensure every system translates directly into operational efficiency."
+                    </p>
+                 </div>
+              </m.div>
+           </div>
+        </div>
+
         {/* 5. PROMISE & CTA */}
         <div className="relative rounded-[3rem] overflow-hidden bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-500/20 p-12 md:p-24 text-center">
-           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+           {/* Removed noise texture for performance */}
            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-indigo-500/10 to-transparent blur-3xl pointer-events-none"></div>
            
            <div className="relative z-10">
-              <h3 className="text-indigo-500 font-mono text-sm font-black uppercase tracking-[0.3em] mb-8">The SyncVision Promise</h3>
+              <h3 className="text-indigo-500 font-mono text-sm font-black uppercase tracking-[0.3em] mb-8">The Ominos Tech Promise</h3>
               
               <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed font-medium">
                 "We are not the cheapest because we cut corners. We are the most affordable because we cut out the nonsense. If you want a team that wears suits and talks about 'synergy,' hire an agency. <br/><br/>
-                <span className="text-slate-900 dark:text-white font-bold">If you want a team that stays up until the job is perfect because we love what we do... Hire SyncVision.</span>"
+                <span className="text-slate-900 dark:text-white font-bold">If you want a team that stays up until the job is perfect because we love what we do... Hire Ominos Tech.</span>"
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -263,8 +359,8 @@ const AboutView: React.FC = () => {
               </div>
            </div>
         </div>
-
       </div>
+      <Footer />
     </div>
     </LazyMotion>
   );

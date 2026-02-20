@@ -6,6 +6,7 @@ import {
   Cpu, GitBranch, Terminal, Globe, Lock, TrendingUp, MessageSquare, ShoppingCart
 } from 'lucide-react'; 
 import { m, LazyMotion, domAnimation } from 'framer-motion';
+import Footer from '../components/Footer';
 
 const Work: React.FC = () => {
   const { pathname } = useLocation();
@@ -16,23 +17,23 @@ const Work: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden transition-colors duration-300">
       
       {/* === SEO & GEO STRATEGY === */}
       {/* Targeted Keywords: "Industrial Web Design", "Clinic Management System", "Productivity App Developer" */}
       <Helmet>
-        <title>Our Work | Industrial & Healthcare Digital Systems - SyncVision Labs</title>
+        <title>Our Work | Industrial & Healthcare Digital Systems - Ominos Tech</title>
         <meta name="description" content="Case Studies: Digital Transformation for Manufacturing (Pipe Industry) and Proprietary Healthcare Software (MediMy). View our engineering portfolio." />
         <meta name="keywords" content="Industrial Web Design Malaysia, Clinic Management System, Flutter App Developer, LifeSync App, Manufacturing Digitalization" />
       </Helmet>
 
       {/* Background Ambient Glow */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-[120px]" />
+          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px] transform-gpu will-change-transform" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-[120px] transform-gpu will-change-transform" />
       </div>
 
-      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20">
+      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 flex-grow w-full">
 
         {/* === HERO SECTION === */}
         <m.section 
@@ -81,7 +82,7 @@ const Work: React.FC = () => {
               {/* LEFT SIDE: VISUAL & BADGES */}
               <div className="min-h-[400px] bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex flex-col justify-end">
                 {/* Background Gradient (Replace with actual screenshot later) */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-200 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900/40 group-hover:scale-105 transition-transform duration-700"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-200 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900/40 group-hover:scale-105 transition-transform duration-700 will-change-transform"></div>
                 
                 {/* Central Icon */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 pointer-events-none">
@@ -190,7 +191,7 @@ const Work: React.FC = () => {
           className="px-6 max-w-7xl mx-auto mb-32"
         >
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">SYNCVISION R&D LABS</h2>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">OMINOS TECH R&D LABS</h2>
             <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
             <span className="text-xs font-mono text-indigo-400 animate-pulse">2 PROJECTS IN DEVELOPMENT</span>
           </div>
@@ -331,8 +332,8 @@ const Work: React.FC = () => {
             </Link>
           </div>
         </section>
-
       </div>
+      <Footer />
     </div>
     </LazyMotion>
   );

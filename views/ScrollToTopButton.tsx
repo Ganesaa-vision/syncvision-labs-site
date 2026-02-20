@@ -30,17 +30,15 @@ const ScrollToTopButton: React.FC = () => {
   };
 
   return (
-    <>
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-[101] p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all animate-fade-in-up"
-          aria-label="Go to top"
-        >
-          <ArrowUp className="h-6 w-6" />
-        </button>
-      )}
-    </>
+    <button
+      onClick={scrollToTop}
+      className={`fixed bottom-8 right-8 z-[101] p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-300 transform will-change-transform ${
+        isVisible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-10 pointer-events-none'
+      }`}
+      aria-label="Go to top"
+    >
+      <ArrowUp className="h-6 w-6" />
+    </button>
   );
 };
 

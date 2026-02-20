@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation, Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
 import { Terminal, Activity, ArrowRight } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const ProductsView: React.FC = () => {
   const { pathname } = useLocation();
@@ -12,13 +13,13 @@ const ProductsView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <section className="py-24 md:py-40 px-6 bg-slate-50 dark:bg-slate-950 min-h-screen relative transition-colors duration-300">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen flex flex-col relative transition-colors duration-300">
       <Helmet>
-        <title>Internal R&D Labs | SyncVision Labs</title>
+        <title>Internal R&D Labs | Ominos Tech</title>
         <meta name="description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto">
+      <section className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24 text-center">
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Internal R&D Labs</span>
           <h1 className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white tracking-tighter uppercase leading-none">
@@ -39,7 +40,7 @@ const ProductsView: React.FC = () => {
                      alt={product.name} 
                      loading="lazy"
                      decoding="async"
-                     className="w-full h-full object-cover brightness-[0.4] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s]"
+                     className="w-full h-full object-cover brightness-[0.4] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s] will-change-[filter,transform]"
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
                    <div className="absolute bottom-10 left-10 flex gap-4">
@@ -79,8 +80,9 @@ const ProductsView: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </div>
   );
 };
 

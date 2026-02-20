@@ -1,26 +1,66 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { Smartphone, Cpu, WifiOff, Layers, ArrowRight } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Smartphone, Cpu, WifiOff, Layers, ArrowRight, Database, Cloud, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import Footer from '../components/Footer';
+import { m, AnimatePresence } from 'framer-motion';
 
 const AppEngineeringView: React.FC = () => {
+  const { pathname } = useLocation();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you build apps for both iOS and Android?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We use Flutter to engineer a single, high-performance codebase that compiles natively to both iOS and Android, reducing development time and cost by 40%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you handle offline data synchronization?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We implement local SQLite databases on the device. When connectivity is restored, our custom sync logic resolves conflicts and pushes data to the cloud (Firebase/Supabase) automatically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the backend secure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We use Row Level Security (RLS) policies in Supabase and Firebase to ensure users can only access their own data, compliant with enterprise security standards."
+        }
+      }
+    ]
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
-        <title>Mobile App Development | iOS & Android Flutter Developer Malaysia</title>
-        <meta name="description" content="We build offline-first mobile apps for iOS and Android using Flutter. Perfect for internal company systems, loyalty apps, and customer portals." />
-        <meta name="keywords" content="Mobile App Developer Malaysia, Flutter Developer KL, iOS Android App, Internal System App, Offline First App" />
+        <title>Mobile App Engineering | Flutter & Supabase Experts Malaysia</title>
+        <meta name="description" content="Enterprise Mobile App Development in Malaysia. We build offline-first iOS & Android apps using Flutter, Firebase, and Supabase for scalable performance." />
+        <meta name="keywords" content="Flutter Developer Malaysia, Mobile App Development Selangor, Supabase Backend, Offline First App, Enterprise Mobile Solutions" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
           <div className="lg:w-1/2">
-            <span className="font-mono text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Mobile Engineering</span>
+            <span className="font-mono text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Enterprise Mobile Engineering</span>
             <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
-              NATIVE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">PERFORMANCE.</span>
+              NATIVE SYSTEMS <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">BUILT IN MALAYSIA.</span>
             </h1>
             <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
               We build "Offline-First" mobile applications that work even when your internet doesn't. Using <strong>Flutter</strong>, we deploy to both the Apple App Store and Google Play Store from a single codebase, saving you 40% in development costs.
@@ -59,6 +99,34 @@ const AppEngineeringView: React.FC = () => {
               We integrate deeply with device hardware: Camera (QR Scanning), GPS (Location Tracking), Bluetooth (IoT), and Biometrics (FaceID).
             </p>
           </div>
+        </div>
+
+        {/* === SEMANTIC DEPTH: BACKEND ARCHITECTURE === */}
+        <div className="mb-32">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Backend Architecture</h2>
+                <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    A pretty UI is useless without a robust backend. Here is our stack.
+                </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="p-8 bg-slate-100 dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+                        <Database className="text-blue-500" /> Real-Time Sync (Firebase/Supabase)
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                        We utilize WebSocket connections via Supabase or Firebase to ensure data is synchronized across all devices in milliseconds. If a field agent updates an order in Balakong, the HQ in KL sees it instantly.
+                    </p>
+                </div>
+                <div className="p-8 bg-slate-100 dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+                        <Cloud className="text-cyan-500" /> Scalable Cloud Functions
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                        We offload heavy logic to serverless Edge Functions. This keeps the mobile app lightweight and battery-efficient while allowing us to process complex data (like image resizing or report generation) in the cloud.
+                    </p>
+                </div>
+            </div>
         </div>
 
         <div className="bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-12 text-center">
@@ -103,7 +171,37 @@ const AppEngineeringView: React.FC = () => {
           ]}
         />
 
+        {/* === AEO FAQ SECTION === */}
+        <div className="mt-32 mb-20 max-w-4xl mx-auto">
+           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Engineering FAQ</h2>
+           <div className="space-y-4">
+              {faqSchema.mainEntity.map((item, i) => (
+                 <div 
+                    key={i} 
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-blue-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
+                 >
+                    <button 
+                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                       className="w-full flex items-center justify-between p-6 text-left"
+                    >
+                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-blue-600 dark:text-blue-400' : 'text-slate-900 dark:text-white'}`}>{item.name}</h3>
+                       {openFaq === i ? <ChevronUp /> : <ChevronDown />}
+                    </button>
+                    <AnimatePresence>
+                        {openFaq === i && (
+                           <m.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}>
+                              <div className="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-dashed border-slate-200 dark:border-slate-800 pt-4">
+                                 {item.acceptedAnswer.text}
+                              </div>
+                           </m.div>
+                        )}
+                    </AnimatePresence>
+                 </div>
+              ))}
+           </div>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

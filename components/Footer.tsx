@@ -1,53 +1,66 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BRAND_NAME, TAGLINE, BRAND_DOMAIN } from '../constants';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 
-const Footer: React.FC = () => {
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-50 dark:bg-titanium pt-32 pb-12 px-6 border-t border-slate-200 dark:border-white/5 font-mono transition-colors duration-300">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
-        
-        <div className="md:col-span-6">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-8 h-8 bg-interstellar rounded flex items-center justify-center font-black text-slate-100 text-xs">V</div>
-            <span className="text-slate-900 dark:text-slate-100 font-bold uppercase tracking-widest text-sm">{BRAND_NAME}</span>
-          </div>
-          <p className="max-w-sm text-slate-600 dark:text-slate-200 text-xs font-black uppercase tracking-widest leading-loose mb-6">
-            {TAGLINE} Engineering the foundations of modern business logic with industrial precision.
-          </p>
-          <p className="text-interstellar font-bold text-[10px] tracking-widest uppercase">{BRAND_DOMAIN}</p>
-        </div>
-
-        <div className="md:col-span-3">
-          <h4 className="text-slate-900 dark:text-slate-100 text-[10px] uppercase font-bold tracking-[0.3em] mb-8">Digital Infrastructure</h4>
-          <ul className="space-y-4 text-[10px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
-            <li><Link to="/" className="hover:text-interstellar transition-colors">System Overview</Link></li>
-            <li><Link to="/services" className="hover:text-interstellar transition-colors">Service Matrix</Link></li>
-            <li><Link to="/work" className="hover:text-interstellar transition-colors">Verified Work</Link></li>
-            <li><Link to="/about" className="hover:text-interstellar transition-colors">Architect Team</Link></li>
-          </ul>
-        </div>
-
-        <div className="md:col-span-3">
-          <h4 className="text-slate-900 dark:text-slate-100 text-[10px] uppercase font-bold tracking-[0.3em] mb-8">System Status</h4>
-          <div className="p-6 bg-white dark:bg-armor/40 border border-slate-200 dark:border-white/5 rounded-[2rem] space-y-4 shadow-inner">
-            <div className="flex justify-between items-center text-[10px] text-slate-500 dark:text-slate-400 font-black tracking-widest">
-              <span>Systems</span>
-              <span className="text-growth uppercase font-bold">Operational</span>
-            </div>
-            <div className="flex justify-between items-center text-[10px] text-slate-500 dark:text-slate-400 font-black tracking-widest">
-              <span>Availability</span>
-              <span className="text-interstellar uppercase font-bold">Open Q1 2026</span>
+    <footer className="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8 transition-colors duration-300 relative z-10">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="col-span-1 md:col-span-2">
+            <Link to="/" className="text-2xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 block">
+              Ominos Tech
+            </Link>
+            <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
+              Strategic Digital Foundry. We engineer high-performance digital assets for Malaysian businesses.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><Facebook size={20} /></a>
+              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><Twitter size={20} /></a>
+              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><Instagram size={20} /></a>
+              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><Linkedin size={20} /></a>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto mt-32 pt-12 border-t border-slate-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.4em] font-black text-slate-500">
-        <p>&copy; 2025 SYNCVISION LABS GLOBAL. ALL SYSTEMS NOMINAL.</p>
-        <div className="flex gap-8 mt-6 md:mt-0">
-          <Link to="/terms" className="hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer transition-colors">Terms_of_Service</Link>
-          <Link to="/privacy" className="hover:text-slate-900 dark:hover:text-slate-100 cursor-pointer transition-colors">Privacy_Policy</Link>
+          <div>
+            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Menu</h4>
+            <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+              <li><Link to="/" className="hover:text-indigo-500 transition-colors">Home</Link></li>
+              <li><Link to="/services" className="hover:text-indigo-500 transition-colors">Services</Link></li>
+              <li><Link to="/work" className="hover:text-indigo-500 transition-colors">Work</Link></li>
+              <li><Link to="/about" className="hover:text-indigo-500 transition-colors">About</Link></li>
+              <li><Link to="/blog" className="hover:text-indigo-500 transition-colors">Blog</Link></li>
+              <li><Link to="/contact" className="hover:text-indigo-500 transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Contact</h4>
+            <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+              <li className="flex items-start gap-3">
+                <MapPin size={16} className="mt-1 text-indigo-500" />
+                <span>Jalan KPB 12, Balakong<br />43300 Seri Kembangan, Selangor</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone size={16} className="text-indigo-500" />
+                <span>+60 12 345 6789</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={16} className="text-indigo-500" />
+                <span>hello@ominostech.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+          <p>&copy; {currentYear} Ominos Tech. All rights reserved.</p>
+          <div className="flex gap-8">
+            <Link to="/privacy" className="hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

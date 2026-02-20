@@ -1,28 +1,68 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { Globe, Code2, ShoppingBag, ShieldCheck, Server, ArrowRight, CheckCircle2, Zap, Layout, Smartphone, Lock, Database, PenTool, Gauge } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Globe, Code2, ShoppingBag, ShieldCheck, Server, ArrowRight, CheckCircle2, Zap, Layout, Smartphone, Lock, Database, PenTool, Gauge, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import Footer from '../components/Footer';
+import { m, AnimatePresence } from 'framer-motion';
 
 const WebArchitectureView: React.FC = () => {
+  const { pathname } = useLocation();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does it take to build a custom React app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a standard enterprise application, our timeline is typically 4-6 weeks. This includes architectural planning, development, and rigorous testing phases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you optimize WordPress sites for speed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We strip bloatware, implement server-side caching (Redis/Varnish), and optimize database queries to ensure sub-2-second load times even for Elementor sites."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you integrate custom payment gateways?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. We write custom PHP logic to integrate local gateways like ToyyibPay, Billplz, and FPX directly into your checkout flow without relying on heavy plugins."
+        }
+      }
+    ]
+  };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
       <Helmet>
-        <title>Web Development | Custom Code & WordPress - SyncVision Labs</title>
-        <meta name="description" content="Choose between rapid WordPress deployment or high-performance Custom Next.js Engineering. We build digital assets that you own 100%." />
-        <meta name="keywords" content="Web Design Malaysia, Custom Website Development, Next.js Developer, WordPress Elementor, E-commerce Malaysia, FPX Payment Integration, Server Management" />
+        <title>Web Architecture & Custom Development | Selangor & Balakong - Ominos Tech</title>
+        <meta name="description" content="Strategic Web Development in Selangor. We engineer high-performance Next.js applications and optimized WordPress systems for Malaysian enterprises." />
+        <meta name="keywords" content="Web Design Balakong, Custom Web Development Selangor, Next.js Developer Malaysia, WordPress Speed Optimization, Enterprise Web Architecture" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
+      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         {/* HERO */}
         <div className="mb-24">
-          <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Digital Assets</span>
+          <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Selangor Digital Infrastructure</span>
           <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
-            WEB <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">DEVELOPMENT.</span>
+            WEB ARCHITECTURE <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">IN SELANGOR.</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
-            We don't just "design" websites. We engineer digital platforms. From proprietary 
+            We don't just "design" websites; we engineer digital foundations for Balakong and Selangor businesses. From proprietary 
             <span className="text-slate-900 dark:text-white font-bold"> React/Next.js</span> web apps to rapid 
             <span className="text-slate-900 dark:text-white font-bold"> WordPress</span> deployments, we build systems that scale with your business.
           </p>
@@ -84,6 +124,34 @@ const WebArchitectureView: React.FC = () => {
                         <p className="text-slate-600 dark:text-slate-400 text-sm">{item.desc}</p>
                     </div>
                 ))}
+            </div>
+        </div>
+
+        {/* === SEMANTIC DEPTH: ARCHITECTURAL PHILOSOPHY === */}
+        <div className="mb-32">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Our Architectural Philosophy</h2>
+                <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    We move beyond basic templates. Here is how we engineer performance.
+                </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="p-8 bg-slate-100 dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+                        <Database className="text-indigo-500" /> Custom Backend Logic
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                        For complex requirements, we write custom PHP or Node.js middleware. Whether it's calculating dynamic shipping rates for East Malaysia or syncing inventory with your local POS system in Balakong, we build the logic from scratch to ensure accuracy and security.
+                    </p>
+                </div>
+                <div className="p-8 bg-slate-100 dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+                        <Zap className="text-yellow-500" /> Elementor Optimization
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                        We love Elementor, but it can be heavy. We mitigate this by stripping unused CSS/JS assets, implementing critical CSS extraction, and using server-level caching (Redis) to achieve sub-2-second load times, satisfying Google's Core Web Vitals.
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -202,14 +270,44 @@ const WebArchitectureView: React.FC = () => {
             </div>
         </div>
 
+        {/* === AEO FAQ SECTION === */}
+        <div className="mb-32 max-w-4xl mx-auto">
+           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Technical FAQ</h2>
+           <div className="space-y-4">
+              {faqSchema.mainEntity.map((item, i) => (
+                 <div 
+                    key={i} 
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
+                 >
+                    <button 
+                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                       className="w-full flex items-center justify-between p-6 text-left"
+                    >
+                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.name}</h3>
+                       {openFaq === i ? <ChevronUp /> : <ChevronDown />}
+                    </button>
+                    <AnimatePresence>
+                        {openFaq === i && (
+                           <m.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}>
+                              <div className="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-dashed border-slate-200 dark:border-slate-800 pt-4">
+                                 {item.acceptedAnswer.text}
+                              </div>
+                           </m.div>
+                        )}
+                    </AnimatePresence>
+                 </div>
+              ))}
+           </div>
+        </div>
+
         {/* CTA */}
         <div className="text-center">
           <Link to="/contact" className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-bold hover:bg-indigo-500 transition-all">
             Start Your Build <ArrowRight size={18} />
           </Link>
         </div>
-
       </div>
+      <Footer />
     </div>
   );
 };

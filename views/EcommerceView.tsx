@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, CreditCard, Truck, ArrowRight, CheckCircle2, X, Check, Zap, Globe, ShieldCheck } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import Footer from '../components/Footer';
 
 const EcommerceView: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
   const [monthlySales, setMonthlySales] = useState(10000);
 
   const shopifyMonthly = 150; 
@@ -124,7 +131,7 @@ const EcommerceView: React.FC = () => {
                         <span className="text-red-600 dark:text-red-400 font-mono font-bold">RM {estimatedLoss.toLocaleString()}<span className="text-xs opacity-70">/mo</span></span>
                     </div>
                     <div className="flex justify-between items-center p-4 bg-green-100 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 rounded-xl">
-                        <span className="text-green-600 dark:text-green-400 font-bold text-sm">SyncVision Fees</span>
+                        <span className="text-green-600 dark:text-green-400 font-bold text-sm">Ominos Tech Fees</span>
                         <span className="text-green-600 dark:text-green-400 font-mono font-bold">RM 0<span className="text-xs opacity-70">/mo</span></span>
                     </div>
                 </div>
@@ -146,7 +153,7 @@ const EcommerceView: React.FC = () => {
                   <th className="p-6 border-b border-slate-200 dark:border-slate-800 text-slate-500 font-mono text-xs uppercase tracking-widest w-1/3">Feature</th>
                   <th className="p-6 border-b border-slate-200 dark:border-slate-800 text-slate-400 font-bold text-lg w-1/3">Shopify (Them)</th>
                   <th className="p-6 border-b border-yellow-500/30 text-yellow-600 dark:text-yellow-400 font-bold text-lg bg-yellow-100 dark:bg-yellow-900/10 rounded-t-2xl w-1/3 relative">
-                    SyncVision Store (Us)
+                    Ominos Tech Store (Us)
                     <div className="absolute top-0 right-0 -mt-3 -mr-3 bg-yellow-500 text-black text-[10px] font-bold px-2 py-1 rounded-full">WINNER</div>
                   </th>
                 </tr>
@@ -188,8 +195,8 @@ const EcommerceView: React.FC = () => {
             Start Selling <ArrowRight size={18} />
           </Link>
         </div>
-
       </div>
+      <Footer />
     </div>
   );
 };

@@ -11,7 +11,7 @@ const About: React.FC = () => {
   return (
     <section id="about" className="bg-[#0A0A0A] py-32 border-t border-white/5 relative overflow-hidden">
       <Helmet>
-        <title>About Us | The Architects - SyncVision Labs</title>
+        <title>About Us | The Architects - Ominos Tech</title>
         <meta name="description" content="We are not an agency. We are a digital foundry. Meet the architects building the future of Malaysian digital infrastructure." />
       </Helmet>
 
@@ -32,7 +32,7 @@ const About: React.FC = () => {
               </span>
             </h1>
             <p className="text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
-              SyncVision Labs is not a marketing agency. We are a 
+              Ominos Tech is not a marketing agency. We are a 
               <span className="text-white font-bold"> Strategic Digital Foundry </span> 
               dedicated to building the high-performance infrastructure that powers the next generation of Malaysian businesses.
             </p>

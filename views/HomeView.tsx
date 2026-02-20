@@ -3,6 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare, MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp, Palette, Layout, BarChart, CheckCircle2, CreditCard, Lock } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { m, LazyMotion, domAnimation, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import Footer from '../components/Footer';
+
+
 
 const Home = () => {
   const { pathname } = useLocation();
@@ -68,30 +71,32 @@ const Home = () => {
         
         {/* --- GEO (AI Search) --- */}
         {/* Injecting the raw data map for AI models */}
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 
       <LazyMotion features={domAnimation}>
-      <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden transition-colors duration-300">
+      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden transition-colors duration-300">
         
         {/* Background Ambient Glow */}
         <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
             <m.div 
               style={{ y: y1 }}
-              className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-[80px] transform-gpu will-change-transform" 
+              className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl transform-gpu will-change-transform" 
             />
             <m.div 
               style={{ y: y2 }}
-              className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-[80px] transform-gpu will-change-transform" 
+              className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl transform-gpu will-change-transform" 
             />
              <m.div 
               style={{ y: useTransform(scrollY, [0, 1000], [0, 150]), x: useTransform(scrollY, [0, 1000], [0, -50]) }}
-              className="absolute top-[30%] right-[30%] w-[30%] h-[30%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-[80px] transform-gpu opacity-50" 
+              className="absolute top-[30%] right-[30%] w-[30%] h-[30%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl transform-gpu will-change-transform opacity-50" 
             />
         </div>
         
+        <div className="flex-grow w-full">
         {/* --- HERO SECTION --- */}
         <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-6 max-w-7xl mx-auto flex flex-col items-center text-center z-10">
+
 
           {/* THE "SERVICE TICKER" - Immediate visual confirmation of services */}
           <m.div 
@@ -276,7 +281,6 @@ const Home = () => {
 
               {/* 5. MANAGED HOSTING - Keyword: "Hosting" */}
               <div className="group p-8 bg-slate-100 dark:bg-[#171717] rounded-3xl border border-slate-200 dark:border-white/5 flex flex-col justify-center items-center text-center col-span-1 md:col-span-2 lg:col-span-2 shadow-sm dark:shadow-none hover:scale-[1.01] transition-transform duration-300 relative overflow-hidden">
-                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
                  <div className="relative z-10">
                     <ShieldCheck className="text-slate-400 mb-4 mx-auto" size={40} />
                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Managed Hosting</h3>
@@ -610,7 +614,7 @@ const Home = () => {
           className="py-16 md:py-24 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 relative overflow-hidden"
         >
            {/* Background Elements */}
-           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none transform-gpu" />
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
            
            <div className="text-center mb-16 relative z-10">
               <span className="text-purple-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The "All-In-One" Launchpad</span>
@@ -861,7 +865,7 @@ const Home = () => {
                     <img 
                         src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" 
                         alt="Digital Foundry Architecture" 
-                        className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
+                        className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 will-change-transform"
                         loading="lazy"
                         decoding="async"
                     />
@@ -973,29 +977,9 @@ const Home = () => {
               ))}
            </div>
         </m.section>
+        </div>
 
-        {/* --- TECHNICAL FOOTER --- */}
-        <footer className="py-12 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 text-sm text-slate-500">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-slate-900 dark:text-white font-bold mb-4">Ominos Tech Location: Balakong, Selangor, Malaysia</h4>
-              <div className="space-y-2">
-                <div className="flex items-start gap-2">
-                  <p>Capabilities: Web Development, Mobile Apps, SEO, Digital Transformation.</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-indigo-500" />
-                  <p>Contact: +60 1x-xxxxxxx</p>
-                </div>
-              </div>
-            </div>
-            <div className="md:text-right">
-              <p className="mb-2">Serving Clients in:</p>
-              <p className="text-slate-400">Balakong, Cheras, Kajang, Puchong, Cyberjaya.</p>
-              <p className="mt-4 text-xs">&copy; {new Date().getFullYear()} Ominos Tech. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
 
       </div>
       </LazyMotion>

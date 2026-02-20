@@ -1,20 +1,240 @@
-import React from 'react';
+import React, { useLayoutEffect, useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { TrendingUp, MapPin, Search, BarChart, ArrowRight, FileText, Trophy, Target, Bot, Cpu, CheckCircle2 } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Search, BarChart, ArrowRight, FileText, Trophy, Bot, Cpu, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { m, LazyMotion, domAnimation, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import Footer from '../components/Footer';
+
+const ImageSlider = ({ images, duration = 3000 }: { images: string[], duration?: number }) => {
+  const [index, setIndex] = useState(0);
+
+  // Reset index when the image set changes (i.e., when switching engines)
+  useEffect(() => {
+    setIndex(0);
+  }, [images]);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, duration);
+    return () => clearInterval(timer);
+  }, [images, duration]);
+
+  return (
+    <div className="relative w-full h-full">
+      <AnimatePresence>
+        <m.img
+          key={`${images[index]}-${index}`} // Unique key to force re-render animation
+          src={images[index]}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover will-change-[opacity,transform]"
+          alt="Preview"
+          loading="lazy"
+        />
+      </AnimatePresence>
+      {/* Gradient Overlay for text readability if needed, though mostly for style here */}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+    </div>
+  );
+};
+
+const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, afterImage: string }) => {
+  const [sliderPosition, setSliderPosition] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
+
+  const handleStart = () => {
+    setIsDragging(true);
+    if (containerRef.current) {
+      rectRef.current = containerRef.current.getBoundingClientRect();
+    }
+  };
+
+  const handleEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleMove = (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+    if (!isDragging && event.type !== 'click') return;
+    
+    // If it's a click (not a drag), we need to get the rect immediately
+    if (!rectRef.current && containerRef.current) {
+        rectRef.current = containerRef.current.getBoundingClientRect();
+    }
+
+    const rect = rectRef.current;
+    if (!rect) return;
+
+    let x;
+    if ('touches' in event) {
+      x = (event as React.TouchEvent<HTMLDivElement>).touches[0].clientX;
+    } else {
+      x = (event as React.MouseEvent<HTMLDivElement>).clientX;
+    }
+    const position = ((x - rect.left) / rect.width) * 100;
+    setSliderPosition(Math.min(100, Math.max(0, position)));
+  };
+
+  return (
+    <div 
+      ref={containerRef}
+      className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden cursor-ew-resize select-none shadow-2xl border border-slate-200 dark:border-slate-800 group"
+      onMouseMove={handleMove}
+      onTouchMove={handleMove}
+      onMouseDown={handleStart}
+      onTouchStart={handleStart}
+      onMouseUp={handleEnd}
+      onTouchEnd={handleEnd}
+      onMouseLeave={handleEnd}
+      onClick={handleMove}
+    >
+      <img 
+        src={afterImage} 
+        alt="After SEO" 
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none" 
+        draggable={false}
+      />
+      
+      <div 
+        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+      >
+        <img 
+          src={beforeImage} 
+          alt="Before SEO" 
+          className="absolute inset-0 w-full h-full object-cover" 
+          draggable={false}
+        />
+        <div className="absolute inset-0 bg-slate-900/50 mix-blend-multiply pointer-events-none" />
+      </div>
+
+      <div 
+        className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+        style={{ left: `${sliderPosition}%` }}
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-slate-400 transform transition-transform group-hover:scale-110">
+            <div className="flex gap-1">
+                <div className="w-0.5 h-4 bg-slate-300"></div>
+                <div className="w-0.5 h-4 bg-slate-300"></div>
+            </div>
+        </div>
+      </div>
+      
+      <div className="absolute top-6 left-6 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest pointer-events-none border border-white/10">
+        Before: Page 5
+      </div>
+      <div className="absolute top-6 right-6 bg-emerald-500/90 backdrop-blur-md text-white px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest pointer-events-none border border-white/10 shadow-lg shadow-emerald-500/20">
+        After: Rank #1
+      </div>
+    </div>
+  );
+};
 
 const SeoServiceView: React.FC = () => {
+  const { pathname } = useLocation();
+  const [activeEngine, setActiveEngine] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How fast can you rank my business in Balakong?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For local keywords like 'Factory in Balakong', we have achieved Rank #1 in as little as 17 days using our Programmatic SEO strategy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is AEO and why does it matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AEO (Answer Engine Optimization) ensures your business is cited by AI like ChatGPT and Gemini. We structure your data so these engines recommend you as the primary answer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer monthly SEO reports?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We provide transparent monthly reports detailing keyword movement, traffic growth, and lead conversions, not just vanity metrics."
+        }
+      }
+    ]
+  };
+
+  const engines = [
+    {
+        id: 'seo',
+        title: 'Traditional SEO',
+        tag: 'The Foundation',
+        desc: 'We optimize your technical infrastructure, build high-authority backlinks, and target high-intent keywords to ensure you dominate the standard Google Search Results Page (SERP).',
+        points: ['Technical Audits & Fixes', 'Keyword Gap Analysis', 'High-DA Backlinks'],
+        color: 'from-blue-500 to-cyan-500',
+        icon: <Search className="w-6 h-6 text-white" />,
+        images: [
+            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"
+        ]
+    },
+    {
+        id: 'aeo',
+        title: 'AEO (Answer Engine)',
+        tag: 'Voice & Snippets',
+        desc: 'Capture the "Zero-Click" result. We structure your content so Siri, Alexa, and Google Assistant read your answer aloud. Be the direct answer, not just a link.',
+        points: ['Voice Search Optimization', 'Featured Snippet Targeting', 'FAQ Schema Structure'],
+        color: 'from-purple-500 to-pink-500',
+        icon: <Bot className="w-6 h-6 text-white" />,
+        images: [
+            "https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=2670&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2670&auto=format&fit=crop"
+        ]
+    },
+    {
+        id: 'geo',
+        title: 'GEO (Generative Engine)',
+        tag: 'The AI Era',
+        desc: 'The future of search. We train AI models (Gemini, ChatGPT) to recognize your brand as the industry authority through entity graphing and sentiment optimization.',
+        points: ['Brand Entity Graphing', 'Sentiment Optimization', 'AI Citation Building'],
+        color: 'from-emerald-500 to-teal-500',
+        icon: <Cpu className="w-6 h-6 text-white" />,
+        images: [
+            "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2832&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2574&auto=format&fit=crop"
+        ]
+    }
+  ];
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-emerald-500/30 relative overflow-hidden transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-emerald-500/30 relative transition-colors duration-300">
 
       <Helmet>
-        <title>SEO Services | Rank #1 in Malaysia - SyncVision Labs</title>
-        <meta name="description" content="Affordable SEO Packages in Malaysia. From Local SEO (RM 399) to National Dominance. We optimize Google Maps, fix technical errors, and write content that ranks." />
-        <meta name="keywords" content="SEO Malaysia Price, Local SEO Package, Google Maps Ranking, SEO Audit Malaysia, Backlink Service" />
+        <title>Strategic SEO & AEO Dominance | Balakong & Selangor - Ominos Tech</title>
+        <meta name="description" content="Dominate Local Search in Balakong and Selangor. We specialize in SEO, Google Maps Ranking, and AEO (AI Search) for Malaysian manufacturers and SMEs." />
+        <meta name="keywords" content="SEO Balakong, SEO Service Selangor, Google Maps Ranking Malaysia, AEO Optimization, Local SEO Expert" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
       <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
@@ -28,8 +248,8 @@ const SeoServiceView: React.FC = () => {
         >
 
           <span className="font-mono text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-6">
-            RANK <span className="text-emerald-500">#1.</span>
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-6 leading-tight">
+            STRATEGIC SEO <br/> <span className="text-emerald-500">IN BALAKONG.</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We don't just target keywords; we target <strong>Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
@@ -38,16 +258,14 @@ const SeoServiceView: React.FC = () => {
 
         {/* === NEW: ACHIEVEMENTS SECTION === */}
         <m.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-32 relative"
+          className="mb-32 relative will-change-transform"
         >
             
-            <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[3rem] p-6 md:p-16 overflow-hidden shadow-2xl">
-                {/* Decorative Grid Background */}
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+            <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[3rem] p-6 md:p-16 overflow-hidden shadow-xl">
                 <div className="absolute inset-0 bg-grid-slate-900/[0.05] dark:bg-grid-white/[0.02]"></div>
 
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -86,46 +304,10 @@ const SeoServiceView: React.FC = () => {
                     </div>
 
                     <div className="relative">
-                        {/* Abstract Visual Representation of Ranking */}
-                        <div className="relative z-10 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                            <div className="flex items-center gap-4 mb-8 border-b border-slate-200 dark:border-slate-800 pb-6">
-                                <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-                                    <Target size={24} />
-                                </div>
-                                <div>
-                                    <div className="text-xs font-bold uppercase tracking-widest text-slate-500">Keyword Target</div>
-                                    <div className="text-slate-900 dark:text-white font-mono font-bold">"Pre Insulated Pipe"</div>
-                                </div>
-                            </div>
-                            
-                            <div className="space-y-4">
-                                {/* Rank 1 */}
-                                <div className="flex items-center gap-4 p-4 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-xl">
-                                    <div className="text-emerald-400 font-black text-xl">01</div>
-                                    <div className="flex-1">
-                                        <div className="h-2 w-24 bg-emerald-500/40 rounded-full mb-2"></div>
-                                        <div className="h-2 w-16 bg-emerald-500/20 rounded-full"></div>
-                                    </div>
-                                    <CheckCircle2 size={16} className="text-emerald-500" />
-                                </div>
-                                {/* Rank 2 */}
-                                <div className="flex items-center gap-4 p-4 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl opacity-50">
-                                    <div className="text-slate-400 dark:text-slate-600 font-black text-xl">02</div>
-                                    <div className="flex-1">
-                                        <div className="h-2 w-20 bg-slate-300 dark:bg-slate-700 rounded-full mb-2"></div>
-                                        <div className="h-2 w-12 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
-                                    </div>
-                                </div>
-                                {/* Rank 3 */}
-                                <div className="flex items-center gap-4 p-4 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl opacity-50">
-                                    <div className="text-slate-400 dark:text-slate-600 font-black text-xl">03</div>
-                                    <div className="flex-1">
-                                        <div className="h-2 w-20 bg-slate-300 dark:bg-slate-700 rounded-full mb-2"></div>
-                                        <div className="h-2 w-12 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <BeforeAfterSlider 
+                            beforeImage="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop" 
+                            afterImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" 
+                        />
                         
                         {/* Floating Badge */}
                         <div className="absolute -top-6 -right-6 bg-white text-black px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest shadow-xl transform -rotate-6 z-20">
@@ -136,85 +318,111 @@ const SeoServiceView: React.FC = () => {
             </div>
         </m.div>
 
-        {/* === NEW: TRI-ENGINE EXPLANATION === */}
+        {/* === NEW: TRI-ENGINE EXPLANATION (STICKY SCROLL) === */}
         <div className="mb-40">
-            <div className="text-center mb-16">
+            {/* Header */}
+            <div className="text-center mb-20">
                 <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">The Strategy</span>
                 <h2 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter">
                     TRI-ENGINE <span className="text-slate-400 dark:text-slate-600">OPTIMIZATION.</span>
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
-                    We don't just optimize for keywords. We optimize for the entire digital ecosystem.
+                    The digital landscape has evolved. We optimize for the three pillars of modern search: Traditional, Voice, and AI.
                 </p>
             </div>
 
-            <m.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 lg:grid-cols-3 gap-8"
-            >
-                {/* SEO Card */}
-                <div className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 rounded-[2.5rem] p-6 md:p-10 hover:border-blue-500/30 transition-all duration-500 shadow-lg dark:shadow-none">
-                    <div className="w-16 h-16 bg-blue-50 dark:bg-blue-500/10 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
-                        <Search className="w-8 h-8 text-blue-400" />
-                    </div>
-                    <h3 className="text-3xl font-black text-slate-900 dark:text-white mb-2">SEO</h3>
-                    <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-6">Search Engine Optimization</div>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-10 min-h-[80px]">
-                        Dominate the "10 Blue Links". We fix technical debt and build authority so Google trusts your site above all others.
-                    </p>
-                    <div className="space-y-4 border-t border-slate-200 dark:border-white/5 pt-8">
-                        <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
-                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Technical Audits
-                        </div>
-                        <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
-                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div> Backlink Strategy
-                        </div>
-                    </div>
+            <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24" ref={containerRef}>
+                {/* Left Side: Scrolling Content */}
+                <div className="space-y-24 lg:space-y-[30vh] pb-24 lg:pb-[20vh]">
+                    {engines.map((engine, index) => (
+                        <m.div 
+                            key={engine.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ amount: 0.5, once: false }}
+                            onViewportEnter={() => setActiveEngine(index)}
+                            className="relative lg:pl-8 lg:border-l-2 border-slate-200 dark:border-slate-800 transition-all duration-500"
+                            style={{
+                                borderColor: activeEngine === index ? 'var(--active-color)' : '',
+                            }}
+                        >
+                            {/* Active Indicator Line */}
+                            <div className={`hidden lg:block absolute left-[-2px] top-0 h-full w-[2px] bg-gradient-to-b ${engine.color} transition-opacity duration-500 ${activeEngine === index ? 'opacity-100' : 'opacity-0'}`}></div>
+
+                            {/* Mobile Image Preview */}
+                            <div className="lg:hidden mb-8 w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 relative group">
+                                <div className={`absolute inset-0 bg-gradient-to-br ${engine.color} opacity-20 z-10`}></div>
+                                <ImageSlider images={engine.images} />
+                                <div className="absolute bottom-4 right-4 z-20 bg-black/50 backdrop-blur-md text-white px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest border border-white/10">
+                                    {engine.tag}
+                                </div>
+                            </div>
+
+                            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border mb-6 transition-colors duration-300 ${activeEngine === index ? 'bg-slate-100 dark:bg-white/10 border-transparent text-slate-900 dark:text-white' : 'border-slate-200 dark:border-slate-800 text-slate-500'}`}>
+                                <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${engine.color}`}></span>
+                                <span className="text-xs font-mono font-bold uppercase tracking-widest">{engine.tag}</span>
+                            </div>
+
+                            <h3 className={`text-4xl md:text-5xl font-black mb-6 transition-colors duration-300 ${activeEngine === index ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-slate-600'}`}>
+                                {engine.title}
+                            </h3>
+                            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                                {engine.desc}
+                            </p>
+                            <ul className="space-y-4">
+                                {engine.points.map((item) => (
+                                    <li key={item} className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium">
+                                        <div className={`w-6 h-6 rounded-full flex items-center justify-center bg-gradient-to-br ${engine.color} shadow-lg shadow-indigo-500/20`}>
+                                            <CheckCircle2 size={14} className="text-white" />
+                                        </div>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </m.div>
+                    ))}
                 </div>
 
-                {/* AEO Card */}
-                <div className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 rounded-[2.5rem] p-6 md:p-10 hover:border-purple-500/30 transition-all duration-500 lg:-translate-y-8 shadow-2xl shadow-purple-500/5 dark:shadow-purple-900/10">
-                    <div className="absolute top-0 right-0 bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-300 text-[10px] font-bold px-4 py-2 rounded-bl-2xl rounded-tr-[2.5rem] uppercase tracking-widest">Voice Ready</div>
-                    <div className="w-16 h-16 bg-purple-50 dark:bg-purple-500/10 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
-                        <Bot className="w-8 h-8 text-purple-400" />
-                    </div>
-                    <h3 className="text-3xl font-black text-slate-900 dark:text-white mb-2">AEO</h3>
-                    <div className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-widest mb-6">Answer Engine Optimization</div>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-10 min-h-[80px]">
-                        Capture the "Zero-Click" result. We structure your content so Siri, Alexa, and Google Assistant read <em>your</em> answer aloud.
-                    </p>
-                    <div className="space-y-4 border-t border-slate-200 dark:border-white/5 pt-8">
-                        <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
-                            <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div> Schema Markup
-                        </div>
-                        <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
-                            <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div> NLP Optimization
-                        </div>
-                    </div>
-                </div>
+                {/* Right Side: Sticky Visual */}
+                <div className="hidden lg:block relative h-full">
+                    <div className="sticky top-32 h-[600px] max-h-[80vh] w-full">
+                        <m.div 
+                            className="relative w-full h-full rounded-[3rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-2xl transition-all duration-700 will-change-transform"
+                            animate={{ y: [0, -15, 0] }}
+                            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                            {/* Background Glow based on active engine */}
+                            <div className={`absolute inset-0 bg-gradient-to-br ${engines[activeEngine].color} opacity-20 transition-opacity duration-700`}></div>
+                            
+                            {/* The Image Slider */}
+                            <div className="absolute inset-0 rounded-[3rem] overflow-hidden">
+                                <m.div className="w-full h-full" style={{ y: parallaxY, scale: 1.15 }}>
+                                    <ImageSlider images={engines[activeEngine].images} />
+                                </m.div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent pointer-events-none" />
+                            </div>
 
-                {/* GEO Card */}
-                <div className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 rounded-[2.5rem] p-6 md:p-10 hover:border-emerald-500/30 transition-all duration-500 shadow-lg dark:shadow-none">
-                    <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
-                        <Cpu className="w-8 h-8 text-emerald-400" />
-                    </div>
-                    <h3 className="text-3xl font-black text-slate-900 dark:text-white mb-2">GEO</h3>
-                    <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-6">Generative Engine Optimization</div>
-                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-10 min-h-[80px]">
-                        The future of search. We train AI models (Gemini, ChatGPT) to recognize your brand as the industry authority.
-                    </p>
-                    <div className="space-y-4 border-t border-slate-200 dark:border-white/5 pt-8">
-                        <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
-                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Entity Graphing
-                        </div>
-                        <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
-                            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div> Brand Citations
-                        </div>
+                            {/* Floating Glass Card */}
+                            <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/10 dark:bg-black/40 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl shadow-2xl flex items-center justify-between transform transition-all duration-500 hover:scale-[1.02]">
+                                <div className="flex items-center gap-5">
+                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-br ${engines[activeEngine].color} text-white shadow-lg shadow-indigo-500/20`}>
+                                        {engines[activeEngine].icon}
+                                    </div>
+                                    <div>
+                                        <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-300 mb-1">Active Protocol</div>
+                                        <div className="text-white font-bold text-lg leading-none">{engines[activeEngine].title}</div>
+                                    </div>
+                                </div>
+                                <div className="h-10 w-[1px] bg-white/10"></div>
+                                <div className="text-right">
+                                    <div className="text-3xl font-black text-white">0{activeEngine + 1}</div>
+                                    <div className="text-[10px] font-mono uppercase tracking-widest text-slate-400">Step</div>
+                                </div>
+                            </div>
+                        </m.div>
                     </div>
                 </div>
-            </m.div>
+            </div>
         </div>
 
         {/* PRICING */}
@@ -250,6 +458,36 @@ const SeoServiceView: React.FC = () => {
           ]}
         />
 
+        {/* === AEO FAQ SECTION === */}
+        <div className="mb-32 max-w-4xl mx-auto">
+           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">SEO Strategy FAQ</h2>
+           <div className="space-y-4">
+              {faqSchema.mainEntity.map((item, i) => (
+                 <div 
+                    key={i} 
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-emerald-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
+                 >
+                    <button 
+                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                       className="w-full flex items-center justify-between p-6 text-left"
+                    >
+                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>{item.name}</h3>
+                       {openFaq === i ? <ChevronUp /> : <ChevronDown />}
+                    </button>
+                    <AnimatePresence>
+                        {openFaq === i && (
+                           <m.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}>
+                              <div className="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-dashed border-slate-200 dark:border-slate-800 pt-4">
+                                 {item.acceptedAnswer.text}
+                              </div>
+                           </m.div>
+                        )}
+                    </AnimatePresence>
+                 </div>
+              ))}
+           </div>
+        </div>
+
         {/* ONE TIME FIX UPSELL */}
         <div className="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-12 flex flex-col md:flex-row items-center gap-12 mb-32">
            <div className="md:w-2/3">
@@ -272,8 +510,8 @@ const SeoServiceView: React.FC = () => {
               <BarChart size={120} className="text-slate-800" />
            </div>
         </div>
-
       </div>
+      <Footer />
     </div>
     </LazyMotion>
   );

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Mail, Globe, Lock, Cloud } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import Footer from '../components/Footer';
 
 const ServerSetupView: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-slate-500/30 transition-colors duration-300">
@@ -98,8 +104,8 @@ const ServerSetupView: React.FC = () => {
                 Get Setup Quote
             </Link>
         </div>
-
       </div>
+      <Footer />
     </div>
   );
 };

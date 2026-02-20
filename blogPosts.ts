@@ -1,29 +1,4 @@
-export const PRODUCTS = [
-  {
-    id: 'lifesync',
-    name: 'LifeSync',
-    tagline: 'The Second Brain',
-    description: 'A revolutionary productivity ecosystem built on the "Second Brain" methodology. LifeSync integrates tasks, notes, and goals into a single "Universal Mind" powered by AI.',
-    status: 'In Development',
-    category: 'Productivity',
-    imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop',
-    features: ['Flutter Architecture', 'AI Integration', 'Realtime Sync', 'Offline First'],
-    longDescription: 'LifeSync is not just a todo list. It is a complete operating system for your life. By leveraging local-first databases and edge syncing, we ensure your data is always available, instantly.'
-  },
-  {
-    id: 'medimy',
-    name: 'MediMy',
-    tagline: 'Clinic OS',
-    description: 'A comprehensive Clinic Management System (CMS) designed for modern healthcare facilities. Handles patient records, appointment scheduling, and inventory in one secure dashboard.',
-    status: 'Beta',
-    category: 'Healthcare',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop',
-    features: ['Patient Records', 'Inventory Management', 'End-to-End Encryption', 'Telemedicine Ready'],
-    longDescription: 'MediMy streamlines the chaotic workflow of modern clinics. From patient registration to drug dispensing, every step is tracked and optimized for speed and compliance.'
-  }
-];
-
-// Blog Data
+// Blog Data Source - Single Source of Truth
 export const BLOG_POSTS = [
   {
     id: '1',

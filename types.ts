@@ -5,6 +5,10 @@ export interface JournalArticle {
   excerpt: string;
   image: string;
   content?: string;
+  slug: string;
+  category: string;
+  author: string;
+  readTime: string;
 }
 
 export interface Product {

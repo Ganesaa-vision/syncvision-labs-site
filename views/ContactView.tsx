@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { CheckCircle2, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const ContactView: React.FC = () => {
   const [sent, setSent] = useState(false);
@@ -12,14 +13,14 @@ const ContactView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <section className="py-24 md:py-40 px-6 min-h-screen bg-slate-50 dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none transform-gpu will-change-transform"></div>
       <Helmet>
-        <title>Initiate Protocol | SyncVision Labs</title>
+        <title>Initiate Protocol | Ominos Tech</title>
         <meta name="description" content="Select your mission objective. Validated requests receive engineering protocols within 12 hours. Secure channel active." />
       </Helmet>
 
-      <div className="max-w-7xl mx-auto">
+      <section className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24">
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-sm font-black uppercase tracking-[1em] mb-8 block">Communication Protocol</span>
           <h2 className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-none uppercase">LET'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 italic">BUILD.</span></h2>
@@ -62,7 +63,7 @@ const ContactView: React.FC = () => {
                    </div>
                    <div className="space-y-4">
                      <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Signal Channel (Email)</label>
-                     <input required type="email" placeholder="contact@domain.com" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
+                     <input required type="email" placeholder="contact@ominostech.com" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
                    </div>
                 </div>
                 <div className="space-y-4">
@@ -76,8 +77,9 @@ const ContactView: React.FC = () => {
             )}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </div>
   );
 };
 

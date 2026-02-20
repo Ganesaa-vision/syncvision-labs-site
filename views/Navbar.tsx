@@ -78,7 +78,7 @@ export const Navbar = () => {
             <span className={`font-bold text-xl tracking-tight transition-colors ${
                isScrolled || isMobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-slate-900 dark:text-white'
             }`}>
-              SyncVision
+              Ominos Tech
             </span>
           </Link>
 

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Bot, MessageSquare, Zap, ArrowRight, Clock, TrendingUp, CheckCircle2 } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import Footer from '../components/Footer';
 
 const AutomationView: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-purple-500/30 transition-colors duration-300">
@@ -28,10 +34,8 @@ const AutomationView: React.FC = () => {
 
         {/* === NEW: AUTOMATION IMPACT CASE STUDY === */}
         <div className="mb-32 relative">
-            <div className="absolute inset-0 bg-purple-500/5 blur-[100px] rounded-full pointer-events-none"></div>
-            <div className="relative bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-[3rem] p-8 md:p-16 overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-                
+            <div className="absolute inset-0 bg-purple-500/5 blur-3xl rounded-full pointer-events-none"></div>
+            <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[3rem] p-8 md:p-16 overflow-hidden shadow-2xl">
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-100 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-black uppercase tracking-widest mb-8">
@@ -241,8 +245,8 @@ const AutomationView: React.FC = () => {
              Deploy AI Agent <ArrowRight size={18} />
            </Link>
         </div>
-
       </div>
+      <Footer />
     </div>
   );
 };

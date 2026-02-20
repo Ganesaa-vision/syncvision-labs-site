@@ -4,9 +4,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { 
   Code, Smartphone, ShoppingBag, 
   Bot, BarChart, HardDrive, ArrowRight, ShieldCheck,
-  MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp
+  MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp,
+  CheckCircle2, MessageSquare
 } from 'lucide-react'; 
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import Footer from '../components/Footer';
 
 // === MASTER STRATEGY: MALAYSIA SEO & GEO ===
 // Keywords Targeted: "SME Web Design", "FPX Payment", "WhatsApp Bot", "Google Maps Ranking"
@@ -15,59 +17,59 @@ import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 const services = [
   {
     id: 'web-development',
-    title: 'High-Performance Web Engineering',
-    description: 'Stop losing customers to slow websites. We engineer digital assets for Malaysian SMEs and Startups that load in under 2 seconds. Built for conversion.',
+    title: 'Web Development',
+    description: 'We build fast custom websites (Next.js) or easy-to-edit WordPress sites. Choose what fits your budget.',
     icon: <Code className="w-8 h-8 text-indigo-400" />,
     link: '/services/web-architecture',
-    tags: ['NextJS', 'Elementor', 'React']
+    tags: ['Next.js', 'WordPress', 'React']
   },
   {
     id: 'mobile-app',
-    title: 'Cross-Platform Mobile Ecosystems',
-    description: 'Launch your own mobile app on Apple & Google Play. Offline-first Flutter apps perfect for Malaysian field operations and customer loyalty.',
+    title: 'Mobile Apps',
+    description: 'Apps for iPhone & Android. Works even without internet connection. Perfect for your staff or customers.',
     icon: <Smartphone className="w-8 h-8 text-blue-400" />,
     link: '/services/app-engineering',
     tags: ['Flutter', 'iOS', 'Android']
   },
   {
     id: 'seo-ranking',
-    title: 'Dominate "Google Malaysia" Search Results',
-    description: 'We don\'t guess; we engineer rankings. Optimize for "Google.com.my" and the "Local Map Pack" to capture high-intent traffic.',
+    title: 'SEO & Google Ranking',
+    description: 'Get found on Google. We help you rank higher on Search and Maps so customers find you first.',
     icon: <BarChart className="w-8 h-8 text-green-400" />,
     link: '/services/seo-service',
-    tags: ['Local SEO', 'Schema', 'Traffic']
+    tags: ['Local SEO', 'Google Maps', 'Traffic']
   },
   {
     id: 'ai-chatbots',
-    title: '24/7 Automated Sales & Support',
-    description: 'Your customers are on WhatsApp. Be there instantly. Intelligent AI Bots that answer inquiries and close sales 24/7.',
+    title: 'AI & Chatbots',
+    description: 'Automate your customer service. Smart WhatsApp bots that reply to customers instantly, 24/7.',
     icon: <Bot className="w-8 h-8 text-purple-400" />,
     link: '/services/automation',
-    tags: ['WhatsApp', 'Chatbots', 'Gemini']
+    tags: ['WhatsApp', 'Chatbots', 'AI']
   },
   {
     id: 'ecommerce',
-    title: 'Seamless Digital Transactions',
-    description: 'Sell to customers using their preferred local banking. Secure FPX (ToyyibPay, Billplz) and Credit Card integration.',
+    title: 'Online Stores',
+    description: 'Sell online securely. We set up FPX banking (ToyyibPay, Billplz) so customers can pay easily. No monthly fees.',
     icon: <ShoppingBag className="w-8 h-8 text-yellow-400" />,
     link: '/services/ecommerce',
     tags: ['Billplz', 'Stripe', 'FPX']
   },
   {
     id: 'web-management',
-    title: 'Your Dedicated Technical Team',
-    description: 'Stop worrying about hacks. We handle 24/7 uptime monitoring, security patches, and content updates.',
+    title: 'Website Maintenance',
+    description: 'We keep your website safe and online. Daily backups and security updates so you don\'t have to worry.',
     icon: <ShieldCheck className="w-8 h-8 text-cyan-400" />,
     link: '/services/web-management',
-    tags: ['DevOps', 'Security', 'Updates']
+    tags: ['Security', 'Backups', 'Updates']
   },
   {
     id: 'server-setup',
-    title: 'Professional Digital Identity',
-    description: 'Professional IT plumbing. Domain registration, Cloud Hosting, and Corporate Email setup for a trusted digital identity.',
+    title: 'Domain & Hosting',
+    description: 'We handle the technical setup. Domain registration, fast hosting, and professional company email.',
     icon: <HardDrive className="w-8 h-8 text-slate-400" />,
     link: '/services/server-setup',
-    tags: ['Titan Email', 'DNS', 'Hosting']
+    tags: ['Email', 'Domain', 'Hosting']
   }
 ];
 
@@ -118,7 +120,7 @@ const ServicesView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
       
       {/* === ULTIMATE SEO HEAD === */}
       {/* Targeted specifically for Malaysian Business Owners */}
@@ -131,16 +133,16 @@ const ServicesView: React.FC = () => {
         <meta property="og:title" content="Ominos Tech - Web Design & App Development Agency Malaysia" />
         <meta property="og:description" content="We build high-performance websites and AI systems for Malaysian businesses." />
         <meta property="og:type" content="website" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 
       {/* Background Ambient Glow */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu" />
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
       </div>
 
-      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
+      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
 
         {/* HERO SECTION */}
         <m.div 
@@ -155,48 +157,14 @@ const ServicesView: React.FC = () => {
           </div>
           
           <h1 className="text-4xl md:text-7xl font-black font-mono tracking-tighter mb-6 text-slate-900 dark:text-white leading-none">
-            Complete Digital Infrastructure <br />
+            Complete Digital Solutions <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
               for Malaysian Businesses
             </span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            From custom Next.js engineering to rapid WordPress deployment. We provide the exact technical solutions your business needs to scale in the digital economy.
+            From custom websites to mobile apps. We provide the exact technical solutions your business needs to grow.
           </p>
-        </m.div>
-
-        {/* TRUST SIGNALS / CASE STUDY */}
-        <m.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-20 p-8 bg-white/50 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800 rounded-2xl backdrop-blur-sm shadow-sm dark:shadow-none"
-        >
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-4">
-                <Building2 className="w-5 h-5 text-indigo-400" />
-                <span className="text-indigo-400 font-bold tracking-wider text-sm uppercase">Trusted By Market Leaders</span>
-              </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">CASE STUDY: The "17-Day" SEO Takeover</h2>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-                <strong>Project:</strong> SEO & Digital Transformation for Pipe Manufacturing.<br/><br/>
-                We implemented a Programmatic SEO (pSEO) strategy for a local manufacturer. The result? We took them from zero visibility to <strong>Rank #1 on Google</strong> for "Pre-insulated pipe manufacturer" in just 17 days.
-              </p>
-              <div className="flex gap-4">
-                <div className="px-4 py-2 bg-white dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
-                  <span className="block text-slate-900 dark:text-white font-bold text-lg">#1 Rank</span> Google (17 Days)
-                </div>
-                <div className="px-4 py-2 bg-white dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
-                  <span className="block text-slate-900 dark:text-white font-bold text-lg">Top 3</span> 4 Major Keywords
-                </div>
-              </div>
-            </div>
-            <div className="flex-1 flex justify-center items-center p-8 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 w-full">
-               {/* Placeholder for Logo */}
-               <div className="text-2xl font-bold text-slate-600 tracking-widest uppercase">Allied Group</div>
-            </div>
-          </div>
         </m.div>
 
         {/* SERVICES GRID */}
@@ -210,7 +178,7 @@ const ServicesView: React.FC = () => {
             <m.div key={service.id} variants={itemVariants} className="h-full">
             <Link 
               to={service.link} 
-              className="group relative bg-white dark:bg-white/[0.02] backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full"
+              className="group relative bg-white dark:bg-white/[0.02] backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full will-change-transform"
             >
               {/* Gradient Blob */}
               <div className="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all duration-500"></div>
@@ -245,6 +213,133 @@ const ServicesView: React.FC = () => {
             </Link>
             </m.div>
           ))}
+        </m.div>
+
+        {/* TRUST SIGNALS / CASE STUDY (MOVED DOWN) */}
+        <m.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="my-24 p-8 bg-white/50 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800 rounded-2xl backdrop-blur-sm shadow-sm dark:shadow-none"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-4">
+                <Building2 className="w-5 h-5 text-indigo-400" />
+                <span className="text-indigo-400 font-bold tracking-wider text-sm uppercase">Trusted By Market Leaders</span>
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">CASE STUDY: The "17-Day" SEO Takeover</h2>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                <strong>Project:</strong> SEO & Digital Transformation for Pipe Manufacturing.<br/><br/>
+                We implemented a Programmatic SEO (pSEO) strategy for a local manufacturer. The result? We took them from zero visibility to <strong>Rank #1 on Google</strong> for "Pre-insulated pipe manufacturer" in just 17 days.
+              </p>
+              <div className="flex gap-4">
+                <div className="px-4 py-2 bg-white dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+                  <span className="block text-slate-900 dark:text-white font-bold text-lg">#1 Rank</span> Google (17 Days)
+                </div>
+                <div className="px-4 py-2 bg-white dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
+                  <span className="block text-slate-900 dark:text-white font-bold text-lg">Top 3</span> 4 Major Keywords
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 flex justify-center items-center p-8 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 w-full">
+               {/* Placeholder for Logo */}
+               <div className="text-2xl font-bold text-slate-600 tracking-widest uppercase">Allied Group</div>
+            </div>
+          </div>
+        </m.div>
+
+        {/* CUSTOMIZATION SECTION */}
+        <m.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="my-32 relative rounded-[3rem] overflow-hidden bg-slate-900 border border-slate-800 p-8 md:p-20"
+        >
+            {/* Background effects */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+            
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span className="text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-6 block">Custom Solutions</span>
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">
+                        Don't Settle for <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Templates.</span>
+                    </h2>
+                    <p className="text-slate-400 text-lg leading-relaxed mb-10">
+                        Your business is unique. Your website should be too. 
+                        We build custom solutions that fit exactly how you work, 
+                        connecting with your existing systems.
+                    </p>
+                    
+                    <div className="space-y-4 mb-12">
+                        {[
+                            "Connect with your software (POS, CRM)",
+                            "Custom features built just for you",
+                            "High-security data protection",
+                            "Automate your daily tasks"
+                        ].map((point, i) => (
+                            <div key={i} className="flex items-center gap-4">
+                                <div className="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 flex-shrink-0">
+                                    <CheckCircle2 size={14} />
+                                </div>
+                                <span className="text-slate-300 font-medium">{point}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <a 
+                        href="https://wa.me/60123456789?text=I%20need%20a%20custom%20digital%20solution%20for%20my%20business." 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-indigo-50 transition-all group shadow-lg shadow-indigo-500/10"
+                    >
+                        <MessageSquare size={20} className="text-green-600" />
+                        Chat on WhatsApp
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </a>
+                </div>
+
+                <div className="relative hidden lg:block">
+                    {/* Visual representation - Abstract UI */}
+                    <div className="bg-slate-950/80 backdrop-blur-md border border-slate-800 rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-4">
+                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                            <span className="ml-4 text-xs font-mono text-slate-500">system_config.ts</span>
+                        </div>
+                        <div className="space-y-3 font-mono text-sm">
+                            <div className="flex gap-4">
+                                <span className="text-purple-400">const</span>
+                                <span className="text-blue-400">BusinessLogic</span>
+                                <span className="text-slate-400">=</span>
+                                <span className="text-slate-400">{`{`}</span>
+                            </div>
+                            <div className="pl-8 flex gap-4">
+                                <span className="text-slate-400">mode:</span>
+                                <span className="text-green-400">'scale_aggressive',</span>
+                            </div>
+                            <div className="pl-8 flex gap-4">
+                                <span className="text-slate-400">integration:</span>
+                                <span className="text-yellow-400">['Stripe', 'Salesforce'],</span>
+                            </div>
+                            <div className="pl-8 flex gap-4">
+                                <span className="text-slate-400">security:</span>
+                                <span className="text-blue-400">'enterprise_grade',</span>
+                            </div>
+                            <div className="pl-8 flex gap-4">
+                                <span className="text-slate-400">uptime:</span>
+                                <span className="text-purple-400">'99.99%'</span>
+                            </div>
+                            <div className="text-slate-400">{`}`}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </m.div>
 
         {/* BOTTOM CTA */}
@@ -313,31 +408,8 @@ const ServicesView: React.FC = () => {
             </p>
           </div>
         </div>
-
-        {/* TECHNICAL FOOTER */}
-        <footer className="mt-20 pt-12 border-t border-slate-200 dark:border-slate-800 text-sm text-slate-500">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-slate-900 dark:text-white font-bold mb-4">Ominos Tech Location: Balakong, Selangor, Malaysia</h4>
-              <div className="space-y-2">
-                <div className="flex items-start gap-2">
-                  <p>Capabilities: Web Development, Mobile Apps, SEO, Digital Transformation.</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-indigo-500" />
-                  <p>Contact: +60 1x-xxxxxxx</p>
-                </div>
-              </div>
-            </div>
-            <div className="md:text-right">
-              <p className="mb-2">Serving Clients in:</p>
-              <p className="text-slate-400">Balakong, Cheras, Kajang, Puchong, Cyberjaya.</p>
-              <p className="mt-4 text-xs">&copy; {new Date().getFullYear()} Ominos Tech. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
-
       </div>
+      <Footer />
     </div>
     </LazyMotion>
   );

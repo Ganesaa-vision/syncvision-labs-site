@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ShieldCheck, RefreshCw, Server, Activity, ArrowRight, Check, X, HelpCircle, Unlock, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import Footer from '../components/Footer';
 
 const WebManagementView: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
@@ -190,6 +197,7 @@ const WebManagementView: React.FC = () => {
         </div>
 
       </div>
+      <Footer />
     </div>
     </LazyMotion>
   );

@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
         <Link to="/" className="flex items-center gap-4 group z-[120] relative">
           <div className="w-10 h-10 bg-interstellar rounded-xl flex items-center justify-center font-mono font-black text-slate-100 text-lg transform group-hover:scale-110 transition-all shadow-lg">V</div>
           <span className="font-mono font-bold tracking-tighter text-slate-900 dark:text-slate-100 uppercase text-xl">
-            Sync<span className="text-interstellar">Vision</span>
+            Ominos <span className="text-interstellar">Tech</span>
           </span>
         </Link>
 
@@ -92,7 +92,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Overlay - Enhanced */}
-        <div className={`fixed inset-0 h-[100dvh] bg-slate-50 dark:bg-[#0a0a0a] z-[110] flex flex-col items-center justify-start pt-28 pb-8 overflow-y-auto gap-8 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] lg:hidden ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto visible' : 'opacity-0 -translate-y-4 pointer-events-none invisible'}`}>
+        <div className={`fixed inset-0 h-[100dvh] bg-slate-50 dark:bg-[#0a0a0a] z-[110] flex flex-col items-center justify-start pt-28 pb-8 overflow-y-auto gap-8 transition-[opacity,transform,visibility] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] lg:hidden will-change-[opacity,transform] ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto visible' : 'opacity-0 -translate-y-4 pointer-events-none invisible'}`}>
           
           {/* Background decoration */}
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-interstellar/10 to-transparent pointer-events-none"></div>
@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
               key={item.path}
               to={item.path}
               onClick={() => setIsOpen(false)}
-              className={`relative z-10 font-mono text-2xl uppercase tracking-[0.2em] font-black transition-all py-2 ${
+              className={`relative z-10 font-mono text-2xl uppercase tracking-[0.2em] font-black transition-colors py-2 ${
                 currentView === item.path ? 'text-slate-900 dark:text-white' : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
               }`}
             >

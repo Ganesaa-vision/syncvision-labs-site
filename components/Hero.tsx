@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center animate-fade-in-up">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/5 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-8">
           <span className="w-1 h-1 bg-indigo-400 rounded-full animate-pulse"></span>
-          Now Available: Syncore Enterprise 2025
+          Now Available: Ominos Enterprise 2025
         </div>
         
         <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-black text-white leading-[0.9] tracking-tighter mb-8">
@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
         </h1>
         
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-200 font-normal leading-relaxed mb-12">
-          Syncore builds high-performance, scalable systems that power the next generation of digital giants. We don't just write code—we engineer foundations.
+          Ominos Tech builds high-performance, scalable systems that power the next generation of digital giants. We don't just write code—we engineer foundations.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

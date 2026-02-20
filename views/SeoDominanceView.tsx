@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { TrendingUp, MapPin, Search, BarChart, ArrowRight } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import Footer from '../components/Footer';
 
 const SeoDominanceView: React.FC = () => {
   const { pathname } = useLocation();
@@ -113,8 +114,8 @@ const SeoDominanceView: React.FC = () => {
               <BarChart size={120} className="text-slate-800" />
            </div>
         </div>
-
       </div>
+      <Footer />
     </div>
   );
 };
