@@ -1,4 +1,4 @@
-import React from 'react';
+import { WhatsAppButton } from '../../../components/WhatsAppButton';
 import ServiceLayout from '../../layouts/ServiceLayout';
 import { BrainCircuit, Database, Bot, CheckCircle2, Network } from 'lucide-react';
 
@@ -108,7 +108,12 @@ const AiAgents = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all">Build Tool</button>
+                <WhatsAppButton
+                  serviceName="AI Development"
+                  packageLabel="Internal Tool"
+                  buttonText="Build Tool"
+                  className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                />
               </div>
 
               <div className="bg-slate-900 border border-indigo-500 rounded-[2.5rem] p-10 relative transform md:-translate-y-8 shadow-[0_0_50px_rgba(99,102,241,0.25)] flex flex-col">
@@ -123,7 +128,12 @@ const AiAgents = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-4 bg-indigo-600 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg">Deploy Agent</button>
+                <WhatsAppButton
+                  serviceName="AI Development"
+                  packageLabel="Customer Agent"
+                  buttonText="Deploy Agent"
+                  className="w-full py-4 bg-indigo-600 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg"
+                />
               </div>
           </div>
         </div>

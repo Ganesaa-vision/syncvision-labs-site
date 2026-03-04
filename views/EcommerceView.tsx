@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, CreditCard, Truck, ArrowRight, CheckCircle2, X, Check, Zap, Globe, ShieldCheck } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const EcommerceView: React.FC = () => {
   const { pathname } = useLocation();
@@ -54,7 +55,8 @@ const EcommerceView: React.FC = () => {
         </div>
 
         {/* PRICING */}
-        <PricingSection 
+        <PricingSection
+          serviceName="E-Commerce"
           title="Store Packages"
           description="Transparent pricing for your digital storefront. No hidden fees."
           plans={[
@@ -64,7 +66,15 @@ const EcommerceView: React.FC = () => {
               period: "/one-time",
               description: "\"Turn Your Brochure Website into a Cash Register.\" We add a shopping cart to your existing site in 48 hours.",
               features: ["WooCommerce Integration", "Payment Gateway Setup (ToyyibPay/Stripe)", "10 Product Upload", "Auto-Invoice Generation"],
-              buttonText: "Add Cart"
+              buttonText: "Add Cart",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="E-Commerce"
+                  packageLabel="Starter Store"
+                  buttonText="Add Cart"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             },
             {
               name: "The Zero-Fee Store",
@@ -73,7 +83,15 @@ const EcommerceView: React.FC = () => {
               description: "\"Stop Paying Rent to Shopify.\" A powerful online store with RM 0 monthly fees. Perfect for Malaysian SMEs.",
               features: ["Full 5-Page E-Commerce Design", "FPX Banking (ToyyibPay/Billplz)", "Inventory System", "Shipping Logic (Sabah/Sarawak)", "WhatsApp Order Notifications"],
               isPopular: true,
-              buttonText: "Build Store"
+              buttonText: "Build Store",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="E-Commerce"
+                  packageLabel="The Zero-Fee Store"
+                  buttonText="Build Store"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-yellow-500 hover:bg-yellow-400 text-black shadow-lg shadow-yellow-500/25"
+                />
+              )
             },
             {
               name: "The Empire Builder",
@@ -81,7 +99,15 @@ const EcommerceView: React.FC = () => {
               period: "/one-time",
               description: "\"The Store That Sells While You Sleep.\" For brands ready to dominate globally.",
               features: ["Global Payments (USD/SGD)", "Abandoned Cart Recovery", "Dynamic Coupons", "Customer Accounts", "Sales Analytics Dashboard"],
-              buttonText: "Scale Empire"
+              buttonText: "Scale Empire",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="E-Commerce"
+                  packageLabel="The Empire Builder"
+                  buttonText="Scale Empire"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             }
           ]}
         />
@@ -100,9 +126,12 @@ const EcommerceView: React.FC = () => {
                     <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
                         Struggling with API keys? "Signature Invalid"? We fix it. We connect ToyyibPay, Stripe, or Billplz and prove it works with a test transaction.
                     </p>
-                    <Link to="/contact" className="inline-flex items-center gap-2 text-red-400 font-bold hover:text-red-300 transition-colors">
-                        Fix My Payment <ArrowRight size={16} />
-                    </Link>
+                    <WhatsAppButton
+                        serviceName="Gateway Rescue"
+                        buttonText="Fix My Payment"
+                        className="inline-flex items-center gap-2 text-red-400 font-bold hover:text-red-300 transition-colors"
+                        showIcon={true}
+                    />
                 </div>
             </div>
 
@@ -131,7 +160,7 @@ const EcommerceView: React.FC = () => {
                         <span className="text-red-600 dark:text-red-400 font-mono font-bold">RM {estimatedLoss.toLocaleString()}<span className="text-xs opacity-70">/mo</span></span>
                     </div>
                     <div className="flex justify-between items-center p-4 bg-green-100 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 rounded-xl">
-                        <span className="text-green-600 dark:text-green-400 font-bold text-sm">Ominos Tech Fees</span>
+                        <span className="text-green-600 dark:text-green-400 font-bold text-sm">Omino Tech Fees</span>
                         <span className="text-green-600 dark:text-green-400 font-mono font-bold">RM 0<span className="text-xs opacity-70">/mo</span></span>
                     </div>
                 </div>
@@ -153,7 +182,7 @@ const EcommerceView: React.FC = () => {
                   <th className="p-6 border-b border-slate-200 dark:border-slate-800 text-slate-500 font-mono text-xs uppercase tracking-widest w-1/3">Feature</th>
                   <th className="p-6 border-b border-slate-200 dark:border-slate-800 text-slate-400 font-bold text-lg w-1/3">Shopify (Them)</th>
                   <th className="p-6 border-b border-yellow-500/30 text-yellow-600 dark:text-yellow-400 font-bold text-lg bg-yellow-100 dark:bg-yellow-900/10 rounded-t-2xl w-1/3 relative">
-                    Ominos Tech Store (Us)
+                    Omino Tech Store (Us)
                     <div className="absolute top-0 right-0 -mt-3 -mr-3 bg-yellow-500 text-black text-[10px] font-bold px-2 py-1 rounded-full">WINNER</div>
                   </th>
                 </tr>
@@ -191,9 +220,12 @@ const EcommerceView: React.FC = () => {
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
             Stop asking customers to "bank in manually". Automate your sales today.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-3 bg-yellow-500 text-black px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition-all">
-            Start Selling <ArrowRight size={18} />
-          </Link>
+          <WhatsAppButton
+            serviceName="E-Commerce Inquiry"
+            buttonText="Start Selling"
+            className="inline-flex items-center gap-3 bg-yellow-500 text-black px-8 py-4 rounded-full font-bold hover:bg-yellow-400 transition-all"
+            showIcon={true}
+          />
         </div>
       </div>
       <Footer />

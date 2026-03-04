@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { WhatsAppButton } from './WhatsAppButton';
 
 interface Plan {
   name: string;
@@ -10,15 +10,19 @@ interface Plan {
   features: string[];
   buttonText: string;
   isPopular?: boolean;
+  customButton?: React.ReactNode;
 }
 
 interface PricingSectionProps {
   title: string;
   description: string;
   plans: Plan[];
+  serviceName?: string;
 }
 
-const PricingSection: React.FC<PricingSectionProps> = ({ title, description, plans }) => {
+const PricingSection: React.FC<PricingSectionProps> = ({ title, description, plans, serviceName = "Pricing Inquiry" }) => {
+  if (!plans || !Array.isArray(plans)) return null;
+
   return (
     <section className="py-12">
       <div className="text-center mb-16">
@@ -57,17 +61,23 @@ const PricingSection: React.FC<PricingSectionProps> = ({ title, description, pla
                 </li>
               ))}
             </ul>
-
-            <Link 
-              to="/contact" 
-              className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${
-                plan.isPopular 
-                  ? 'bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/25' 
-                  : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white'
-              }`}
-            >
-              {plan.buttonText} <ArrowRight size={16} />
-            </Link>
+            
+            {plan.customButton ? (
+              plan.customButton
+            ) : (
+              <WhatsAppButton 
+                serviceName={serviceName}
+                packageLabel={plan.name}
+                buttonText={plan.buttonText}
+                className={`w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all ${
+                  plan.isPopular 
+                    ? 'bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/25' 
+                    : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white'
+                }`}
+              >
+                {plan.buttonText} <ArrowRight size={16} />
+              </WhatsAppButton>
+            )}
           </div>
         ))}
       </div>

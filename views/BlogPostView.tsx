@@ -5,6 +5,7 @@ import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Facebook, Mail, ChevronRight, ChevronDown, ChevronUp, Check } from 'lucide-react';
 import { BLOG_POSTS } from '../constants';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const BlogPostView: React.FC = () => {
   const { slug } = useParams();
@@ -63,17 +64,17 @@ const BlogPostView: React.FC = () => {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Ominos Tech",
+      "name": "Omino Tech",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ominostech.com/logo.png"
+        "url": "https://ominotech.com/logo.png"
       }
     },
     "datePublished": "2024-10-12", // In a real app, use post.date
     "description": post.excerpt,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://ominostech.com/blog/${post.slug}`
+        "@id": `https://ominotech.com/blog/${post.slug}`
     }
   };
 
@@ -81,19 +82,19 @@ const BlogPostView: React.FC = () => {
     <LazyMotion features={domAnimation}>
         <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300 relative">
             <Helmet>
-                <title>{post.title} | Ominos Tech Insights</title>
+                <title>{post.title} | Omino Tech Insights</title>
                 <meta name="description" content={post.excerpt} />
                 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="article" />
-                <meta property="og:url" content={`https://ominostech.com/blog/${post.slug}`} />
+                <meta property="og:url" content={`https://ominotech.com/blog/${post.slug}`} />
                 <meta property="og:title" content={post.title} />
                 <meta property="og:description" content={post.excerpt} />
                 <meta property="og:image" content={post.image} />
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:url" content={`https://ominostech.com/blog/${post.slug}`} />
+                <meta name="twitter:url" content={`https://ominotech.com/blog/${post.slug}`} />
                 <meta name="twitter:title" content={post.title} />
                 <meta name="twitter:description" content={post.excerpt} />
                 <meta name="twitter:image" content={post.image} />
@@ -184,7 +185,7 @@ const BlogPostView: React.FC = () => {
                         <div className="text-center sm:text-left">
                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About the Author</h3>
                             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
-                                {post.author} is a Lead Engineer at Ominos Tech, specializing in high-performance web architecture and AI integration. With over 5 years of experience in the Malaysian digital landscape.
+                                {post.author} is a Lead Engineer at Omino Tech, specializing in high-performance web architecture and AI integration. With over 5 years of experience in the Malaysian digital landscape.
                             </p>
                             <div className="flex gap-4 justify-center sm:justify-start">
                                 <a href="#" className="text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider hover:underline">LinkedIn</a>
@@ -301,9 +302,12 @@ const BlogPostView: React.FC = () => {
                             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6">
                                 We build high-performance digital assets that rank #1 and convert visitors into customers.
                             </p>
-                            <Link to="/contact" className="block w-full py-3 bg-indigo-600 text-white text-center font-bold rounded-xl hover:bg-indigo-700 transition-colors">
-                                Start Your Project
-                            </Link>
+                            <WhatsAppButton 
+                                serviceName="Blog Inquiry"
+                                buttonText="Start Your Project"
+                                className="block w-full py-3 bg-indigo-600 text-white text-center font-bold rounded-xl hover:bg-indigo-700 transition-colors"
+                                showIcon={false}
+                            />
                         </div>
                     </div>
 

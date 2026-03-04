@@ -11,7 +11,7 @@ const Work = lazy(() => import('./views/WorkView'));
 const AboutView = lazy(() => import('./views/AboutView'));
 const ContactView = lazy(() => import('./views/ContactView'));
 const BlogView = lazy(() => import('./views/BlogView'));
-const BlogPost = lazy(() => import('./src/pages/BlogPost'));
+const BlogPost = lazy(() => import('./views/BlogPostView'));
 const WebArchitectureView = lazy(() => import('./views/WebArchitectureView'));
 const AppEngineeringView = lazy(() => import('./views/AppEngineeringView'));
 const SeoServiceView = lazy(() => import('./views/SeoServiceView'));

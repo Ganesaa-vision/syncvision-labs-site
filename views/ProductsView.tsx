@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
 import { Terminal, Activity, ArrowRight } from 'lucide-react';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const ProductsView: React.FC = () => {
   const { pathname } = useLocation();
@@ -15,7 +16,7 @@ const ProductsView: React.FC = () => {
   return (
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen flex flex-col relative transition-colors duration-300">
       <Helmet>
-        <title>Internal R&D Labs | Ominos Tech</title>
+        <title>Internal R&D Labs | Omino Tech</title>
         <meta name="description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
       </Helmet>
 
@@ -72,9 +73,12 @@ const ProductsView: React.FC = () => {
                      ))}
                    </div>
 
-                   <Link to="/contact" className="w-full mt-10 py-6 bg-interstellar text-slate-100 font-mono text-sm font-black uppercase tracking-[0.4em] hover:opacity-90 transition-all rounded-2xl shadow-xl shadow-interstellar/20 flex items-center justify-center gap-4 group">
-                     Beta Interest Protocol <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-                   </Link>
+                   <WhatsAppButton 
+                     serviceName={`Beta Interest: ${product.name}`}
+                     buttonText="Beta Interest Protocol"
+                     className="w-full mt-10 py-6 bg-interstellar text-slate-100 font-mono text-sm font-black uppercase tracking-[0.4em] hover:opacity-90 transition-all rounded-2xl shadow-xl shadow-interstellar/20 flex items-center justify-center gap-4 group"
+                     showIcon={true}
+                   />
                  </div>
               </div>
             </div>

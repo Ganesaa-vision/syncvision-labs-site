@@ -16,7 +16,7 @@ const ContactView: React.FC = () => {
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none transform-gpu will-change-transform"></div>
       <Helmet>
-        <title>Initiate Protocol | Ominos Tech</title>
+        <title>Initiate Protocol | Omino Tech</title>
         <meta name="description" content="Select your mission objective. Validated requests receive engineering protocols within 12 hours. Secure channel active." />
       </Helmet>
 
@@ -63,7 +63,7 @@ const ContactView: React.FC = () => {
                    </div>
                    <div className="space-y-4">
                      <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Signal Channel (Email)</label>
-                     <input required type="email" placeholder="contact@ominostech.com" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
+                     <input required type="email" placeholder="contact@ominotech.com" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
                    </div>
                 </div>
                 <div className="space-y-4">

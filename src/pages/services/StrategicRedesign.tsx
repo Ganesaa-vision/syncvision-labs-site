@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceLayout from '../../layouts/ServiceLayout';
 import { RefreshCw, Server, Database, Activity, CheckCircle2 } from 'lucide-react';
+import { WhatsAppButton } from '../../../components/WhatsAppButton';
 
 const StrategicRedesign = () => {
   const pageData = {
@@ -117,7 +118,13 @@ const StrategicRedesign = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all">Start Migration</button>
+                <WhatsAppButton
+                  serviceName="Strategic Modernization"
+                  packageLabel="Migration"
+                  buttonText="Start Migration"
+                  message="Hi, I am ready to optimize my business with Migration. Can we discuss the details?"
+                  className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                />
               </div>
 
               <div className="bg-slate-900 border border-indigo-500 rounded-[2.5rem] p-10 relative transform md:-translate-y-8 shadow-[0_0_50px_rgba(99,102,241,0.25)] flex flex-col">
@@ -132,7 +139,13 @@ const StrategicRedesign = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-4 bg-indigo-600 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg">Start Re-Architect</button>
+                <WhatsAppButton
+                  serviceName="Strategic Modernization"
+                  packageLabel="Full Re-Architect"
+                  buttonText="Start Re-Architect"
+                  message="Hi, I am ready to optimize my business with a Full Re-Architect. Can we discuss the details?"
+                  className="w-full py-4 bg-indigo-600 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg"
+                />
               </div>
           </div>
         </div>

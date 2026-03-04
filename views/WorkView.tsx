@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'; 
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const Work: React.FC = () => {
   const { pathname } = useLocation();
@@ -22,7 +23,7 @@ const Work: React.FC = () => {
       {/* === SEO & GEO STRATEGY === */}
       {/* Targeted Keywords: "Industrial Web Design", "Clinic Management System", "Productivity App Developer" */}
       <Helmet>
-        <title>Our Work | Industrial & Healthcare Digital Systems - Ominos Tech</title>
+        <title>Our Work | Industrial & Healthcare Digital Systems - Omino Tech</title>
         <meta name="description" content="Case Studies: Digital Transformation for Manufacturing (Pipe Industry) and Proprietary Healthcare Software (MediMy). View our engineering portfolio." />
         <meta name="keywords" content="Industrial Web Design Malaysia, Clinic Management System, Flutter App Developer, LifeSync App, Manufacturing Digitalization" />
       </Helmet>
@@ -191,7 +192,7 @@ const Work: React.FC = () => {
           className="px-6 max-w-7xl mx-auto mb-32"
         >
           <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">OMINOS TECH R&D LABS</h2>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">OMINO TECH R&D LABS</h2>
             <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
             <span className="text-xs font-mono text-indigo-400 animate-pulse">2 PROJECTS IN DEVELOPMENT</span>
           </div>
@@ -327,9 +328,12 @@ const Work: React.FC = () => {
             <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto">
               Whether it's a corporate portal or a complex SaaS application, we have the experience to build it right.
             </p>
-            <Link to="/contact" className="inline-block bg-indigo-600 dark:bg-white text-white dark:text-black px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(99,102,241,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-              Start Your Project
-            </Link>
+            <WhatsAppButton 
+              serviceName="Project Inquiry"
+              buttonText="Start Your Project"
+              className="inline-block bg-indigo-600 dark:bg-white text-white dark:text-black px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(99,102,241,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+              showIcon={true}
+            />
           </div>
         </section>
       </div>

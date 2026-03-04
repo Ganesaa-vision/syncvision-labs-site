@@ -4,7 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Globe, Code2, ShoppingBag, ShieldCheck, Server, ArrowRight, CheckCircle2, Zap, Layout, Smartphone, Lock, Database, PenTool, Gauge, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
-import { m, AnimatePresence } from 'framer-motion';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const WebArchitectureView: React.FC = () => {
   const { pathname } = useLocation();
@@ -18,6 +19,14 @@ const WebArchitectureView: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is website loading speed important for SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Search engines prioritize sites that load in under 2 seconds. We use custom React/Next.js architectures to eliminate code bloat."
+        }
+      },
       {
         "@type": "Question",
         "name": "How long does it take to build a custom React app?",
@@ -46,11 +55,12 @@ const WebArchitectureView: React.FC = () => {
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
       <Helmet>
-        <title>Web Architecture & Custom Development | Selangor & Balakong - Ominos Tech</title>
-        <meta name="description" content="Strategic Web Development in Selangor. We engineer high-performance Next.js applications and optimized WordPress systems for Malaysian enterprises." />
-        <meta name="keywords" content="Web Design Balakong, Custom Web Development Selangor, Next.js Developer Malaysia, WordPress Speed Optimization, Enterprise Web Architecture" />
+        <title>Custom Web Development Agency Malaysia | High-Speed Design</title>
+        <meta name="description" content="Need a fast-loading website? Omino Tech is a top web development company in Malaysia specializing in custom Next.js and Enterprise WordPress design." />
+        <meta name="keywords" content="Web Design Malaysia, Custom Web Development Selangor, Next.js Developer Malaysia, WordPress Speed Optimization, Enterprise Web Architecture, E-commerce website developer Malaysia, WordPress website redesign services" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
@@ -58,13 +68,13 @@ const WebArchitectureView: React.FC = () => {
         {/* HERO */}
         <div className="mb-24">
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Selangor Digital Infrastructure</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
-            WEB ARCHITECTURE <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">IN SELANGOR.</span>
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8 leading-tight">
+            Custom Website Development & <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">High-Speed Design in Malaysia</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
-            We don't just "design" websites; we engineer digital foundations for Balakong and Selangor businesses. From proprietary 
-            <span className="text-slate-900 dark:text-white font-bold"> React/Next.js</span> web apps to rapid 
-            <span className="text-slate-900 dark:text-white font-bold"> WordPress</span> deployments, we build systems that scale with your business.
+            We don't just "design" websites; we engineer digital foundations. As one of the <strong>best web developers in Selangor</strong>, we specialize in proprietary 
+            <span className="text-slate-900 dark:text-white font-bold"> React/Next.js</span> web apps and rapid 
+            <span className="text-slate-900 dark:text-white font-bold"> WordPress website redesign services</span> that scale with your business.
           </p>
         </div>
 
@@ -113,11 +123,10 @@ const WebArchitectureView: React.FC = () => {
                     View Full Portfolio <ArrowRight size={16} />
                 </Link>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {[
-                    { title: "Industrial Manufacturing", desc: "B2B Catalog & Inquiry System", color: "bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/20" },
-                    { title: "Medical Tech", desc: "Clinic Management Dashboard", color: "bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/20" },
-                    { title: "Luxury Retail", desc: "High-Performance E-Commerce", color: "bg-purple-50 dark:bg-purple-500/10 border-purple-200 dark:border-purple-500/20" }
+                    { title: "Allied Group", desc: "WooCommerce Catalog with Multi-SKU Variants", color: "bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/20" },
+                    { title: "MediMy Clinic", desc: "Clinic Management Dashboard", color: "bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/20" }
                 ].map((item, i) => (
                     <div key={i} className={`aspect-video rounded-2xl border ${item.color} p-8 flex flex-col justify-end hover:scale-[1.02] transition-transform cursor-default shadow-sm dark:shadow-none`}>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{item.title}</h3>
@@ -132,7 +141,7 @@ const WebArchitectureView: React.FC = () => {
             <div className="text-center mb-16">
                 <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Our Architectural Philosophy</h2>
                 <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-                    We move beyond basic templates. Here is how we engineer performance.
+                    We move beyond basic templates. Here is how we engineer performance that sets the standard for every <strong>E-commerce website developer Malaysia</strong> has to offer.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -141,7 +150,7 @@ const WebArchitectureView: React.FC = () => {
                         <Database className="text-indigo-500" /> Custom Backend Logic
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
-                        For complex requirements, we write custom PHP or Node.js middleware. Whether it's calculating dynamic shipping rates for East Malaysia or syncing inventory with your local POS system in Balakong, we build the logic from scratch to ensure accuracy and security.
+                        For complex requirements, we write custom PHP or Node.js middleware. Whether it's calculating dynamic shipping rates for East Malaysia or syncing inventory with your local POS system in Selangor, we build the logic from scratch to ensure accuracy and security. This ensures sub-2-second load times on Enterprise WordPress or custom PHP builds.
                     </p>
                 </div>
                 <div className="p-8 bg-slate-100 dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
@@ -157,6 +166,7 @@ const WebArchitectureView: React.FC = () => {
 
         {/* PRICING */}
         <PricingSection 
+          serviceName="Web Architecture"
           title="Development Packages"
           description="Choose your engine. Rapid deployment or custom engineering."
           plans={[
@@ -174,7 +184,15 @@ const WebArchitectureView: React.FC = () => {
                   "Zero-Lock In (You own it)",
                   "15-Min Video Training Guide"
               ],
-              buttonText: "Start WordPress"
+              buttonText: "Start WordPress",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Web Development"
+                  packageLabel="The Smart Editor"
+                  buttonText="Start WordPress"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             },
             {
               name: "The Innovator Stack",
@@ -191,7 +209,15 @@ const WebArchitectureView: React.FC = () => {
                   "Requires 'Tech Partner' Plan"
               ],
               isPopular: true,
-              buttonText: "Go Full Code"
+              buttonText: "Go Full Code",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Web Development"
+                  packageLabel="The Innovator Stack"
+                  buttonText="Go Full Code"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/30"
+                />
+              )
             }
           ]}
         />
@@ -220,9 +246,12 @@ const WebArchitectureView: React.FC = () => {
                     <div className="text-center md:text-right">
                         <div className="text-4xl font-black text-slate-900 dark:text-white mb-2">+ RM 1,500</div>
                         <div className="text-sm text-slate-500 dark:text-slate-500 uppercase tracking-widest font-bold mb-6">One-Time Add-on</div>
-                        <Link to="/contact" className="inline-block bg-yellow-500 text-black px-8 py-3 rounded-xl font-bold hover:bg-yellow-400 transition-colors">
-                            Add to Package
-                        </Link>
+                        <WhatsAppButton 
+                            serviceName="E-Commerce Upgrade"
+                            packageLabel="Digital Store Add-on"
+                            buttonText="Add to Package"
+                            className="inline-flex bg-yellow-500 text-black px-8 py-3 rounded-xl font-bold hover:bg-yellow-400 transition-colors shadow-lg hover:shadow-yellow-500/30"
+                        />
                     </div>
                 </div>
             </div>
@@ -302,13 +331,17 @@ const WebArchitectureView: React.FC = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <Link to="/contact" className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-bold hover:bg-indigo-500 transition-all">
-            Start Your Build <ArrowRight size={18} />
-          </Link>
+          <WhatsAppButton 
+            serviceName="Custom Web Architecture"
+            buttonText="Start Your Build"
+            className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-bold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-500/30"
+            showIcon={true}
+          />
         </div>
       </div>
       <Footer />
     </div>
+    </LazyMotion>
   );
 };
 

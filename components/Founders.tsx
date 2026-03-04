@@ -5,11 +5,11 @@ const founders = [
   {
     name: "Ganesaa", // Placeholder: Update with your actual name
     role: "Co-Founder & Strategic Lead",
-    bio: "Driving the strategic vision of Ominos Tech. With a focus on scalable digital infrastructure and business growth, I ensure our partners stay ahead of the curve.",
+    bio: "Driving the strategic vision of Omino Tech. With a focus on scalable digital infrastructure and business growth, I ensure our partners stay ahead of the curve.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop", // Placeholder: Replace with your photo URL
     social: {
       linkedin: "#",
-      email: "mailto:contact@ominostech.com"
+      email: "mailto:contact@ominotech.com"
     }
   },
   {
@@ -19,7 +19,7 @@ const founders = [
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop", // Placeholder: Replace with co-founder's photo URL
     social: {
       linkedin: "#",
-      email: "mailto:tech@ominostech.com"
+      email: "mailto:tech@ominotech.com"
     }
   }
 ];

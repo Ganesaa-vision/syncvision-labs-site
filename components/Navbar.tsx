@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
         <Link to="/" className="flex items-center gap-4 group z-[120] relative">
           <div className="w-10 h-10 bg-interstellar rounded-xl flex items-center justify-center font-mono font-black text-slate-100 text-lg transform group-hover:scale-110 transition-all shadow-lg">V</div>
           <span className="font-mono font-bold tracking-tighter text-slate-900 dark:text-slate-100 uppercase text-xl">
-            Ominos <span className="text-interstellar">Tech</span>
+            Omino <span className="text-interstellar">Tech</span>
           </span>
         </Link>
 

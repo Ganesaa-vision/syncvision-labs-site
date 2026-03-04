@@ -5,6 +5,7 @@ import { ShieldCheck, RefreshCw, Server, Activity, ArrowRight, Check, X, HelpCir
 import PricingSection from '../components/PricingSection';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const WebManagementView: React.FC = () => {
   const { pathname } = useLocation();
@@ -66,9 +67,12 @@ const WebManagementView: React.FC = () => {
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
                  Need to change a banner? Update a price? Post a blog? Just WhatsApp us. Our management packages include monthly man-hours for content updates so you don't need to hire a developer for small tasks.
               </p>
-              <Link to="/contact" className="text-cyan-400 font-bold hover:text-cyan-300 inline-flex items-center gap-2">
-                 View Maintenance Plans <ArrowRight size={16} />
-              </Link>
+              <WhatsAppButton 
+                serviceName="Maintenance Inquiry"
+                buttonText="View Maintenance Plans"
+                className="text-cyan-400 font-bold hover:text-cyan-300 inline-flex items-center gap-2"
+                showIcon={true}
+              />
            </div>
            <div className="md:w-1/3 flex justify-center">
               <Server size={120} className="text-slate-300 dark:text-slate-800" />
@@ -77,6 +81,7 @@ const WebManagementView: React.FC = () => {
 
         {/* PRICING */}
         <PricingSection 
+          serviceName="Web Management"
           title="Management Packages"
           description="Secure your digital asset. Cheaper than a single hour of downtime."
           plans={[
@@ -85,8 +90,16 @@ const WebManagementView: React.FC = () => {
               price: "RM 99",
               period: "/mo",
               description: "\"Sleep Soundly. Your Site is Safe.\" We act as your digital security guard.",
-              features: ["High-Speed Cloud Hosting", "Daily Cloud Backups", "Bank-Grade Security (SSL)", "Uptime Monitoring (5 min)", "No Content Edits"],
-              buttonText: "Secure Site"
+              features: ["High-Speed Cloud Hosting", "Daily Cloud Backups", "Bank-Grade Security (SSL)", "Uptime Monitoring (5 min)", "No Content Edits"], 
+              buttonText: "Secure Site",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Web Management"
+                  packageLabel="The Digital Keeper"
+                  buttonText="Secure Site"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             },
             {
               name: "The Growth Partner",
@@ -95,7 +108,15 @@ const WebManagementView: React.FC = () => {
               description: "\"Your Own Tech Team. On Demand.\" Stop wasting hours fixing buttons.",
               features: ["Everything in Digital Keeper", "2 Hours 'Hands-On' Work", "Priority WhatsApp Support", "Monthly Speed Optimization", "Safe Plugin Updates"],
               isPopular: true,
-              buttonText: "Hire Tech Team"
+              buttonText: "Hire Tech Team",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Web Management"
+                  packageLabel="The Growth Partner"
+                  buttonText="Hire Tech Team"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-cyan-500 hover:bg-cyan-400 text-white shadow-lg shadow-cyan-500/25"
+                />
+              )
             },
             {
               name: "The CTO Experience",
@@ -103,7 +124,15 @@ const WebManagementView: React.FC = () => {
               period: "/mo",
               description: "\"Maximum Performance. Zero Compromises.\" For businesses that can't afford downtime.",
               features: ["Everything in Growth Partner", "Unlimited Minor Edits", "1-Hour Emergency Response", "Monthly SEO Health Report", "Auto Server Scaling"],
-              buttonText: "Get CTO"
+              buttonText: "Get CTO",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Web Management"
+                  packageLabel="The CTO Experience"
+                  buttonText="Get CTO"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             }
           ]}
         />

@@ -4,7 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { Smartphone, Cpu, WifiOff, Layers, ArrowRight, Database, Cloud, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
-import { m, AnimatePresence } from 'framer-motion';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const AppEngineeringView: React.FC = () => {
   const { pathname } = useLocation();
@@ -46,6 +47,7 @@ const AppEngineeringView: React.FC = () => {
   };
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
         <title>Mobile App Engineering | Flutter & Supabase Experts Malaysia</title>
@@ -65,9 +67,12 @@ const AppEngineeringView: React.FC = () => {
             <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
               We build "Offline-First" mobile applications that work even when your internet doesn't. Using <strong>Flutter</strong>, we deploy to both the Apple App Store and Google Play Store from a single codebase, saving you 40% in development costs.
             </p>
-            <Link to="/contact" className="inline-flex items-center gap-3 bg-indigo-600 dark:bg-white text-white dark:text-black px-8 py-4 rounded-full font-bold hover:bg-indigo-500 dark:hover:bg-slate-200 transition-all">
-              Build My App <ArrowRight size={18} />
-            </Link>
+            <WhatsAppButton 
+              serviceName="App Engineering"
+              buttonText="Build My App"
+              className="inline-flex items-center gap-3 bg-indigo-600 dark:bg-white text-white dark:text-black px-8 py-4 rounded-full font-bold hover:bg-indigo-500 dark:hover:bg-slate-200 transition-all"
+              showIcon={true}
+            />
           </div>
           <div className="lg:w-1/2">
              <div className="relative aspect-square bg-gradient-to-br from-blue-50 to-slate-100 dark:from-blue-900/20 dark:to-slate-900 rounded-[3rem] border border-blue-500/20 flex items-center justify-center">
@@ -115,7 +120,7 @@ const AppEngineeringView: React.FC = () => {
                         <Database className="text-blue-500" /> Real-Time Sync (Firebase/Supabase)
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
-                        We utilize WebSocket connections via Supabase or Firebase to ensure data is synchronized across all devices in milliseconds. If a field agent updates an order in Balakong, the HQ in KL sees it instantly.
+                        We utilize WebSocket connections via Supabase or Firebase to ensure data is synchronized across all devices in milliseconds. If a field agent updates an order in Selangor, the HQ in KL sees it instantly.
                     </p>
                 </div>
                 <div className="p-8 bg-slate-100 dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
@@ -143,6 +148,7 @@ const AppEngineeringView: React.FC = () => {
 
         {/* PRICING */}
         <PricingSection 
+          serviceName="App Engineering"
           title="App Development Investment"
           description="Native performance at hybrid cost. iOS & Android included."
           plans={[
@@ -151,7 +157,15 @@ const AppEngineeringView: React.FC = () => {
               price: "RM 12,000",
               description: "Validate your idea fast. Core features only.",
               features: ["iOS & Android (Flutter)", "Core Functionality", "Basic UI/UX", "Firebase Backend", "4 Weeks Delivery"],
-              buttonText: "Start MVP"
+              buttonText: "Start MVP",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="App Development"
+                  packageLabel="MVP Prototype"
+                  buttonText="Start MVP"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             },
             {
               name: "Business App",
@@ -159,14 +173,30 @@ const AppEngineeringView: React.FC = () => {
               description: "Full-featured app for scaling businesses.",
               features: ["Custom UI Design", "Push Notifications", "Admin Panel", "API Integrations", "App Store Submission"],
               isPopular: true,
-              buttonText: "Build App"
+              buttonText: "Build App",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="App Development"
+                  packageLabel="Business App"
+                  buttonText="Build App"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/30"
+                />
+              )
             },
             {
               name: "Enterprise System",
               price: "RM 45,000+",
               description: "Mission-critical internal tools or large scale platforms.",
               features: ["Offline-First Sync", "Legacy System Integration", "Advanced Security", "SLA Support", "Dedicated Team"],
-              buttonText: "Scale Enterprise"
+              buttonText: "Scale Enterprise",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="App Development"
+                  packageLabel="Enterprise System"
+                  buttonText="Scale Enterprise"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             }
           ]}
         />
@@ -203,6 +233,7 @@ const AppEngineeringView: React.FC = () => {
       </div>
       <Footer />
     </div>
+    </LazyMotion>
   );
 };
 

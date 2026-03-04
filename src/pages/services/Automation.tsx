@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceLayout from '../../layouts/ServiceLayout';
 import { Bot, MessageSquare, Clock, Workflow, CheckCircle } from 'lucide-react';
+import { WhatsAppButton } from '../../../components/WhatsAppButton';
 
 const Automation = () => {
   const pageData = {
@@ -155,7 +156,12 @@ const Automation = () => {
                 <li className="text-sm text-gray-300 flex gap-3"><CheckCircle size={16} className="text-indigo-500" /> Multi-Channel (Insta/FB/WA)</li>
                 <li className="text-sm text-gray-300 flex gap-3"><CheckCircle size={16} className="text-indigo-500" /> Dashboard for Analytics</li>
               </ul>
-              <button className="w-full py-3 border border-white/20 rounded-lg text-sm font-bold text-white hover:bg-white hover:text-black transition-all">Contact Us</button>
+              <WhatsAppButton 
+                serviceName="Full System Ops" 
+                message="Hi, I am ready to optimize my business with Full System Ops. Can we discuss the details?"
+                buttonText="Contact Us"
+                className="w-full py-3 bg-white/5 border border-white/20 rounded-lg text-sm font-bold text-white hover:bg-white hover:text-black transition-all"
+              />
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { sendMessageToGemini } from '../services/geminiService';
 const Assistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Ominos Tech Intelligence Online. Operational. How can I assist with your systems architecture today?', timestamp: Date.now() }
+    { role: 'model', text: 'Omino Tech Intelligence Online. Operational. How can I assist with your systems architecture today?', timestamp: Date.now() }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isThinking, setIsThinking] = useState(false);
@@ -38,7 +38,7 @@ const Assistant: React.FC = () => {
           <div className="bg-armor p-6 border-b border-white/10 flex justify-between items-center shadow-lg">
             <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-interstellar rounded-full animate-pulse shadow-[0_0_10px_#3b82f6]"></div>
-                <span className="font-bold text-[10px] uppercase tracking-widest text-slate-100">Ominos.Intel_v3</span>
+                <span className="font-bold text-[10px] uppercase tracking-widest text-slate-100">Omino.Intel_v3</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-100 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>

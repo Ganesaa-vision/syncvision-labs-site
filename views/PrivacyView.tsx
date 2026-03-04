@@ -13,8 +13,8 @@ const PrivacyView: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
-        <title>Privacy Policy | Ominos Tech</title>
-        <meta name="description" content="Privacy Policy regarding data collection and usage at Ominos Tech." />
+        <title>Privacy Policy | Omino Tech</title>
+        <meta name="description" content="Privacy Policy regarding data collection and usage at Omino Tech." />
       </Helmet>
 
       <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto flex-grow w-full">
@@ -23,7 +23,7 @@ const PrivacyView: React.FC = () => {
           <p className="font-mono text-xs uppercase tracking-widest mb-8">Last Updated: {new Date().getFullYear()}</p>
           
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">1. Introduction</h3>
-          <p>Ominos Tech ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. This policy outlines how we handle your information in compliance with the Personal Data Protection Act 2010 (PDPA) of Malaysia.</p>
+          <p>Omino Tech ("we", "our", or "us") respects your privacy and is committed to protecting your personal data. This policy outlines how we handle your information in compliance with the Personal Data Protection Act 2010 (PDPA) of Malaysia.</p>
 
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">2. Information We Collect</h3>
           <p>We may collect personal information such as your name, email address, phone number, and company details when you contact us or use our services.</p>

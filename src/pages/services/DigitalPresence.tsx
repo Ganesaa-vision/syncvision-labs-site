@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceLayout from '../../layouts/ServiceLayout';
 import { Server, ShieldCheck, RefreshCw, Activity, CheckCircle2, Clock } from 'lucide-react';
+import { WhatsAppButton } from '../../../components/WhatsAppButton';
 
 const DigitalPresence = () => {
   const pageData = {
@@ -108,7 +109,13 @@ const DigitalPresence = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all">Start Maintenance</button>
+                <WhatsAppButton
+                  serviceName="Web Management"
+                  packageLabel="Maintenance"
+                  buttonText="Start Maintenance"
+                  message="Hi, I am ready to optimize my business with Maintenance. Can we discuss the details?"
+                  className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                />
               </div>
 
               <div className="bg-slate-900 border border-indigo-500 rounded-[2.5rem] p-10 relative transform md:-translate-y-8 shadow-[0_0_50px_rgba(99,102,241,0.25)] flex flex-col">
@@ -123,7 +130,13 @@ const DigitalPresence = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-4 bg-indigo-600 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg">Start Growth</button>
+                <WhatsAppButton
+                  serviceName="Web Management"
+                  packageLabel="Growth Ops"
+                  buttonText="Start Growth"
+                  message="Hi, I am ready to optimize my business with Growth Ops. Can we discuss the details?"
+                  className="w-full py-4 bg-indigo-600 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg"
+                />
               </div>
           </div>
         </div>

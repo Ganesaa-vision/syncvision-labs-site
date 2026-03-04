@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'; 
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 // === MASTER STRATEGY: MALAYSIA SEO & GEO ===
 // Keywords Targeted: "SME Web Design", "FPX Payment", "WhatsApp Bot", "Google Maps Ranking"
@@ -17,49 +18,49 @@ import Footer from '../components/Footer';
 const services = [
   {
     id: 'web-development',
-    title: 'Web Development',
-    description: 'We build fast custom websites (Next.js) or easy-to-edit WordPress sites. Choose what fits your budget.',
-    icon: <Code className="w-8 h-8 text-indigo-400" />,
+    title: 'Custom Web Development',
+    description: 'High-Performance Web Developer Malaysia. High-speed Next.js and Enterprise WordPress design that loads in under 2 seconds.',
+    icon: <Code className="w-8 h-8 text-indigo-400 group-hover:text-white dark:group-hover:text-indigo-600 transition-colors duration-300" />,
     link: '/services/web-architecture',
     tags: ['Next.js', 'WordPress', 'React']
   },
   {
     id: 'mobile-app',
-    title: 'Mobile Apps',
-    description: 'Apps for iPhone & Android. Works even without internet connection. Perfect for your staff or customers.',
-    icon: <Smartphone className="w-8 h-8 text-blue-400" />,
+    title: 'Mobile App Development',
+    description: 'Native-Performance iOS & Android apps. We engineer custom mobile applications using Flutter for local businesses.',
+    icon: <Smartphone className="w-8 h-8 text-blue-400 group-hover:text-white dark:group-hover:text-blue-600 transition-colors duration-300" />,
     link: '/services/app-engineering',
     tags: ['Flutter', 'iOS', 'Android']
   },
   {
     id: 'seo-ranking',
-    title: 'SEO & Google Ranking',
-    description: 'Get found on Google. We help you rank higher on Search and Maps so customers find you first.',
-    icon: <BarChart className="w-8 h-8 text-green-400" />,
+    title: 'Expert SEO Services',
+    description: 'Dominate Google search results. Local ranking strategies and AI SEO expertise to help customers find you first.',
+    icon: <BarChart className="w-8 h-8 text-green-400 group-hover:text-white dark:group-hover:text-green-600 transition-colors duration-300" />,
     link: '/services/seo-service',
     tags: ['Local SEO', 'Google Maps', 'Traffic']
   },
   {
     id: 'ai-chatbots',
-    title: 'AI & Chatbots',
-    description: 'Automate your customer service. Smart WhatsApp bots that reply to customers instantly, 24/7.',
-    icon: <Bot className="w-8 h-8 text-purple-400" />,
+    title: 'AI Chatbot Development',
+    description: 'Automate your customer service. Custom AI agents and WhatsApp auto-reply systems for business automation.',
+    icon: <Bot className="w-8 h-8 text-purple-400 group-hover:text-white dark:group-hover:text-purple-600 transition-colors duration-300" />,
     link: '/services/automation',
     tags: ['WhatsApp', 'Chatbots', 'AI']
   },
   {
     id: 'ecommerce',
-    title: 'Online Stores',
-    description: 'Sell online securely. We set up FPX banking (ToyyibPay, Billplz) so customers can pay easily. No monthly fees.',
-    icon: <ShoppingBag className="w-8 h-8 text-yellow-400" />,
+    title: 'E-Commerce Web Design',
+    description: 'Launch a secure, high-converting online store. Custom WooCommerce expert development with Stripe/FPX integration.',
+    icon: <ShoppingBag className="w-8 h-8 text-yellow-400 group-hover:text-white dark:group-hover:text-yellow-600 transition-colors duration-300" />,
     link: '/services/ecommerce',
     tags: ['Billplz', 'Stripe', 'FPX']
   },
   {
     id: 'web-management',
     title: 'Website Maintenance',
-    description: 'We keep your website safe and online. Daily backups and security updates so you don\'t have to worry.',
-    icon: <ShieldCheck className="w-8 h-8 text-cyan-400" />,
+    description: 'Keep your website fast and secure. Professional website management, hosting setup, and legacy redesign services.',
+    icon: <ShieldCheck className="w-8 h-8 text-cyan-400 group-hover:text-white dark:group-hover:text-cyan-600 transition-colors duration-300" />,
     link: '/services/web-management',
     tags: ['Security', 'Backups', 'Updates']
   },
@@ -67,14 +68,14 @@ const services = [
     id: 'server-setup',
     title: 'Domain & Hosting',
     description: 'We handle the technical setup. Domain registration, fast hosting, and professional company email.',
-    icon: <HardDrive className="w-8 h-8 text-slate-400" />,
+    icon: <HardDrive className="w-8 h-8 text-slate-400 group-hover:text-white dark:group-hover:text-slate-600 transition-colors duration-300" />,
     link: '/services/server-setup',
     tags: ['Email', 'Domain', 'Hosting']
   }
 ];
 
 const faqs = [
-  { q: "How much does a website cost in Malaysia?", a: "Custom corporate websites at Ominos Tech start from RM 1,500. Advanced E-commerce or Next.js Web Apps typically range from RM 3,500 to RM 15,000 depending on features." },
+  { q: "How much does a website cost in Malaysia?", a: "Custom corporate websites at Omino Tech start from RM 1,500. Advanced E-commerce or Next.js Web Apps typically range from RM 3,500 to RM 15,000 depending on features." },
   { q: "Can you integrate ToyyibPay or Billplz?", a: "Yes. We specialize in integrating local Malaysian payment gateways like ToyyibPay, Billplz, and Stripe for seamless FPX and credit card transactions." },
   { q: "Do you offer website maintenance?", a: "Yes. Our DevOps team provides 24/7 uptime monitoring and security updates to keep your business safe from cyber threats." }
 ];
@@ -113,7 +114,7 @@ const ServicesView: React.FC = () => {
         "@type": "Service",
         "name": service.title,
         "description": service.description,
-        "url": `https://ominostech.com${service.link}`
+        "url": `https://ominotech.com${service.link}`
       }
     }))
   };
@@ -125,12 +126,12 @@ const ServicesView: React.FC = () => {
       {/* === ULTIMATE SEO HEAD === */}
       {/* Targeted specifically for Malaysian Business Owners */}
       <Helmet>
-        <title>Ominos Tech | Web Design & App Development Agency Malaysia (Selangor)</title>
-        <meta name="description" content="Top-rated Digital Agency in Malaysia (Selangor & KL). We provide Custom Web Development, Mobile Apps, and SME Digital Grant solutions. SSM Registered." />
-        <meta name="keywords" content="Web Design Malaysia, Mobile App Developer KL, SEO Expert Malaysia, SME Digital Grant, SSM Registered, Balakong, Selangor, Payment Gateway Integration" />
+        <title>Omino Tech | Web Design & App Development Agency Malaysia (Selangor)</title>
+        <meta name="description" content="Strategic Digital Agency in Malaysia (Selangor & KL). We provide Custom Web Development, Mobile Apps, and SME Digital Grant solutions. SSM Registered." />
+        <meta name="keywords" content="Web Design Malaysia, Mobile App Developer KL, SEO Expert Malaysia, SME Digital Grant, SSM Registered, Selangor, Kuala Lumpur, Negeri Sembilan, Payment Gateway Integration" />
         
         {/* GEO: Open Graph for Social Sharing (WhatsApp/LinkedIn) */}
-        <meta property="og:title" content="Ominos Tech - Web Design & App Development Agency Malaysia" />
+        <meta property="og:title" content="Omino Tech - Web Design & App Development Agency Malaysia" />
         <meta property="og:description" content="We build high-performance websites and AI systems for Malaysian businesses." />
         <meta property="og:type" content="website" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
@@ -178,33 +179,33 @@ const ServicesView: React.FC = () => {
             <m.div key={service.id} variants={itemVariants} className="h-full">
             <Link 
               to={service.link} 
-              className="group relative bg-white dark:bg-white/[0.02] backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)] transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col h-full will-change-transform"
+              className="group relative bg-white dark:bg-white/[0.02] backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:bg-slate-900 dark:hover:bg-white hover:border-transparent hover:shadow-[0_0_50px_rgba(99,102,241,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden flex flex-col h-full will-change-transform"
             >
               {/* Gradient Blob */}
-              <div className="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all duration-500"></div>
+              <div className="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-white/10 dark:group-hover:bg-indigo-500/10 transition-all duration-500"></div>
 
               {/* Icon & Arrow */}
               <div className="flex items-start justify-between mb-8 relative z-10">
-                <div className="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-white/10 group-hover:border-indigo-500/50 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.2)] transition-all duration-300">
+                <div className="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-white/10 group-hover:bg-white/10 group-hover:border-white/10 dark:group-hover:bg-indigo-50 dark:group-hover:border-indigo-100 transition-all duration-300">
                   {service.icon}
                 </div>
-                <div className="p-2 rounded-full border border-slate-200 dark:border-white/5 group-hover:bg-indigo-500 group-hover:border-indigo-500 transition-all duration-300">
-                   <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-white -rotate-45 group-hover:rotate-0 transition-all duration-300" />
+                <div className="p-2 rounded-full border border-slate-200 dark:border-white/5 group-hover:bg-white/10 group-hover:border-white/10 dark:group-hover:bg-indigo-600 dark:group-hover:border-indigo-600 transition-all duration-300">
+                   <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-white dark:group-hover:text-white -rotate-45 group-hover:rotate-0 transition-all duration-300" />
                 </div>
               </div>
 
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors relative z-10">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-white dark:group-hover:text-slate-900 transition-colors relative z-10">
                 {service.title}
               </h3>
 
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm mb-8 flex-grow relative z-10 font-medium">
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm mb-8 flex-grow relative z-10 font-medium group-hover:text-slate-300 dark:group-hover:text-slate-600">
                 {service.description}
               </p>
 
               {/* Tech Tags */}
               <div className="flex flex-wrap gap-2 mt-auto relative z-10">
                 {service.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-500 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 group-hover:border-indigo-500/20 transition-colors">
+                  <span key={tag} className="px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-500 dark:text-slate-400 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10 dark:group-hover:bg-white dark:group-hover:text-indigo-600 dark:group-hover:border-indigo-200 dark:group-hover:shadow-sm transition-all">
                     {tag}
                   </span>
                 ))}
@@ -291,16 +292,13 @@ const ServicesView: React.FC = () => {
                         ))}
                     </div>
 
-                    <a 
-                        href="https://wa.me/60123456789?text=I%20need%20a%20custom%20digital%20solution%20for%20my%20business." 
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                    <WhatsAppButton 
+                        serviceName="Custom Digital Solution"
+                        message="I need a custom digital solution for my business."
+                        buttonText="Chat on WhatsApp"
                         className="inline-flex items-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-indigo-50 transition-all group shadow-lg shadow-indigo-500/10"
-                    >
-                        <MessageSquare size={20} className="text-green-600" />
-                        Chat on WhatsApp
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </a>
+                        showIcon={true}
+                    />
                 </div>
 
                 <div className="relative hidden lg:block">
@@ -348,9 +346,12 @@ const ServicesView: React.FC = () => {
             Project Availability: Open for Q1 2026
           </p>
           <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-indigo-500 to-purple-500">
-            <Link to="/contact" className="block bg-white dark:bg-[#0a0a0a] rounded-full px-10 py-4 text-slate-900 dark:text-white font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all">
-              Get a Free Consultation &rarr;
-            </Link>
+            <WhatsAppButton
+                serviceName="Free Consultation Inquiry"
+                buttonText="Get a Free Consultation &rarr;"
+                className="block bg-white dark:bg-[#0a0a0a] rounded-full px-10 py-4 text-slate-900 dark:text-white font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
+                showIcon={false}
+            />
           </div>
         </div>
 
@@ -395,10 +396,10 @@ const ServicesView: React.FC = () => {
 
         {/* SEO CONTENT BLOCK (Ghost Town Fix) */}
         <div className="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Why Choose Ominos Tech for Your Digital Transformation?</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Why Choose Omino Tech for Your Digital Transformation?</h2>
           <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
             <p className="mb-4">
-              As a premier <strong>Web Design Agency in Malaysia</strong>, Ominos Tech is dedicated to helping local SMEs and startups in <strong>Kuala Lumpur, Selangor, and Balakong</strong> thrive in the digital economy. We don't just build websites; we engineer digital assets that drive sales and improve operational efficiency.
+              As a premier <strong>Web Design Agency in Malaysia</strong>, Omino Tech is dedicated to helping local SMEs and startups in <strong>Kuala Lumpur, Selangor, and Negeri Sembilan</strong> thrive in the digital economy. We don't just build websites; we engineer digital assets that drive sales and improve operational efficiency.
             </p>
             <p className="mb-4">
               Whether you are looking to apply for the <strong>SME Digital Grant</strong> or need a robust <strong>E-commerce</strong> platform with <strong>Payment Gateway Integration</strong> (ToyyibPay, iPay88, Stripe), our team has the technical expertise to deliver. We are <strong>SSM Registered</strong> and committed to long-term partnerships with our clients.

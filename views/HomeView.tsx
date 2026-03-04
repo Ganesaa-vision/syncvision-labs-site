@@ -4,6 +4,7 @@ import { ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, ShieldCheck, Trendin
 import { Link, useLocation } from 'react-router-dom';
 import { m, LazyMotion, domAnimation, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 
 
@@ -22,10 +23,10 @@ const Home = () => {
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Ominos Tech",
-    "image": "https://ominostech.com/logo.png",
-    "@id": "https://ominostech.com",
-    "url": "https://ominostech.com",
+    "name": "Omino Tech",
+    "image": "https://ominotech.com/logo.png",
+    "@id": "https://ominotech.com",
+    "url": "https://ominotech.com",
     "telephone": "+60123456789",
     "address": {
       "@type": "PostalAddress",
@@ -61,13 +62,13 @@ const Home = () => {
       <Helmet>
         {/* --- SEO (Google Search) --- */}
         {/* Front-loaded keywords: "Web Design", "Malaysia", "SEO", "AI" */}
-        <title>Ominos Tech | Web & App Developer Malaysia (Selangor)</title>
+        <title>Strategic Web Development & AI Automation Agency Malaysia | Omino</title>
         
         {/* --- AEO (Voice Search) --- */}
         {/* Written in natural language for Siri/Alexa to read out loud */}
-        <meta name="description" content="Top-rated Digital Agency in Malaysia (Selangor & KL). We provide Custom Web Development, Mobile Apps, and SME Digital Grant solutions. SSM Registered." />
+        <meta name="description" content="Looking for a strategic digital partner in Malaysia? Omino Tech engineers custom high-speed websites, mobile apps, and AI chatbots for local businesses." />
         
-        <link rel="canonical" href="https://ominostech.com" />
+        <link rel="canonical" href="https://ominotech.com" />
         
         {/* --- GEO (AI Search) --- */}
         {/* Injecting the raw data map for AI models */}
@@ -120,9 +121,9 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-[1.0] will-change-transform"
           >
-            High-Performance Digital Infrastructure <br />
+            Strategic Web Development & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
-              for Malaysia’s Visionaries
+              Tech Service Agency in Malaysia
             </span>
           </m.h1>
           
@@ -133,7 +134,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-3xl text-xl text-slate-600 dark:text-gray-400 mb-12 leading-relaxed font-light will-change-transform"
           >
-            We don’t just build websites; we engineer Digital Assets that rank, perform, and convert. From custom personal portfolios to complex corporate inventory systems. If you have the vision, Ominos Tech writes the code.
+            We don’t just build websites; we engineer Digital Assets that rank, perform, and convert. From custom personal portfolios to complex corporate inventory systems. If you have the vision, Omino Tech writes the code.
           </m.p>
           
           {/* CTA BUTTONS */}
@@ -143,11 +144,12 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col md:flex-row gap-6 w-full md:w-auto will-change-transform"
           >
-            <Link to="/contact" className="group relative px-8 py-4 bg-indigo-600 dark:bg-indigo text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:scale-105 active:scale-95 duration-300">
-              <span className="relative z-10 flex items-center gap-3 font-sans font-bold normal-case tracking-normal">
-                Start Your Project &rarr;
-              </span>
-            </Link>
+            <WhatsAppButton
+              serviceName="New Project Inquiry"
+              buttonText="Start Your Project &rarr;"
+              className="group relative px-8 py-4 bg-indigo-600 dark:bg-indigo text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:scale-105 active:scale-95 duration-300"
+              showIcon={false}
+            />
             <Link to="/work" className="px-8 py-4 border border-slate-300 dark:border-white/10 text-slate-600 dark:text-gray-400 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo-500 dark:hover:border-indigo hover:text-indigo-600 dark:hover:text-indigo transition-all hover:scale-105 active:scale-95 duration-300">
               See Our Rankings
             </Link>
@@ -287,9 +289,12 @@ const Home = () => {
                     <p className="text-sm text-slate-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
                         Sleep soundly. We handle the servers, security, and updates. High-speed NVMe hosting in Singapore/Malaysia.
                     </p>
-                    <Link to="/contact" className="px-6 py-2 bg-slate-900 dark:bg-white text-white dark:text-black text-xs font-bold rounded-full hover:opacity-90 transition-opacity">
-                        Secure Your Site
-                 </Link>
+                    <WhatsAppButton
+                        serviceName="Managed Hosting Inquiry"
+                        buttonText="Secure Your Site"
+                        className="px-6 py-2 bg-slate-900 dark:bg-white text-white dark:text-black text-xs font-bold rounded-full hover:opacity-90 transition-opacity"
+                        showIcon={false}
+                    />
                  </div>
               </div>
 
@@ -739,12 +744,19 @@ const Home = () => {
                       </div>
 
                       <div className="mt-auto space-y-4">
-                          <Link to="/contact" className="w-full py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/30 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group">
-                              Claim This Package <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                          </Link>
-                          <Link to="/contact" className="w-full py-4 bg-white dark:bg-transparent border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all flex items-center justify-center gap-2">
-                              Book a Strategy Call
-                          </Link>
+                          <WhatsAppButton 
+                              message="I'm interested in the 'Zero to Hero' Launchpad package."
+                              buttonText="Claim This Package"
+                              className="w-full py-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-500/30 flex items-center justify-center gap-2 group"
+                              serviceName={'Launchpad Package'}
+                              showIcon={true}
+                          />
+                          <WhatsAppButton
+                              serviceName="Strategy Call Inquiry"
+                              buttonText="Book a Strategy Call"
+                              className="w-full py-4 bg-white dark:bg-transparent border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all flex items-center justify-center gap-2"
+                              showIcon={true}
+                          />
                           <p className="text-center text-xs text-slate-400 mt-4">
                               Strictly limited to 5 clients per month to ensure quality.
                           </p>
@@ -903,17 +915,29 @@ const Home = () => {
           transition={{ duration: 0.7 }}
           className="py-16 md:py-24 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5"
         >
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Why Choose Ominos Tech for Your Digital Transformation?</h2>
-          <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
-            <p className="mb-4">
-              As a premier <strong>Web Design Agency in Malaysia</strong>, Ominos Tech is dedicated to helping local SMEs and startups in <strong>Kuala Lumpur, Selangor, and Balakong</strong> thrive in the digital economy. We don't just build websites; we engineer digital assets that drive sales and improve operational efficiency.
-            </p>
-            <p className="mb-4">
-              Whether you are looking to apply for the <strong>SME Digital Grant</strong> or need a robust <strong>E-commerce</strong> platform with <strong>Payment Gateway Integration</strong> (ToyyibPay, iPay88, Stripe), our team has the technical expertise to deliver. We are <strong>SSM Registered</strong> and committed to long-term partnerships with our clients.
-            </p>
-            <p>
-              From <strong>Corporate Website Design</strong> to <strong>Custom Mobile App Development</strong>, we ensure your business stands out. Our solutions are hosted on high-speed NVMe servers in Singapore/Malaysia to ensure your customers experience zero lag.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Custom Website Building & High-Speed Web Design</h2>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                As a premier <strong>website development company</strong>, we specialize in <strong>custom web design in Malaysia</strong>. We don't use slow templates; we engineer <strong>fast loading website</strong> architectures using Next.js and optimized WordPress to ensure your business ranks high and converts visitors.
+              </p>
+
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Expert Mobile App Developers in Selangor & KL</h2>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                Looking for the <strong>best app developer company</strong>? We provide <strong>custom app building in Malaysia</strong> using Flutter. Our cross-platform solutions ensure your iOS and Android applications perform flawlessly for local users in Selangor and Kuala Lumpur.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">AI Chatbot Development & Business Automation</h2>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                Automate your sales with our <strong>AI agent builders</strong>. We handle <strong>WhatsApp auto reply setup Malaysia</strong> businesses rely on to capture leads 24/7. Experience true <strong>customer automation</strong> that reduces overhead and boosts revenue.
+              </p>
+
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Local SEO Services & Digital Management</h2>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                We are the <strong>best SEO expert Malaysia</strong> has to offer for local ranking. Beyond SEO, we provide reliable <strong>web hosting service Malaysia</strong> and comprehensive <strong>website maintenance</strong> to keep your digital assets secure and online.
+              </p>
+            </div>
           </div>
         </m.section>
 
@@ -937,8 +961,8 @@ const Home = () => {
 
            <div className="space-y-4">
               {[
-                 { q: "Who is the best SEO expert for fast rankings in Malaysia?", a: "Ominos Tech has a verified track record of achieving Rank #1 on Google in just 17 days for competitive industrial keywords in Malaysia." },
-                 { q: "Can you build a website for an individual or small startup?", a: "Yes. Ominos Tech serves everyone from individual entrepreneurs to large manufacturers. We build custom digital solutions tailored to your specific budget and goals." },
+                 { q: "Who is the best SEO expert for fast rankings in Malaysia?", a: "Omino Tech has a verified track record of achieving Rank #1 on Google in just 17 days for competitive industrial keywords in Malaysia." },
+                 { q: "Can you build a website for an individual or small startup?", a: "Yes. Omino Tech serves everyone from individual entrepreneurs to large manufacturers. We build custom digital solutions tailored to your specific budget and goals." },
                  { q: "Is the Launchpad Package really a one-time payment?", a: "Yes. You pay once for the design, development, and setup. There are no monthly agency fees. You only pay for your domain and hosting renewal yearly (approx RM 100-300/year) directly to the provider." },
                  { q: "How long does it take to launch?", a: "7 Days. Once we receive your content and mission objective, our team begins engineering immediately. We aim for a rapid deployment to get you into the market fast." },
                  { q: "Do I own the website and assets?", a: "100%. Unlike Wix or Shopify, you own the code, the domain, and the data. We transfer full ownership credentials to you upon completion." }

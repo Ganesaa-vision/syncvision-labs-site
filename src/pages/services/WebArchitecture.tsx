@@ -10,6 +10,7 @@ import {
   Flame, TrendingUp, Smartphone, Lock,
   Search, Rocket, Terminal
 } from 'lucide-react'; 
+import { WhatsAppButton } from '../../../components/WhatsAppButton'; 
 
 const WebArchitecture: React.FC = () => {
   const { hash } = useLocation();
@@ -63,9 +64,13 @@ const WebArchitecture: React.FC = () => {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Link to="/contact" className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-indigo-50 transition-colors flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
-                  Initialize Build <ArrowRight className="w-4 h-4" />
-                </Link>
+                <WhatsAppButton
+                  serviceName="Web Architecture"
+                  packageLabel="Initialize Build"
+                  buttonText="Initialize Build"
+                  message="Hi, I am ready to optimize my business by initializing a new build. Can we discuss the details?"
+                  className="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-indigo-50 transition-colors flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]"
+                />
                 <div className="px-8 py-4 border border-slate-700 rounded-full text-slate-300 font-mono text-sm flex items-center gap-2 bg-slate-900/50 backdrop-blur-sm">
                   <Flame className="w-4 h-4 text-orange-500" />
                   Performance: 100/100
@@ -319,9 +324,13 @@ const WebArchitecture: React.FC = () => {
                   Basic SEO Setup
                 </li>
               </ul>
-              <Link to="/contact" className="block w-full py-4 text-center rounded-xl border border-slate-700 hover:bg-pink-500 hover:text-white hover:border-pink-500 transition-all font-bold text-sm uppercase tracking-wider">
-                Select Starter
-              </Link>
+              <WhatsAppButton
+                  serviceName="Web Architecture"
+                  packageLabel="CMS / WordPress"
+                  buttonText="Select Starter"
+                  message="Hi, I am ready to optimize my business with a CMS / WordPress. Can we discuss the details?"
+                  className="block w-full py-4 text-center rounded-xl border border-slate-700 hover:bg-pink-500 hover:text-white hover:border-pink-500 transition-all font-bold text-sm uppercase tracking-wider"
+                />
             </div>
 
             {/* TIER 2: CUSTOM ENGINEERING (BEST SELLER) */}
@@ -362,9 +371,13 @@ const WebArchitecture: React.FC = () => {
                   <span className="text-indigo-100">Multi-Language Support</span>
                 </li>
               </ul>
-              <Link to="/contact" className="block w-full py-4 text-center rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 transition-all font-bold text-sm uppercase tracking-wider shadow-lg shadow-indigo-500/25">
-                Initialize Build
-              </Link>
+              <WhatsAppButton
+                  serviceName="Web Architecture"
+                  packageLabel="Custom Next.js"
+                  buttonText="Initialize Build"
+                  message="Hi, I am ready to optimize my business with a Custom Next.js build. Can we discuss the details?"
+                  className="block w-full py-4 text-center rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 transition-all font-bold text-sm uppercase tracking-wider shadow-lg shadow-indigo-500/25"
+                />
             </div>
 
             {/* TIER 3: ENTERPRISE SYSTEM */}
@@ -398,9 +411,13 @@ const WebArchitecture: React.FC = () => {
                   AI Agent Integration
                 </li>
               </ul>
-              <Link to="/contact" className="block w-full py-4 text-center rounded-xl border border-slate-700 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all font-bold text-sm uppercase tracking-wider">
-                Discuss Architecture
-              </Link>
+              <WhatsAppButton
+                  serviceName="Web Architecture"
+                  packageLabel="Web Application"
+                  buttonText="Discuss Architecture"
+                  message="Hi, I am ready to optimize my business with a Web Application. Can we discuss the details?"
+                  className="block w-full py-4 text-center rounded-xl border border-slate-700 hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all font-bold text-sm uppercase tracking-wider"
+                />
             </div>
 
           </div>
@@ -436,9 +453,13 @@ const WebArchitecture: React.FC = () => {
               <p className="text-slate-400 mb-8 max-w-lg mx-auto">
                 Stop losing customers to slow websites. Initialize your new digital asset today.
               </p>
-              <Link to="/contact" className="inline-block bg-white text-black px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                Get a Technical Proposal
-              </Link>
+              <WhatsAppButton
+                  serviceName="Web Architecture"
+                  packageLabel="Get a Technical Proposal"
+                  buttonText="Get a Technical Proposal"
+                  message="Hi, I am ready to optimize my business with a Technical Proposal. Can we discuss the details?"
+                  className="inline-block bg-white text-black px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                />
             </div>
           </div>
         </section>

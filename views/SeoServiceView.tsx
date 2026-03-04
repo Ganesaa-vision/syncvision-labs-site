@@ -5,6 +5,7 @@ import { Search, BarChart, ArrowRight, FileText, Trophy, Bot, Cpu, CheckCircle2,
 import PricingSection from '../components/PricingSection';
 import { m, LazyMotion, domAnimation, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const ImageSlider = ({ images, duration = 3000 }: { images: string[], duration?: number }) => {
   const [index, setIndex] = useState(0);
@@ -231,9 +232,9 @@ const SeoServiceView: React.FC = () => {
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-emerald-500/30 relative transition-colors duration-300">
 
       <Helmet>
-        <title>Strategic SEO & AEO Dominance | Balakong & Selangor - Ominos Tech</title>
-        <meta name="description" content="Dominate Local Search in Balakong and Selangor. We specialize in SEO, Google Maps Ranking, and AEO (AI Search) for Malaysian manufacturers and SMEs." />
-        <meta name="keywords" content="SEO Balakong, SEO Service Selangor, Google Maps Ranking Malaysia, AEO Optimization, Local SEO Expert" />
+        <title>Strategic SEO & AEO Dominance | Malaysia, Selangor & KL - Omino Tech</title>
+        <meta name="description" content="Dominate Local Search in Malaysia, Selangor & KL. We specialize in SEO, Google Maps Ranking, and AEO (AI Search) for Malaysian manufacturers and SMEs." />
+        <meta name="keywords" content="SEO Malaysia, SEO Service Selangor, SEO KL, Google Maps Ranking Malaysia, AEO Optimization, Local SEO Expert" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
@@ -249,7 +250,7 @@ const SeoServiceView: React.FC = () => {
 
           <span className="font-mono text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
           <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-6 leading-tight">
-            STRATEGIC SEO <br/> <span className="text-emerald-500">IN BALAKONG.</span>
+            STRATEGIC SEO <br/> <span className="text-emerald-500">IN MALAYSIA.</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We don't just target keywords; we target <strong>Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
@@ -427,6 +428,7 @@ const SeoServiceView: React.FC = () => {
 
         {/* PRICING */}
         <PricingSection 
+          serviceName="SEO Services"
           title="SEO Packages"
           description="Transparent pricing. No hidden fees. Results driven."
           plans={[
@@ -436,7 +438,15 @@ const SeoServiceView: React.FC = () => {
               period: "/mo",
               description: "\"Get Found by Neighbors.\" Stop losing customers to the shop next door.",
               features: ["Google Maps Optimization", "5 Local Keywords Tracked", "Review Management Advice", "Min Contract: 3 Months"],
-              buttonText: "Rank Local"
+              buttonText: "Rank Local",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="SEO"
+                  packageLabel="Local Hero"
+                  buttonText="Rank Local"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             },
             {
               name: "Traffic Builder",
@@ -445,7 +455,15 @@ const SeoServiceView: React.FC = () => {
               description: "\"Get Found on Google Page 1.\" Perfect for businesses that need steady leads.",
               features: ["15 Buyer-Intent Keywords", "2 SEO Articles/Month", "Technical SEO Audit", "Google Analytics Setup"],
               isPopular: true,
-              buttonText: "Grow Traffic"
+              buttonText: "Grow Traffic",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="SEO"
+                  packageLabel="Traffic Builder"
+                  buttonText="Grow Traffic"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/25"
+                />
+              )
             },
             {
               name: "Market Dominator",
@@ -453,7 +471,15 @@ const SeoServiceView: React.FC = () => {
               period: "/mo",
               description: "\"Crush Your Competitors.\" For brands that want to own the market.",
               features: ["National Keyword Strategy", "High-Quality Backlinks", "4 Authority Blog Posts/mo", "Dedicated SEO Manager"],
-              buttonText: "Dominate"
+              buttonText: "Dominate",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="SEO"
+                  packageLabel="Market Dominator"
+                  buttonText="Dominate"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             }
           ]}
         />
@@ -501,9 +527,12 @@ const SeoServiceView: React.FC = () => {
               </p>
               <div className="flex items-center gap-6">
                 <span className="text-2xl font-bold text-white">RM 450 <span className="text-sm text-slate-500 font-normal">/one-time</span></span>
-                <Link to="/contact" className="text-emerald-400 font-bold hover:text-emerald-300 inline-flex items-center gap-2">
-                   Get Rescued <ArrowRight size={16} />
-                </Link>
+                <WhatsAppButton 
+                  serviceName="SEO Rescue Audit"
+                  buttonText="Get Rescued"
+                  className="text-emerald-400 font-bold hover:text-emerald-300 inline-flex items-center gap-2"
+                  showIcon={true}
+                />
               </div>
            </div>
            <div className="md:w-1/3 flex justify-center">

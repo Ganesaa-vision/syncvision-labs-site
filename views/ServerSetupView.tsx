@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Mail, Globe, Lock, Cloud } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const ServerSetupView: React.FC = () => {
   const { pathname } = useLocation();
@@ -62,6 +63,7 @@ const ServerSetupView: React.FC = () => {
 
         {/* PRICING */}
         <PricingSection 
+          serviceName="Server Setup"
           title="Setup Packages"
           description="One-time setup fees. You own the accounts and assets 100%."
           plans={[
@@ -70,7 +72,15 @@ const ServerSetupView: React.FC = () => {
               price: "RM 450",
               description: "Secure your brand name online.",
               features: ["Domain Registration (.com)", "DNS Configuration", "1 Professional Email", "Email Forwarding", "SSL Setup"],
-              buttonText: "Get Identity"
+              buttonText: "Get Identity",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Server Setup"
+                  packageLabel="Identity Setup"
+                  buttonText="Get Identity"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             },
             {
               name: "Business Suite",
@@ -78,14 +88,30 @@ const ServerSetupView: React.FC = () => {
               description: "Complete corporate infrastructure setup.",
               features: ["Domain (.com.my / .com)", "High-Speed Cloud VPS", "Google Workspace (5 Users)", "DKIM/SPF Email Security", "Cloudflare CDN"],
               isPopular: true,
-              buttonText: "Setup Business"
+              buttonText: "Setup Business",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Server Setup"
+                  packageLabel="Business Suite"
+                  buttonText="Setup Business"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/30"
+                />
+              )
             },
             {
               name: "Migration Ops",
               price: "RM 2,500",
               description: "Move from slow shared hosting to Cloud VPS.",
               features: ["Full Site Migration", "Database Transfer", "Zero Downtime Switch", "Server Optimization", "Security Hardening"],
-              buttonText: "Migrate Now"
+              buttonText: "Migrate Now",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Server Setup"
+                  packageLabel="Migration Ops"
+                  buttonText="Migrate Now"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             }
           ]}
         />
@@ -100,9 +126,12 @@ const ServerSetupView: React.FC = () => {
                     <p className="text-slate-600 dark:text-slate-400 text-sm">Included with every setup. The green padlock that Google loves.</p>
                 </div>
             </div>
-            <Link to="/contact" className="px-8 py-4 bg-indigo-600 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:bg-indigo-500 dark:hover:bg-slate-200 transition-all">
-                Get Setup Quote
-            </Link>
+            <WhatsAppButton 
+              serviceName="Server Setup Inquiry"
+              buttonText="Get Setup Quote"
+              className="px-8 py-4 bg-indigo-600 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:bg-indigo-500 dark:hover:bg-slate-200 transition-all"
+              showIcon={true}
+            />
         </div>
       </div>
       <Footer />

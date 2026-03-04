@@ -1,34 +1,54 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
-import { Bot, MessageSquare, Zap, ArrowRight, Clock, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { Bot, MessageSquare, Zap, ArrowRight, Clock, TrendingUp, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const AutomationView: React.FC = () => {
   const { pathname } = useLocation();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can an AI chatbot qualify leads for my business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our custom AI agents engage customers 24/7, answering questions and capturing lead data before transferring them to your sales team."
+        }
+      }
+    ]
+  };
+
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-purple-500/30 transition-colors duration-300">
       <Helmet>
-        <title>AI Automation & WhatsApp Chatbots | Business Automation Malaysia</title>
-        <meta name="description" content="Automate your sales and support with AI Agents. We build WhatsApp Chatbots and AI workflows that qualify leads and answer inquiries 24/7." />
-        <meta name="keywords" content="WhatsApp Chatbot Malaysia, AI Automation, Business Process Automation, AI Agents, Customer Service Bot" />
+        <title>AI Chatbot Development Company Malaysia | Business Automation</title>
+        <meta name="description" content="Automate your customer service. We build custom AI agents and WhatsApp auto-reply systems for businesses across Malaysia and Selangor." />
+        <meta name="keywords" content="WhatsApp Chatbot Malaysia, AI Automation, Business Process Automation, AI Agents, Customer Service Bot, WhatsApp auto reply setup Malaysia, Customer automation, AI agent builders for local business" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
         <div className="mb-24">
           <span className="font-mono text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Autonomous Systems</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
-            WORK ON <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">AUTOPILOT.</span>
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8 leading-tight">
+            AI Chatbot Development & <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">WhatsApp Automation in Malaysia</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
-            Stop losing leads to slow response times. We deploy intelligent AI Agents that live inside your WhatsApp and Website to answer inquiries, qualify leads, and schedule appointments 24/7.
+            Stop losing leads to slow response times. We deploy intelligent <strong>AI agent builders for local business</strong> that live inside your WhatsApp and Website to answer inquiries, qualify leads, and schedule appointments 24/7.
           </p>
         </div>
 
@@ -121,7 +141,7 @@ const AutomationView: React.FC = () => {
                     <div>
                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">WhatsApp Business API</h3>
                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                          We hook directly into the official WhatsApp API. Send broadcast messages, set up auto-reply flows, and let AI handle the initial conversation before handing off to a human.
+                          We hook directly into the official WhatsApp API. Send broadcast messages, handle <strong>WhatsApp auto reply setup Malaysia</strong>, and let AI handle the initial conversation before handing off to a human.
                        </p>
                     </div>
                  </div>
@@ -133,7 +153,7 @@ const AutomationView: React.FC = () => {
                     <div>
                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">AI Knowledge Base</h3>
                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                          We train the AI on your specific company data (PDFs, Website, FAQs). It answers questions accurately without hallucinating, acting as a perfect Tier 1 support agent.
+                          We train the AI on your specific company data (PDFs, Website, FAQs). We integrate natural language processing models tuned for local Malaysian phrasing (including Manglish nuances) and business context, acting as a perfect Tier 1 support agent.
                        </p>
                     </div>
                  </div>
@@ -145,7 +165,7 @@ const AutomationView: React.FC = () => {
                     <div>
                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Lead Qualification</h3>
                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                          The AI asks the right questions to qualify the lead (Budget, Timeline, Needs) and only notifies your sales team when a prospect is hot and ready to buy.
+                          The AI asks the right questions to qualify the lead (Budget, Timeline, Needs) for <strong>Customer automation</strong> and only notifies your sales team when a prospect is hot and ready to buy.
                        </p>
                     </div>
                  </div>
@@ -208,6 +228,7 @@ const AutomationView: React.FC = () => {
 
         {/* PRICING */}
         <PricingSection 
+          serviceName="Automation"
           title="Automation Packages"
           description="From simple WhatsApp setups to advanced AI employees. Choose your level of automation."
           plans={[
@@ -217,7 +238,15 @@ const AutomationView: React.FC = () => {
               period: "/one-time",
               description: "\"Never Miss a Customer Again.\" We transform your WhatsApp into a fully automated sales machine.",
               features: ["Professional Profile Setup", "Smart Catalog (10 Items)", "Logic-Based Auto-Replies", "Speed Shortcuts Library", "CRM Labeling System"],
-              buttonText: "Setup WhatsApp"
+              buttonText: "Setup WhatsApp",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Automation"
+                  packageLabel="The 24/7 Receptionist"
+                  buttonText="Setup WhatsApp"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             },
             {
               name: "The Digital Employee",
@@ -226,7 +255,15 @@ const AutomationView: React.FC = () => {
               description: "\"Hire an Expert.\" A custom AI trained on your PDFs and website to handle support and capture leads.",
               features: ["Custom 'Brain' Training", "Website Chat Widget", "Human Handover Logic", "Monthly Intelligence Report", "Zero Hallucinations"],
               isPopular: true,
-              buttonText: "Hire AI Agent"
+              buttonText: "Hire AI Agent",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Automation"
+                  packageLabel="The Digital Employee"
+                  buttonText="Hire AI Agent"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/25"
+                />
+              )
             },
             {
               name: "The Content Factory",
@@ -234,20 +271,62 @@ const AutomationView: React.FC = () => {
               period: "/one-time",
               description: "\"One Click. One Month of Content.\" A private AI engine that writes blogs and social posts in your voice.",
               features: ["Custom Automation Workflow", "Brand Voice Calibration", "Blog + Social Output", "SEO Optimized Writing", "30-Min Training Session"],
-              buttonText: "Start Creating"
+              buttonText: "Start Creating",
+              customButton: (
+                <WhatsAppButton 
+                  serviceName="Automation"
+                  packageLabel="The Content Factory"
+                  buttonText="Start Creating"
+                  className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
+                />
+              )
             }
           ]}
         />
 
+        {/* === FAQ SECTION === */}
+        <div className="mb-24 max-w-4xl mx-auto">
+           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Automation FAQ</h2>
+           <div className="space-y-4">
+              {faqSchema.mainEntity.map((item, i) => (
+                 <div 
+                    key={i} 
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-purple-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
+                 >
+                    <button 
+                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                       className="w-full flex items-center justify-between p-6 text-left"
+                    >
+                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-purple-600 dark:text-purple-400' : 'text-slate-900 dark:text-white'}`}>{item.name}</h3>
+                       {openFaq === i ? <ChevronUp className="text-slate-500" /> : <ChevronDown className="text-slate-500" />}
+                    </button>
+                    <AnimatePresence>
+                        {openFaq === i && (
+                           <m.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }}>
+                              <div className="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-dashed border-slate-200 dark:border-slate-800 pt-4">
+                                 {item.acceptedAnswer.text}
+                              </div>
+                           </m.div>
+                        )}
+                    </AnimatePresence>
+                 </div>
+              ))}
+           </div>
+        </div>
+
         <div className="text-center">
            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Ready to Automate?</h2>
-           <Link to="/contact" className="inline-flex items-center gap-3 bg-purple-600 text-white px-8 py-4 rounded-full font-bold hover:bg-purple-500 transition-all">
-             Deploy AI Agent <ArrowRight size={18} />
-           </Link>
+           <WhatsAppButton 
+             serviceName="Automation"
+             buttonText="Deploy AI Agent"
+             className="inline-flex items-center gap-3 bg-purple-600 text-white px-8 py-4 rounded-full font-bold hover:bg-purple-500 transition-all"
+             showIcon={true}
+           />
         </div>
       </div>
       <Footer />
     </div>
+    </LazyMotion>
   );
 };
 

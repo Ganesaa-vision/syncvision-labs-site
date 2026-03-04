@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceLayout from '../../layouts/ServiceLayout';
 import { Smartphone, Database, WifiOff, Globe, Cpu, CheckCircle } from 'lucide-react';
+import { WhatsAppButton } from '../../../components/WhatsAppButton';
 
 const AppEngineering = () => {
   const pageData = {
@@ -185,7 +186,12 @@ const AppEngineering = () => {
                 <li className="text-sm text-gray-300 flex gap-3"><CheckCircle size={16} className="text-indigo-500" /> Hardware Integration (Bluetooth)</li>
                 <li className="text-sm text-gray-300 flex gap-3"><CheckCircle size={16} className="text-indigo-500" /> Scalable Cloud Functions</li>
               </ul>
-              <button className="w-full py-3 border border-white/20 rounded-lg text-sm font-bold text-white hover:bg-white hover:text-black transition-all">Contact Us</button>
+              <WhatsAppButton 
+                serviceName="Ecosystem" 
+                message="Hi, I am ready to optimize my business with an Ecosystem. Can we discuss the details?"
+                buttonText="Contact Us"
+                className="w-full py-3 bg-white/5 border border-white/20 rounded-lg text-sm font-bold text-white hover:bg-white hover:text-black transition-all"
+              />
             </div>
           </div>
         </div>

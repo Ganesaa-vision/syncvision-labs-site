@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="text-2xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 block">
-              Ominos Tech
+              Omino Tech
             </Link>
             <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
               Strategic Digital Foundry. We engineer high-performance digital assets for Malaysian businesses.
@@ -49,14 +49,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-indigo-500" />
-                <span>hello@ominostech.com</span>
+                <span>hello@ominotech.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>&copy; {currentYear} Ominos Tech. All rights reserved.</p>
+          <p>&copy; {currentYear} Omino Tech. All rights reserved.</p>
           <div className="flex gap-8">
             <Link to="/privacy" className="hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</Link>

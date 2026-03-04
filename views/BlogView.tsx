@@ -24,7 +24,7 @@ const BlogView: React.FC = () => {
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
         <Helmet>
-          <title>Digital Insights & Engineering Blog | Ominos Tech Malaysia</title>
+          <title>Digital Insights & Engineering Blog | Omino Tech Malaysia</title>
           <meta name="description" content="Expert insights on Web Development, SEO, AI Automation, and Digital Transformation for Malaysian businesses. Read our latest engineering logs." />
           <meta name="keywords" content="Web Dev Blog Malaysia, SEO Tips, Next.js Tutorial, Business Automation, Digital Transformation" />
         </Helmet>

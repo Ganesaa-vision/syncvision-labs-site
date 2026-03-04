@@ -13,8 +13,8 @@ const TermsView: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
-        <title>Terms of Service | Ominos Tech</title>
-        <meta name="description" content="Terms of Service for Ominos Tech services and digital products." />
+        <title>Terms of Service | Omino Tech</title>
+        <meta name="description" content="Terms of Service for Omino Tech services and digital products." />
       </Helmet>
 
       <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto flex-grow w-full">
@@ -26,7 +26,7 @@ const TermsView: React.FC = () => {
           <p>By accessing our website and using our services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
 
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">2. Services</h3>
-          <p>Ominos Tech provides digital infrastructure, web development, and software engineering services. Specific deliverables are defined in individual project contracts.</p>
+          <p>Omino Tech provides digital infrastructure, web development, and software engineering services. Specific deliverables are defined in individual project contracts.</p>
 
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">3. Intellectual Property</h3>
           <p>Unless otherwise stated in a specific contract, we grant clients full ownership of the code and assets we create for them upon full payment. We retain the right to showcase the work in our portfolio.</p>

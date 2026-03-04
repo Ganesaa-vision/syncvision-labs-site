@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceLayout from '../../layouts/ServiceLayout';
 import { Search, Bot, Cpu, Layers, CheckCircle2 } from 'lucide-react';
+import { WhatsAppButton } from '../../../components/WhatsAppButton';
 
 const SeoDominance = () => {
   const pageData = {
@@ -167,8 +168,14 @@ const SeoDominance = () => {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all">Select Protocol</button>
-            </div>
+              <WhatsAppButton
+                  serviceName="SEO Dominance"
+                  packageLabel="Visibility"
+                  buttonText="Select Protocol"
+                  message="Hi, I am ready to optimize my business with the Visibility Protocol. Can we discuss the details?"
+                  className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                />
+              </div>
 
             {/* TIER 2 (Highlighted) */}
             <div className="bg-slate-900 border border-indigo-500 rounded-[2.5rem] p-10 relative transform md:-translate-y-8 shadow-[0_0_50px_rgba(99,102,241,0.25)] flex flex-col">
@@ -183,7 +190,13 @@ const SeoDominance = () => {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-4 bg-indigo-600 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg">Select Protocol</button>
+              <WhatsAppButton
+                  serviceName="SEO Dominance"
+                  packageLabel="Authority"
+                  buttonText="Select Protocol"
+                  message="Hi, I am ready to optimize my business with the Authority Protocol. Can we discuss the details?"
+                  className="w-full py-4 bg-indigo-600 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg"
+                />
             </div>
 
             {/* TIER 3 */}
@@ -198,7 +211,13 @@ const SeoDominance = () => {
                   </li>
                 ))}
               </ul>
-              <button className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all">Select Protocol</button>
+              <WhatsAppButton
+                  serviceName="SEO Dominance"
+                  packageLabel="Dominance"
+                  buttonText="Select Protocol"
+                  message="Hi, I am ready to optimize my business with the Dominance Protocol. Can we discuss the details?"
+                  className="w-full py-4 border border-white/10 rounded-xl text-xs font-black text-white uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+                />
             </div>
           </div>
         </div>

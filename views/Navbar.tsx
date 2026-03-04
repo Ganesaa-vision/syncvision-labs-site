@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, Sun, Moon } from 'lucide-react';
 import { m, AnimatePresence, LazyMotion, domAnimation, useScroll, useSpring } from 'framer-motion';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -78,7 +79,7 @@ export const Navbar = () => {
             <span className={`font-bold text-xl tracking-tight transition-colors ${
                isScrolled || isMobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-slate-900 dark:text-white'
             }`}>
-              Ominos Tech
+              Omino Tech
             </span>
           </Link>
 
@@ -118,12 +119,12 @@ export const Navbar = () => {
                 </m.div>
             </button>
 
-            <Link 
-              to="/contact"
+            <WhatsAppButton 
+              serviceName="General Inquiry"
+              buttonText="Start Project"
               className="px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-black text-sm font-bold rounded-full hover:bg-indigo-600 dark:hover:bg-indigo-400 hover:text-white transition-all shadow-lg hover:shadow-indigo-500/25 active:scale-95"
-            >
-              Start Project
-            </Link>
+              showIcon={false}
+            />
           </div>
 
           {/* Mobile Menu Button */}
@@ -191,13 +192,13 @@ export const Navbar = () => {
                 transition={{ delay: 0.3 }}
                 className="mt-auto mb-12"
             >
-                <Link 
-                    to="/contact"
+                <WhatsAppButton 
+                    serviceName="General Inquiry"
+                    buttonText="Start Project"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="w-full py-6 bg-indigo-600 text-white text-center font-bold text-xl rounded-2xl block shadow-xl shadow-indigo-500/20 active:scale-95 transition-transform"
-                >
-                    Start Project
-                </Link>
+                    showIcon={false}
+                />
             </m.div>
           </m.div>
         )}

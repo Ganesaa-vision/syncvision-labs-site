@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { WhatsAppButton } from '../components/WhatsAppButton';
 
 const AboutView: React.FC = () => {
   const { pathname } = useLocation();
@@ -39,7 +40,7 @@ const AboutView: React.FC = () => {
     <LazyMotion features={domAnimation}>
     <div className="bg-slate-50 dark:bg-[#050505] min-h-screen flex flex-col text-slate-900 dark:text-slate-100 font-sans selection:bg-green-500/30 overflow-x-hidden transition-colors duration-300">
       <Helmet>
-        <title>About Us | The Rebellion - Ominos Tech</title>
+        <title>About Us | The Rebellion - Omino Tech</title>
         <meta name="description" content="We are the glitch in the matrix. A team of student innovators building the future while agencies bill for meeting hours." />
       </Helmet>
 
@@ -71,7 +72,7 @@ const AboutView: React.FC = () => {
           </m.h1>
           
           <m.p variants={itemVariants} className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto">
-            While big agencies are still billing you for 'meeting hours,' we are building the future. <span className="text-slate-900 dark:text-white font-bold">We are Ominos Tech.</span>
+            While big agencies are still billing you for 'meeting hours,' we are building the future. <span className="text-slate-900 dark:text-white font-bold">We are Omino Tech.</span>
           </m.p>
         </m.div>
 
@@ -89,7 +90,7 @@ const AboutView: React.FC = () => {
                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6 font-mono uppercase tracking-tight">The Rebellion Against Bloat</h2>
                  <div className="space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                     <p>
-                      <strong className="text-slate-900 dark:text-white">Ominos Tech wasn't started in a boardroom.</strong> It started in a dorm room at 3 AM, fueled by coffee and code.
+                      <strong className="text-slate-900 dark:text-white">Omino Tech wasn't started in a boardroom.</strong> It started in a dorm room at 3 AM, fueled by coffee and code.
                     </p>
                     <p>
                       We looked at the Malaysian digital landscape and saw a problem. Traditional agencies were charging RM 15,000 for websites that looked like they were built in 2015. They had fancy offices, expensive coffee machines, and layers of 'account managers'—and you were paying for all of it.
@@ -98,7 +99,7 @@ const AboutView: React.FC = () => {
                       We realized that in the age of AI and modern tech, quality doesn't need to be expensive. It just needs to be smart.
                     </p>
                     <p>
-                       We are a team of Computer Science innovators. We don't have overhead. We don't have 'office hours.' We have obsession. We built Ominos Tech to prove a point: That a hungry team of innovators with the latest tech can outperform a sluggish corporate giant any day of the week.
+                       We are a team of Computer Science innovators. We don't have overhead. We don't have 'office hours.' We have obsession. We built Omino Tech to prove a point: That a hungry team of innovators with the latest tech can outperform a sluggish corporate giant any day of the week.
                     </p>
                  </div>
               </div>
@@ -120,7 +121,7 @@ const AboutView: React.FC = () => {
                     </div>
                     <div>
                         <div className="text-slate-900 dark:text-white font-bold text-sm">Ganesaa</div>
-                        <div className="text-slate-500 text-xs uppercase tracking-widest">Founder, Ominos Tech</div>
+                        <div className="text-slate-500 text-xs uppercase tracking-widest">Founder, Omino Tech</div>
                     </div>
                  </div>
               </div>
@@ -345,17 +346,20 @@ const AboutView: React.FC = () => {
            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-indigo-500/10 to-transparent blur-3xl pointer-events-none"></div>
            
            <div className="relative z-10">
-              <h3 className="text-indigo-500 font-mono text-sm font-black uppercase tracking-[0.3em] mb-8">The Ominos Tech Promise</h3>
+              <h3 className="text-indigo-500 font-mono text-sm font-black uppercase tracking-[0.3em] mb-8">The Omino Tech Promise</h3>
               
               <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed font-medium">
                 "We are not the cheapest because we cut corners. We are the most affordable because we cut out the nonsense. If you want a team that wears suits and talks about 'synergy,' hire an agency. <br/><br/>
-                <span className="text-slate-900 dark:text-white font-bold">If you want a team that stays up until the job is perfect because we love what we do... Hire Ominos Tech.</span>"
+                <span className="text-slate-900 dark:text-white font-bold">If you want a team that stays up until the job is perfect because we love what we do... Hire Omino Tech.</span>"
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                 <Link to="/contact" className="px-10 py-5 bg-indigo-500 text-white font-bold rounded-full hover:bg-indigo-400 transition-all flex items-center gap-2 shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:scale-105">
-                    Join the Rebellion <Rocket size={18} />
-                 </Link>
+                 <WhatsAppButton
+                    serviceName="Rebellion Inquiry"
+                    buttonText="Join the Rebellion"
+                    className="px-10 py-5 bg-indigo-500 text-white font-bold rounded-full hover:bg-indigo-400 transition-all flex items-center gap-2 shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:scale-105"
+                    showIcon={true}
+                 />
               </div>
            </div>
         </div>

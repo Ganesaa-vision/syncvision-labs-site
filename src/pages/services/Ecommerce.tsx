@@ -1,6 +1,7 @@
 import React from 'react';
 import ServiceLayout from '../../layouts/ServiceLayout';
 import { ShoppingBag, Zap, CreditCard, Server, CheckCircle } from 'lucide-react';
+import { WhatsAppButton } from '../../../components/WhatsAppButton';
 
 const ECommerce = () => {
   const pageData = {
@@ -157,7 +158,12 @@ const ECommerce = () => {
                 <li className="text-sm text-gray-300 flex gap-3"><CheckCircle size={16} className="text-indigo-500" /> Realtime Logistics Tracking</li>
                 <li className="text-sm text-gray-300 flex gap-3"><CheckCircle size={16} className="text-indigo-500" /> Dedicated Server Setup</li>
               </ul>
-              <button className="w-full py-3 border border-white/20 rounded-lg text-sm font-bold text-white hover:bg-white hover:text-black transition-all">Contact Us</button>
+              <WhatsAppButton 
+                serviceName="Marketplace" 
+                message="Hi, I am ready to optimize my business with a Marketplace. Can we discuss the details?"
+                buttonText="Contact Us"
+                className="w-full py-3 bg-white/5 border border-white/20 rounded-lg text-sm font-bold text-white hover:bg-white hover:text-black transition-all"
+              />
             </div>
           </div>
         </div>
