@@ -41,7 +41,7 @@ const ProductsView: React.FC = () => {
                      alt={product.name} 
                      loading="lazy"
                      decoding="async"
-                     className="w-full h-full object-cover brightness-[0.4] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s] will-change-[filter,transform]"
+                     className="w-full h-full object-cover brightness-[0.4] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s]"
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
                    <div className="absolute bottom-10 left-10 flex gap-4">

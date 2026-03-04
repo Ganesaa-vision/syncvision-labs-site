@@ -46,8 +46,8 @@ const AboutView: React.FC = () => {
 
       {/* Background Elements */}
       <div className="fixed inset-0 w-full h-full pointer-events-none overflow-hidden">
-          <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[80px] transform-gpu will-change-transform" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[80px] transform-gpu will-change-transform" />
+          <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[80px]" />
+          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[80px]" />
       </div>
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto relative z-10 flex-grow w-full">

@@ -82,15 +82,15 @@ const Home = () => {
         <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
             <m.div 
               style={{ y: y1 }}
-              className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl transform-gpu will-change-transform" 
+              className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl" 
             />
             <m.div 
               style={{ y: y2 }}
-              className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl transform-gpu will-change-transform" 
+              className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl" 
             />
              <m.div 
               style={{ y: useTransform(scrollY, [0, 1000], [0, 150]), x: useTransform(scrollY, [0, 1000], [0, -50]) }}
-              className="absolute top-[30%] right-[30%] w-[30%] h-[30%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl transform-gpu will-change-transform opacity-50" 
+              className="absolute top-[30%] right-[30%] w-[30%] h-[30%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl opacity-50" 
             />
         </div>
         
@@ -104,7 +104,7 @@ const Home = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-600 dark:text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)] will-change-transform"
+            className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-600 dark:text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)]"
           >
             <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Globe size={12} /> CORPORATE WEB DESIGN</span>
             <span className="text-slate-500 dark:text-gray-600">|</span>
@@ -119,7 +119,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-[1.0] will-change-transform"
+            className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-[1.0]"
           >
             Strategic Web Development & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
@@ -132,7 +132,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl text-xl text-slate-600 dark:text-gray-400 mb-12 leading-relaxed font-light will-change-transform"
+            className="max-w-3xl text-xl text-slate-600 dark:text-gray-400 mb-12 leading-relaxed font-light"
           >
             We don’t just build websites; we engineer Digital Assets that rank, perform, and convert. From custom personal portfolios to complex corporate inventory systems. If you have the vision, Omino Tech writes the code.
           </m.p>
@@ -142,7 +142,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col md:flex-row gap-6 w-full md:w-auto will-change-transform"
+            className="flex flex-col md:flex-row gap-6 w-full md:w-auto"
           >
             <WhatsAppButton
               serviceName="New Project Inquiry"
@@ -161,10 +161,10 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="w-full border-y border-slate-200 dark:border-white/5 bg-white/50 dark:bg-slate-950/50 backdrop-blur-xl overflow-hidden py-6"
+          className="w-full border-y border-slate-200 dark:border-white/5 bg-white/50 dark:bg-slate-950/50 backdrop-blur-md overflow-hidden py-6"
         >
              <m.div 
-                className="flex gap-16 md:gap-32 whitespace-nowrap items-center will-change-transform transform-gpu"
+                className="flex gap-16 md:gap-32 whitespace-nowrap items-center"
                 animate={{ x: ["0%", "-50%"] }}
                 transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
              >
@@ -619,7 +619,7 @@ const Home = () => {
           className="py-16 md:py-24 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 relative overflow-hidden"
         >
            {/* Background Elements */}
-           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
            
            <div className="text-center mb-16 relative z-10">
               <span className="text-purple-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The "All-In-One" Launchpad</span>
@@ -769,7 +769,7 @@ const Home = () => {
         {/* --- MOVING PREVIEW (MARQUEE) (RESTORED) --- */}
         <section className="w-full overflow-hidden py-12 border-y border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-slate-900/30">
           <m.div 
-            className="flex gap-12 md:gap-24 whitespace-nowrap items-center will-change-transform transform-gpu"
+            className="flex gap-12 md:gap-24 whitespace-nowrap items-center"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
           >
@@ -877,7 +877,7 @@ const Home = () => {
                     <img 
                         src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" 
                         alt="Digital Foundry Architecture" 
-                        className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 will-change-transform"
+                        className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
                         loading="lazy"
                         decoding="async"
                     />

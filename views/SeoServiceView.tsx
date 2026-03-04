@@ -33,7 +33,7 @@ const ImageSlider = ({ images, duration = 3000 }: { images: string[], duration?:
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full object-cover will-change-[opacity,transform]"
+          className="absolute inset-0 w-full h-full object-cover"
           alt="Preview"
           loading="lazy"
         />
@@ -263,7 +263,7 @@ const SeoServiceView: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-32 relative will-change-transform"
+          className="mb-32 relative"
         >
             
             <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[3rem] p-6 md:p-16 overflow-hidden shadow-xl">
@@ -388,7 +388,7 @@ const SeoServiceView: React.FC = () => {
                 <div className="hidden lg:block relative h-full">
                     <div className="sticky top-32 h-[600px] max-h-[80vh] w-full">
                         <m.div 
-                            className="relative w-full h-full rounded-[3rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-2xl transition-all duration-700 will-change-transform"
+                            className="relative w-full h-full rounded-[3rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-2xl transition-all duration-700"
                             animate={{ y: [0, -15, 0] }}
                             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                         >
@@ -404,7 +404,7 @@ const SeoServiceView: React.FC = () => {
                             </div>
 
                             {/* Floating Glass Card */}
-                            <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/10 dark:bg-black/40 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl shadow-2xl flex items-center justify-between transform transition-all duration-500 hover:scale-[1.02]">
+                            <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/10 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-3xl shadow-2xl flex items-center justify-between transform transition-all duration-500 hover:scale-[1.02]">
                                 <div className="flex items-center gap-5">
                                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-br ${engines[activeEngine].color} text-white shadow-lg shadow-indigo-500/20`}>
                                         {engines[activeEngine].icon}

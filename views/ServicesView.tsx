@@ -139,8 +139,8 @@ const ServicesView: React.FC = () => {
 
       {/* Background Ambient Glow */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
@@ -179,7 +179,7 @@ const ServicesView: React.FC = () => {
             <m.div key={service.id} variants={itemVariants} className="h-full">
             <Link 
               to={service.link} 
-              className="group relative bg-white dark:bg-white/[0.02] backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:bg-slate-900 dark:hover:bg-white hover:border-transparent hover:shadow-[0_0_50px_rgba(99,102,241,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden flex flex-col h-full will-change-transform"
+              className="group relative bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:bg-slate-900 dark:hover:bg-white hover:border-transparent hover:shadow-[0_0_50px_rgba(99,102,241,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden flex flex-col h-full"
             >
               {/* Gradient Blob */}
               <div className="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-white/10 dark:group-hover:bg-indigo-500/10 transition-all duration-500"></div>
