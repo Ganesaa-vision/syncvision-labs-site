@@ -97,7 +97,7 @@ const Home = () => {
             />
         </div>
         
-        <div className="flex-grow w-full">
+        <main className="flex-grow w-full">
         {/* --- HERO SECTION --- */}
         <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-6 max-w-7xl mx-auto flex flex-col items-center text-center z-10">
 
@@ -110,9 +110,9 @@ const Home = () => {
             className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-600 dark:text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)]"
           >
             <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Globe size={12} /> CORPORATE WEB DESIGN</span>
-            <span className="text-slate-500 dark:text-gray-600">|</span>
+            <span className="text-slate-600 dark:text-slate-400">|</span>
             <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Zap size={12} /> SEO & GEO RANKING</span>
-            <span className="text-slate-500 dark:text-gray-600">|</span>
+            <span className="text-slate-600 dark:text-slate-400">|</span>
             <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Bot size={12} /> AI AGENTS</span>
           </m.div>
           
@@ -135,7 +135,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-3xl text-xl text-slate-600 dark:text-gray-400 mb-12 leading-relaxed font-light"
+            className="max-w-3xl text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed font-light"
           >
             We don’t just build websites; we engineer Digital Assets that rank, perform, and convert. From custom personal portfolios to complex corporate inventory systems. If you have the vision, Omino Tech writes the code.
           </m.p>
@@ -153,7 +153,7 @@ const Home = () => {
               className="group relative px-8 py-4 bg-indigo-600 dark:bg-indigo text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:scale-105 active:scale-95 duration-300"
               showIcon={false}
             />
-            <Link to="/work" className="px-8 py-4 border border-slate-300 dark:border-white/10 text-slate-600 dark:text-gray-400 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo-500 dark:hover:border-indigo hover:text-indigo-600 dark:hover:text-indigo transition-all hover:scale-105 active:scale-95 duration-300">
+            <Link to="/work" className="px-8 py-4 border border-slate-300 dark:border-white/10 text-slate-600 dark:text-slate-300 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo-500 dark:hover:border-indigo hover:text-indigo-600 dark:hover:text-indigo transition-all hover:scale-105 active:scale-95 duration-300">
               See Our Rankings
             </Link>
           </m.div>
@@ -172,22 +172,22 @@ const Home = () => {
                 transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
              >
                 {[...Array(8)].map((_, i) => (
-                  <div key={i} className="flex gap-32 text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-500 items-center">
+                  <div key={i} className="flex gap-32 text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300 items-center">
                     <span className="flex items-center gap-3">
                       <TrendingUp size={14} className="text-purple-500"/> 
-                      <span className="text-slate-700 dark:text-slate-300">Rank #1 on Google</span>
+                      <span className="text-slate-700 dark:text-slate-200">Rank #1 on Google</span>
                     </span>
                     <span className="flex items-center gap-3">
                       <Zap size={14} className="text-indigo-500"/> 
-                      <span className="text-slate-700 dark:text-slate-300">AI Overview Captured</span>
+                      <span className="text-slate-700 dark:text-slate-200">AI Overview Captured</span>
                     </span>
                     <span className="flex items-center gap-3">
                       <Activity size={14} className="text-purple-500"/> 
-                      <span className="text-slate-700 dark:text-slate-300">420% Lead Increase</span>
+                      <span className="text-slate-700 dark:text-slate-200">420% Lead Increase</span>
                     </span>
                     <span className="flex items-center gap-3">
                       <Code2 size={14} className="text-indigo-500" /> 
-                      <span className="text-slate-700 dark:text-slate-300">Active R&D Labs</span>
+                      <span className="text-slate-700 dark:text-slate-200">Active R&D Labs</span>
                     </span>
                   </div>
                 ))}
@@ -225,7 +225,7 @@ const Home = () => {
                     <Globe size={24} />
                  </div>
                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">High-Performance Web</h3>
-                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-6 leading-relaxed">
+                 <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                     Stop losing customers to slow sites. We engineer digital storefronts that load in &lt;1s and convert visitors into buyers.
                  </p>
                  <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
@@ -242,7 +242,7 @@ const Home = () => {
                     <Zap size={24} />
                  </div>
                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">SEO & Traffic Engineering</h3>
-                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-6 leading-relaxed">
+                 <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                     Dominate Google. We target high-intent keywords to put your business in front of customers exactly when they are ready to buy.
                  </p>
                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
@@ -259,7 +259,7 @@ const Home = () => {
                     <Bot size={24} />
                  </div>
                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">AI & Automation</h3>
-                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-6 leading-relaxed">
+                 <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                     Clone your best salesperson. Deploy 24/7 AI Agents on WhatsApp and your website to answer queries and close deals automatically.
                  </p>
                  <div className="flex items-center gap-2 text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
@@ -276,7 +276,7 @@ const Home = () => {
                     <Cpu size={24} />
                  </div>
                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">App Ecosystems</h3>
-                 <p className="text-sm text-slate-600 dark:text-gray-400 mb-6 leading-relaxed">
+                 <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                     Build your own platform. From loyalty apps to internal inventory systems, we build iOS & Android apps that streamline operations.
                  </p>
                  <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
@@ -289,7 +289,7 @@ const Home = () => {
                  <div className="relative z-10">
                     <ShieldCheck className="text-slate-400 mb-4 mx-auto" size={40} />
                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Managed Hosting</h3>
-                    <p className="text-sm text-slate-600 dark:text-gray-400 mb-6 max-w-md mx-auto">
+                    <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 max-w-md mx-auto">
                         Sleep soundly. We handle the servers, security, and updates. High-speed NVMe hosting in Singapore/Malaysia.
                     </p>
                     <WhatsAppButton
@@ -330,7 +330,7 @@ const Home = () => {
                      <span className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] font-bold uppercase tracking-widest border border-indigo-500/30">
                         Verified Result
                      </span>
-                     <span className="text-slate-500 text-xs font-mono uppercase tracking-widest">Industrial Sector</span>
+                     <span className="text-slate-600 dark:text-slate-400 text-xs font-mono uppercase tracking-widest">Industrial Sector</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight">
                      From Invisible to <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Rank #1</span> in 17 Days.
@@ -348,11 +348,11 @@ const Home = () => {
                <div className="flex gap-4 md:gap-8">
                   <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800 text-center min-w-[100px]">
                      <div className="text-2xl font-black text-white mb-1">17</div>
-                     <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Days to #1</div>
+                     <div className="text-[10px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Days to #1</div>
                   </div>
                   <div className="p-4 bg-slate-950/50 rounded-xl border border-slate-800 text-center min-w-[100px]">
                      <div className="text-2xl font-black text-emerald-400 mb-1">420%</div>
-                     <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Lead Growth</div>
+                     <div className="text-[10px] text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider">Lead Growth</div>
                   </div>
                </div>
             </div>
@@ -462,7 +462,7 @@ const Home = () => {
                 <h2 className="text-4xl md:text-6xl font-mono font-black text-slate-900 dark:text-white leading-tight uppercase tracking-tighter">
                     The Future is <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Autonomous.</span>
                 </h2>
-                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
+                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
                     The digital market is shifting from static websites to intelligent, self-driving ecosystems. In this new era, your business needs more than just a presence; it needs a <strong>Digital Workforce</strong>. We build systems that sell, support, and scale 24/7—so you don't have to.
                 </p>
 
@@ -472,8 +472,8 @@ const Home = () => {
                             <Bot size={20} />
                         </div>
                         <div>
-                            <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">24/7 Sales Agents</h4>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                            <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">24/7 Sales Agents</h3>
+                            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                                 AI that engages visitors, answers queries, and closes deals instantly, any time of day.
                             </p>
                         </div>
@@ -483,8 +483,8 @@ const Home = () => {
                             <TrendingUp size={20} />
                         </div>
                         <div>
-                            <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Predictive Growth</h4>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                            <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Predictive Growth</h3>
+                            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                                 Systems that analyze user behavior to predict trends and optimize your offers automatically.
                             </p>
                         </div>
@@ -533,7 +533,7 @@ const Home = () => {
             <h3 className="text-3xl md:text-4xl font-mono font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4">
               Verified Achievements
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 text-lg">
+            <p className="text-slate-600 dark:text-slate-300 text-lg">
               Proven results in SEO, Automation, and Engineering.
             </p>
           </div>
@@ -1004,7 +1004,7 @@ const Home = () => {
               ))}
            </div>
         </m.section>
-        </div>
+        </main>
 
         <Footer />
 
@@ -1018,13 +1018,13 @@ const AchievementCard = ({ icon, title, description }: { icon: React.ReactNode, 
   <div className="p-8 bg-white dark:bg-white/[0.02] backdrop-blur-xl rounded-3xl border border-slate-200 dark:border-white/10 hover:border-indigo-500/30 transition-all duration-500 group hover:-translate-y-1 shadow-lg dark:shadow-none">
     <div className="mb-6 p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl w-fit border border-slate-200 dark:border-white/5 group-hover:border-indigo-500/30 transition-colors">{icon}</div>
     <h4 className="text-xl font-mono font-bold mb-4 text-slate-900 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{title}</h4>
-    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">{description}</p>
+    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">{description}</p>
   </div>
 );
 
 const PreviewStat = ({ label, value }: { label: string, value: string }) => (
   <div className="flex flex-col">
-    <span className="text-xs font-mono font-black text-slate-500 uppercase tracking-[0.2em] mb-2">{label}</span>
+    <span className="text-xs font-mono font-black text-slate-600 dark:text-slate-300 uppercase tracking-[0.2em] mb-2">{label}</span>
     <span className="text-xl md:text-2xl font-mono font-black text-slate-900 dark:text-white uppercase tracking-tighter">{value}</span>
   </div>
 );

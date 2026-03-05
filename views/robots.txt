@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.ominotech.com.my/sitemap.xml
