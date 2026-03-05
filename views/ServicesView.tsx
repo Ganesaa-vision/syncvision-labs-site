@@ -114,7 +114,7 @@ const ServicesView: React.FC = () => {
         "@type": "Service",
         "name": service.title,
         "description": service.description,
-        "url": `https://ominotech.com${service.link}`
+        "url": `https://www.ominotech.com.my${service.link}`
       }
     }))
   };
@@ -134,6 +134,8 @@ const ServicesView: React.FC = () => {
         <meta property="og:title" content="Omino Tech - Web Design & App Development Agency Malaysia" />
         <meta property="og:description" content="We build high-performance websites and AI systems for Malaysian businesses." />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.ominotech.com.my/logo.png" />
+        <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 

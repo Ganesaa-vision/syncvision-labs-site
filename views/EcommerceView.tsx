@@ -24,9 +24,11 @@ const EcommerceView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-yellow-500/30 transition-colors duration-300">
       <Helmet>
-        <title>E-Commerce Development & Payment Gateway Integration | Malaysia</title>
+        <title>E-Commerce Development & Payment Gateway Integration | Malaysia - Omino Tech</title>
         <meta name="description" content="Build a high-converting online store. We integrate FPX Payment Gateways (Billplz, ToyyibPay, Stripe) and build on WooCommerce or Shopify. Sell to Malaysian customers instantly." />
         <meta name="keywords" content="E-commerce Malaysia, Payment Gateway Integration, WooCommerce Developer, Shopify Expert, FPX Payment, Billplz, Stripe Malaysia" />
+        <meta property="og:image" content="https://www.ominotech.com.my/logo.png" />
+        <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
       </Helmet>
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">

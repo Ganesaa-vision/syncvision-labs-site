@@ -50,9 +50,11 @@ const AppEngineeringView: React.FC = () => {
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
-        <title>Mobile App Engineering | Flutter & Supabase Experts Malaysia</title>
+        <title>Mobile App Engineering | Flutter & Supabase Experts Malaysia - Omino Tech</title>
         <meta name="description" content="Enterprise Mobile App Development in Malaysia. We build offline-first iOS & Android apps using Flutter, Firebase, and Supabase for scalable performance." />
         <meta name="keywords" content="Flutter Developer Malaysia, Mobile App Development Selangor, Supabase Backend, Offline First App, Enterprise Mobile Solutions" />
+        <meta property="og:image" content="https://www.ominotech.com.my/logo.png" />
+        <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 

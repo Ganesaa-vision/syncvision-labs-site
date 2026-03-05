@@ -34,7 +34,7 @@ const AutomationView: React.FC = () => {
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-purple-500/30 transition-colors duration-300">
       <Helmet>
-        <title>AI Chatbot Development Company Malaysia | Business Automation</title>
+        <title>AI Chatbot Development Company Malaysia | Business Automation - Omino Tech</title>
         <meta name="description" content="Automate your customer service. We build custom AI agents and WhatsApp auto-reply systems for businesses across Malaysia and Selangor." />
         <meta name="keywords" content="WhatsApp Chatbot Malaysia, AI Automation, Business Process Automation, AI Agents, Customer Service Bot, WhatsApp auto reply setup Malaysia, Customer automation, AI agent builders for local business" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

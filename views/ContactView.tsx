@@ -24,10 +24,10 @@ const ContactView: React.FC = () => {
         <div className="mb-24">
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-sm font-black uppercase tracking-[1em] mb-8 block">Communication Protocol</span>
           <h2 className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-none uppercase">LET'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 italic">BUILD.</span></h2>
-          <p className="mt-12 text-slate-700 dark:text-slate-200 font-mono text-lg md:text-xl max-w-4xl uppercase tracking-[0.2em] font-black leading-relaxed border-l-4 border-indigo pl-8">
+          <p className="mt-12 text-slate-700 dark:text-slate-200 font-mono text-lg md:text-xl max-w-4xl uppercase tracking-[0.2em] font-black leading-relaxed border-l-4 border-indigo-500 pl-8">
             Select your mission objective. Validated requests receive engineering protocols within 12 hours.
           </p>
-          <p className="mt-8 text-emerald font-bold text-lg max-w-4xl">
+          <p className="mt-8 text-emerald-500 font-bold text-lg max-w-4xl">
             Get the 'Student Founder' Advantage before we graduate to Agency Rates.
           </p>
         </div>
@@ -47,8 +47,8 @@ const ContactView: React.FC = () => {
           <div className="lg:col-span-7">
             {sent ? (
               <div className="p-20 bg-white dark:bg-white/[0.02] backdrop-blur-xl border border-emerald-500/40 rounded-[3rem] text-center shadow-3xl flex flex-col items-center animate-fade-in">
-                 <div className="w-20 h-20 bg-emerald/10 rounded-full flex items-center justify-center mb-10 ring-4 ring-emerald/20">
-                   <CheckCircle2 size={40} className="text-emerald" />
+                 <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mb-10 ring-4 ring-emerald-500/20">
+                   <CheckCircle2 size={40} className="text-emerald-500" />
                  </div>
                  <h3 className="text-4xl font-mono font-black text-slate-900 dark:text-slate-100 uppercase tracking-tighter mb-4 leading-none">SIGNAL RECEIVED</h3>
                  <p className="text-slate-600 dark:text-slate-200 text-xs uppercase tracking-widest mb-12 font-bold">Decoding objectives. Expect a protocol update shortly.</p>
@@ -63,7 +63,7 @@ const ContactView: React.FC = () => {
                    </div>
                    <div className="space-y-4">
                      <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Signal Channel (Email)</label>
-                     <input required type="email" placeholder="contact@ominotech.com" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
+                     <input required type="email" placeholder="contact@ominotech.com.my" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
                    </div>
                 </div>
                 <div className="space-y-4">

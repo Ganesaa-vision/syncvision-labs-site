@@ -16,7 +16,7 @@ const ServerSetupView: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-slate-500/30 transition-colors duration-300">
       <Helmet>
-        <title>Domain, Hosting & Corporate Email Setup | Malaysia</title>
+        <title>Domain, Hosting & Corporate Email Setup | Malaysia - Omino Tech</title>
         <meta name="description" content="Professional IT setup for businesses. We register .com.my domains, configure high-speed Cloud Hosting (VPS), and set up Corporate Emails (Google Workspace/Titan)." />
         <meta name="keywords" content="Domain Registration Malaysia, Cloud Hosting, VPS Setup, Corporate Email, Google Workspace Reseller, SSL Certificate" />
       </Helmet>

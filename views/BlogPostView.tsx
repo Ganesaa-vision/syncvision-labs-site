@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState, useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Facebook, Mail, ChevronRight, ChevronDown, ChevronUp, Check } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Facebook, Mail, ChevronRight, ChevronDown, ChevronUp, Check, ArrowRight } from 'lucide-react';
 import { BLOG_POSTS } from '../constants';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
@@ -67,14 +67,14 @@ const BlogPostView: React.FC = () => {
       "name": "Omino Tech",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ominotech.com/logo.png"
+        "url": "https://www.ominotech.com.my/logo.png"
       }
     },
     "datePublished": "2024-10-12", // In a real app, use post.date
     "description": post.excerpt,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://ominotech.com/blog/${post.slug}`
+        "@id": `https://www.ominotech.com.my/blog/${post.slug}`
     }
   };
 
@@ -87,17 +87,18 @@ const BlogPostView: React.FC = () => {
                 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="article" />
-                <meta property="og:url" content={`https://ominotech.com/blog/${post.slug}`} />
+                <meta property="og:url" content={`https://www.ominotech.com.my/blog/${post.slug}`} />
                 <meta property="og:title" content={post.title} />
                 <meta property="og:description" content={post.excerpt} />
                 <meta property="og:image" content={post.image} />
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:url" content={`https://ominotech.com/blog/${post.slug}`} />
+                <meta name="twitter:url" content={`https://www.ominotech.com.my/blog/${post.slug}`} />
                 <meta name="twitter:title" content={post.title} />
                 <meta name="twitter:description" content={post.excerpt} />
                 <meta name="twitter:image" content={post.image} />
+                <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
 
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             </Helmet>

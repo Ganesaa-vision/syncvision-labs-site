@@ -24,10 +24,11 @@ const Home = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Omino Tech",
-    "image": "https://ominotech.com/logo.png",
-    "@id": "https://ominotech.com",
-    "url": "https://ominotech.com",
-    "telephone": "+60123456789",
+    "image": "https://www.ominotech.com.my/logo.png",
+    "@id": "https://www.ominotech.com.my",
+    "url": "https://www.ominotech.com.my",
+    "telephone": "+60126019733",
+    "email": "ganesaa@ominotech.com.my",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Jalan KPB 12, Balakong",
@@ -62,13 +63,15 @@ const Home = () => {
       <Helmet>
         {/* --- SEO (Google Search) --- */}
         {/* Front-loaded keywords: "Web Design", "Malaysia", "SEO", "AI" */}
-        <title>Strategic Web Development & AI Automation Agency Malaysia | Omino</title>
+        <title>Strategic Web Development & AI Automation Agency Malaysia | Omino Tech</title>
         
         {/* --- AEO (Voice Search) --- */}
         {/* Written in natural language for Siri/Alexa to read out loud */}
         <meta name="description" content="Looking for a strategic digital partner in Malaysia? Omino Tech engineers custom high-speed websites, mobile apps, and AI chatbots for local businesses." />
         
-        <link rel="canonical" href="https://ominotech.com" />
+        <link rel="canonical" href="https://www.ominotech.com.my" />
+        <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
+        <meta property="og:image" content="https://www.ominotech.com.my/logo.png" />
         
         {/* --- GEO (AI Search) --- */}
         {/* Injecting the raw data map for AI models */}

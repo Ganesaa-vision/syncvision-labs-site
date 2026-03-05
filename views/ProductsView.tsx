@@ -66,7 +66,7 @@ const ProductsView: React.FC = () => {
 
                    <div className="grid grid-cols-1 gap-4 pt-4">
                      {product.features.map(f => (
-                       <div key={f} className="flex items-center gap-4 text-xs font-mono font-black text-slate-700 dark:text-slate-100 uppercase tracking-widest p-4 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 rounded-2xl group hover:border-indigo/30 transition-all">
+                       <div key={f} className="flex items-center gap-4 text-xs font-mono font-black text-slate-700 dark:text-slate-100 uppercase tracking-widest p-4 bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 rounded-2xl group hover:border-indigo-500/30 transition-all">
                          <Terminal size={14} className="text-interstellar group-hover:scale-110 transition-transform" />
                          {f}
                        </div>

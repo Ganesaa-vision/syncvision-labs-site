@@ -58,9 +58,11 @@ const WebArchitectureView: React.FC = () => {
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
       <Helmet>
-        <title>Custom Web Development Agency Malaysia | High-Speed Design</title>
+        <title>Custom Web Development Agency Malaysia | High-Speed Design - Omino Tech</title>
         <meta name="description" content="Need a fast-loading website? Omino Tech is a top web development company in Malaysia specializing in custom Next.js and Enterprise WordPress design." />
         <meta name="keywords" content="Web Design Malaysia, Custom Web Development Selangor, Next.js Developer Malaysia, WordPress Speed Optimization, Enterprise Web Architecture, E-commerce website developer Malaysia, WordPress website redesign services" />
+        <meta property="og:image" content="https://www.ominotech.com.my/logo.png" />
+        <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 

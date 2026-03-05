@@ -34,7 +34,7 @@ const SeoDominanceView: React.FC = () => {
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
       <Helmet>
-        <title>Best SEO Service in Malaysia | Local Ranking & AI SEO Expert</title>
+        <title>Best SEO Service in Malaysia | Local Ranking & AI SEO Expert - Omino Tech</title>
         <meta name="description" content="Dominate Google search results. We provide the best SEO services in Malaysia, combining local search optimization with advanced AI chatbot integration." />
         <meta name="keywords" content="SEO Malaysia, Google Maps Ranking, Local SEO Expert, AEO Optimization, Voice Search Ranking, SEO Audit, Best SEO agency Malaysia, Local SEO services near me, SEO expert Kuala Lumpur" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

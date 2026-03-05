@@ -20,7 +20,7 @@ const WebManagementView: React.FC = () => {
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-cyan-500/30 transition-colors duration-300">
       <Helmet>
-        <title>Website Maintenance & DevOps | Security & Updates Malaysia</title>
+        <title>Website Maintenance & DevOps | Security & Updates Malaysia - Omino Tech</title>
         <meta name="description" content="We manage your website so you don't have to. 24/7 Uptime Monitoring, Daily Backups, Security Patching, and Content Updates for Malaysian businesses." />
         <meta name="keywords" content="Website Maintenance Malaysia, WordPress Security, DevOps Services, Website Management Package, Server Monitoring" />
       </Helmet>
