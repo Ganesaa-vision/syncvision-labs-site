@@ -10,6 +10,7 @@ import {
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { IMAGES } from '../images';
 
 // === MASTER STRATEGY: MALAYSIA SEO & GEO ===
 // Keywords Targeted: "SME Web Design", "FPX Payment", "WhatsApp Bot", "Google Maps Ranking"
@@ -121,7 +122,7 @@ const ServicesView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
       
       {/* === ULTIMATE SEO HEAD === */}
       {/* Targeted specifically for Malaysian Business Owners */}
@@ -134,8 +135,13 @@ const ServicesView: React.FC = () => {
         <meta property="og:title" content="Omino Tech - Web Design & App Development Agency Malaysia" />
         <meta property="og:description" content="We build high-performance websites and AI systems for Malaysian businesses." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.ominotech.com.my/logo.png" />
-        <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
+        <meta property="og:image" content={IMAGES.GLOBAL.LOGO} />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 

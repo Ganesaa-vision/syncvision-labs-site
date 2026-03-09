@@ -1,3 +1,16 @@
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  category: string;
+  description: string;
+  longDescription?: string;
+  features: string[];
+  imageUrl: string;
+  status?: string;
+  tagline?: string;
+}
+
 export interface JournalArticle {
   id: string;
   title: string;
@@ -5,31 +18,13 @@ export interface JournalArticle {
   excerpt: string;
   image: string;
   content?: string;
-  slug: string;
-  category: string;
-  author: string;
-  readTime: string;
-}
-
-export interface Product {
-  id: string;
-  name: string;
-  price: number;
-  category: string;
-  imageUrl: string;
-  description: string;
-  longDescription?: string;
-  features?: string[];
-  status?: string;
-  tagline?: string;
 }
 
 export interface PortfolioItem {
   id: string;
+  title: string;
   type: 'CLIENT' | 'INTERNAL';
   image: string;
-  title: string;
-  role: string;
   mission?: string;
   results?: string[];
   concept?: string;
@@ -42,4 +37,15 @@ export interface ChatMessage {
   timestamp: number;
 }
 
-export type PageType = 'home' | 'services' | 'work' | 'about';
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  date: string;
+  readTime: string;
+  author: string;
+  content: string;
+}

@@ -18,11 +18,17 @@ const WebManagementView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-cyan-500/30 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-cyan-500/30 transition-colors duration-300">
       <Helmet>
         <title>Website Maintenance & DevOps | Security & Updates Malaysia - Omino Tech</title>
         <meta name="description" content="We manage your website so you don't have to. 24/7 Uptime Monitoring, Daily Backups, Security Patching, and Content Updates for Malaysian businesses." />
         <meta name="keywords" content="Website Maintenance Malaysia, WordPress Security, DevOps Services, Website Management Package, Server Monitoring" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">

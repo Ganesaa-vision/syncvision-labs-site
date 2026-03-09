@@ -6,6 +6,7 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Faceb
 import { BLOG_POSTS } from '../constants';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { IMAGES } from '../images';
 
 const BlogPostView: React.FC = () => {
   const { slug } = useParams();
@@ -39,7 +40,7 @@ const BlogPostView: React.FC = () => {
 
   if (!post) {
       return (
-          <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-white">
+          <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-white">
               <div className="text-center">
                   <h1 className="text-4xl font-bold mb-4">404</h1>
                   <p className="mb-8 text-slate-500">Article not found.</p>
@@ -67,7 +68,7 @@ const BlogPostView: React.FC = () => {
       "name": "Omino Tech",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.ominotech.com.my/logo.png"
+        "url": IMAGES.GLOBAL.LOGO
       }
     },
     "datePublished": "2024-10-12", // In a real app, use post.date
@@ -80,7 +81,7 @@ const BlogPostView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-        <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300 relative">
+        <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300 relative">
             <Helmet>
                 <title>{post.title} | Omino Tech Insights</title>
                 <meta name="description" content={post.excerpt} />
@@ -98,7 +99,12 @@ const BlogPostView: React.FC = () => {
                 <meta name="twitter:title" content={post.title} />
                 <meta name="twitter:description" content={post.excerpt} />
                 <meta name="twitter:image" content={post.image} />
-                <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
+                <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+                <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+                <link rel="shortcut icon" href="/favicon.ico" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+                <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+                <link rel="manifest" href="/site.webmanifest" />
 
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
             </Helmet>

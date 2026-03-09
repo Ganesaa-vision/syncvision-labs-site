@@ -11,10 +11,16 @@ const TermsView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
         <title>Terms of Service | Omino Tech</title>
         <meta name="description" content="Terms of Service for Omino Tech services and digital products." />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
       <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto flex-grow w-full">

@@ -6,6 +6,7 @@ import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { IMAGES } from '../images';
 
 const AppEngineeringView: React.FC = () => {
   const { pathname } = useLocation();
@@ -48,13 +49,18 @@ const AppEngineeringView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
         <title>Mobile App Engineering | Flutter & Supabase Experts Malaysia - Omino Tech</title>
         <meta name="description" content="Enterprise Mobile App Development in Malaysia. We build offline-first iOS & Android apps using Flutter, Firebase, and Supabase for scalable performance." />
         <meta name="keywords" content="Flutter Developer Malaysia, Mobile App Development Selangor, Supabase Backend, Offline First App, Enterprise Mobile Solutions" />
-        <meta property="og:image" content="https://www.ominotech.com.my/logo.png" />
-        <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
+        <meta property="og:image" content={IMAGES.GLOBAL.LOGO} />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 

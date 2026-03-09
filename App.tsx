@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { Navbar } from './views/Navbar'; // Keep Navbar static so it renders immediately
+import { Navbar } from './components/Navbar'; // Keep Navbar static so it renders immediately
 import ScrollToTopButton from './views/ScrollToTopButton'; // Keep static
 
 // Lazily load all the view components
@@ -28,31 +28,33 @@ export default function App() {
       {/* Navbar sits outside Suspense so it never disappears during navigation */}
       <Navbar /> 
       
-      {/* Suspense catches the loading state while the next chunk is downloaded */}
-      <Suspense fallback={
-        <div className="text-white text-center p-8 min-h-screen flex items-center justify-center">
-          Loading...
-        </div>
-      }>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<ServicesView />} />
-          <Route path="/services/web-architecture" element={<WebArchitectureView />} />
-          <Route path="/services/app-engineering" element={<AppEngineeringView />} />
-          <Route path="/services/seo-service" element={<SeoServiceView />} />
-          <Route path="/services/automation" element={<AutomationView />} />
-          <Route path="/services/ecommerce" element={<EcommerceView />} />
-          <Route path="/services/web-management" element={<WebManagementView />} />
-          <Route path="/services/server-setup" element={<ServerSetupView />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/about" element={<AboutView />} />
-          <Route path="/contact" element={<ContactView />} />
-          <Route path="/blog" element={<BlogView />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/privacy" element={<PrivacyView />} />
-          <Route path="/terms" element={<TermsView />} />
-        </Routes>
-      </Suspense>
+      {/* Main Content Wrapper with Background */}
+      <div className="min-h-screen bg-white dark:bg-[#0a0a0a]">
+        <Suspense fallback={
+          <div className="bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-white text-center p-8 min-h-screen flex items-center justify-center">
+            Loading...
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<ServicesView />} />
+            <Route path="/services/web-architecture" element={<WebArchitectureView />} />
+            <Route path="/services/app-engineering" element={<AppEngineeringView />} />
+            <Route path="/services/seo-service" element={<SeoServiceView />} />
+            <Route path="/services/automation" element={<AutomationView />} />
+            <Route path="/services/ecommerce" element={<EcommerceView />} />
+            <Route path="/services/web-management" element={<WebManagementView />} />
+            <Route path="/services/server-setup" element={<ServerSetupView />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/about" element={<AboutView />} />
+            <Route path="/contact" element={<ContactView />} />
+            <Route path="/blog" element={<BlogView />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/privacy" element={<PrivacyView />} />
+            <Route path="/terms" element={<TermsView />} />
+          </Routes>
+        </Suspense>
+      </div>
       
       <ScrollToTopButton />
     </HelmetProvider>

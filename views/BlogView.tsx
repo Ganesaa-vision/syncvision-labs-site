@@ -22,11 +22,17 @@ const BlogView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
+      <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
         <Helmet>
           <title>Digital Insights & Engineering Blog | Omino Tech Malaysia</title>
           <meta name="description" content="Expert insights on Web Development, SEO, AI Automation, and Digital Transformation for Malaysian businesses. Read our latest engineering logs." />
           <meta name="keywords" content="Web Dev Blog Malaysia, SEO Tips, Next.js Tutorial, Business Automation, Digital Transformation" />
+          <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+          <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+          <link rel="manifest" href="/site.webmanifest" />
         </Helmet>
 
         {/* Background Ambient Glow */}

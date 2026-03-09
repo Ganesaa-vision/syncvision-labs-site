@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { IMAGES } from '../images';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,8 +11,17 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="text-2xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 block">
-              Omino Tech
+            <Link to="/" className="mb-6 block">
+              <img 
+                src={IMAGES.GLOBAL.LOGO_LIGHT} 
+                alt="Omino Tech" 
+                className="h-14 w-auto block dark:hidden" 
+              />
+              <img 
+                src={IMAGES.GLOBAL.LOGO} 
+                alt="Omino Tech" 
+                className="h-14 w-auto hidden dark:block" 
+              />
             </Link>
             <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
               Strategic Digital Foundry. We engineer high-performance digital assets for Malaysian businesses.

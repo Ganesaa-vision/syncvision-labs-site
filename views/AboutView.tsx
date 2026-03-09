@@ -9,6 +9,7 @@ import {
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { IMAGES } from '../images';
 
 const AboutView: React.FC = () => {
   const { pathname } = useLocation();
@@ -38,10 +39,16 @@ const AboutView: React.FC = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="bg-slate-50 dark:bg-[#050505] min-h-screen flex flex-col text-slate-900 dark:text-slate-100 font-sans selection:bg-green-500/30 overflow-x-hidden transition-colors duration-300">
+    <div className="bg-white dark:bg-[#050505] min-h-screen flex flex-col text-slate-900 dark:text-slate-100 font-sans selection:bg-green-500/30 overflow-x-hidden transition-colors duration-300">
       <Helmet>
         <title>About Us | The Rebellion - Omino Tech</title>
         <meta name="description" content="We are the glitch in the matrix. A team of student innovators building the future while agencies bill for meeting hours." />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
       {/* Background Elements */}
@@ -277,7 +284,7 @@ const AboutView: React.FC = () => {
                         <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-900 group-hover:from-indigo-500 group-hover:to-purple-500 transition-colors duration-500">
                             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10">
                             <img 
-                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" 
+                                src={IMAGES.ABOUT.FOUNDER_GANESAA}
                                 alt="Ganesaa" 
                                 className="w-full h-full object-cover transition-all duration-500"
                                 loading="lazy"
@@ -317,7 +324,7 @@ const AboutView: React.FC = () => {
                         <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-900 group-hover:from-blue-500 group-hover:to-cyan-500 transition-colors duration-500">
                             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10">
                             <img 
-                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop" 
+                                src={IMAGES.ABOUT.CO_FOUNDER}
                                 alt="Co-Founder" 
                                 className="w-full h-full object-cover transition-all duration-500"
                                 loading="lazy"
@@ -343,7 +350,7 @@ const AboutView: React.FC = () => {
         {/* 5. PROMISE & CTA */}
         <div className="relative rounded-[3rem] overflow-hidden bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-500/20 p-12 md:p-24 text-center">
            {/* Removed noise texture for performance */}
-           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-indigo-500/10 to-transparent blur-3xl pointer-events-none"></div>
+           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-indigo-500/10 to-transparent blur-3xl pointer-events-none" style={{ backgroundImage: `url(${IMAGES.ABOUT.NOISE_TEXTURE})`, opacity: 0.05 }}></div>
            
            <div className="relative z-10">
               <h3 className="text-indigo-500 font-mono text-sm font-black uppercase tracking-[0.3em] mb-8">The Omino Tech Promise</h3>

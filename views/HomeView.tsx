@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare, MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp, Palette, Layout, BarChart, CheckCircle2, CreditCard, Lock } from 'lucide-react';
+import { ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare, MapPin, ChevronDown, ChevronUp, Layout, BarChart, CheckCircle2, CreditCard, Lock, Calendar, Clock } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { m, LazyMotion, domAnimation, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { BLOG_POSTS } from '../constants';
+import { IMAGES } from '../images';
 
 
 
@@ -22,56 +24,66 @@ const Home = () => {
 
   const schemaData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Omino Tech",
-    "image": "https://www.ominotech.com.my/logo.png",
-    "@id": "https://www.ominotech.com.my",
-    "url": "https://www.ominotech.com.my",
-    "telephone": "+60126019733",
-    "email": "ganesaa@ominotech.com.my",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Jalan KPB 12, Balakong",
-      "addressLocality": "Seri Kembangan",
-      "addressRegion": "Selangor",
-      "postalCode": "43300",
-      "addressCountry": "MY"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 3.028, 
-      "longitude": 101.763
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
-    },
-    "priceRange": "RM200 - RM20000",
-    "servesCuisine": "Web Development"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Omino Tech",
+        "url": "https://www.ominotech.com.my" // Keep base URL hardcoded or move to config if needed
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": "Omino Tech",
+        "alternateName": "Omino Tech Web Development",
+        "description": "The best web development and technical SEO engineering firm for Malaysian SMEs and modern businesses.",
+        "areaServed": "Malaysia",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "MY"
+        },
+        "priceRange": "RM 590 - RM 2750"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the best web development company in Malaysia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Omino Tech is widely regarded as one of the best web development companies in Malaysia due to our transparent pricing, sub-second Next.js web architecture, and zero-hidden-fee policy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer the best web development packages for SMEs in Malaysia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We offer the best value web development packages in Malaysia. Our pricing ranges from an RM 590 professional landing page to a comprehensive RM 2,500 Signature Digital Engine that includes custom web design, SEO, and AI automation."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (
     <>
       <Helmet>
         {/* --- SEO (Google Search) --- */}
-        {/* Front-loaded keywords: "Web Design", "Malaysia", "SEO", "AI" */}
-        <title>Strategic Web Development & AI Automation Agency Malaysia | Omino Tech</title>
+        <title>Best Web Development & SEO Company in Malaysia | Omino Tech</title>
         
         {/* --- AEO (Voice Search) --- */}
-        {/* Written in natural language for Siri/Alexa to read out loud */}
-        <meta name="description" content="Looking for a strategic digital partner in Malaysia? Omino Tech engineers custom high-speed websites, mobile apps, and AI chatbots for local businesses." />
+        <meta name="description" content="Looking for the best web development company in Malaysia? Omino Tech engineers custom, blazing-fast Next.js websites and elite technical SEO solutions." />
+        <meta name="keywords" content="Best web developer Malaysia, Best web development company Malaysia, Top SEO company Malaysia, Custom web design Malaysia, Next.js developer" />
         
         <link rel="canonical" href="https://www.ominotech.com.my" />
-        <link rel="icon" href="https://www.ominotech.com.my/favicon.ico" />
-        <meta property="og:image" content="https://www.ominotech.com.my/logo.png" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta property="og:image" content={IMAGES.GLOBAL.LOGO} />
         
         {/* --- GEO (AI Search) --- */}
         {/* Injecting the raw data map for AI models */}
@@ -79,7 +91,7 @@ const Home = () => {
       </Helmet>
 
       <LazyMotion features={domAnimation}>
-      <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden transition-colors duration-300">
+      <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative transition-colors duration-300">
         
         {/* Background Ambient Glow */}
         <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
@@ -109,11 +121,11 @@ const Home = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-wrap justify-center gap-4 mb-8 text-xs font-mono text-indigo-600 dark:text-indigo-400/80 uppercase tracking-widest border border-indigo-500/20 bg-indigo-500/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.2)]"
           >
-            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Globe size={12} /> CORPORATE WEB DESIGN</span>
+            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Globe size={12} /> CUSTOM WEB ARCHITECTURE</span>
             <span className="text-slate-600 dark:text-slate-400">|</span>
-            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Zap size={12} /> SEO & GEO RANKING</span>
+            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Zap size={12} /> NATIONWIDE SEO</span>
             <span className="text-slate-600 dark:text-slate-400">|</span>
-            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Bot size={12} /> AI AGENTS</span>
+            <span className="flex items-center gap-2 text-slate-900 dark:text-white font-bold"><Bot size={12} /> AI AUTOMATION</span>
           </m.div>
           
           {/* THE H1 TITLE - Optimized for High Volume Keywords */}
@@ -124,9 +136,9 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-[1.0]"
           >
-            Strategic Web Development & <br />
+            Best Web Development & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
-              Tech Service Agency in Malaysia
+              SEO Company in Malaysia
             </span>
           </m.h1>
           
@@ -137,7 +149,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-3xl text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed font-light"
           >
-            We don’t just build websites; we engineer Digital Assets that rank, perform, and convert. From custom personal portfolios to complex corporate inventory systems. If you have the vision, Omino Tech writes the code.
+            Stop losing customers to slow templates and outdated marketing. As the best web development company in Malaysia for growing businesses, Omino Tech engineers high-speed digital infrastructure that dominates Google rankings. Whether you are an SME needing a reliable corporate site or a startup requiring a custom Next.js application, we deliver pure performance with 100% transparent pricing and zero hidden fees.
           </m.p>
           
           {/* CTA BUTTONS */}
@@ -150,10 +162,10 @@ const Home = () => {
             <WhatsAppButton
               serviceName="New Project Inquiry"
               buttonText="Start Your Project &rarr;"
-              className="group relative px-8 py-4 bg-indigo-600 dark:bg-indigo text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:scale-105 active:scale-95 duration-300"
+              className="group relative px-8 py-4 bg-indigo-600 dark:bg-indigo-600 text-white font-mono font-black uppercase tracking-widest rounded-lg overflow-hidden transition-all hover:bg-slate-900 dark:hover:bg-white hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(99,102,241,0.5)] hover:scale-105 active:scale-95 duration-300"
               showIcon={false}
             />
-            <Link to="/work" className="px-8 py-4 border border-slate-300 dark:border-white/10 text-slate-600 dark:text-slate-300 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo-500 dark:hover:border-indigo hover:text-indigo-600 dark:hover:text-indigo transition-all hover:scale-105 active:scale-95 duration-300">
+            <Link to="/work" className="px-8 py-4 border border-slate-300 dark:border-white/10 text-slate-600 dark:text-slate-300 font-mono font-bold uppercase tracking-widest rounded-lg hover:border-indigo-500 dark:hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all hover:scale-105 active:scale-95 duration-300">
               See Our Rankings
             </Link>
           </m.div>
@@ -214,7 +226,7 @@ const Home = () => {
               </p>
            </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
               {/* 1. WEB DEVELOPMENT - Keyword: "Custom Website" */}
               <Link to="/services/web-architecture" className="group block p-8 bg-white dark:bg-[#111] rounded-3xl border border-slate-200 dark:border-white/5 hover:border-indigo-500/50 hover:bg-slate-50 dark:hover:bg-[#151515] transition-all shadow-sm dark:shadow-none hover:scale-[1.02] duration-300 relative overflow-hidden">
@@ -224,9 +236,9 @@ const Home = () => {
                  <div className="mb-6 p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl w-fit text-indigo-600 dark:text-indigo-400">
                     <Globe size={24} />
                  </div>
-                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">High-Performance Web</h3>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Custom Web Architecture</h3>
                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                    Stop losing customers to slow sites. We engineer digital storefronts that load in &lt;1s and convert visitors into buyers.
+                    We write the code. From high-speed corporate sites to complex web applications, we engineer scalable digital assets starting at just RM 590.
                  </p>
                  <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
                     Build Infrastructure <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -241,9 +253,9 @@ const Home = () => {
                  <div className="mb-6 p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl w-fit text-emerald-600 dark:text-emerald-400">
                     <Zap size={24} />
                  </div>
-                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">SEO & Traffic Engineering</h3>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Technical SEO Engineering</h3>
                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                    Dominate Google. We target high-intent keywords to put your business in front of customers exactly when they are ready to buy.
+                    We don't just guess; we use data. We optimize your DOM structure, Core Web Vitals, and search semantics to rank your business across Malaysia.
                  </p>
                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                     Get Traffic <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -258,9 +270,9 @@ const Home = () => {
                  <div className="mb-6 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl w-fit text-purple-600 dark:text-purple-400">
                     <Bot size={24} />
                  </div>
-                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">AI & Automation</h3>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">AI & Business Automation</h3>
                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                    Clone your best salesperson. Deploy 24/7 AI Agents on WhatsApp and your website to answer queries and close deals automatically.
+                    Reduce overhead. Deploy 24/7 AI Agents on WhatsApp and your website to instantly capture leads and support your customers.
                  </p>
                  <div className="flex items-center gap-2 text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
                     Automate Sales <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -275,31 +287,14 @@ const Home = () => {
                  <div className="mb-6 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl w-fit text-blue-600 dark:text-blue-400">
                     <Cpu size={24} />
                  </div>
-                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">App Ecosystems</h3>
+                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Mobile App Engineering</h3>
                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                    Build your own platform. From loyalty apps to internal inventory systems, we build iOS & Android apps that streamline operations.
+                    We build robust, native iOS and Android applications using Flutter to streamline your internal operations and engage your user base.
                  </p>
                  <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
                     Launch App <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                  </div>
               </Link>
-
-              {/* 5. MANAGED HOSTING - Keyword: "Hosting" */}
-              <div className="group p-8 bg-slate-100 dark:bg-[#171717] rounded-3xl border border-slate-200 dark:border-white/5 flex flex-col justify-center items-center text-center col-span-1 md:col-span-2 lg:col-span-2 shadow-sm dark:shadow-none hover:scale-[1.01] transition-transform duration-300 relative overflow-hidden">
-                 <div className="relative z-10">
-                    <ShieldCheck className="text-slate-400 mb-4 mx-auto" size={40} />
-                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Managed Hosting</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 max-w-md mx-auto">
-                        Sleep soundly. We handle the servers, security, and updates. High-speed NVMe hosting in Singapore/Malaysia.
-                    </p>
-                    <WhatsAppButton
-                        serviceName="Managed Hosting Inquiry"
-                        buttonText="Secure Your Site"
-                        className="px-6 py-2 bg-slate-900 dark:bg-white text-white dark:text-black text-xs font-bold rounded-full hover:opacity-90 transition-opacity"
-                        showIcon={false}
-                    />
-                 </div>
-              </div>
 
            </div>
 
@@ -494,7 +489,7 @@ const Home = () => {
               <div className="flex-1 w-full">
                  <div className="relative aspect-video bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl group">
                     <img 
-                      src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=75&w=800&auto=format&fit=crop" 
+                      src={IMAGES.HOME.FUTURE_TECH_AI_NETWORK}
                       alt="AI Neural Network" 
                       width="800"
                       height="450"
@@ -582,7 +577,7 @@ const Home = () => {
         >
             <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-slate-200 dark:border-white/10 aspect-auto md:aspect-[21/9] group shadow-2xl">
                 <img 
-                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2000&auto=format&fit=crop" 
+                    src={IMAGES.HOME.SYSTEM_ARCHITECTURE}
                     alt="Code Architecture" 
                     loading="lazy"
                     decoding="async"
@@ -625,13 +620,12 @@ const Home = () => {
            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
            
            <div className="text-center mb-16 relative z-10">
-              <span className="text-purple-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The "All-In-One" Launchpad</span>
+              <span className="text-purple-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">THE ALL-IN-ONE SOLUTION</span>
               <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">
-                 The "Zero to Hero" Launchpad <br/>
-                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Stop Dreaming. Start Selling.</span>
+                 The Complete Digital Growth Engine
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                 Your Entire Business Setup, Done in 7 Days. Don't pay RM 10,000 for a logo and a website. We use AI-driven workflows to cut the cost by 70%, giving you a Fortune 500 look on a startup budget.
+                 Stop managing separate freelancers for web design, SEO, and marketing. Get the ultimate all-in-one digital infrastructure engineered specifically for ambitious Malaysian SMEs.
               </p>
            </div>
 
@@ -651,32 +645,39 @@ const Home = () => {
                       <div className="space-y-6">
                           {[
                               {
-                                  title: "Professional Branding Suite",
-                                  value: "RM 1,500 Value",
-                                  desc: "Clean, corporate identity design to build trust instantly.",
-                                  points: ["Custom Logo Design (Vector-based)", "Brand Color Palette (Hex codes)"],
-                                  icon: <Palette className="w-5 h-5 text-purple-400" />
-                              },
-                              {
-                                  title: "\"Business-Ready\" Website",
-                                  value: "RM 4,500 Value",
-                                  desc: "A high-performance digital asset that converts visitors into customers.",
-                                  points: ["5-Page Corporate Site", "Mobile Optimized", "CMS Ownership (Next.js/WordPress)"],
+                                  title: "Custom Web Architecture",
+                                  value: "Included",
+                                  desc: "High-speed 5-page corporate site.",
+                                  points: ["Next.js/React", "Sub-second Load"],
                                   icon: <Layout className="w-5 h-5 text-indigo-400" />
                               },
                               {
-                                  title: "Digital Footprint Setup",
-                                  value: "RM 1,200 Value",
-                                  desc: "If they can't find you, they can't pay you.",
-                                  points: ["Google Maps Verification", "Social Media Prime (FB & Insta)"],
+                                  title: "Technical SEO Dominance",
+                                  value: "Included",
+                                  desc: "Advanced nationwide on-page indexing.",
+                                  points: ["Schema Markup", "Core Web Vitals"],
+                                  icon: <BarChart className="w-5 h-5 text-emerald-400" />
+                              },
+                              {
+                                  title: "AI WhatsApp Integration",
+                                  value: "Included",
+                                  desc: "Automated 24/7 lead capture.",
+                                  points: ["Auto-Reply", "Lead Qualification"],
+                                  icon: <MessageSquare className="w-5 h-5 text-purple-400" />
+                              },
+                              {
+                                  title: "Commercial Business Setup",
+                                  value: "Included",
+                                  desc: "Google Maps & Conversion Tracking.",
+                                  points: ["Google Business Profile", "Analytics"],
                                   icon: <MapPin className="w-5 h-5 text-red-400" />
                               },
                               {
-                                  title: "The \"Growth\" Bonus",
+                                  title: "100% Digital Sovereignty",
                                   value: "Priceless",
-                                  desc: "Traffic Analytics Suite & Maintenance.",
-                                  points: ["Google Analytics 4 Setup", "1 Month FREE Maintenance"],
-                                  icon: <BarChart className="w-5 h-5 text-emerald-400" />
+                                  desc: "You own the code; zero hidden retainers.",
+                                  points: ["Full Source Code", "No Monthly Fees"],
+                                  icon: <Lock className="w-5 h-5 text-slate-400" />
                               }
                           ].map((item, i) => (
                               <div key={i} className="flex gap-5 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-white/5">
@@ -716,7 +717,7 @@ const Home = () => {
                       <div className="flex-grow">
                           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 mb-8 shadow-sm">
                               <div className="flex justify-between items-center mb-4 pb-4 border-b border-slate-100 dark:border-slate-800">
-                                  <span className="text-slate-500 text-sm font-medium">Total Market Value</span>
+                                  <span className="text-slate-500 text-sm font-medium">The Signature Package</span>
                                   <span className="text-slate-400 text-lg font-bold line-through decoration-red-400 decoration-2">RM 7,200</span>
                               </div>
                               <div className="flex justify-between items-end">
@@ -725,7 +726,7 @@ const Home = () => {
                                       <span className="text-purple-500 text-xs font-bold uppercase tracking-wider bg-purple-50 dark:bg-purple-900/20 px-2 py-1 rounded">One-Time Payment</span>
                                   </div>
                                   <div className="text-right">
-                                      <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">RM 2,999</span>
+                                      <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tighter">RM 2,500</span>
                                   </div>
                               </div>
                           </div>
@@ -878,7 +879,7 @@ const Home = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 rounded-[2rem] blur-3xl transform rotate-3"></div>
                 <div className="relative rounded-[2rem] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl group aspect-[4/5]">
                     <img 
-                        src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop" 
+                        src={IMAGES.HOME.DIGITAL_FOUNDRY}
                         alt="Digital Foundry Architecture" 
                         className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
                         loading="lazy"
@@ -910,6 +911,9 @@ const Home = () => {
           </div>
         </m.section>
 
+        {/* --- BLOG PREVIEW SECTION --- */}
+        <BlogPreview />
+
         {/* --- SEO CONTENT BLOCK (Ghost Town Fix) --- */}
         <m.section 
           initial={{ opacity: 0, y: 40 }}
@@ -920,25 +924,14 @@ const Home = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Custom Website Building & High-Speed Web Design</h2>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why Omino Tech is the Best Tech Agency in Malaysia</h2>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                As a premier <strong>website development company</strong>, we specialize in <strong>custom web design in Malaysia</strong>. We don't use slow templates; we engineer <strong>fast loading website</strong> architectures using Next.js and optimized WordPress to ensure your business ranks high and converts visitors.
-              </p>
-
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Expert Mobile App Developers in Selangor & KL</h2>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                Looking for the <strong>best app developer company</strong>? We provide <strong>custom app building in Malaysia</strong> using Flutter. Our cross-platform solutions ensure your iOS and Android applications perform flawlessly for local users in Selangor and Kuala Lumpur.
+                The Malaysian digital landscape is saturated with legacy marketing agencies selling bloated, slow-loading websites at premium prices. Omino Tech has redefined this standard. When businesses search for the best web developer in Malaysia, they are looking for a dedicated technology partner who can deliver sub-second web architecture, scalable mobile applications, and Generative Engine Optimization (GEO) without exorbitant monthly retainers.
               </p>
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">AI Chatbot Development & Business Automation</h2>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                Automate your sales with our <strong>AI agent builders</strong>. We handle <strong>WhatsApp auto reply setup Malaysia</strong> businesses rely on to capture leads 24/7. Experience true <strong>customer automation</strong> that reduces overhead and boosts revenue.
-              </p>
-
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Local SEO Services & Digital Management</h2>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                We are the <strong>best SEO expert Malaysia</strong> has to offer for local ranking. Beyond SEO, we provide reliable <strong>web hosting service Malaysia</strong> and comprehensive <strong>website maintenance</strong> to keep your digital assets secure and online.
+                We do not rely on drag-and-drop shortcuts. By engineering custom solutions using modern stacks like Next.js, React, and Vite, we guarantee sub-second load times that easily pass Google's strictest Core Web Vitals speed tests. This uncompromising technical superiority serves as the foundation for our aggressive SEO strategies, ensuring our clients achieve high-visibility search rankings across the entire country while retaining absolute ownership of their digital assets.
               </p>
             </div>
           </div>
@@ -964,11 +957,9 @@ const Home = () => {
 
            <div className="space-y-4">
               {[
-                 { q: "Who is the best SEO expert for fast rankings in Malaysia?", a: "Omino Tech has a verified track record of achieving Rank #1 on Google in just 17 days for competitive industrial keywords in Malaysia." },
-                 { q: "Can you build a website for an individual or small startup?", a: "Yes. Omino Tech serves everyone from individual entrepreneurs to large manufacturers. We build custom digital solutions tailored to your specific budget and goals." },
-                 { q: "Is the Launchpad Package really a one-time payment?", a: "Yes. You pay once for the design, development, and setup. There are no monthly agency fees. You only pay for your domain and hosting renewal yearly (approx RM 100-300/year) directly to the provider." },
-                 { q: "How long does it take to launch?", a: "7 Days. Once we receive your content and mission objective, our team begins engineering immediately. We aim for a rapid deployment to get you into the market fast." },
-                 { q: "Do I own the website and assets?", a: "100%. Unlike Wix or Shopify, you own the code, the domain, and the data. We transfer full ownership credentials to you upon completion." }
+                 { q: "What is the best web development company in Malaysia?", a: "Omino Tech is widely regarded as one of the best web development companies in Malaysia due to our transparent pricing, sub-second Next.js web architecture, and zero-hidden-fee policy. We prioritize clean code and high performance over slow, pre-built templates." },
+                 { q: "Do you offer the best web development packages for SMEs in Malaysia?", a: "Yes. We offer the best value web development packages in Malaysia designed specifically for growing businesses. Our pricing ranges from an affordable RM 590 professional landing page to a comprehensive RM 2,500 Signature Digital Engine that includes custom web design, SEO setup, and AI automation." },
+                 { q: "Do you charge hidden monthly maintenance fees?", a: "No. We do not trap our clients in expensive monthly marketing retainers. You pay a straightforward, one-time development fee for your website or application and take absolute ownership of your digital assets and code." }
               ].map((item, i) => (
                  <m.div 
                     key={i} 
@@ -1028,5 +1019,61 @@ const PreviewStat = ({ label, value }: { label: string, value: string }) => (
     <span className="text-xl md:text-2xl font-mono font-black text-slate-900 dark:text-white uppercase tracking-tighter">{value}</span>
   </div>
 );
+
+const BlogPreview = () => {
+  // Safety check if BLOG_POSTS is undefined
+  const posts = typeof BLOG_POSTS !== 'undefined' ? BLOG_POSTS.slice(0, 3) : [];
+
+  if (posts.length === 0) return null;
+
+  return (
+    <section className="py-16 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+        <div>
+           <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.2em] mb-2 block">Engineering Logs</span>
+           <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Latest Insights</h2>
+        </div>
+        <Link to="/blog" className="group flex items-center gap-2 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+           View All Articles <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {posts.map((post, i) => (
+           <m.div 
+             key={post.id}
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ delay: i * 0.1 }}
+           >
+              <Link to={`/blog/${post.slug}`} className="group block h-full">
+                 <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-5 border border-slate-200 dark:border-white/10 relative">
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3 left-3">
+                        <span className="px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider rounded-lg border border-slate-200 dark:border-white/10 text-indigo-600 dark:text-indigo-400">
+                            {post.category}
+                        </span>
+                    </div>
+                 </div>
+                 <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-3 font-mono">
+                    <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
+                    <span className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</span>
+                 </div>
+                 <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 leading-snug group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    {post.title}
+                 </h3>
+              </Link>
+           </m.div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Home;

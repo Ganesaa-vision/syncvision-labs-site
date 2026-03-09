@@ -14,10 +14,16 @@ const ProductsView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen flex flex-col relative transition-colors duration-300">
+    <div className="bg-white dark:bg-slate-950 min-h-screen flex flex-col relative transition-colors duration-300">
       <Helmet>
         <title>Internal R&D Labs | Omino Tech</title>
         <meta name="description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
       <section className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">

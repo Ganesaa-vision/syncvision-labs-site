@@ -37,6 +37,12 @@ const SeoDominanceView: React.FC = () => {
         <title>Best SEO Service in Malaysia | Local Ranking & AI SEO Expert - Omino Tech</title>
         <meta name="description" content="Dominate Google search results. We provide the best SEO services in Malaysia, combining local search optimization with advanced AI chatbot integration." />
         <meta name="keywords" content="SEO Malaysia, Google Maps Ranking, Local SEO Expert, AEO Optimization, Voice Search Ranking, SEO Audit, Best SEO agency Malaysia, Local SEO services near me, SEO expert Kuala Lumpur" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 

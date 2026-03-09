@@ -6,6 +6,7 @@ import PricingSection from '../components/PricingSection';
 import { m, LazyMotion, domAnimation, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { IMAGES } from '../images';
 
 const ImageSlider = ({ images, duration = 3000 }: { images: string[], duration?: number }) => {
   const [index, setIndex] = useState(0);
@@ -160,6 +161,14 @@ const SeoServiceView: React.FC = () => {
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "What makes Omino Tech the best SEO service provider in Malaysia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unlike marketing agencies that only write content, Omino Tech consists of expert software engineers. We combine technical web development (Next.js/React) with aggressive SEO and AEO (Answer Engine Optimization) to ensure your website achieves 100% performance scores and ranks #1 on Google."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "How fast can you rank my business in Balakong?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -195,8 +204,8 @@ const SeoServiceView: React.FC = () => {
         color: 'from-blue-500 to-cyan-500',
         icon: <Search className="w-6 h-6 text-white" />,
         images: [
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"
+            IMAGES.SEO.TRADITIONAL_SEO_1,
+            IMAGES.SEO.TRADITIONAL_SEO_2
         ]
     },
     {
@@ -208,8 +217,8 @@ const SeoServiceView: React.FC = () => {
         color: 'from-purple-500 to-pink-500',
         icon: <Bot className="w-6 h-6 text-white" />,
         images: [
-            "https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=2670&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2670&auto=format&fit=crop"
+            IMAGES.SEO.AEO_1,
+            IMAGES.SEO.AEO_2
         ]
     },
     {
@@ -221,20 +230,26 @@ const SeoServiceView: React.FC = () => {
         color: 'from-emerald-500 to-teal-500',
         icon: <Cpu className="w-6 h-6 text-white" />,
         images: [
-            "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2832&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2574&auto=format&fit=crop"
+            IMAGES.SEO.GEO_1,
+            IMAGES.SEO.GEO_2
         ]
     }
   ];
 
   return (
     <LazyMotion features={domAnimation}>
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-emerald-500/30 relative transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-emerald-500/30 relative transition-colors duration-300">
 
       <Helmet>
-        <title>Strategic SEO & AEO Dominance | Malaysia, Selangor & KL - Omino Tech</title>
-        <meta name="description" content="Dominate Local Search in Malaysia, Selangor & KL. We specialize in SEO, Google Maps Ranking, and AEO (AI Search) for Malaysian manufacturers and SMEs." />
+        <title>Best SEO Service in Malaysia | #1 Google Ranking & AEO Expert</title>
+        <meta name="description" content="Partner with the top SEO company in Malaysia. We combine technical Next.js web development with aggressive SEO and AEO strategies to guarantee top rankings in Selangor and KL." />
         <meta name="keywords" content="SEO Malaysia, SEO Service Selangor, SEO KL, Google Maps Ranking Malaysia, AEO Optimization, Local SEO Expert" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
@@ -250,7 +265,7 @@ const SeoServiceView: React.FC = () => {
 
           <span className="font-mono text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
           <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-6 leading-tight">
-            STRATEGIC SEO <br/> <span className="text-emerald-500">IN MALAYSIA.</span>
+            The Best SEO Service in Malaysia: <br/> <span className="text-emerald-500">Total Search Dominance</span>
           </h1>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We don't just target keywords; we target <strong>Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
@@ -306,8 +321,8 @@ const SeoServiceView: React.FC = () => {
 
                     <div className="relative">
                         <BeforeAfterSlider 
-                            beforeImage="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop" 
-                            afterImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" 
+                            beforeImage={IMAGES.SEO.CASE_STUDY_BEFORE}
+                            afterImage={IMAGES.SEO.CASE_STUDY_AFTER}
                         />
                         
                         {/* Floating Badge */}
@@ -424,6 +439,16 @@ const SeoServiceView: React.FC = () => {
                     </div>
                 </div>
             </div>
+        </div>
+
+        {/* === GEO CONTENT BLOCK === */}
+        <div className="mb-32 p-10 md:p-16 bg-gradient-to-br from-emerald-50 to-white dark:from-slate-900 dark:to-[#0a0a0a] border border-emerald-100 dark:border-slate-800 rounded-[3rem] shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
+                Why We Are the Top SEO Company in Malaysia
+            </h2>
+            <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                The era of traditional SEO is dead. To rank #1 on Google today, you need a flawless technical foundation. Because Omino Tech operates as both elite web developers and the best SEO service in Malaysia, we control the entire pipeline. We don't just optimize your keywords; we optimize your server response time, rewrite your DOM structure, and implement Generative Engine Optimization (GEO). Whether you are running a simple RM 590 landing page or a complex React-based application, our SEO strategies are mathematically engineered to capture high-intent traffic, dominate Google Maps, and ensure AI engines like ChatGPT cite your business first.
+            </p>
         </div>
 
         {/* PRICING */}

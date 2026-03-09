@@ -14,11 +14,17 @@ const ServerSetupView: React.FC = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-slate-500/30 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-slate-500/30 transition-colors duration-300">
       <Helmet>
         <title>Domain, Hosting & Corporate Email Setup | Malaysia - Omino Tech</title>
         <meta name="description" content="Professional IT setup for businesses. We register .com.my domains, configure high-speed Cloud Hosting (VPS), and set up Corporate Emails (Google Workspace/Titan)." />
         <meta name="keywords" content="Domain Registration Malaysia, Cloud Hosting, VPS Setup, Corporate Email, Google Workspace Reseller, SSL Certificate" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
       <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">

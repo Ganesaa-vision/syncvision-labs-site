@@ -5,6 +5,7 @@
 
 
 import React from 'react';
+import { IMAGES } from '../images';
 
 const Features: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Features: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
         <div className="order-2 lg:order-1 relative h-[500px] lg:h-auto overflow-hidden">
            <img 
-             src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1200" 
+             src={IMAGES.COMPONENTS.FEATURE_STONE}
              alt="Natural Stone Texture" 
              className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-[1.5s]"
            />
@@ -43,7 +44,7 @@ const Features: React.FC = () => {
         </div>
         <div className="relative h-[500px] lg:h-auto overflow-hidden">
            <img 
-             src="https://images.pexels.com/photos/6801917/pexels-photo-6801917.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+             src={IMAGES.COMPONENTS.FEATURE_READING}
              alt="Woman sitting on wooden floor reading" 
              className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-[1.5s] brightness-90"
            />
