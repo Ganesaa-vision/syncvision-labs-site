@@ -1,5 +1,5 @@
 import { BlogPost, Product, JournalArticle } from './types';
-import { IMAGES } from '../images';
+import { IMAGES } from './images';
 
 export const BLOG_POSTS: BlogPost[] = [
   {
