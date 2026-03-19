@@ -1,19 +1,21 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Globe, Lock, Cloud } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const ServerSetupView: React.FC = () => {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-slate-500/30 transition-colors duration-300">
       <Helmet>
         <title>Domain, Hosting & Corporate Email Setup | Malaysia - Omino Tech</title>
@@ -27,7 +29,7 @@ const ServerSetupView: React.FC = () => {
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="text-center mb-24">
           <span className="font-mono text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">IT Infrastructure</span>
           <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
@@ -139,9 +141,10 @@ const ServerSetupView: React.FC = () => {
               showIcon={true}
             />
         </div>
-      </div>
+      </m.main>
       <Footer />
     </div>
+    </LazyMotion>
   );
 };
 

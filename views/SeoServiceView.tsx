@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, BarChart, ArrowRight, FileText, Trophy, Bot, Cpu, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
@@ -151,7 +151,7 @@ const SeoServiceView: React.FC = () => {
   
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
@@ -253,7 +253,7 @@ const SeoServiceView: React.FC = () => {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
-      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         
         {/* HERO SECTION */}
         <m.div 
@@ -564,7 +564,7 @@ const SeoServiceView: React.FC = () => {
               <BarChart size={120} className="text-slate-800" />
            </div>
         </div>
-      </div>
+      </m.main>
       <Footer />
     </div>
     </LazyMotion>

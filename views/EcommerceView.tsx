@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingBag, CreditCard, Truck, ArrowRight, CheckCircle2, X, Check, Zap, Globe, ShieldCheck } from 'lucide-react';
@@ -6,11 +6,12 @@ import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { IMAGES } from '../images';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const EcommerceView: React.FC = () => {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
@@ -23,6 +24,7 @@ const EcommerceView: React.FC = () => {
   const monthsToROI = estimatedLoss > 0 ? (3299 / estimatedLoss).toFixed(1) : "0";
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-yellow-500/30 transition-colors duration-300">
       <Helmet>
         <title>E-Commerce Development & Payment Gateway Integration | Malaysia - Omino Tech</title>
@@ -37,7 +39,7 @@ const EcommerceView: React.FC = () => {
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         {/* HERO */}
         <div className="mb-24 text-center md:text-left">
           <span className="font-mono text-yellow-600 dark:text-yellow-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Digital Commerce</span>
@@ -235,9 +237,10 @@ const EcommerceView: React.FC = () => {
             showIcon={true}
           />
         </div>
-      </div>
+      </m.main>
       <Footer />
     </div>
+    </LazyMotion>
   );
 };
 

@@ -1,19 +1,21 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation, Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
 import { Terminal, Activity, ArrowRight } from 'lucide-react';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const ProductsView: React.FC = () => {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="bg-white dark:bg-slate-950 min-h-screen flex flex-col relative transition-colors duration-300">
       <Helmet>
         <title>Internal R&D Labs | Omino Tech</title>
@@ -26,7 +28,7 @@ const ProductsView: React.FC = () => {
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
-      <section className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24 text-center">
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Internal R&D Labs</span>
           <h1 className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white tracking-tighter uppercase leading-none">
@@ -90,9 +92,10 @@ const ProductsView: React.FC = () => {
             </div>
           ))}
         </div>
-      </section>
+      </m.main>
       <Footer />
     </div>
+    </LazyMotion>
   );
 };
 

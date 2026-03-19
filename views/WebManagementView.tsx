@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { ShieldCheck, RefreshCw, Server, Activity, ArrowRight, Check, X, HelpCircle, Unlock, ChevronDown, ChevronUp } from 'lucide-react';
@@ -10,7 +10,7 @@ import { WhatsAppButton } from '../components/WhatsAppButton';
 const WebManagementView: React.FC = () => {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
@@ -31,7 +31,7 @@ const WebManagementView: React.FC = () => {
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24">
           <span className="font-mono text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Proactive Management</span>
           <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
@@ -230,8 +230,7 @@ const WebManagementView: React.FC = () => {
             ))}
           </div>
         </div>
-
-      </div>
+      </m.main>
       <Footer />
     </div>
     </LazyMotion>

@@ -1,20 +1,22 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { CheckCircle2, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
 import Footer from '../components/Footer';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const ContactView: React.FC = () => {
   const [sent, setSent] = useState(false);
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none transform-gpu will-change-transform"></div>
       <Helmet>
         <title>Initiate Protocol | Omino Tech</title>
         <meta name="description" content="Select your mission objective. Validated requests receive engineering protocols within 12 hours. Secure channel active." />
@@ -26,7 +28,7 @@ const ContactView: React.FC = () => {
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
-      <section className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24">
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-sm font-black uppercase tracking-[1em] mb-8 block">Communication Protocol</span>
           <h2 className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-none uppercase">LET'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 italic">BUILD.</span></h2>
@@ -83,9 +85,10 @@ const ContactView: React.FC = () => {
             )}
           </div>
         </div>
-      </section>
+      </m.main>
       <Footer />
     </div>
+    </LazyMotion>
   );
 };
 

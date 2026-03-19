@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -12,7 +12,7 @@ import { WhatsAppButton } from '../components/WhatsAppButton';
 const Work: React.FC = () => {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
@@ -36,11 +36,11 @@ const Work: React.FC = () => {
 
       {/* Background Ambient Glow */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-[120px]" />
+          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px] transform-gpu will-change-transform" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-[120px] transform-gpu will-change-transform" />
       </div>
 
-      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 flex-grow w-full">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
 
         {/* === HERO SECTION === */}
         <m.section 
@@ -342,7 +342,7 @@ const Work: React.FC = () => {
             />
           </div>
         </section>
-      </div>
+      </m.main>
       <Footer />
     </div>
     </LazyMotion>

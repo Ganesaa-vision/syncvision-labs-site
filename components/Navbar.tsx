@@ -142,7 +142,7 @@ export const Navbar = () => {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                     transition={{ duration: 0.2, ease: "easeOut" }}
-                                    className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[600px]"
+                                    className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[600px] transform-gpu will-change-transform"
                                 >
                                     <div className="bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-white/10 rounded-3xl p-6 shadow-2xl shadow-indigo-500/10 grid grid-cols-2 gap-4 relative overflow-hidden">
                                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500"></div>
@@ -235,7 +235,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 pt-32 px-6 md:hidden flex flex-col"
+            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 pt-32 px-6 md:hidden flex flex-col transform-gpu will-change-transform"
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link, i) => (

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { Bot, MessageSquare, Zap, ArrowRight, Clock, TrendingUp, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
@@ -11,7 +11,7 @@ const AutomationView: React.FC = () => {
   const { pathname } = useLocation();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
@@ -46,7 +46,7 @@ const AutomationView: React.FC = () => {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24">
           <span className="font-mono text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Autonomous Systems</span>
           <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8 leading-tight">
@@ -60,7 +60,7 @@ const AutomationView: React.FC = () => {
 
         {/* === NEW: AUTOMATION IMPACT CASE STUDY === */}
         <div className="mb-32 relative">
-            <div className="absolute inset-0 bg-purple-500/5 blur-3xl rounded-full pointer-events-none"></div>
+            <div className="absolute inset-0 bg-purple-500/5 blur-3xl rounded-full pointer-events-none transform-gpu will-change-transform"></div>
             <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[3rem] p-8 md:p-16 overflow-hidden shadow-2xl">
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
@@ -329,7 +329,7 @@ const AutomationView: React.FC = () => {
              showIcon={true}
            />
         </div>
-      </div>
+      </m.main>
       <Footer />
     </div>
     </LazyMotion>

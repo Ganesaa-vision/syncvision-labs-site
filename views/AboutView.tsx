@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation, Link } from 'react-router-dom';
 import { 
@@ -14,28 +14,11 @@ import { IMAGES } from '../images';
 const AboutView: React.FC = () => {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
+  
 
   return (
     <LazyMotion features={domAnimation}>
@@ -53,35 +36,49 @@ const AboutView: React.FC = () => {
 
       {/* Background Elements */}
       <div className="fixed inset-0 w-full h-full pointer-events-none overflow-hidden">
-          <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[80px]" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[80px]" />
+          <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[80px] transform-gpu will-change-transform" />
+          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[80px] transform-gpu will-change-transform" />
       </div>
 
-      <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto relative z-10 flex-grow w-full">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto relative z-10 flex-grow w-full">
 
         {/* HERO SECTION */}
-        <m.div 
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="mb-20 md:mb-40 text-center"
-        >
-          <m.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/20 bg-indigo-50 dark:bg-indigo-500/5 text-indigo-600 dark:text-indigo-400 text-xs font-mono mb-8">
-             <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
-             SYSTEM_OVERRIDE_INITIATED
+        <div className="mb-20 md:mb-40 text-center">
+          <m.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-500/20 bg-indigo-50 dark:bg-indigo-500/5 text-indigo-600 dark:text-indigo-400 text-xs font-mono mb-8"
+          >
+            <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse" />
+            SYSTEM_OVERRIDE_INITIATED
           </m.div>
-          
-          <m.h1 variants={itemVariants} className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white tracking-tighter uppercase leading-none mb-10">
-            We Are The <br/>
+
+          <m.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
+            className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white tracking-tighter uppercase leading-none mb-10"
+          >
+            We Are The <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
               Glitch In The Matrix.
             </span>
           </m.h1>
-          
-          <m.p variants={itemVariants} className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto">
-            While big agencies are still billing you for 'meeting hours,' we are building the future. <span className="text-slate-900 dark:text-white font-bold">We are Omino Tech.</span>
+
+          <m.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto"
+          >
+            While big agencies are still billing you for 'meeting hours,' we are
+            building the future.{' '}
+            <span className="text-slate-900 dark:text-white font-bold">
+              We are Omino Tech.
+            </span>
           </m.p>
-        </m.div>
+        </div>
 
         {/* 1. THE ORIGIN STORY */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 md:mb-40">
@@ -370,7 +367,7 @@ const AboutView: React.FC = () => {
               </div>
            </div>
         </div>
-      </div>
+      </m.main>
       <Footer />
     </div>
     </LazyMotion>

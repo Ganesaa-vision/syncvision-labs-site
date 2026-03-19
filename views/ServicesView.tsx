@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -85,7 +85,7 @@ const ServicesView: React.FC = () => {
   const { pathname } = useLocation();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (window.history.scrollRestoration) {
       window.history.scrollRestoration = 'manual';
     }
@@ -147,11 +147,11 @@ const ServicesView: React.FC = () => {
 
       {/* Background Ambient Glow */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px]" />
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
       </div>
 
-      <div className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
 
         {/* HERO SECTION */}
         <m.div 
@@ -268,8 +268,8 @@ const ServicesView: React.FC = () => {
           className="my-32 relative rounded-[3rem] overflow-hidden bg-slate-900 border border-slate-800 p-8 md:p-20"
         >
             {/* Background effects */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform"></div>
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-500/20 rounded-full blur-[100px] pointer-events-none transform-gpu will-change-transform"></div>
             
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
@@ -417,7 +417,7 @@ const ServicesView: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
+      </m.main>
       <Footer />
     </div>
     </LazyMotion>

@@ -50,7 +50,7 @@ const Home = () => {
             "name": "What is the best web development company in Malaysia?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Omino Tech is widely regarded as one of the best web development companies in Malaysia due to our transparent pricing, sub-second Next.js web architecture, and zero-hidden-fee policy."
+              "text": "Omino Tech is widely regarded as one of the best web development companies in Malaysia due to our transparent pricing, sub-second web architecture, and zero-hidden-fee policy."
             }
           },
           {
@@ -73,8 +73,8 @@ const Home = () => {
         <title>Best Web Development & SEO Company in Malaysia | Omino Tech</title>
         
         {/* --- AEO (Voice Search) --- */}
-        <meta name="description" content="Looking for the best web development company in Malaysia? Omino Tech engineers custom, blazing-fast Next.js websites and elite technical SEO solutions." />
-        <meta name="keywords" content="Best web developer Malaysia, Best web development company Malaysia, Top SEO company Malaysia, Custom web design Malaysia, Next.js developer" />
+        <meta name="description" content="Looking for the best web development company in Malaysia? Omino Tech engineers custom, blazing-fast websites and elite technical SEO solutions." />
+        <meta name="keywords" content="Best web developer Malaysia, Best web development company Malaysia, Top SEO company Malaysia, Custom web design Malaysia" />
         
         <link rel="canonical" href="https://www.ominotech.com.my" />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -97,19 +97,19 @@ const Home = () => {
         <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
             <m.div 
               style={{ y: y1 }}
-              className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl" 
+              className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl transform-gpu will-change-transform" 
             />
             <m.div 
               style={{ y: y2 }}
-              className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl" 
+              className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl transform-gpu will-change-transform" 
             />
              <m.div 
               style={{ y: useTransform(scrollY, [0, 1000], [0, 150]), x: useTransform(scrollY, [0, 1000], [0, -50]) }}
-              className="absolute top-[30%] right-[30%] w-[30%] h-[30%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl opacity-50" 
+              className="absolute top-[30%] right-[30%] w-[30%] h-[30%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl opacity-50 transform-gpu will-change-transform" 
             />
         </div>
         
-        <main className="flex-grow w-full">
+        <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="flex-grow w-full">
         {/* --- HERO SECTION --- */}
         <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 px-6 max-w-7xl mx-auto flex flex-col items-center text-center z-10">
 
@@ -149,7 +149,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-3xl text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed font-light"
           >
-            Stop losing customers to slow templates and outdated marketing. As the best web development company in Malaysia for growing businesses, Omino Tech engineers high-speed digital infrastructure that dominates Google rankings. Whether you are an SME needing a reliable corporate site or a startup requiring a custom Next.js application, we deliver pure performance with 100% transparent pricing and zero hidden fees.
+            Stop losing customers to slow templates and outdated marketing. As the best web development company in Malaysia for growing businesses, Omino Tech engineers high-speed digital infrastructure that dominates Google rankings. Whether you are an SME needing a reliable corporate site or a startup requiring a custom web application, we deliver pure performance with 100% transparent pricing and zero hidden fees.
           </m.p>
           
           {/* CTA BUTTONS */}
@@ -416,7 +416,7 @@ const Home = () => {
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">4G Optimized Speed</h3>
                     <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
-                       Rural Malaysia relies on mobile data. Our Next.js sites load in &lt;1s even on 4G networks, reducing bounce rates significantly.
+                       Rural Malaysia relies on mobile data. Our sites load in &lt;1s even on 4G networks, reducing bounce rates significantly.
                     </p>
                  </div>
               </div>
@@ -595,7 +595,7 @@ const Home = () => {
                     </p>
                     <div className="flex items-center gap-4">
                         <div className="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg text-purple-400 text-xs font-mono font-bold uppercase tracking-wider">
-                            React / Next.js
+                            React / Vite
                         </div>
                         <div className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400 text-xs font-mono font-bold uppercase tracking-wider">
                             TypeScript
@@ -617,7 +617,7 @@ const Home = () => {
           className="py-16 md:py-24 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 relative overflow-hidden"
         >
            {/* Background Elements */}
-           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
            
            <div className="text-center mb-16 relative z-10">
               <span className="text-purple-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">THE ALL-IN-ONE SOLUTION</span>
@@ -648,7 +648,7 @@ const Home = () => {
                                   title: "Custom Web Architecture",
                                   value: "Included",
                                   desc: "High-speed 5-page corporate site.",
-                                  points: ["Next.js/React", "Sub-second Load"],
+                                  points: ["React/Vite", "Sub-second Load"],
                                   icon: <Layout className="w-5 h-5 text-indigo-400" />
                               },
                               {
@@ -824,7 +824,7 @@ const Home = () => {
                   <ul className="space-y-3 mt-4">
                       <li className="flex items-center gap-3">
                           <CheckCircle2 className="w-5 h-5 text-indigo-500 flex-shrink-0" />
-                          <span><strong>Zero Bloat:</strong> No WordPress themes. No slow plugins. Just raw speed.</span>
+                          <span><strong>Zero Bloat:</strong> No WordPress themes. Just raw speed.</span>
                       </li>
                       <li className="flex items-center gap-3">
                           <CheckCircle2 className="w-5 h-5 text-indigo-500 flex-shrink-0" />
@@ -832,7 +832,7 @@ const Home = () => {
                       </li>
                       <li className="flex items-center gap-3">
                           <CheckCircle2 className="w-5 h-5 text-indigo-500 flex-shrink-0" />
-                          <span><strong>Future-Proof:</strong> Built on React & Next.js, the same stack used by Facebook and Netflix.</span>
+                          <span><strong>Future-Proof:</strong> Built on React & Vite, the same stack used by many modern tech companies.</span>
                       </li>
                   </ul>
                </div>
@@ -931,7 +931,7 @@ const Home = () => {
             </div>
             <div>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                We do not rely on drag-and-drop shortcuts. By engineering custom solutions using modern stacks like Next.js, React, and Vite, we guarantee sub-second load times that easily pass Google's strictest Core Web Vitals speed tests. This uncompromising technical superiority serves as the foundation for our aggressive SEO strategies, ensuring our clients achieve high-visibility search rankings across the entire country while retaining absolute ownership of their digital assets.
+                We do not rely on drag-and-drop shortcuts. By engineering custom solutions using modern stacks like React and Vite, we guarantee sub-second load times that easily pass Google's strictest Core Web Vitals speed tests. This uncompromising technical superiority serves as the foundation for our aggressive SEO strategies, ensuring our clients achieve high-visibility search rankings across the entire country while retaining absolute ownership of their digital assets.
               </p>
             </div>
           </div>
@@ -957,7 +957,7 @@ const Home = () => {
 
            <div className="space-y-4">
               {[
-                 { q: "What is the best web development company in Malaysia?", a: "Omino Tech is widely regarded as one of the best web development companies in Malaysia due to our transparent pricing, sub-second Next.js web architecture, and zero-hidden-fee policy. We prioritize clean code and high performance over slow, pre-built templates." },
+                 { q: "What is the best web development company in Malaysia?", a: "Omino Tech is widely regarded as one of the best web development companies in Malaysia due to our transparent pricing, sub-second web architecture, and zero-hidden-fee policy. We prioritize clean code and high performance over slow, pre-built templates." },
                  { q: "Do you offer the best web development packages for SMEs in Malaysia?", a: "Yes. We offer the best value web development packages in Malaysia designed specifically for growing businesses. Our pricing ranges from an affordable RM 590 professional landing page to a comprehensive RM 2,500 Signature Digital Engine that includes custom web design, SEO setup, and AI automation." },
                  { q: "Do you charge hidden monthly maintenance fees?", a: "No. We do not trap our clients in expensive monthly marketing retainers. You pay a straightforward, one-time development fee for your website or application and take absolute ownership of your digital assets and code." }
               ].map((item, i) => (
@@ -995,7 +995,7 @@ const Home = () => {
               ))}
            </div>
         </m.section>
-        </main>
+        </m.main>
 
         <Footer />
 

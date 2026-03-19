@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
@@ -17,7 +17,7 @@ const BlogPostView: React.FC = () => {
   
   const post = BLOG_POSTS?.find(p => p.slug === slug);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
@@ -111,13 +111,13 @@ const BlogPostView: React.FC = () => {
 
             {/* Background Ambient Glow */}
             <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px]" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px]" />
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
             </div>
 
             {/* Progress Bar could go here */}
 
-            <div className="relative z-10 pt-32 pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+            <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-32 pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
                 {/* Breadcrumbs (SEO Structure) */}
                 <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-500 mb-8">
                     <Link to="/" className="hover:text-indigo-500 transition-colors">Home</Link>
@@ -319,7 +319,7 @@ const BlogPostView: React.FC = () => {
                     </div>
 
                 </m.div>
-            </div>
+            </m.main>
 
             <Footer />
 

@@ -1,16 +1,18 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const TermsView: React.FC = () => {
   const { pathname } = useLocation();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
   return (
+    <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
         <title>Terms of Service | Omino Tech</title>
@@ -23,7 +25,7 @@ const TermsView: React.FC = () => {
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
-      <div className="pt-32 pb-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-32 pb-20 px-6 max-w-4xl mx-auto flex-grow w-full">
         <h1 className="text-3xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white">Terms of Service</h1>
         <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
           <p className="font-mono text-xs uppercase tracking-widest mb-8">Last Updated: {new Date().getFullYear()}</p>
@@ -43,9 +45,10 @@ const TermsView: React.FC = () => {
           <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-8 mb-4">5. Governing Law</h3>
           <p>These terms are governed by the laws of Malaysia.</p>
         </div>
-      </div>
+      </m.main>
       <Footer />
     </div>
+    </LazyMotion>
   );
 };
 
