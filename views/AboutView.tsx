@@ -36,8 +36,8 @@ const AboutView: React.FC = () => {
 
       {/* Background Elements */}
       <div className="fixed inset-0 w-full h-full pointer-events-none overflow-hidden">
-          <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[80px] transform-gpu will-change-transform" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[80px] transform-gpu will-change-transform" />
+          <div className="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[80px]" />
+          <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[80px]" />
       </div>
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto relative z-10 flex-grow w-full">
@@ -58,10 +58,10 @@ const AboutView: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
-            className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white tracking-tighter uppercase leading-none mb-10"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1] mb-10"
           >
             We Are The <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">
               Glitch In The Matrix.
             </span>
           </m.h1>
@@ -91,7 +91,7 @@ const AboutView: React.FC = () => {
               <div className="absolute -inset-4 bg-indigo-500/10 rounded-3xl blur-xl"></div>
               <div className="relative bg-white/50 dark:bg-slate-900/50 border border-indigo-500/20 p-10 rounded-3xl backdrop-blur-sm shadow-lg dark:shadow-none">
                  <Code className="w-12 h-12 text-indigo-500 mb-6" />
-                 <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6 font-mono uppercase tracking-tight">The Rebellion Against Bloat</h2>
+                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">The Rebellion Against Bloat</h2>
                  <div className="space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                     <p>
                       <strong className="text-slate-900 dark:text-white">Omino Tech wasn't started in a boardroom.</strong> It started in a dorm room at 3 AM, fueled by coffee and code.
@@ -136,7 +136,7 @@ const AboutView: React.FC = () => {
         <div className="mb-40">
            <div className="text-center mb-20">
               <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Advantage</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">The Student Advantage</h2>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">The Student Advantage</h2>
               <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Most people think hiring a student is a risk. <br/>Here is why hiring an agency is the real risk.</p>
            </div>
 
@@ -192,7 +192,7 @@ const AboutView: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-40 items-center">
            <div>
               <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">Our Philosophy</span>
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-8 font-mono uppercase">Innovation at the <br/> Speed of Thought</h2>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">Innovation at the <br/> Speed of Thought</h2>
               <p className="text-slate-600 dark:text-slate-400 text-lg mb-8">
                 We don't believe in 6-month timelines for a website. That’s absurd. We believe in Agile Innovation.
               </p>
@@ -253,7 +253,7 @@ const AboutView: React.FC = () => {
         <div className="mb-40 relative">
            <div className="text-center mb-24 relative z-10">
               <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">System Architects</span>
-              <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
                 THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">CORE.</span>
               </h2>
               <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg font-medium">

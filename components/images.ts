@@ -5,7 +5,8 @@
 
 export const IMAGES = {
   GLOBAL: {
-    LOGO: "https://www.ominotech.com.my/logo.png",
+    LOGO: "/Images/logodark1.png",
+    LOGO_LIGHT: "/Images/logolite1.png",
     FAVICON: "https://www.ominotech.com.my/favicon.ico",
   },
   HOME: {
@@ -27,8 +28,8 @@ export const IMAGES = {
     TRADITIONAL_SEO_2: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
     AEO_1: "https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=2670&auto=format&fit=crop",
     AEO_2: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2670&auto=format&fit=crop",
-    GEO_1: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2832&auto=format&fit=crop",
-    GEO_2: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2574&auto=format&fit=crop",
+    GEO_1: "/Images/Seo_Page/chatgpt1.webp",
+    GEO_2: "/Images/Seo_Page/chatgpt1.webp",
     CASE_STUDY_BEFORE: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop",
     CASE_STUDY_AFTER: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
   },

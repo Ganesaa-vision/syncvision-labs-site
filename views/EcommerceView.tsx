@@ -43,10 +43,10 @@ const EcommerceView: React.FC = () => {
         {/* HERO */}
         <div className="mb-24 text-center md:text-left">
           <span className="font-mono text-yellow-600 dark:text-yellow-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Digital Commerce</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8 leading-tight">
-            TURN YOUR WEBSITE INTO A <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">CASH REGISTER.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
+            TURN YOUR WEBSITE INTO A <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">CASH REGISTER.</span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
             We build stores that you actually own. No monthly platform fees. No hidden commissions. Just pure profit. Stop paying rent to Shopify.
           </p>
         </div>

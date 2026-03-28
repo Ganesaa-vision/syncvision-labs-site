@@ -49,25 +49,25 @@ const AutomationView: React.FC = () => {
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24">
           <span className="font-mono text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Autonomous Systems</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
             AI Chatbot Development & <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">WhatsApp Automation in Malaysia</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">WhatsApp Automation in Malaysia</span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
             Stop losing leads to slow response times. We deploy intelligent <strong>AI agent builders for local business</strong> that live inside your WhatsApp and Website to answer inquiries, qualify leads, and schedule appointments 24/7.
           </p>
         </div>
 
         {/* === NEW: AUTOMATION IMPACT CASE STUDY === */}
         <div className="mb-32 relative">
-            <div className="absolute inset-0 bg-purple-500/5 blur-3xl rounded-full pointer-events-none transform-gpu will-change-transform"></div>
+            <div className="absolute inset-0 bg-purple-500/5 blur-3xl rounded-full pointer-events-none"></div>
             <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[3rem] p-8 md:p-16 overflow-hidden shadow-2xl">
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-100 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-black uppercase tracking-widest mb-8">
                             <Zap size={14} /> Verified Efficiency
                         </div>
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-[0.9] tracking-tighter">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
                             HUMAN ERROR: <br/>
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">ELIMINATED.</span>
                         </h2>
@@ -202,7 +202,7 @@ const AutomationView: React.FC = () => {
         {/* === NEW: WHY AUTOMATION SECTION === */}
         <div className="mb-32">
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">Why Robots Win.</h2>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">Why Robots Win.</h2>
                 <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
                     It's not about replacing humans. It's about removing the bottleneck.
                 </p>

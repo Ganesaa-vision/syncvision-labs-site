@@ -26,7 +26,7 @@ const PrivacyView: React.FC = () => {
       </Helmet>
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-32 pb-20 px-6 max-w-4xl mx-auto flex-grow w-full">
-        <h1 className="text-3xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white">Privacy Policy</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400 mb-8 leading-[1.1]">Privacy Policy</h1>
         <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
           <p className="font-mono text-xs uppercase tracking-widest mb-8">Last Updated: {new Date().getFullYear()}</p>
           

@@ -1,0 +1,23 @@
+import React from 'react';
+import { m } from 'framer-motion';
+
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  in: {
+    opacity: 1,
+    y: 0,
+  },
+  out: {
+    opacity: 0,
+    y: -20,
+  },
+};
+
+export const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <m.div initial="initial" animate="in" exit="out" variants={pageVariants} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
+    {children}
+  </m.div>
+);

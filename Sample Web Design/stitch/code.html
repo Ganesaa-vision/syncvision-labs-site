@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC | Digital Architects</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&amp;family=Manrope:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-secondary-container": "#a6b4ff",
+                "surface-container": "#161616",
+                "on-primary-fixed": "#001356",
+                "surface-variant": "#2a2a2a",
+                "on-surface": "#e5e2e1",
+                "surface-container-lowest": "#0D0D0D",
+                "error-container": "#93000a",
+                "surface-container-high": "#242424",
+                "outline": "#8e90a2",
+                "surface-tint": "#b8c3ff",
+                "on-error": "#690005",
+                "on-tertiary-fixed": "#380d00",
+                "inverse-on-surface": "#313030",
+                "on-tertiary-fixed-variant": "#812800",
+                "surface-container-highest": "#353534",
+                "primary": "#b8c3ff",
+                "primary-fixed-dim": "#b8c3ff",
+                "primary-container": "#2e5bff",
+                "primary-fixed": "#dde1ff",
+                "on-error-container": "#ffdad6",
+                "on-secondary": "#172972",
+                "secondary-fixed-dim": "#b8c3ff",
+                "secondary-fixed": "#dde1ff",
+                "surface-dim": "#0D0D0D",
+                "on-surface-variant": "#c4c5d9",
+                "error": "#ffb4ab",
+                "surface-bright": "#3a3939",
+                "on-primary-container": "#efefff",
+                "background": "#0D0D0D",
+                "tertiary-container": "#c24100",
+                "on-background": "#e5e2e1",
+                "on-tertiary": "#5b1a00",
+                "tertiary-fixed": "#ffdbcf",
+                "outline-variant": "#434656",
+                "inverse-surface": "#e5e2e1",
+                "surface": "#0D0D0D",
+                "on-secondary-fixed": "#001356",
+                "inverse-primary": "#124af0",
+                "tertiary": "#ffb59b",
+                "on-tertiary-container": "#ffece6",
+                "secondary": "#b8c3ff",
+                "on-primary": "#002388",
+                "on-primary-fixed-variant": "#0035be",
+                "tertiary-fixed-dim": "#ffb59b",
+                "surface-container-low": "#121212",
+                "secondary-container": "#33438c",
+                "on-secondary-fixed-variant": "#304189"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Manrope"],
+                "label": ["Manrope"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+        }
+        body {
+            cursor: none;
+            background-color: #0D0D0D;
+            overflow-x: hidden;
+        }
+        .custom-cursor {
+            width: 24px;
+            height: 24px;
+            border: 1px solid rgba(184, 195, 255, 0.8);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.1s ease-out, background-color 0.3s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        .custom-cursor.active {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-color: white;
+            mix-blend-mode: difference;
+        }
+        .grain-overlay {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuC3xXQJNUNVHd_8Vz8ukYh890uZQM5WzyMOo77jm-SrGPSlyhn0i4NLKjydbe8O6ko3iLgwmczu7-2i41dQ4FYup64TizHrpr1Z9Ax_fwSIvz7zQGmT-vJzufMq-ildFU_Wkrra-adruXw3raPqMwnFtK0BVj3OASp-RYu8QVi_Z8xOcUjs9T_gUUXtGGjRUp4i2ivRCBofEC7Q0lx2ztXsEjo0SkakyW4GnN4Ikgr2L6T6o1rvbPL2UCT6RWMPDHbMBOE3DHV11s_v);
+            opacity: 0.04;
+            pointer-events: none;
+            will-change: transform;
+        }
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(229, 226, 225, 0.3);
+            color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .kinetic-stretch {
+            display: inline-block;
+            transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .kinetic-stretch:hover {
+            transform: scaleX(1.15) skewX(-2deg);
+        }
+
+        .tilt-card {
+            transition: transform 0.2s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .pulse-item {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .nav-link-magnetic {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.015);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- Custom Cursor -->
+<div class="custom-cursor hidden md:block" id="cursor"></div>
+<!-- Grain Texture -->
+<div class="fixed inset-0 grain-overlay z-[60]" id="grain-layer"></div>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-950/20 backdrop-blur-md flex justify-between items-center px-12 py-8">
+<div class="text-2xl font-black tracking-widest text-neutral-100 font-headline uppercase kinetic-stretch">KINETIC</div>
+<div class="hidden md:flex items-center space-x-12 font-['Space_Grotesk'] tracking-widest uppercase text-[10px] font-bold">
+<a class="nav-link-magnetic text-neutral-100 border-b border-primary pb-1 group" href="#"><span class="group-hover:text-primary transition-colors">Work</span></a>
+<a class="nav-link-magnetic text-neutral-400 hover:text-neutral-100 transition-colors" href="#"><span>Studio</span></a>
+<a class="nav-link-magnetic text-neutral-400 hover:text-neutral-100 transition-colors" href="#"><span>Pulse</span></a>
+<a class="nav-link-magnetic text-neutral-400 hover:text-neutral-100 transition-colors" href="#"><span>Contact</span></a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-10 py-3 rounded-full font-black uppercase tracking-widest text-[11px] hover:shadow-[0_0_30px_rgba(46,91,255,0.4)] transition-all active:scale-95">
+            Inquire
+        </button>
+</nav>
+<main class="relative z-10">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center px-12 pt-32 relative overflow-hidden" id="hero">
+<div class="absolute top-48 right-12 text-[10px] font-label tracking-[0.6em] text-outline uppercase rotate-90 origin-right opacity-60 z-30">
+                VER. 2026 // 001
+            </div>
+<div class="relative z-20 max-w-7xl" id="hero-headline">
+<h1 class="font-headline font-black text-7xl md:text-[11rem] leading-[0.82] tracking-tighter uppercase cursor-default">
+<span class="kinetic-stretch">WE</span> <br/>
+<span class="text-primary kinetic-stretch">ARCHITECT</span> <br/>
+<span class="kinetic-stretch">DIGITAL</span> <br/>
+<span class="text-outline kinetic-stretch">EMOTION.</span>
+</h1>
+<div class="mt-20 flex flex-col md:flex-row items-end justify-between">
+<div class="max-w-md space-y-8">
+<p class="text-on-surface-variant text-xl leading-relaxed font-light">
+                            Synthesizing technical precision with visceral aesthetics to build high-performance digital environments.
+                        </p>
+<div class="flex items-center space-x-6">
+<button class="group relative flex items-center justify-center px-16 py-6 bg-primary-container text-on-primary-container rounded-full overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-[0_0_40px_-10px_rgba(46,91,255,0.5)]">
+<span class="relative z-10 font-black tracking-[0.2em] uppercase italic text-sm">Enter Pulse</span>
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+<div class="flex flex-col">
+<span class="text-[9px] font-label tracking-[0.4em] uppercase opacity-40">EST. // 2024</span>
+<span class="text-[9px] font-label tracking-[0.4em] uppercase opacity-40">LOC. // CLOUD</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Glow -->
+<div class="absolute -bottom-40 -right-40 w-[800px] h-[800px] bg-primary-container/5 rounded-full blur-[150px] pointer-events-none"></div>
+</section>
+<!-- Pulse Gallery Section -->
+<section class="py-40 bg-surface-container-lowest" id="pulse-section">
+<div class="px-12 mb-20 flex items-baseline justify-between">
+<div>
+<span class="text-[10px] font-bold tracking-[0.5em] text-primary uppercase block mb-4">Selected Works</span>
+<h2 class="font-headline text-6xl font-bold tracking-tight uppercase">The Pulse</h2>
+</div>
+<div class="h-px bg-outline-variant/20 flex-grow mx-16 hidden md:block"></div>
+<span class="font-label text-xs uppercase tracking-[0.3em] text-primary/60">Scroll Horizontal</span>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar space-x-12 px-12 pb-24 snap-x snap-mandatory" id="horizontal-scroll">
+<!-- Project 01 -->
+<div class="min-w-[450px] md:min-w-[800px] group cursor-none snap-center pulse-item">
+<div class="aspect-[16/9] overflow-hidden bg-surface-container-low rounded-xl transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<img alt="Onyx Ledger Project" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGQli_OPWqYkvMgfqbBSul9aBPoX_dfBSQankvBBLCeddlk5ZtSfDE0L7aG3JvDWrj4rHLfL-G0eJDzox8PNB65jlaMUdgQD5VJAauYzrfMJfEEtTVinpEjsMTpTK8UltEYUdP8EPhzUA0yDV2C3-y2qBOFmvHqShPNSRFl9MsxeSOR5fQVfPkgI7vu96xs5DQZOf5Guf8SNs1aE6bGkSXSAdPCpEof68QkZlcAEvQaTN2wjLjwtcouAo60sBInCB77bkrmmTnZvjv"/>
+</div>
+<div class="mt-10 flex justify-between items-start">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-3 block">01 / Fintech</span>
+<h3 class="font-headline text-4xl font-medium tracking-tight group-hover:text-primary transition-colors">Onyx Ledger</h3>
+</div>
+<div class="p-4 border border-outline-variant/30 rounded-full group-hover:bg-primary group-hover:text-black transition-all">
+<span class="material-symbols-outlined text-3xl font-light">north_east</span>
+</div>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="min-w-[450px] md:min-w-[800px] group cursor-none snap-center pulse-item">
+<div class="aspect-[16/9] overflow-hidden bg-surface-container-low rounded-xl transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<img alt="Vortex Audio Project" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGQli_OPWqYkvMgfqbBSul9aBPoX_dfBSQankvBBLCeddlk5ZtSfDE0L7aG3JvDWrj4rHLfL-G0eJDzox8PNB65jlaMUdgQD5VJAauYzrfMJfEEtTVinpEjsMTpTK8UltEYUdP8EPhzUA0yDV2C3-y2qBOFmvHqShPNSRFl9MsxeSOR5fQVfPkgI7vu96xs5DQZOf5Guf8SNs1aE6bGkSXSAdPCpEof68QkZlcAEvQaTN2wjLjwtcouAo60sBInCB77bkrmmTnZvjv"/>
+</div>
+<div class="mt-10 flex justify-between items-start">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-3 block">02 / E-Comm</span>
+<h3 class="font-headline text-4xl font-medium tracking-tight group-hover:text-primary transition-colors">Vortex Audio</h3>
+</div>
+<div class="p-4 border border-outline-variant/30 rounded-full group-hover:bg-primary group-hover:text-black transition-all">
+<span class="material-symbols-outlined text-3xl font-light">north_east</span>
+</div>
+</div>
+</div>
+<!-- Project 03 -->
+<div class="min-w-[450px] md:min-w-[800px] group cursor-none snap-center pulse-item">
+<div class="aspect-[16/9] overflow-hidden bg-surface-container-low rounded-xl transition-all duration-700 group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+<img alt="Monolith AI Project" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGQli_OPWqYkvMgfqbBSul9aBPoX_dfBSQankvBBLCeddlk5ZtSfDE0L7aG3JvDWrj4rHLfL-G0eJDzox8PNB65jlaMUdgQD5VJAauYzrfMJfEEtTVinpEjsMTpTK8UltEYUdP8EPhzUA0yDV2C3-y2qBOFmvHqShPNSRFl9MsxeSOR5fQVfPkgI7vu96xs5DQZOf5Guf8SNs1aE6bGkSXSAdPCpEof68QkZlcAEvQaTN2wjLjwtcouAo60sBInCB77bkrmmTnZvjv"/>
+</div>
+<div class="mt-10 flex justify-between items-start">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary mb-3 block">03 / Lifestyle</span>
+<h3 class="font-headline text-4xl font-medium tracking-tight group-hover:text-primary transition-colors">Monolith AI</h3>
+</div>
+<div class="p-4 border border-outline-variant/30 rounded-full group-hover:bg-primary group-hover:text-black transition-all">
+<span class="material-symbols-outlined text-3xl font-light">north_east</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-48 px-12 relative" id="services">
+<div class="max-w-4xl mb-32">
+<span class="text-[11px] font-bold tracking-[0.5em] text-primary uppercase block mb-6">Expertise</span>
+<h2 class="font-headline text-6xl md:text-8xl font-bold leading-[0.9] uppercase">We don't build sites.<br/> We architect <span class="text-primary">experiences.</span></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-stretch">
+<!-- Card 1 -->
+<div class="md:col-span-5 tilt-card glass p-14 rounded-2xl group flex flex-col justify-between" data-tilt="">
+<div>
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-10 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-black">deployed_code</span>
+</div>
+<h4 class="font-headline text-3xl font-bold uppercase tracking-tight mb-6">Semantic Engineering</h4>
+<p class="text-on-surface-variant text-lg leading-relaxed font-light">Pure code architecture optimized for sub-second latency and search engine dominance. No bloat, just performance.</p>
+</div>
+<div class="mt-12 h-[1px] bg-white/10 w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="md:col-span-6 md:col-start-7 tilt-card glass p-14 rounded-2xl group mt-12 md:mt-24" data-tilt="">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-10 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-black">auto_awesome</span>
+</div>
+<h4 class="font-headline text-3xl font-bold uppercase tracking-tight mb-6">Visceral Interaction</h4>
+<p class="text-on-surface-variant text-lg leading-relaxed font-light">Micro-interactions that respond to human intuition. We focus on the neurological impact of every pixel transition.</p>
+<div class="mt-12 h-[1px] bg-white/10 w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="md:col-span-4 md:col-start-2 tilt-card glass p-14 rounded-2xl group mt-12 md:-mt-20" data-tilt="">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-10 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl group-hover:text-black">insights</span>
+</div>
+<h4 class="font-headline text-3xl font-bold uppercase tracking-tight mb-6">Metric Dominance</h4>
+<p class="text-on-surface-variant text-lg leading-relaxed font-light">Data-driven design that converts curiosity into revenue. Every aesthetic choice is backed by psychology.</p>
+<div class="mt-12 h-[1px] bg-white/10 w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-72 text-center px-12 overflow-hidden relative">
+<div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+<span class="font-headline text-[35vw] font-black tracking-tighter uppercase whitespace-nowrap" id="bg-marquee">KINETIC KINETIC</span>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline text-6xl md:text-[10rem] font-black uppercase tracking-tighter mb-16 leading-none">Ready to <br/>evolve?</h2>
+<a class="inline-block font-headline text-2xl md:text-5xl font-light uppercase tracking-[0.2em] border-b-2 border-primary/30 pb-6 hover:text-primary hover:border-primary transition-all duration-500 group" href="#">
+<span class="inline-block group-hover:-translate-y-2 transition-transform">Start the Inquiry</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-black w-full py-24 px-12 relative z-20">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end w-full space-y-16 md:space-y-0">
+<div class="w-full md:w-1/3 space-y-10">
+<div class="text-3xl font-black text-neutral-100 font-headline uppercase tracking-widest kinetic-stretch">Kinetic Noir</div>
+<p class="font-['Manrope'] text-sm tracking-widest text-neutral-500 max-w-xs leading-relaxed uppercase">
+                    Designing digital foundations for the architects of tomorrow.
+                </p>
+<div class="flex space-x-6 text-primary">
+<span class="text-[10px] font-bold tracking-widest">AWARDS 2026</span>
+<span class="text-[10px] font-bold tracking-widest">SITE OF THE YEAR nominee</span>
+</div>
+</div>
+<div class="w-full md:w-2/3 flex flex-wrap justify-end gap-12 md:gap-24">
+<div class="flex flex-col space-y-5">
+<span class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-2 opacity-50">Navigation</span>
+<a class="nav-link-magnetic text-neutral-400 hover:text-white transition-all font-['Manrope'] text-xs tracking-widest uppercase" href="#">Work</a>
+<a class="nav-link-magnetic text-neutral-400 hover:text-white transition-all font-['Manrope'] text-xs tracking-widest uppercase" href="#">Studio</a>
+<a class="nav-link-magnetic text-neutral-400 hover:text-white transition-all font-['Manrope'] text-xs tracking-widest uppercase" href="#">Pulse</a>
+</div>
+<div class="flex flex-col space-y-5">
+<span class="text-[10px] uppercase tracking-[0.4em] text-primary font-bold mb-2 opacity-50">Connect</span>
+<a class="nav-link-magnetic text-neutral-400 hover:text-white transition-all font-['Manrope'] text-xs tracking-widest uppercase" href="#">Twitter</a>
+<a class="nav-link-magnetic text-neutral-400 hover:text-white transition-all font-['Manrope'] text-xs tracking-widest uppercase" href="#">LinkedIn</a>
+<a class="nav-link-magnetic text-neutral-400 hover:text-white transition-all font-['Manrope'] text-xs tracking-widest uppercase" href="#">Instagram</a>
+</div>
+</div>
+</div>
+<div class="w-full border-t border-white/5 mt-24 pt-12 flex flex-col md:flex-row justify-between items-center opacity-40">
+<div class="font-['Manrope'] text-[9px] tracking-[0.4em] text-neutral-500 uppercase">© 2026 Kinetic Noir. Built for the Digital Architect.</div>
+<div class="mt-4 md:mt-0 font-['Manrope'] text-[9px] tracking-[0.4em] text-neutral-500 uppercase">Designed in Obsidian // Engineered in Cobalt</div>
+</div>
+</footer>
+<script>
+        // 1. & 2. Custom Cursor and Multi-layered Parallax
+        const cursor = document.getElementById('cursor');
+        const grain = document.getElementById('grain-layer');
+        const heroHeadline = document.getElementById('hero-headline');
+        
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Grain Parallax (0.2x speed)
+            const grainX = (e.clientX - window.innerWidth / 2) * 0.02;
+            const grainY = (e.clientY - window.innerHeight / 2) * 0.02;
+            grain.style.transform = `translate(${grainX}px, ${grainY}px) scale(1.1)`;
+
+            // Headline Parallax (Slight movement for depth)
+            const headX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const headY = (e.clientY - window.innerHeight / 2) * 0.01;
+            if(heroHeadline) heroHeadline.style.transform = `translate(${headX}px, ${headY}px)`;
+        });
+
+        // Smooth cursor follow
+        function animateCursor() {
+            let dx = mouseX - cursorX;
+            let dy = mouseY - cursorY;
+            cursorX += dx * 0.15;
+            cursorY += dy * 0.15;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor Invert/Expand
+        const interactive = document.querySelectorAll('a, button, .group, .tilt-card');
+        interactive.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+        });
+
+        // 3. Magnetic Navigation
+        const magneticLinks = document.querySelectorAll('.nav-link-magnetic');
+        magneticLinks.forEach(link => {
+            link.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                this.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+            });
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = `translate(0px, 0px)`;
+            });
+        });
+
+        // 5. 3D Tilt Service Cards
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
+        });
+
+        // 6. Pulse Gallery Scaling
+        const scrollContainer = document.getElementById('horizontal-scroll');
+        const pulseItems = document.querySelectorAll('.pulse-item');
+        
+        scrollContainer.addEventListener('scroll', () => {
+            const centerX = window.innerWidth / 2;
+            pulseItems.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                const itemCenter = rect.left + rect.width / 2;
+                const distanceFromCenter = Math.abs(centerX - itemCenter);
+                const scale = Math.max(1, 1.05 - (distanceFromCenter / 1500));
+                item.style.transform = `scale(${scale})`;
+            });
+        });
+
+        // Initial trigger for Pulse scale
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body></html>

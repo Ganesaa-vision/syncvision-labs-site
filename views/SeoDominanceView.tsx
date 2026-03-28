@@ -49,10 +49,10 @@ const SeoDominanceView: React.FC = () => {
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="text-center mb-20">
           <span className="font-mono text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-white mb-6 leading-tight">
-            Expert SEO Services & <br/><span className="text-emerald-500">Digital Visibility in Malaysia</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white mb-6 leading-[1.1]">
+            Expert SEO Services & <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">Digital Visibility in Malaysia</span>
           </h1>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We don't just target keywords; we target <strong>Intent</strong>. As the <strong>best SEO agency Malaysia</strong> has produced and a recognized <strong>SEO expert Kuala Lumpur</strong> trusts, we optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
           </p>
         </div>

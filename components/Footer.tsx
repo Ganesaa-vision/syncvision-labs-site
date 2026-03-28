@@ -7,11 +7,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8 transition-colors duration-300 relative z-10">
+    <footer className="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-12 md:pt-16 pb-8 transition-colors duration-300 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="mb-6 block">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+            <Link to="/" className="mb-4 md:mb-6 block">
               <img 
                 src={IMAGES.GLOBAL.LOGO_LIGHT} 
                 alt="Omino Tech" 
@@ -23,7 +23,7 @@ const Footer = () => {
                 className="h-14 w-auto hidden dark:block" 
               />
             </Link>
-            <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
+            <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
               Strategic Digital Foundry. We engineer high-performance digital assets for Malaysian businesses.
             </p>
             <div className="flex gap-4">
@@ -35,8 +35,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Menu</h4>
-            <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+            <h4 className="font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Menu</h4>
+            <ul className="space-y-3 md:space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <li><Link to="/" className="hover:text-indigo-500 transition-colors">Home</Link></li>
               <li><Link to="/services" className="hover:text-indigo-500 transition-colors">Services</Link></li>
               <li><Link to="/work" className="hover:text-indigo-500 transition-colors">Work</Link></li>
@@ -47,8 +47,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Contact</h4>
-            <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+            <h4 className="font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Contact</h4>
+            <ul className="space-y-3 md:space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="mt-1 text-indigo-500" />
                 <span>Jalan KPB 12, Balakong<br />43300 Seri Kembangan, Selangor</span>

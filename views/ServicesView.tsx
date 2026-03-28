@@ -147,8 +147,8 @@ const ServicesView: React.FC = () => {
 
       {/* Background Ambient Glow */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px]" />
       </div>
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
@@ -165,13 +165,13 @@ const ServicesView: React.FC = () => {
             <span className="text-indigo-600 dark:text-indigo-300 text-xs font-bold tracking-wider uppercase">Engineered in Malaysia</span>
           </div>
           
-          <h1 className="text-4xl md:text-7xl font-black font-mono tracking-tighter mb-6 text-slate-900 dark:text-white leading-none">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 text-slate-900 dark:text-white leading-[1.1]">
             Complete Digital Solutions <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">
               for Malaysian Businesses
             </span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             From custom websites to mobile apps. We provide the exact technical solutions your business needs to grow.
           </p>
         </m.div>
@@ -268,13 +268,13 @@ const ServicesView: React.FC = () => {
           className="my-32 relative rounded-[3rem] overflow-hidden bg-slate-900 border border-slate-800 p-8 md:p-20"
         >
             {/* Background effects */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform"></div>
-            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-500/20 rounded-full blur-[100px] pointer-events-none transform-gpu will-change-transform"></div>
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-500/20 rounded-full blur-[100px] pointer-events-none"></div>
             
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <span className="text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-6 block">Custom Solutions</span>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white mb-8 leading-[1.1]">
                         Don't Settle for <br/>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Templates.</span>
                     </h2>

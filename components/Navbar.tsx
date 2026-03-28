@@ -5,28 +5,12 @@ import { m, AnimatePresence, LazyMotion, domAnimation, useScroll, useSpring } fr
 import { WhatsAppButton } from './WhatsAppButton';
 import { IMAGES } from '../images';
 
-export const Navbar = () => {
+export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   
-  // Default to dark mode
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      return localStorage.getItem('theme') || 'dark';
-    }
-    return 'dark';
-  });
-
-  // Theme toggle logic
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
-    root.classList.add(theme);
-    localStorage.setItem('theme', theme);
-    root.classList.add('transition-colors', 'duration-500');
-  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,10 +29,6 @@ export const Navbar = () => {
     damping: 30,
     restDelta: 0.001
   });
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  };
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -85,10 +65,10 @@ export const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group relative z-50">
-            <img 
-              src={theme === 'dark' ? IMAGES.GLOBAL.LOGO : IMAGES.GLOBAL.LOGO_LIGHT} 
-              alt="Omino Tech" 
-              className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            <img
+              src={theme === 'dark' ? IMAGES.GLOBAL.LOGO : IMAGES.GLOBAL.LOGO_LIGHT}
+              alt="Omino Tech"
+              className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 

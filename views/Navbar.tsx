@@ -3,28 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, Sun, Moon } from 'lucide-react';
 import { m, AnimatePresence, LazyMotion, domAnimation, useScroll, useSpring } from 'framer-motion';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { IMAGES } from '../images';
 
-export const Navbar = () => {
+export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   
-  // Default to dark mode
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      return localStorage.getItem('theme') || 'dark';
-    }
-    return 'dark';
-  });
-
-  // Theme toggle logic
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove('light', 'dark');
-    root.classList.add(theme);
-    localStorage.setItem('theme', theme);
-    root.classList.add('transition-colors', 'duration-500');
-  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,10 +29,6 @@ export const Navbar = () => {
     restDelta: 0.001
   });
 
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  };
-
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
@@ -60,24 +41,26 @@ export const Navbar = () => {
     <>
       <LazyMotion features={domAnimation}>
       <m.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 dark:from-blue-500 dark:via-cyan-400 dark:to-teal-300 origin-left z-[100]"
         style={{ scaleX }}
       />
       <nav 
         className={`fixed top-0 left-0 right-0 z-[9999] transition-colors duration-300 py-4 ${
-          isScrolled 
-            ? 'bg-white shadow-sm dark:bg-zinc-900 border-b border-slate-200 dark:border-zinc-800' 
-            : 'bg-transparent dark:bg-zinc-900'
+          isScrolled
+            ? 'bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-lg border-b border-slate-200/80 dark:border-white/5'
+            : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group relative z-50">
-            <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold font-mono text-xl shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
-              S
-            </div>
+            <img 
+              src={theme === 'dark' ? IMAGES.GLOBAL.LOGO : IMAGES.GLOBAL.LOGO_LIGHT} 
+              alt="Omino Tech" 
+              className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            />
             <span className={`font-bold text-xl tracking-tight transition-colors ${
-               isScrolled || isMobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-slate-900 dark:text-white'
+               isScrolled || isMobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'
             }`}>
               Omino Tech
             </span>
@@ -91,7 +74,7 @@ export const Navbar = () => {
                     key={link.path} 
                     to={link.path}
                     className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    location.pathname === link.path 
+                    location.pathname === link.path
                         ? 'bg-white dark:bg-zinc-800 text-indigo-600 dark:text-white shadow-sm' 
                         : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
                     }`}
@@ -130,7 +113,7 @@ export const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-4 md:hidden relative z-50">
              <button 
-                onClick={toggleTheme}
+                onClick={toggleTheme} 
                 className="p-2 rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-200"
             >
                 <m.div
@@ -143,7 +126,9 @@ export const Navbar = () => {
                 </m.div>
             </button>
             <button 
-                className="p-2 text-slate-900 dark:text-white"
+                className={`p-2 transition-colors ${
+                  isScrolled || isMobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'
+                }`}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
             >
@@ -161,26 +146,26 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 pt-32 px-6 md:hidden flex flex-col"
+            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl pt-24 pb-8 px-6 md:hidden flex flex-col overflow-y-auto h-[100dvh]"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-0">
               {navLinks.map((link, i) => (
                 <m.div
                     key={link.path}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
+                    transition={{ delay: i * 0.05 }}
                 >
                     <Link 
                     to={link.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-4xl font-black tracking-tighter flex items-center justify-between py-6 border-b border-slate-100 dark:border-white/5 group ${
-                        location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-500 dark:text-slate-200'
+                    className={`text-2xl sm:text-3xl font-black tracking-tight flex items-center justify-between py-4 border-b border-slate-100 dark:border-white/5 group ${
+                        location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-600 dark:text-slate-300'
                     }`}
                     >
                     {link.name}
-                    <ChevronRight className={`w-6 h-6 transition-transform group-hover:translate-x-2 ${
-                        location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-500 dark:text-slate-200'
+                    <ChevronRight className={`w-5 h-5 transition-transform group-hover:translate-x-2 ${
+                        location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-400 dark:text-slate-500'
                     }`} />
                     </Link>
                 </m.div>
@@ -190,14 +175,14 @@ export const Navbar = () => {
             <m.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="mt-auto mb-12"
+                transition={{ delay: 0.2 }}
+                className="mt-auto pt-8"
             >
                 <WhatsAppButton 
                     serviceName="General Inquiry"
                     buttonText="Start Project"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-full py-6 bg-indigo-600 text-white text-center font-bold text-xl rounded-2xl block shadow-xl shadow-indigo-500/20 active:scale-95 transition-transform"
+                    className="w-full py-4 bg-indigo-600 text-white text-center font-bold text-lg rounded-xl block shadow-xl shadow-indigo-500/20 active:scale-95 transition-transform"
                     showIcon={false}
                 />
             </m.div>

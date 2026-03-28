@@ -264,10 +264,10 @@ const SeoServiceView: React.FC = () => {
         >
 
           <span className="font-mono text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-6 leading-tight">
-            The Best SEO Service in Malaysia: <br/> <span className="text-emerald-500">Total Search Dominance</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
+            The Best SEO Service in Malaysia: <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">Total Search Dominance</span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             We don't just target keywords; we target <strong>Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
           </p>
         </m.div>
@@ -289,7 +289,7 @@ const SeoServiceView: React.FC = () => {
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-black uppercase tracking-widest mb-8">
                             <Trophy size={14} /> Verified Case Study
                         </div>
-                        <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-[0.9] tracking-tighter">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
                             DOMINANCE <br/>
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">PROTOCOL.</span>
                         </h2>
@@ -339,7 +339,7 @@ const SeoServiceView: React.FC = () => {
             {/* Header */}
             <div className="text-center mb-20">
                 <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">The Strategy</span>
-                <h2 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
                     TRI-ENGINE <span className="text-slate-400 dark:text-slate-600">OPTIMIZATION.</span>
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">

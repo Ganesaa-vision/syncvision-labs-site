@@ -32,17 +32,17 @@ const ServerSetupView: React.FC = () => {
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="text-center mb-24">
           <span className="font-mono text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">IT Infrastructure</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
-            FOUNDATION <span className="text-slate-500">SETUP.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
+            FOUNDATION <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">SETUP.</span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Stop struggling with DNS records and CPanel. We handle the boring but critical "plumbing" of your digital business. Professional, secure, and done right the first time.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-32">
             {/* Domain */}
-            <div className="p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
+            <div className="p-6 md:p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-[2rem] hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
                 <Globe className="w-12 h-12 text-blue-400 mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Domain Registration</h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
@@ -51,7 +51,7 @@ const ServerSetupView: React.FC = () => {
             </div>
 
             {/* Hosting */}
-            <div className="p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
+            <div className="p-6 md:p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-[2rem] hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
                 <Cloud className="w-12 h-12 text-indigo-400 mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Cloud Hosting</h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">
@@ -60,7 +60,7 @@ const ServerSetupView: React.FC = () => {
             </div>
 
             {/* Email */}
-            <div className="p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
+            <div className="p-6 md:p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-[2rem] hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
                 <Mail className="w-12 h-12 text-yellow-400 mb-6" />
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Corporate Email</h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">

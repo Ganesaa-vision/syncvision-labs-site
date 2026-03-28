@@ -179,16 +179,16 @@ const AppEngineeringView: React.FC = () => {
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         {/* === HERO SECTION === */}
         <div className="mb-24 relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none transform-gpu will-change-transform"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <span className="font-mono text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-[0.4em] mb-6 block">STARTUP & SME APP ENGINEERING</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
             Rapid Mobile App Development. <br /> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">Built for Startups in Malaysia.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">Built for Startups in Malaysia.</span>
           </h1>
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-7">
-                <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
                     Why pay bloated agency fees to validate your business idea? We engineer lightning-fast, cross-platform mobile applications, AI utilities, and custom MVPs. Get native performance for iOS and Android from a single codebase—starting at just RM 500.
                 </p>
                 <div className="flex flex-wrap gap-4">
@@ -228,7 +228,7 @@ const AppEngineeringView: React.FC = () => {
                 <div className="relative z-10">
                     <span className="text-cyan-500 font-mono text-xs font-black uppercase tracking-[0.3em] mb-6 block">STARTUP ACCELERATION</span>
                     
-                    <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tighter mb-10 uppercase leading-none">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-10 leading-[1.1]">
                         HIGH-PERFORMANCE ENGINEERING, <br/>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">WITHOUT THE ENTERPRISE PRICE TAG.</span>
                     </h2>
@@ -316,7 +316,7 @@ const AppEngineeringView: React.FC = () => {
         {/* === INTERACTIVE TIER SELECTOR === */}
         <div className="mb-32" id="pricing">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
                     Transparent App <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Pricing.</span>
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">

@@ -1,44 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
+import { m, AnimatePresence, useScroll } from 'framer-motion';
 
 const ScrollToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { scrollY } = useScroll();
 
-  // Show button when page is scrolled down
-  const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
-
-  // Set up event listener with passive option for performance
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, []);
+    // Efficiently track scroll position off the main thread
+    return scrollY.on("change", (latest) => {
+      setIsVisible(latest > 300);
+    });
+  }, [scrollY]);
 
   // Scroll to top on click
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'auto' // Ensures instant scroll, no lag
+      behavior: 'smooth' // Smooth scroll for a premium feel
     });
   };
 
   return (
-    <button
-      onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 z-[101] p-3 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-300 transform ${
-        isVisible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-10 pointer-events-none'
-      }`}
-      aria-label="Go to top"
-    >
-      <ArrowUp className="h-6 w-6" />
-    </button>
+    <AnimatePresence>
+      {isVisible && (
+        <m.button
+          initial={{ opacity: 0, scale: 0.5, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.5, y: 20 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-[101] flex items-center justify-center group focus:outline-none"
+          aria-label="Scroll to top"
+        >
+          {/* Outer Glow on Hover */}
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 via-cyan-500 to-teal-400 blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+
+          {/* Inner Interactive Button */}
+          <div className="w-[44px] h-[44px] bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-white/10 rounded-full flex items-center justify-center shadow-2xl z-10 text-slate-600 dark:text-slate-400 group-hover:text-white dark:group-hover:text-white group-hover:border-transparent group-hover:bg-gradient-to-tr group-hover:from-blue-600 group-hover:via-cyan-500 group-hover:to-teal-400 transition-all duration-500">
+            <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform duration-300" />
+          </div>
+        </m.button>
+      )}
+    </AnimatePresence>
   );
 };
 

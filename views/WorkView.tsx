@@ -36,8 +36,8 @@ const Work: React.FC = () => {
 
       {/* Background Ambient Glow */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px] transform-gpu will-change-transform" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-[120px] transform-gpu will-change-transform" />
+          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-[120px]" />
       </div>
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
@@ -53,13 +53,13 @@ const Work: React.FC = () => {
             <GitBranch className="w-3 h-3" />
             DEPLOYMENT LOG: 2024-2025
           </div>
-          <h1 className="text-4xl md:text-7xl font-black font-mono tracking-tighter text-slate-900 dark:text-white mb-6 leading-none">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
             ENGINEERED <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">
               REALITY.
             </span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             We don't just design websites; we architect digital ecosystems. 
             From <span className="text-slate-900 dark:text-white">Industrial Manufacturing</span> to <span className="text-slate-900 dark:text-white">Healthcare Operations</span>.
           </p>
@@ -78,7 +78,7 @@ const Work: React.FC = () => {
             <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
           </div>
 
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mb-16 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mb-16 leading-relaxed">
             We engineer high-performance websites for Malaysian SMEs and Startups. Whether you need a proprietary Next.js Web App or an easy-to-edit WordPress (Elementor) site, we guarantee &lt;2s load times.
           </p>
 
@@ -89,7 +89,7 @@ const Work: React.FC = () => {
               {/* LEFT SIDE: VISUAL & BADGES */}
               <div className="min-h-[400px] bg-slate-200 dark:bg-slate-800 relative overflow-hidden flex flex-col justify-end">
                 {/* Background Gradient (Replace with actual screenshot later) */}
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-200 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900/40 group-hover:scale-105 transition-transform duration-700 will-change-transform"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-slate-200 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-indigo-900/40 group-hover:scale-105 transition-transform duration-700"></div>
                 
                 {/* Central Icon */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-8 pointer-events-none">
@@ -307,7 +307,7 @@ const Work: React.FC = () => {
             {/* Connecting Line */}
             <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 hidden md:block -z-10"></div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {[
                 { step: '01', title: 'Strategy', icon: <Terminal />, desc: 'Deep market analysis and technical roadmap planning.' },
                 { step: '02', title: 'Design', icon: <Globe />, desc: 'High-fidelity UI/UX prototyping and system architecture.' },

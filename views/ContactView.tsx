@@ -16,7 +16,7 @@ const ContactView: React.FC = () => {
   return (
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none transform-gpu will-change-transform"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
       <Helmet>
         <title>Initiate Protocol | Omino Tech</title>
         <meta name="description" content="Select your mission objective. Validated requests receive engineering protocols within 12 hours. Secure channel active." />
@@ -31,7 +31,7 @@ const ContactView: React.FC = () => {
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24">
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-sm font-black uppercase tracking-[1em] mb-8 block">Communication Protocol</span>
-          <h2 className="text-4xl md:text-7xl font-black font-mono text-slate-900 dark:text-white mb-8 tracking-tighter leading-none uppercase">LET'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 italic">BUILD.</span></h2>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">LET'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">BUILD.</span></h2>
           <p className="mt-12 text-slate-700 dark:text-slate-200 font-mono text-lg md:text-xl max-w-4xl uppercase tracking-[0.2em] font-black leading-relaxed border-l-4 border-indigo-500 pl-8">
             Select your mission objective. Validated requests receive engineering protocols within 12 hours.
           </p>
@@ -58,7 +58,7 @@ const ContactView: React.FC = () => {
                  <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mb-10 ring-4 ring-emerald-500/20">
                    <CheckCircle2 size={40} className="text-emerald-500" />
                  </div>
-                 <h3 className="text-4xl font-mono font-black text-slate-900 dark:text-slate-100 uppercase tracking-tighter mb-4 leading-none">SIGNAL RECEIVED</h3>
+                 <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-slate-100 mb-4 leading-[1.1]">SIGNAL RECEIVED</h3>
                  <p className="text-slate-600 dark:text-slate-200 text-xs uppercase tracking-widest mb-12 font-bold">Decoding objectives. Expect a protocol update shortly.</p>
                  <button onClick={() => setSent(false)} className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-widest border-b-2 border-indigo-500/20 hover:border-indigo-500 transition-all pb-1">New Transmission</button>
               </div>
@@ -67,18 +67,18 @@ const ContactView: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                    <div className="space-y-4">
                      <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Identity / Organization</label>
-                     <input required type="text" placeholder="Name or Company" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
+                     <input required type="text" placeholder="Name or Company" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
                    </div>
                    <div className="space-y-4">
                      <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Signal Channel (Email)</label>
-                     <input required type="email" placeholder="contact@ominotech.com.my" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
+                     <input required type="email" placeholder="contact@ominotech.com.my" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
                    </div>
                 </div>
                 <div className="space-y-4">
                   <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Mission Objective</label>
-                  <textarea rows={5} required placeholder="Detailed technical requirements, ROI goals, or architectural objectives..." className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all resize-none placeholder-slate-400 dark:placeholder-slate-500 shadow-inner"></textarea>
+                  <textarea rows={5} required placeholder="Detailed technical requirements, ROI goals, or architectural objectives..." className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all resize-none placeholder-slate-400 dark:placeholder-slate-500 shadow-inner"></textarea>
                 </div>
-                <button type="submit" className="w-full py-8 bg-indigo-600 text-white font-mono text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-indigo-500 transition-all flex items-center justify-center gap-6 shadow-xl shadow-indigo-500/20 active:scale-95">
+                <button type="submit" className="w-full py-6 md:py-8 bg-indigo-600 text-white font-mono text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-indigo-500 transition-all flex items-center justify-center gap-6 shadow-xl shadow-indigo-500/20 active:scale-95">
                   DEPLOY TRANSMISSION <ArrowRight size={20} />
                 </button>
               </form>

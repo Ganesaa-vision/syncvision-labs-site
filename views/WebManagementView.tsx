@@ -34,11 +34,11 @@ const WebManagementView: React.FC = () => {
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         <div className="mb-24">
           <span className="font-mono text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Proactive Management</span>
-          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-slate-900 dark:text-white mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
             YOU RUN THE BUSINESS. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">WE RUN THE TECH.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">WE RUN THE TECH.</span>
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
             Websites are like cars—they break if you don't service them. Secure your digital asset with our proactive management plans. Don't wake up to a hacked site or a 404 error.
           </p>
         </div>

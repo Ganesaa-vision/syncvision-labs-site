@@ -37,8 +37,8 @@ const BlogView: React.FC = () => {
 
         {/* Background Ambient Glow */}
         <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px] transform-gpu will-change-transform" />
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/5 dark:bg-indigo-500/5 rounded-full blur-[100px]" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-[100px]" />
         </div>
 
         <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
@@ -51,13 +51,13 @@ const BlogView: React.FC = () => {
             className="text-center mb-20"
           >
             <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Engineering Logs</span>
-            <h1 className="text-4xl md:text-7xl font-black font-mono tracking-tighter mb-6 text-slate-900 dark:text-white leading-none">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-6 text-slate-900 dark:text-white leading-[1.1]">
               INSIGHTS & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">
                 INTELLIGENCE.
               </span>
             </h1>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
               Decoding the future of the Malaysian Digital Economy. From technical deep-dives to strategic business automation.
             </p>
 
@@ -102,7 +102,7 @@ const BlogView: React.FC = () => {
                            <Calendar size={12} /> {filteredPosts[0].date}
                         </span>
                      </div>
-                     <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight group-hover:text-indigo-200 transition-colors">
+                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white mb-6 leading-[1.1] group-hover:text-indigo-200 transition-colors">
                         {filteredPosts[0].title}
                      </h2>
                      <p className="text-slate-300 text-lg line-clamp-2 md:line-clamp-3 mb-8 leading-relaxed">
