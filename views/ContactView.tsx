@@ -16,7 +16,7 @@ const ContactView: React.FC = () => {
   return (
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-3xl rounded-full pointer-events-none transform-gpu"></div>
       <Helmet>
         <title>Initiate Protocol | Omino Tech</title>
         <meta name="description" content="Select your mission objective. Validated requests receive engineering protocols within 12 hours. Secure channel active." />

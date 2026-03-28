@@ -4,7 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
 import { Navbar } from './components/Navbar'; // Keep Navbar static so it renders immediately
 import ScrollToTopButton from './views/ScrollToTopButton'; // Keep static
-import CustomCursor from './components/CustomCursor';
+// import CustomCursor from './components/CustomCursor';
 
 // Lazily load all the view components
 const Home = lazy(() => import('./views/HomeView'));
@@ -32,7 +32,6 @@ const PageLoader = () => (
         100% { transform: translateX(200%); }
       }
     `}</style>
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] h-[40vw] bg-indigo-200/50 dark:bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
     <div className="relative z-10 flex flex-col items-center gap-8">
       <div className="relative w-16 h-16 flex items-center justify-center">
         <div className="absolute inset-0 border-t-[3px] border-indigo-600/80 dark:border-indigo-500/80 rounded-full animate-spin duration-1000"></div>
@@ -84,8 +83,8 @@ export default function App() {
       <LazyMotion features={domAnimation}>
       {/* Navbar sits outside Suspense so it never disappears during navigation */}
       <Navbar theme={theme} toggleTheme={toggleTheme} /> 
-      {/* Render custom cursor only on non-touch devices */}
-      {!isTouchDevice && <CustomCursor />}
+      {/* Custom cursor disabled temporarily to prevent extreme mouse lag */}
+      {/* {!isTouchDevice && <CustomCursor />} */}
       
       {/* Main Content Wrapper with Background */}
       <div className="min-h-screen bg-slate-50 dark:bg-[#030303] transition-colors duration-300">

@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { m, useMotionValue, useSpring } from 'framer-motion';
 
 const CustomCursor: React.FC = () => {
-  const [isPointer, setIsPointer] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
+  const cursorScale = useMotionValue(1);
 
   const springConfig = { damping: 25, stiffness: 700, mass: 0.5 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
+  const cursorScaleSpring = useSpring(cursorScale, { damping: 20, stiffness: 500, mass: 0.3 });
 
   useEffect(() => {
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -32,9 +33,9 @@ const CustomCursor: React.FC = () => {
           target.closest('a') ||
           target.closest('button'))
       ) {
-        setIsPointer(true);
+        cursorScale.set(1.5);
       } else {
-        setIsPointer(false);
+        cursorScale.set(1);
       }
     };
 
@@ -45,7 +46,7 @@ const CustomCursor: React.FC = () => {
       window.removeEventListener('mousemove', moveCursor);
       document.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, cursorScale]);
 
   if (isTouchDevice) return null;
 
@@ -54,8 +55,9 @@ const CustomCursor: React.FC = () => {
       style={{
         translateX: cursorXSpring,
         translateY: cursorYSpring,
+        scale: cursorScaleSpring,
       }}
-      className={`fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-indigo-500/50 pointer-events-none z-[9999] transition-transform duration-200 ${isPointer ? 'scale-150' : 'scale-100'}`}
+      className="fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-indigo-500/50 pointer-events-none z-[9999] transform-gpu will-change-transform"
     />
   );
 };

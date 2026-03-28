@@ -17,7 +17,7 @@ const NotFoundView: React.FC = () => {
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#030303] text-slate-900 dark:text-slate-200 transition-colors duration-300">
         <main className="flex-grow flex flex-col items-center justify-center relative px-6 overflow-hidden pt-32 pb-20">
           {/* Ambient Error Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-red-500/10 dark:bg-red-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-red-500/10 dark:bg-red-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
           {/* Pure CSS Glitch Effect */}
           <style>{`

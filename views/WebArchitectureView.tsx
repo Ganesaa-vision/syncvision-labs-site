@@ -495,7 +495,7 @@ const WebArchitectureView: React.FC = () => {
                         className={`relative p-8 md:p-12 rounded-[2.5rem] border ${activeTier.borderClass} ${activeTier.panelClass} ${activeTier.shadowClass} backdrop-blur-xl shadow-2xl overflow-hidden`}
                     >
                         {/* Background Glow */}
-                        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 ${activeTier.glowColor} blur-[120px] rounded-full pointer-events-none opacity-50`} />
+                        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 ${activeTier.glowColor} blur-3xl rounded-full pointer-events-none opacity-50`} />
 
                         <div className={`flex flex-col lg:flex-row gap-12 items-center relative z-10 ${selectedTier === 'business' ? 'lg:flex-row-reverse' : ''}`}>
                         {/* TEXT CONTENT */}

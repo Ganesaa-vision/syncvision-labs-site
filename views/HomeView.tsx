@@ -310,17 +310,17 @@ const HomeView: React.FC = () => {
                             <m.div 
                                 animate={{ scale: [1, 1.2, 1], x: [0, 80, 0], y: [0, -60, 0] }}
                                 transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-indigo-200/40 dark:bg-indigo-600/30 rounded-full blur-[120px] md:blur-[150px]"
+                                className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-indigo-200/40 dark:bg-indigo-600/30 rounded-full blur-3xl transform-gpu will-change-transform"
                             />
                             <m.div 
                                 animate={{ scale: [1, 1.1, 1], x: [0, -80, 0], y: [0, 80, 0] }}
                                 transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                                className="absolute top-[10%] right-[-20%] w-[50vw] h-[50vw] bg-cyan-200/30 dark:bg-cyan-600/20 rounded-full blur-[120px] md:blur-[150px]"
+                                className="absolute top-[10%] right-[-20%] w-[50vw] h-[50vw] bg-cyan-200/30 dark:bg-cyan-600/20 rounded-full blur-3xl transform-gpu will-change-transform"
                             />
                             <m.div 
                                 animate={{ scale: [1, 1.3, 1], x: [0, 60, 0], y: [0, 100, 0] }}
                                 transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 5 }}
-                                className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] bg-fuchsia-200/30 dark:bg-fuchsia-600/20 rounded-full blur-[120px] md:blur-[150px]"
+                                className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] bg-fuchsia-200/30 dark:bg-fuchsia-600/20 rounded-full blur-3xl transform-gpu will-change-transform"
                             />
 
                             {/* Dense Global Dot Matrix Background */}
@@ -328,13 +328,13 @@ const HomeView: React.FC = () => {
 
                             {/* Interactive Spotlight Dot Matrix (Reveals colored/brighter dots) */}
                             <m.div 
-                                className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.3)_2px,transparent_2px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_2px,transparent_2px)] bg-[size:20px_20px]"
+                                className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.3)_2px,transparent_2px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_2px,transparent_2px)] bg-[size:20px_20px] transform-gpu"
                                 style={{ maskImage, WebkitMaskImage: maskImage }}
                             />
 
                             {/* Interactive Ambient Cursor Glow */}
                             <m.div 
-                                className="absolute inset-0 bg-indigo-600/10 dark:bg-indigo-400/15"
+                                className="absolute inset-0 bg-indigo-600/10 dark:bg-indigo-400/15 transform-gpu"
                                 style={{ maskImage: cursorGlowMask, WebkitMaskImage: cursorGlowMask }}
                             />
 
@@ -540,7 +540,7 @@ const HomeView: React.FC = () => {
                     {/* --- PERFORMANCE DASHBOARD (Integrated Counters & Achievements) --- */}
                     <section className="py-24 md:py-32 px-6 max-w-7xl mx-auto relative z-10">
                         <div className="p-8 md:p-16 bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 rounded-[3rem] shadow-xl dark:shadow-2xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 dark:bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+                            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-300/30 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
                             
                             <div className="text-center md:text-left mb-16 relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
                                 <div>
@@ -731,7 +731,7 @@ const HomeView: React.FC = () => {
                         >
                             <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-transparent to-purple-500/10 blur-3xl"></div>
                             <div className="relative bg-white dark:bg-[#050505] p-10 md:p-20 rounded-[3rem] overflow-hidden">
-                                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+                                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
                                 
                                 <div className="text-center mb-20 relative z-10">
                                     <div className="inline-flex items-center gap-2 mb-6">
