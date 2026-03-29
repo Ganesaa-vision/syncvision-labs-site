@@ -337,6 +337,9 @@ const WebArchitectureView: React.FC = () => {
                             src={item.image} 
                             alt={item.title}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-700 group-hover:scale-110"
+                            loading="lazy"
+                            decoding="async"
                         />
                         
                         {/* Gradient Overlay */}
@@ -400,7 +403,9 @@ const WebArchitectureView: React.FC = () => {
                         <img 
                             src={item.image} 
                             alt={item.title}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                            className="absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-1000 group-hover:scale-110"
+                            loading="lazy"
+                            decoding="async"
                         />
                         
                         {/* Gradient Overlay */}
@@ -546,7 +551,9 @@ const WebArchitectureView: React.FC = () => {
                                 <img 
                                     src={activeTier.image} 
                                     alt={activeTier.name}
-                                    className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-1000" 
+                                    className="object-cover w-full h-full transform-gpu group-hover:scale-105 transition-transform duration-1000" 
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60"></div>
                                 

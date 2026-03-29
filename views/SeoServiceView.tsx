@@ -46,42 +46,45 @@ const ImageSlider = ({ images, duration = 3000 }: { images: string[], duration?:
 };
 
 const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, afterImage: string }) => {
-  const [sliderPosition, setSliderPosition] = useState(50);
-  const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const rectRef = useRef<DOMRect | null>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
 
-  const handleStart = () => {
-    setIsDragging(true);
-    if (containerRef.current) {
-      rectRef.current = containerRef.current.getBoundingClientRect();
-    }
+  const updateSlider = (clientX: number) => {
+    if (!containerRef.current || !imageRef.current || !sliderRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    let position = ((clientX - rect.left) / rect.width) * 100;
+    position = Math.min(100, Math.max(0, position));
+
+    sliderRef.current.style.left = `${position}%`;
+    imageRef.current.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+  };
+
+  const handleStart = (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
+    isDragging.current = true;
+    const clientX = 'touches' in event ? event.touches[0].clientX : event.clientX;
+    updateSlider(clientX);
   };
 
   const handleEnd = () => {
-    setIsDragging(false);
+    isDragging.current = false;
   };
 
   const handleMove = (event: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
-    if (!isDragging && event.type !== 'click') return;
-    
-    // If it's a click (not a drag), we need to get the rect immediately
-    if (!rectRef.current && containerRef.current) {
-        rectRef.current = containerRef.current.getBoundingClientRect();
-    }
-
-    const rect = rectRef.current;
-    if (!rect) return;
-
-    let x;
-    if ('touches' in event) {
-      x = (event as React.TouchEvent<HTMLDivElement>).touches[0].clientX;
-    } else {
-      x = (event as React.MouseEvent<HTMLDivElement>).clientX;
-    }
-    const position = ((x - rect.left) / rect.width) * 100;
-    setSliderPosition(Math.min(100, Math.max(0, position)));
+    if (!isDragging.current && event.type !== 'click') return;
+    const clientX = 'touches' in event ? event.touches[0].clientX : event.clientX;
+    updateSlider(clientX);
   };
+
+  useEffect(() => {
+    window.addEventListener('mouseup', handleEnd);
+    window.addEventListener('touchend', handleEnd);
+    return () => {
+      window.removeEventListener('mouseup', handleEnd);
+      window.removeEventListener('touchend', handleEnd);
+    };
+  }, []);
 
   return (
     <div 
@@ -104,8 +107,9 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, a
       />
       
       <div 
-        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
-        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+        ref={imageRef}
+        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none will-change-transform"
+        style={{ clipPath: `inset(0 50% 0 0)` }}
       >
         <img 
           src={beforeImage} 
@@ -117,8 +121,9 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, a
       </div>
 
       <div 
-        className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
-        style={{ left: `${sliderPosition}%` }}
+        ref={sliderRef}
+        className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10 shadow-[0_0_20px_rgba(0,0,0,0.5)] will-change-transform"
+        style={{ left: `50%` }}
       >
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-slate-400 transform transition-transform group-hover:scale-110">
             <div className="flex gap-1">

@@ -144,7 +144,7 @@ const AboutView: React.FC = () => {
               <m.div 
                 whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-white/10 p-8 rounded-3xl hover:border-indigo-500/50 transition-colors duration-300 group relative overflow-hidden shadow-sm dark:shadow-none"
+                className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-white/10 p-8 rounded-3xl hover:border-indigo-500/50 transition-colors duration-300 group relative overflow-hidden shadow-sm dark:shadow-none transform-gpu will-change-transform"
               >
                  <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity"><Users size={100} /></div>
                  <div className="w-12 h-12 bg-indigo-900/20 rounded-xl flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 transition-transform">
@@ -159,7 +159,7 @@ const AboutView: React.FC = () => {
               <m.div 
                 whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-500/20 p-8 rounded-3xl transition-colors duration-300 group relative overflow-hidden"
+                className="bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-500/20 p-8 rounded-3xl hover:border-indigo-500/50 transition-colors duration-300 group relative overflow-hidden transform-gpu will-change-transform"
               >
                  <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity text-indigo-500"><BrainCircuit size={100} /></div>
                  <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 transition-transform">
@@ -174,7 +174,7 @@ const AboutView: React.FC = () => {
               <m.div 
                 whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-white/10 p-8 rounded-3xl hover:border-indigo-500/50 transition-colors duration-300 group relative overflow-hidden shadow-sm dark:shadow-none"
+                className="bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-white/10 p-8 rounded-3xl hover:border-indigo-500/50 transition-colors duration-300 group relative overflow-hidden shadow-sm dark:shadow-none transform-gpu will-change-transform"
               >
                  <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity"><Code size={100} /></div>
                  <div className="w-12 h-12 bg-indigo-900/20 rounded-xl flex items-center justify-center mb-6 text-indigo-400 group-hover:scale-110 transition-transform">
@@ -270,20 +270,21 @@ const AboutView: React.FC = () => {
                 transition={{ duration: 0.4 }}
                 className="group relative"
               >
-                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[2.5rem] opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
-                 <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center text-center overflow-hidden group-hover:border-transparent transition-colors duration-300">
+                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[3rem] opacity-0 group-hover:opacity-60 blur-2xl transition-opacity duration-500 transform-gpu will-change-transform" />
+                 <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center text-center overflow-hidden group-hover:border-indigo-500/50 transition-colors duration-500 transform-gpu">
                     
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px]" />
                     
                     <div className="relative w-40 h-40 md:w-48 md:h-48 mb-8">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
-                        <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-900 group-hover:from-indigo-500 group-hover:to-purple-500 transition-colors duration-500">
-                            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md transform-gpu will-change-transform" />
+                        <div className="relative w-full h-full rounded-full p-1 bg-slate-200 dark:bg-slate-800">
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform-gpu will-change-transform" />
+                            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10 transform-gpu">
                             <img 
                                 src={IMAGES.ABOUT.FOUNDER_GANESAA}
                                 alt="Ganesaa" 
-                                className="w-full h-full object-cover transition-all duration-500"
+                                className="w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -310,20 +311,21 @@ const AboutView: React.FC = () => {
                 transition={{ duration: 0.4, delay: 0.1 }}
                 className="group relative"
               >
-                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-[2.5rem] opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
-                 <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center text-center overflow-hidden group-hover:border-transparent transition-colors duration-300">
+                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-[3rem] opacity-0 group-hover:opacity-60 blur-2xl transition-opacity duration-500 transform-gpu will-change-transform" />
+                 <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center text-center overflow-hidden group-hover:border-blue-500/50 transition-colors duration-500 transform-gpu">
                     
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]" />
                     
                     <div className="relative w-40 h-40 md:w-48 md:h-48 mb-8">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
-                        <div className="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-900 group-hover:from-blue-500 group-hover:to-cyan-500 transition-colors duration-500">
-                            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md transform-gpu will-change-transform" />
+                        <div className="relative w-full h-full rounded-full p-1 bg-slate-200 dark:bg-slate-800">
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform-gpu will-change-transform" />
+                            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10 transform-gpu">
                             <img 
                                 src={IMAGES.ABOUT.CO_FOUNDER}
                                 alt="Co-Founder" 
-                                className="w-full h-full object-cover transition-all duration-500"
+                                className="w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
                                 loading="lazy"
                                 decoding="async"
                             />

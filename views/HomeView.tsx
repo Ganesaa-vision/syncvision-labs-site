@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
-import { m, LazyMotion, domAnimation, AnimatePresence, useMotionValue, useMotionTemplate } from 'framer-motion';
+import { m, LazyMotion, domAnimation, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { 
@@ -63,7 +63,7 @@ const PremiumServiceCard = ({ title, description, icon: Icon, features, delay = 
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.5, delay, ease: "easeOut" }}
-            className="relative p-[1px] rounded-[2.5rem] overflow-hidden group bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-transparent hover:from-indigo-500/50 hover:-translate-y-4 hover:shadow-[0_20px_40px_-15px_rgba(99,102,241,0.3)] transition-all duration-500"
+            className="relative p-[1px] rounded-[2.5rem] overflow-hidden group bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-transparent hover:from-indigo-500/50 hover:-translate-y-4 hover:shadow-[0_20px_40px_-15px_rgba(99,102,241,0.3)] transition-all duration-500 transform-gpu"
         >
             <div className="absolute inset-[1px] bg-white dark:bg-[#050505] rounded-[2.5rem] z-0 transition-colors duration-700 group-hover:bg-slate-50 dark:group-hover:bg-[#08080c]"></div>
             <div className="relative z-10 p-6 md:p-10 h-full flex flex-col">
@@ -90,7 +90,7 @@ const PremiumServiceCard = ({ title, description, icon: Icon, features, delay = 
  */
 const BentoCard = ({ className, title, description, icon: Icon, children }: { className?: string, title: string, description: string, icon: React.ElementType, children?: React.ReactNode }) => (
     <article className={`p-6 md:p-10 bg-gradient-to-br from-slate-50 to-white dark:from-white/[0.03] dark:to-transparent border border-slate-200 dark:border-white/5 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden group hover:border-indigo-500/30 hover:bg-slate-100 dark:hover:bg-white/[0.04] transition-all duration-500 shadow-sm dark:shadow-none ${className}`}>
-        <div className="absolute top-0 right-0 p-10 opacity-[0.02] group-hover:opacity-10 transition-opacity duration-700 transform group-hover:scale-110 pointer-events-none text-slate-900 dark:text-white"><Icon size={180} /></div>
+        <div className="absolute top-0 right-0 p-10 opacity-[0.02] group-hover:opacity-10 transition-all duration-700 transform-gpu group-hover:scale-110 pointer-events-none text-slate-900 dark:text-white"><Icon size={180} /></div>
         <div className="relative z-10 flex flex-col h-full">
             <div className="w-12 h-12 md:w-14 md:h-14 bg-indigo-50 dark:bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500 border border-indigo-200 dark:border-indigo-500/20"><Icon size={24} className="md:w-[26px] md:h-[26px]" /></div>
             <h3 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3 md:mb-4 tracking-tight">{title}</h3>
@@ -127,9 +127,9 @@ const BlogPreview = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {posts.map((post, i) => (
                     <m.article key={post.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                        <Link to={`/blog/${post.slug}`} className="group block h-full bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 rounded-[2rem] overflow-hidden hover:bg-slate-50 dark:hover:bg-white/[0.05] hover:border-indigo-500/30 transition-all duration-500 shadow-lg dark:shadow-xl">
+                        <Link to={`/blog/${post.slug}`} className="group block h-full bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 rounded-[2rem] overflow-hidden hover:bg-slate-50 dark:hover:bg-white/[0.05] hover:border-indigo-500/30 hover:-translate-y-2 transform-gpu transition-all duration-500 shadow-lg dark:shadow-xl">
                             <div className="aspect-[16/10] overflow-hidden relative">
-                                <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+                                <img src={post.image} alt={post.title} className="w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
                                 <div className="absolute top-4 left-4"><span className="px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider rounded-lg border border-slate-200 dark:border-white/10 text-indigo-600 dark:text-indigo-300">{post.category}</span></div>
                             </div>
                             <div className="p-8 flex flex-col justify-between">
@@ -152,27 +152,23 @@ const HomeView: React.FC = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     }, [pathname]);
 
-    // --- Interactive Spotlight Logic for Hero ---
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    const headerRectRef = React.useRef<DOMRect | null>(null);
+    // --- Interactive Mouse Spotlight ---
+    const cursorX = useMotionValue(-1000);
+    const cursorY = useMotionValue(-1000);
+    const mouseX = useSpring(cursorX, { damping: 40, stiffness: 300, mass: 0.5 });
+    const mouseY = useSpring(cursorY, { damping: 40, stiffness: 300, mass: 0.5 });
 
     useEffect(() => {
-        const updateRect = () => {
-            const header = document.getElementById('hero-header');
-            if (header) headerRectRef.current = header.getBoundingClientRect();
-        };
-        window.addEventListener('resize', updateRect);
-        return () => window.removeEventListener('resize', updateRect);
-    }, []);
+        // Create a stunning sweeping entrance effect on load
+        cursorX.set(typeof window !== 'undefined' ? window.innerWidth / 2 : 800);
+        cursorY.set(typeof window !== 'undefined' ? window.innerHeight / 3 : 400);
+    }, [cursorX, cursorY]);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-        if (!headerRectRef.current) headerRectRef.current = e.currentTarget.getBoundingClientRect();
-        mouseX.set(e.clientX - headerRectRef.current.left);
-        mouseY.set(e.clientY - headerRectRef.current.top);
+        const rect = e.currentTarget.getBoundingClientRect();
+        cursorX.set(e.clientX - rect.left);
+        cursorY.set(e.clientY - rect.top);
     };
-    const maskImage = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,1), transparent 80%)`;
-    const cursorGlowMask = useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,255,255,1), transparent 80%)`;
 
     // Advanced AEO/GEO Schema
     const localBusinessSchema = {
@@ -308,35 +304,51 @@ const HomeView: React.FC = () => {
                         <div className="absolute inset-0 z-0 pointer-events-none bg-slate-50 dark:bg-[#030303] transition-colors duration-300">
                             {/* Liquid Aurora Orbs */}
                             <m.div 
-                                animate={{ scale: [1, 1.2, 1], x: [0, 80, 0], y: [0, -60, 0] }}
+                                animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
                                 transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
                                 className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-indigo-200/40 dark:bg-indigo-600/30 rounded-full blur-3xl transform-gpu will-change-transform"
                             />
                             <m.div 
-                                animate={{ scale: [1, 1.1, 1], x: [0, -80, 0], y: [0, 80, 0] }}
+                                animate={{ scale: [1, 1.05, 1], opacity: [0.2, 0.4, 0.2] }}
                                 transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                                 className="absolute top-[10%] right-[-20%] w-[50vw] h-[50vw] bg-cyan-200/30 dark:bg-cyan-600/20 rounded-full blur-3xl transform-gpu will-change-transform"
                             />
                             <m.div 
-                                animate={{ scale: [1, 1.3, 1], x: [0, 60, 0], y: [0, 100, 0] }}
+                                animate={{ scale: [1, 1.05, 1], opacity: [0.2, 0.4, 0.2] }}
                                 transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 5 }}
                                 className="absolute bottom-[-20%] left-[20%] w-[60vw] h-[60vw] bg-fuchsia-200/30 dark:bg-fuchsia-600/20 rounded-full blur-3xl transform-gpu will-change-transform"
                             />
 
-                            {/* Dense Global Dot Matrix Background */}
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04)_2px,transparent_2px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_2px,transparent_2px)] bg-[size:20px_20px]"></div>
+                        {/* Base Dim Dots - Slightly more spread out for an elegant look */}
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.04)_1.5px,transparent_1.5px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1.5px,transparent_1.5px)] bg-[size:24px_24px]"></div>
 
-                            {/* Interactive Spotlight Dot Matrix (Reveals colored/brighter dots) */}
+                        {/* Soft Ambient Cursor Glow */}
                             <m.div 
-                                className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.3)_2px,transparent_2px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_2px,transparent_2px)] bg-[size:20px_20px] transform-gpu"
-                                style={{ maskImage, WebkitMaskImage: maskImage }}
+                            className="absolute top-0 left-0 w-[800px] h-[800px] bg-indigo-500/10 dark:bg-indigo-400/10 rounded-full blur-3xl pointer-events-none transform-gpu will-change-transform"
+                                style={{ x: mouseX, y: mouseY, translateX: '-50%', translateY: '-50%' }}
                             />
 
-                            {/* Interactive Ambient Cursor Glow */}
+                        {/* Interactive Glowing Dots - Only visible where the mouse hovers */}
+                        <div 
+                            className="absolute inset-0 z-0 pointer-events-none"
+                            style={{
+                                maskImage: 'radial-gradient(circle at center, black 1.5px, transparent 1.5px)',
+                                maskSize: '24px 24px',
+                                WebkitMaskImage: 'radial-gradient(circle at center, black 1.5px, transparent 1.5px)',
+                                WebkitMaskSize: '24px 24px',
+                            }}
+                        >
                             <m.div 
-                                className="absolute inset-0 bg-indigo-600/10 dark:bg-indigo-400/15 transform-gpu"
-                                style={{ maskImage: cursorGlowMask, WebkitMaskImage: cursorGlowMask }}
+                                className="absolute top-0 left-0 w-[1000px] h-[1000px] rounded-full transform-gpu will-change-transform opacity-70 dark:opacity-100"
+                                style={{ 
+                                    x: mouseX, 
+                                    y: mouseY, 
+                                    translateX: '-50%', 
+                                    translateY: '-50%',
+                                    background: 'radial-gradient(circle, rgba(79,70,229,1) 0%, rgba(168,85,247,0.8) 15%, rgba(6,182,212,0.5) 30%, transparent 50%)'
+                                }}
                             />
+                        </div>
 
                             {/* Abstract Architectural Rings */}
                             <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center">
@@ -473,7 +485,7 @@ const HomeView: React.FC = () => {
                     {/* --- MARQUEE / TICKER --- */}
                     <section aria-label="Performance Metrics" className="w-full border-y border-slate-200 dark:border-white/5 bg-white/80 dark:bg-[#030303]/80 backdrop-blur-md overflow-hidden py-5 md:py-6 relative z-10">
                         <m.div 
-                            className="flex gap-16 md:gap-32 whitespace-nowrap items-center"
+                            className="flex gap-16 md:gap-32 whitespace-nowrap items-center transform-gpu will-change-transform"
                             animate={{ x: ["0%", "-50%"] }}
                             transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
                         >

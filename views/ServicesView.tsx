@@ -187,33 +187,33 @@ const ServicesView: React.FC = () => {
             <m.div key={service.id} variants={itemVariants} className="h-full">
             <Link 
               to={service.link} 
-              className="group relative bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:bg-slate-900 dark:hover:bg-white hover:border-transparent hover:shadow-[0_0_50px_rgba(99,102,241,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] overflow-hidden flex flex-col h-full"
+              className="group relative bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-3xl p-6 md:p-8 hover:bg-slate-900 dark:hover:bg-white hover:border-transparent hover:shadow-[0_0_50px_rgba(99,102,241,0.25)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] transform-gpu will-change-transform overflow-hidden flex flex-col h-full"
             >
               {/* Gradient Blob */}
-              <div className="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-white/10 dark:group-hover:bg-indigo-500/10 transition-all duration-500"></div>
+              <div className="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl group-hover:bg-white/10 dark:group-hover:bg-indigo-500/10 transition-colors duration-500 transform-gpu will-change-transform"></div>
 
               {/* Icon & Arrow */}
               <div className="flex items-start justify-between mb-8 relative z-10">
-                <div className="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-white/10 group-hover:bg-white/10 group-hover:border-white/10 dark:group-hover:bg-indigo-50 dark:group-hover:border-indigo-100 transition-all duration-300">
+                <div className="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-white/10 group-hover:bg-white/10 group-hover:border-white/10 dark:group-hover:bg-indigo-50 dark:group-hover:border-indigo-100 transition-colors duration-300 transform-gpu">
                   {service.icon}
                 </div>
-                <div className="p-2 rounded-full border border-slate-200 dark:border-white/5 group-hover:bg-white/10 group-hover:border-white/10 dark:group-hover:bg-indigo-600 dark:group-hover:border-indigo-600 transition-all duration-300">
-                   <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-white dark:group-hover:text-white -rotate-45 group-hover:rotate-0 transition-all duration-300" />
+                <div className="p-2 rounded-full border border-slate-200 dark:border-white/5 group-hover:bg-white/10 group-hover:border-white/10 dark:group-hover:bg-indigo-600 dark:group-hover:border-indigo-600 transition-colors duration-300 transform-gpu">
+                   <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-white dark:group-hover:text-white -rotate-45 group-hover:rotate-0 transition-transform duration-300 transform-gpu" />
                 </div>
               </div>
 
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-white dark:group-hover:text-slate-900 transition-colors relative z-10">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-white dark:group-hover:text-slate-900 transition-colors duration-300 relative z-10">
                 {service.title}
               </h3>
 
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm mb-8 flex-grow relative z-10 font-medium group-hover:text-slate-300 dark:group-hover:text-slate-600">
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm mb-8 flex-grow relative z-10 font-medium group-hover:text-slate-300 dark:group-hover:text-slate-600 transition-colors duration-300">
                 {service.description}
               </p>
 
               {/* Tech Tags */}
               <div className="flex flex-wrap gap-2 mt-auto relative z-10">
                 {service.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-500 dark:text-slate-400 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10 dark:group-hover:bg-white dark:group-hover:text-indigo-600 dark:group-hover:border-indigo-200 dark:group-hover:shadow-sm transition-all">
+                  <span key={tag} className="px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-slate-500 dark:text-slate-400 group-hover:bg-white/10 group-hover:text-white group-hover:border-white/10 dark:group-hover:bg-white dark:group-hover:text-indigo-600 dark:group-hover:border-indigo-200 dark:group-hover:shadow-sm transition-colors duration-300">
                     {tag}
                   </span>
                 ))}
@@ -311,7 +311,7 @@ const ServicesView: React.FC = () => {
 
                 <div className="relative hidden lg:block">
                     {/* Visual representation - Abstract UI */}
-                    <div className="bg-slate-950/80 backdrop-blur-md border border-slate-800 rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                    <div className="bg-slate-950/80 backdrop-blur-md border border-slate-800 rounded-3xl p-8 shadow-2xl transform-gpu rotate-3 hover:rotate-0 transition-transform duration-500">
                         <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-4">
                             <div className="w-3 h-3 rounded-full bg-red-500"></div>
                             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
