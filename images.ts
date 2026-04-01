@@ -5,8 +5,9 @@
 
 export const IMAGES = {
   GLOBAL: {
-    LOGO: "/Images/logodark1.png",
-    LOGO_LIGHT: "/Images/logolite1.png",
+    LOGO: "/Images/web-development-company-malaysia.png",
+    LOGO_LIGHT: "/Images/omino-tech-best-seo-company-malaysia-ranking-malaysia.png",
+    OG_IMAGE: "https://www.ominotech.com.my/Images/web-development-company-malaysia.png",
     FAVICON: "https://www.ominotech.com.my/favicon.ico",
   },
   HOME: {
@@ -15,23 +16,23 @@ export const IMAGES = {
     DIGITAL_FOUNDRY: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop",
   },
   WEB_ARCHITECTURE: {
-    TIER_STARTUP: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop",
-    TIER_BUSINESS: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop",
-    TIER_INNOVATOR: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop",
-    PORTFOLIO_ECOMMERCE: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=2000&auto=format&fit=crop",
-    PORTFOLIO_HEALTHCARE: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2000&auto=format&fit=crop",
-    PHILOSOPHY_LOGIC: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2000&auto=format&fit=crop",
-    PHILOSOPHY_SPEED: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop",
+    TIER_STARTUP: "/Images/Web_development/custom-corporate-website-design-selangor.webp?q=80&w=1000&auto=format&fit=crop",
+    TIER_BUSINESS: "/Images/Web_development/best-web-development-company-malaysia.webp?q=80&w=1000&auto=format&fit=crop",
+    TIER_INNOVATOR: "/Images/Web_development/high-performance-web-developer-malaysia.webp?q=80&w=1000&auto=format&fit=crop",
+    PORTFOLIO_ECOMMERCE: "/Images/Web_development/custom-ecommerce-website-development-malaysia-portfolio.webp",
+    PORTFOLIO_HEALTHCARE: "/Images/Web_development/sme-website-packages-transparent-pricing.webp",
+    PHILOSOPHY_LOGIC: "/Images/Web_development/sub-second-nextjs-web-architecture-malaysia.webp?q=80&w=2000&auto=format&fit=crop",
+    PHILOSOPHY_SPEED: "/Images/Web_development/Core-Web-Vitals.webp",
   },
   SEO: {
-    TRADITIONAL_SEO_1: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-    TRADITIONAL_SEO_2: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-    AEO_1: "https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=2670&auto=format&fit=crop",
-    AEO_2: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2670&auto=format&fit=crop",
-    GEO_1: "/Images/Seo_Page/chatgpt1.webp",
+    TRADITIONAL_SEO_1: "/Images/Seo_Page/technical-seo-expert-malaysia.webp?q=80&w=2426&auto=format&fit=crop",
+    TRADITIONAL_SEO_2: "/Images/Seo_Page/technical-seo-agency-malaysia-ranking.webp?q=80&w=2670&auto=format&fit=crop",
+    AEO_1: "/Images/Seo_Page/Seo service.webp?q=80&w=2670&auto=format&fit=crop",
+    AEO_2: "/Images/Seo_Page/local-seo-google-business-profile-ranking.webp?q=80&w=2670&auto=format&fit=crop",
+    GEO_1: "/Images/Seo_Page/best-top-seo-chatgpt-ai.webp",
     GEO_2: "/Images/Seo_Page/chatgpt1.webp",
     CASE_STUDY_BEFORE: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop",
-    CASE_STUDY_AFTER: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop",
+    CASE_STUDY_AFTER: "/Images/Seo_Page/technical-seo-agency-malaysia-ranking.webp?q=80&w=1000&auto=format&fit=crop",
   },
   ABOUT: {
     FOUNDER_GANESAA: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",

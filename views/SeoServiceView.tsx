@@ -30,12 +30,12 @@ const ImageSlider = ({ images, duration = 3000 }: { images: string[], duration?:
         <m.img
           key={`${images[index]}-${index}`} // Unique key to force re-render animation
           src={images[index]}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full object-cover"
-          alt="Preview"
+          className="absolute inset-0 w-full h-full object-contain"
+          alt="Omino Tech SEO and Web Development Portfolio Preview"
           loading="lazy"
         />
       </AnimatePresence>
@@ -89,7 +89,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, a
   return (
     <div 
       ref={containerRef}
-      className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden cursor-ew-resize select-none shadow-2xl border border-slate-200 dark:border-slate-800 group"
+      className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden cursor-ew-resize select-none shadow-2xl border border-slate-200 dark:border-slate-800 group bg-slate-100 dark:bg-slate-900"
       onMouseMove={handleMove}
       onTouchMove={handleMove}
       onMouseDown={handleStart}
@@ -101,8 +101,9 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, a
     >
       <img 
         src={afterImage} 
-        alt="After SEO" 
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none" 
+        alt="After SEO - Rank #1 on Google Malaysia" 
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
         draggable={false}
       />
       
@@ -113,8 +114,9 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, a
       >
         <img 
           src={beforeImage} 
-          alt="Before SEO" 
-          className="absolute inset-0 w-full h-full object-cover" 
+          alt="Before SEO - Poor Google Ranking" 
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-contain" 
           draggable={false}
         />
         <div className="absolute inset-0 bg-slate-900/50 mix-blend-multiply pointer-events-none" />
@@ -249,11 +251,23 @@ const SeoServiceView: React.FC = () => {
         <title>Best SEO Service in Malaysia | #1 Google Ranking & AEO Expert</title>
         <meta name="description" content="Partner with the top SEO company in Malaysia. We combine technical Next.js web development with aggressive SEO and AEO strategies to guarantee top rankings in Selangor and KL." />
         <meta name="keywords" content="SEO Malaysia, SEO Service Selangor, SEO KL, Google Maps Ranking Malaysia, AEO Optimization, Local SEO Expert" />
+        <link rel="canonical" href="https://www.ominotech.com.my/services/seo-service" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ominotech.com.my/services/seo-service" />
+        <meta property="og:title" content="Best SEO Service in Malaysia | #1 Google Ranking & AEO Expert" />
+        <meta property="og:description" content="Partner with the top SEO company in Malaysia. We combine technical Next.js web development with aggressive SEO and AEO strategies to guarantee top rankings in Selangor and KL." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.ominotech.com.my/services/seo-service" />
+        <meta name="twitter:title" content="Best SEO Service in Malaysia | #1 Google Ranking & AEO Expert" />
+        <meta name="twitter:description" content="Partner with the top SEO company in Malaysia. We combine technical Next.js web development with aggressive SEO and AEO strategies to guarantee top rankings in Selangor and KL." />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
         <link rel="manifest" href="/site.webmanifest" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Helmet>
@@ -468,12 +482,12 @@ const SeoServiceView: React.FC = () => {
               period: "/mo",
               description: "\"Get Found by Neighbors.\" Stop losing customers to the shop next door.",
               features: ["Google Maps Optimization", "5 Local Keywords Tracked", "Review Management Advice", "Min Contract: 3 Months"],
-              buttonText: "Rank Local",
+              buttonText: "Start Local SEO Optimization",
               customButton: (
                 <WhatsAppButton 
                   serviceName="SEO"
                   packageLabel="Local Hero"
-                  buttonText="Rank Local"
+                  buttonText="Start Local SEO Optimization"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
                 />
               )
@@ -485,12 +499,12 @@ const SeoServiceView: React.FC = () => {
               description: "\"Get Found on Google Page 1.\" Perfect for businesses that need steady leads.",
               features: ["15 Buyer-Intent Keywords", "2 SEO Articles/Month", "Technical SEO Audit", "Google Analytics Setup"],
               isPopular: true,
-              buttonText: "Grow Traffic",
+              buttonText: "Grow Traffic with SEO",
               customButton: (
                 <WhatsAppButton 
                   serviceName="SEO"
                   packageLabel="Traffic Builder"
-                  buttonText="Grow Traffic"
+                  buttonText="Grow Traffic with SEO"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-indigo-500 hover:bg-indigo-400 text-white shadow-lg shadow-indigo-500/25"
                 />
               )
@@ -501,12 +515,12 @@ const SeoServiceView: React.FC = () => {
               period: "/mo",
               description: "\"Crush Your Competitors.\" For brands that want to own the market.",
               features: ["National Keyword Strategy", "High-Quality Backlinks", "4 Authority Blog Posts/mo", "Dedicated SEO Manager"],
-              buttonText: "Dominate",
+              buttonText: "Dominate Google Rankings",
               customButton: (
                 <WhatsAppButton 
                   serviceName="SEO"
                   packageLabel="Market Dominator"
-                  buttonText="Dominate"
+                  buttonText="Dominate Google Rankings"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
                 />
               )
@@ -559,7 +573,7 @@ const SeoServiceView: React.FC = () => {
                 <span className="text-2xl font-bold text-white">RM 450 <span className="text-sm text-slate-500 font-normal">/one-time</span></span>
                 <WhatsAppButton 
                   serviceName="SEO Rescue Audit"
-                  buttonText="Get Rescued"
+                  buttonText="Get Your SEO Rescue Audit"
                   className="text-emerald-400 font-bold hover:text-emerald-300 inline-flex items-center gap-2"
                   showIcon={true}
                 />

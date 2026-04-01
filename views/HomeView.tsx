@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { m, LazyMotion, domAnimation, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import CountUp from 'react-countup';
-import { useInView } from 'react-intersection-observer';
 import { 
     ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, 
     ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare,
@@ -22,13 +21,14 @@ import { PageTransition } from '../PageTransition';
  * Triggers numerical counting strictly when scrolled into view.
  */
 const MetricCounter = ({ end, suffix = "", title, description, icon: Icon, delay = 0 }: { end: number, suffix?: string, title: string, description: string, icon: React.ElementType, delay?: number }) => {
-    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+    const [hasEntered, setHasEntered] = useState(false);
     
     return (
         <m.article 
-            ref={ref}
             initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            onViewportEnter={() => setHasEntered(true)}
             transition={{ duration: 0.7, delay, ease: "easeOut" }}
             className="flex flex-col items-start p-6 md:p-8 bg-gradient-to-b from-slate-50 to-white dark:from-white/[0.04] dark:to-transparent rounded-[2rem] border border-slate-200 dark:border-white/[0.05] hover:border-indigo-500/30 transition-all duration-500 group relative overflow-hidden shadow-sm dark:shadow-none"
         >
@@ -42,7 +42,7 @@ const MetricCounter = ({ end, suffix = "", title, description, icon: Icon, delay
                     <Activity className="w-4 h-4 text-slate-400 dark:text-slate-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors" />
                 </div>
                 <div className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-2 tracking-tighter">
-                    {inView ? <CountUp end={end} duration={2.5} separator="," /> : "0"}{suffix}
+                    {hasEntered ? <CountUp end={end} duration={2.5} separator="," /> : "0"}{suffix}
                 </div>
                 <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1 tracking-tight">{title}</h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{description}</p>
@@ -54,17 +54,18 @@ const MetricCounter = ({ end, suffix = "", title, description, icon: Icon, delay
 /**
  * Premium Service Card for End-to-End Architecture
  */
-const PremiumServiceCard = ({ title, description, icon: Icon, features, delay = 0 }: { title: string, description: string, icon: React.ElementType, features: string[], delay?: number }) => {
-    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+const PremiumServiceCard = ({ title, description, icon: Icon, features, delay = 0, link }: { title: string, description: string, icon: React.ElementType, features: string[], delay?: number, link: string }) => {
     
     return (
-        <m.article 
-            ref={ref}
+        <m.div 
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -16 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay, ease: "easeOut" }}
-            className="relative p-[1px] rounded-[2.5rem] overflow-hidden group bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-transparent hover:from-indigo-500/50 hover:-translate-y-4 hover:shadow-[0_20px_40px_-15px_rgba(99,102,241,0.3)] transition-all duration-500 transform-gpu"
+            className="h-full"
         >
+            <Link to={link} className="block outline-none relative p-[1px] rounded-[2.5rem] overflow-hidden group bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-transparent hover:from-indigo-500/50 hover:shadow-[0_20px_40px_-15px_rgba(99,102,241,0.3)] transition-all duration-500 h-full">
             <div className="absolute inset-[1px] bg-white dark:bg-[#050505] rounded-[2.5rem] z-0 transition-colors duration-700 group-hover:bg-slate-50 dark:group-hover:bg-[#08080c]"></div>
             <div className="relative z-10 p-6 md:p-10 h-full flex flex-col">
                 <div className="w-12 h-12 md:w-14 md:h-14 bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-white mb-6 md:mb-8 group-hover:scale-110 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/20 group-hover:border-indigo-200 dark:group-hover:border-indigo-500/50 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-all duration-500 shadow-sm dark:shadow-xl">
@@ -81,7 +82,8 @@ const PremiumServiceCard = ({ title, description, icon: Icon, features, delay = 
                     ))}
                 </ul>
             </div>
-        </m.article>
+            </Link>
+        </m.div>
     );
 };
 
@@ -121,15 +123,15 @@ const BlogPreview = () => {
                     </h2>
                 </div>
                 <Link to="/blog" className="group flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                    View All Articles <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    Read our Digital Engineering Insights <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {posts.map((post, i) => (
                     <m.article key={post.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                         <Link to={`/blog/${post.slug}`} className="group block h-full bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 rounded-[2rem] overflow-hidden hover:bg-slate-50 dark:hover:bg-white/[0.05] hover:border-indigo-500/30 hover:-translate-y-2 transform-gpu transition-all duration-500 shadow-lg dark:shadow-xl">
-                            <div className="aspect-[16/10] overflow-hidden relative">
-                                <img src={post.image} alt={post.title} className="w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+                            <div className="aspect-[16/10] overflow-hidden relative bg-slate-100 dark:bg-slate-900">
+                                <img src={post.image} alt={post.title} className="w-full h-full object-contain transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
                                 <div className="absolute top-4 left-4"><span className="px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider rounded-lg border border-slate-200 dark:border-white/10 text-indigo-600 dark:text-indigo-300">{post.category}</span></div>
                             </div>
                             <div className="p-8 flex flex-col justify-between">
@@ -283,10 +285,20 @@ const HomeView: React.FC = () => {
             <meta name="description" content="Omino Tech engineers custom, high-speed Next.js websites and technical SEO solutions for Malaysian SMEs. Transparent web design packages starting from RM 590." />
             <meta name="keywords" content="Custom web development Malaysia, High-performance web design Malaysia, Technical SEO Malaysia, Next.js developer Malaysia, SME website packages" />
             <link rel="canonical" href="https://www.ominotech.com.my" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://www.ominotech.com.my" />
+            <meta property="og:title" content="High-Performance Web Development & SEO in Malaysia | Omino Tech" />
+            <meta property="og:description" content="Omino Tech engineers custom, high-speed Next.js websites and technical SEO solutions for Malaysian SMEs. Transparent web design packages starting from RM 590." />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:url" content="https://www.ominotech.com.my" />
+            <meta name="twitter:title" content="High-Performance Web Development & SEO in Malaysia | Omino Tech" />
+            <meta name="twitter:description" content="Omino Tech engineers custom, high-speed Next.js websites and technical SEO solutions for Malaysian SMEs. Transparent web design packages starting from RM 590." />
+            <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
             <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
             <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
             <link rel="manifest" href="/site.webmanifest" />
-            <meta property="og:image" content={IMAGES.GLOBAL.LOGO} />
+            <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+            <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
         </Helmet>
 
@@ -404,13 +416,13 @@ const HomeView: React.FC = () => {
                             <Link to="/services" className="w-full sm:w-auto group relative inline-flex items-center justify-center px-8 py-4 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.15)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]">
                                 <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
                                 <span className="relative flex items-center gap-3 group-hover:text-white transition-colors duration-500">
-                                    View Packages & Pricing <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                    View Our Custom Web Development Packages <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                                 </span>
                             </Link>
                             <Link to="/services/seo-service" className="w-full sm:w-auto group relative inline-flex items-center justify-center px-8 py-4 font-bold text-sm uppercase tracking-[0.2em] text-slate-700 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-transparent hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
                                 <span className="absolute inset-0 bg-slate-100 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
                                 <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
-                                    See Our SEO Results <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                    Explore our SEO Ranking Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                                 </span>
                             </Link>
                         </m.div>
@@ -610,7 +622,7 @@ const HomeView: React.FC = () => {
                             </div>
                             <div className="flex-1 w-full">
                                 <div className="relative aspect-square md:aspect-video bg-slate-100 dark:bg-[#050505] rounded-[2.5rem] border border-slate-200 dark:border-white/5 overflow-hidden shadow-xl dark:shadow-2xl group">
-                                    <img src={IMAGES.HOME.FUTURE_TECH_AI_NETWORK} alt="AI Neural Network" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-40 group-hover:opacity-80 dark:group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000" />
+                                    <img src={IMAGES.HOME.FUTURE_TECH_AI_NETWORK} alt="Omino Tech deploying 24/7 AI WhatsApp automation and sales chatbots for Malaysian businesses." loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-contain opacity-60 dark:opacity-40 group-hover:opacity-80 dark:group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-100 dark:from-[#030303] via-transparent to-transparent"></div>
                                     <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/80 dark:bg-white/[0.02] backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 shadow-xl dark:shadow-2xl">
                                         <div className="flex items-center gap-4 mb-3">
@@ -649,6 +661,7 @@ const HomeView: React.FC = () => {
                                 icon={Code2}
                                 features={["High-Speed Corporate Sites", "Starting at RM 590"]}
                                 delay={0.1}
+                                link="/services/web-architecture"
                             />
                             <PremiumServiceCard 
                                 title="Technical SEO Engineering"
@@ -656,6 +669,7 @@ const HomeView: React.FC = () => {
                                 icon={TrendingUp}
                                 features={["Core Web Vitals Optimization", "Search Semantics"]}
                                 delay={0.2}
+                                link="/services/seo-service"
                             />
                             <PremiumServiceCard 
                                 title="AI & Business Automation"
@@ -663,6 +677,7 @@ const HomeView: React.FC = () => {
                                 icon={Bot}
                                 features={["WhatsApp AI Agents", "Instant Lead Capture"]}
                                 delay={0.3}
+                                link="/contact"
                             />
                             <PremiumServiceCard 
                                 title="Mobile App Engineering"
@@ -670,6 +685,7 @@ const HomeView: React.FC = () => {
                                 icon={Cpu}
                                 features={["Native iOS & Android", "Flutter Engineering"]}
                                 delay={0.4}
+                                link="/services/app-engineering"
                             />
                         </div>
                     </section>
@@ -722,7 +738,7 @@ const HomeView: React.FC = () => {
                                     
                                     <Link to="/contact" className="group relative inline-flex items-center justify-center w-full px-8 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white overflow-hidden rounded-2xl bg-indigo-600 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg shadow-indigo-500/30">
                                         <span className="relative flex items-center gap-3">
-                                            Claim the Signature Package <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            Claim the Signature Digital Growth Engine <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                         </span>
                                     </Link>
                                 </div>
@@ -848,7 +864,7 @@ const HomeView: React.FC = () => {
                             <Link to="/contact" className="group relative inline-flex items-center justify-center px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-base uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 duration-500 shadow-[0_0_50px_rgba(0,0,0,0.1)] dark:shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(99,102,241,0.6)]">
                                 <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
                                 <span className="relative flex items-center group-hover:text-white transition-colors duration-500">
-                                    Initiate Protocol <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                                    Start Your Custom Web Development Project <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                                 </span>
                             </Link>
                         </div>

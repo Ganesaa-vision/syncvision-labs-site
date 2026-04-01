@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
-import { Smartphone, Cpu, Layers, ArrowRight, Database, Cloud, ChevronDown, ChevronUp, Zap, CheckCircle2, Lock, Rocket, Map } from 'lucide-react';
+import { Smartphone, Cpu, Layers, ArrowRight, Database, Cloud, ChevronDown, ChevronUp, Zap, CheckCircle2, Lock, Rocket, Map, ShieldCheck } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
@@ -11,110 +11,6 @@ import { IMAGES } from '../images';
 const AppEngineeringView: React.FC = () => {
   const { pathname } = useLocation();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [selectedTier, setSelectedTier] = useState<'mvp' | 'utility' | 'advanced'>('utility');
-
-  const tiers = {
-    mvp: {
-      id: 'mvp',
-      name: 'The Concept MVP',
-      price: 'RM 500',
-      tag: 'Rapid Deployment',
-      description: 'The perfect rapid-deployment package for pre-seed startups, solo founders, and pitch validations. Get a working application to demonstrate your core concept without breaking the bank.',
-      forWho: 'Pre-seed startups, solo founders, and pitch validations.',
-      goal: 'Map and geolocation apps, basic directory apps, and UI/UX concept validation.',
-      image: IMAGES.WEB_ARCHITECTURE.TIER_STARTUP,
-      features: ['1 to 3 Core Screens', 'Basic API Integration', 'Local Data Storage'],
-      icon: <Map className="w-6 h-6" />,
-      color: 'blue',
-      accent: 'bg-blue-500',
-      panelClass: "bg-gradient-to-br from-blue-50/80 to-white/50 dark:from-blue-900/20 dark:to-slate-900/50",
-      borderClass: "border-blue-200/60 dark:border-blue-500/20",
-      shadowClass: "shadow-blue-500/10",
-      glowColor: "bg-blue-500/20",
-      activeIconBg: "bg-blue-500 text-white",
-      activeBadge: "bg-blue-50 dark:bg-blue-500/20 text-blue-600 dark:text-blue-300",
-      checkClass: "text-blue-500"
-    },
-    utility: {
-      id: 'utility',
-      name: 'The AI & Utility App',
-      price: 'RM 999',
-      tag: 'Most Popular',
-      description: 'Sleek, targeted problem-solving applications. Need an AI wrapper, a custom booking portal, or a clean interface to digitize a manual process? We build polished, single-purpose utilities.',
-      forWho: 'Local businesses, creators, and operational managers.',
-      goal: 'AI-powered calculators, productivity tools, and lightweight business utilities.',
-      image: IMAGES.WEB_ARCHITECTURE.TIER_BUSINESS,
-      features: ['Up to 5 Screens', 'Premium UI/UX Design', 'Core API (OpenAI/Claude)'],
-      icon: <Smartphone className="w-6 h-6" />,
-      color: 'indigo',
-      accent: 'bg-indigo-500',
-      panelClass: "bg-gradient-to-br from-indigo-50/80 to-white/50 dark:from-indigo-900/20 dark:to-slate-900/50",
-      borderClass: "border-indigo-200/60 dark:border-indigo-500/20",
-      shadowClass: "shadow-indigo-500/10",
-      glowColor: "bg-indigo-500/20",
-      activeIconBg: "bg-indigo-500 text-white",
-      activeBadge: "bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-300",
-      checkClass: "text-indigo-500"
-    },
-    advanced: {
-      id: 'advanced',
-      name: 'Advanced Custom Application',
-      price: 'RM 1,200+',
-      tag: 'Data-Driven',
-      description: 'Fully integrated, data-driven applications. When your logic goes beyond a simple MVP, we build robust tools tailored exactly to your operational needs with secure backend infrastructure.',
-      forWho: 'Growing operations, SMEs, and full SaaS startups.',
-      goal: 'Real-time chat apps, complex inventory systems, field sales trackers.',
-      image: IMAGES.WEB_ARCHITECTURE.TIER_INNOVATOR,
-      features: ['Custom User Flows', 'Real-Time DB Sync', 'Hardware Integration (GPS)'],
-      icon: <Cpu className="w-6 h-6" />,
-      color: 'purple',
-      accent: 'bg-purple-500',
-      panelClass: "bg-gradient-to-br from-purple-50/80 to-white/50 dark:from-purple-900/20 dark:to-slate-900/50",
-      borderClass: "border-purple-200/60 dark:border-purple-500/20",
-      shadowClass: "shadow-purple-500/10",
-      glowColor: "bg-purple-500/20",
-      activeIconBg: "bg-purple-500 text-white",
-      activeBadge: "bg-purple-50 dark:bg-purple-500/20 text-purple-600 dark:text-purple-300",
-      checkClass: "text-purple-500"
-    }
-  };
-
-  const activeTier = tiers[selectedTier];
-
-  // Animation Variants for the Content Section
-  const containerVariants = {
-    hidden: { opacity: 0, x: -50, scale: 0.98 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        damping: 25,
-        stiffness: 120,
-        mass: 0.6,
-        staggerChildren: 0.05,
-        delayChildren: 0.05
-      }
-    },
-    exit: { opacity: 0, x: 50, scale: 0.98, transition: { duration: 0.2, ease: "easeIn" } }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 50 } }
-  };
-
-  const imageVariants = {
-    hidden: { scale: 0.95, opacity: 0, rotateY: 15 },
-    visible: { 
-      scale: 1, 
-      opacity: 1, 
-      rotateY: 0,
-      transition: { type: "spring", stiffness: 40, damping: 15, delay: 0.2 }
-    },
-    exit: { scale: 0.95, opacity: 0, rotateY: -15, transition: { duration: 0.3 } }
-  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -166,7 +62,18 @@ const AppEngineeringView: React.FC = () => {
         <title>Affordable App Development & MVP Agency in Malaysia | Omino Tech</title>
         <meta name="description" content="Stop overpaying for mobile apps. Omino Tech builds high-performance map apps, AI utilities, and startup MVPs in Malaysia starting at just RM 500. iOS & Android included." />
         <meta name="keywords" content="Mobile App Developer Malaysia, MVP Development Malaysia, Flutter App Agency, App Developer for Startups, iOS Android Development Selangor" />
-        <meta property="og:image" content={IMAGES.GLOBAL.LOGO} />
+        <link rel="canonical" href="https://www.ominotech.com.my/services/app-engineering" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ominotech.com.my/services/app-engineering" />
+        <meta property="og:title" content="Affordable App Development & MVP Agency in Malaysia | Omino Tech" />
+        <meta property="og:description" content="Stop overpaying for mobile apps. Omino Tech builds high-performance map apps, AI utilities, and startup MVPs in Malaysia starting at just RM 500. iOS & Android included." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.ominotech.com.my/services/app-engineering" />
+        <meta name="twitter:title" content="Affordable App Development & MVP Agency in Malaysia | Omino Tech" />
+        <meta name="twitter:description" content="Stop overpaying for mobile apps. Omino Tech builds high-performance map apps, AI utilities, and startup MVPs in Malaysia starting at just RM 500. iOS & Android included." />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -283,11 +190,11 @@ const AppEngineeringView: React.FC = () => {
                         tag: "Instant Sync"
                     }
                 ].map((item, i) => (
-                    <div key={i} className="group relative min-h-[600px] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl cursor-default">
+                    <div key={i} className="group relative min-h-[600px] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl cursor-default bg-slate-100 dark:bg-slate-900">
                         <img 
                             src={item.image} 
                             alt={item.title}
-                            className="absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                            className="absolute inset-0 w-full h-full object-contain transform-gpu transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
                             loading="lazy"
                             decoding="async"
                         />
@@ -315,140 +222,89 @@ const AppEngineeringView: React.FC = () => {
             </div>
         </m.div>
 
-        {/* === INTERACTIVE TIER SELECTOR === */}
-        <div className="mb-32" id="pricing">
-            <div className="text-center mb-16">
+        {/* === STRATEGIC LIFECYCLE (ALTERNATING LAYOUT) === */}
+        <div className="mb-32">
+            <div className="text-center mb-24">
+                <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-6 block">Beyond the Code</span>
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
-                    Transparent App <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Pricing.</span>
+                    End-to-End <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">App Lifecycle.</span>
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
-                    No hidden fees. No lengthy discovery phases. Choose the engineering package that fits your exact scope.
+                    We don't just hand over a zipped file and disappear. We are your long-term technical partners, handling everything from architecture to app store deployment.
                 </p>
             </div>
 
-            {/* Tabs */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 p-2 bg-slate-100 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-[2rem] mb-16">
-                {Object.values(tiers).map((tier) => (
-                    <button
-                        key={tier.id}
-                        onClick={() => setSelectedTier(tier.id as any)}
-                        className="relative p-6 rounded-[1.5rem] text-left transition-all duration-300 group outline-none focus:outline-none"
+            <div className="space-y-32">
+                {/* Block 1: Image Left, Text Right */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <m.div 
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group aspect-[4/3] md:aspect-[3/2] lg:aspect-auto lg:h-[500px]"
                     >
-                        {selectedTier === tier.id && (
-                            <m.div 
-                                layoutId="activeTier" 
-                                className="absolute inset-0 bg-white dark:bg-slate-800 rounded-[1.5rem] shadow-xl dark:shadow-2xl dark:shadow-blue-500/10 border border-slate-200 dark:border-slate-700"
-                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                            />
-                        )}
-                        
-                        <div className="relative z-10 flex flex-col h-full">
-                            <div className="flex justify-between items-center mb-4">
-                                <div className={`p-3 rounded-2xl transition-colors duration-300 ${selectedTier === tier.id ? tier.activeIconBg : 'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}>
-                                    {tier.icon}
-                                </div>
-                                {selectedTier === tier.id && (
-                                    <m.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className={`px-3 py-1 rounded-full ${tier.activeBadge} text-[10px] font-bold uppercase tracking-wider`}>
-                                        Selected
-                                    </m.div>
-                                )}
-                            </div>
-                            <h3 className={`text-lg font-bold mb-1 transition-colors duration-300 ${selectedTier === tier.id ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400'}`}>
-                                {tier.name}
-                            </h3>
-                        </div>
-                    </button>
-                ))}
-            </div>
-
-            {/* Content Display */}
-            <div className="relative min-h-[600px]">
-                <AnimatePresence mode="wait">
-                    <m.div
-                        key={selectedTier}
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                        className={`relative p-8 md:p-12 rounded-[2.5rem] border ${activeTier.borderClass} ${activeTier.panelClass} ${activeTier.shadowClass} backdrop-blur-xl shadow-2xl overflow-hidden`}
-                    >
-                        <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 ${activeTier.glowColor} blur-3xl rounded-full pointer-events-none opacity-50`} />
-
-                        <div className={`flex flex-col lg:flex-row gap-12 items-center relative z-10 ${selectedTier === 'utility' ? 'lg:flex-row-reverse' : ''}`}>
-                            <div className="flex-1 space-y-8">
-                                <m.div variants={itemVariants}>
-                                    <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white mb-6 ${activeTier.accent}`}>
-                                        {activeTier.tag}
-                                    </div>
-                                    <h3 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
-                                        {activeTier.name}
-                                    </h3>
-                                    <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
-                                        {activeTier.description}
-                                    </p>
-                                </m.div>
-
-                                <m.div variants={itemVariants} className="space-y-6 p-8 bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50 rounded-3xl shadow-sm backdrop-blur-md">
-                                    <div>
-                                        <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3">Best For</h4>
-                                        <p className="text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
-                                            {activeTier.forWho}
-                                        </p>
-                                    </div>
-                                    <div className="h-px bg-slate-100 dark:bg-slate-800 w-full"></div>
-                                    <div>
-                                        <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3">The Goal</h4>
-                                        <p className="text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
-                                            {activeTier.goal}
-                                        </p>
-                                    </div>
-                                </m.div>
-
-                                <m.div variants={itemVariants} className="flex flex-wrap gap-3">
-                                    {activeTier.features.map((feature, i) => (
-                                        <span key={i} className="px-4 py-2 bg-white/80 dark:bg-slate-800/80 rounded-lg text-sm font-bold text-slate-600 dark:text-slate-300 flex items-center gap-2 shadow-sm">
-                                            <CheckCircle2 size={14} className={activeTier.checkClass} /> {feature}
-                                        </span>
-                                    ))}
-                                </m.div>
-                            </div>
-
-                            <div className="flex-1 w-full perspective-1000">
-                                <m.div 
-                                    variants={imageVariants}
-                                    className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 group bg-slate-100 dark:bg-slate-900"
-                                >
-                                    <img 
-                                        src={activeTier.image} 
-                                        alt={activeTier.name}
-                                        className="object-cover w-full h-full transform-gpu group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0" 
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60"></div>
-                                    
-                                    <m.div 
-                                        initial={{ y: 20, opacity: 0 }}
-                                        animate={{ y: 0, opacity: 1 }}
-                                        transition={{ delay: 0.4 }}
-                                        className="absolute bottom-8 left-8 right-8 p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-between">
-                                        <div className="flex items-center gap-4">
-                                            <div className={`p-3 rounded-xl bg-white/10 text-white`}>
-                                                {activeTier.icon}
-                                            </div>
-                                            <div>
-                                                <div className="text-white font-bold text-sm">Deployment Ready</div>
-                                                <div className="text-emerald-400 text-xs font-mono uppercase tracking-wider flex items-center gap-2">
-                                                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> Flutter Base
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </m.div>
-                                </m.div>
-                            </div>
-                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                        <img src={IMAGES.WEB_ARCHITECTURE.PORTFOLIO_HEALTHCARE} alt="Scalable Cloud Architecture" className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                     </m.div>
-                </AnimatePresence>
+                    <m.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                    >
+                        <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-8 border border-blue-100 dark:border-blue-500/20 shadow-sm">
+                            <Cloud size={24} />
+                        </div>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">Scalable Cloud Architecture</h3>
+                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                            An app is only as good as its backend. We architect robust, serverless infrastructures using Supabase and Firebase. This ensures your application syncs in real-time, authenticates users securely, and scales effortlessly from 10 to 10,000 users without breaking a sweat.
+                        </p>
+                        <ul className="space-y-4">
+                            {['Real-Time Database Sync', 'Secure User Authentication', 'Automated Daily Backups'].map((feat, i) => (
+                                <li key={i} className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold text-sm bg-slate-50 dark:bg-slate-900/50 w-fit px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800">
+                                    <CheckCircle2 className="w-4 h-4 text-blue-500" /> {feat}
+                                </li>
+                            ))}
+                        </ul>
+                    </m.div>
+                </div>
+
+                {/* Block 2: Text Left, Image Right */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <m.div
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        className="order-2 lg:order-1"
+                    >
+                        <div className="w-14 h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-8 border border-indigo-100 dark:border-indigo-500/20 shadow-sm">
+                            <ShieldCheck size={24} />
+                        </div>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">Proactive DevOps & Maintenance</h3>
+                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                            Launching the app is just day one. iOS and Android updates happen constantly, often breaking older apps. Our dedicated maintenance team monitors crash analytics, pushes security patches, and handles App Store and Google Play compliance so your app remains live and fast.
+                        </p>
+                        <ul className="space-y-4">
+                            {['OS Compatibility Updates', 'Crash Analytics & Monitoring', 'App Store Policy Compliance'].map((feat, i) => (
+                                <li key={i} className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold text-sm bg-slate-50 dark:bg-slate-900/50 w-fit px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800">
+                                    <CheckCircle2 className="w-4 h-4 text-indigo-500" /> {feat}
+                                </li>
+                            ))}
+                        </ul>
+                    </m.div>
+                    <m.div 
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group aspect-[4/3] md:aspect-[3/2] lg:aspect-auto lg:h-[500px] order-1 lg:order-2"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-tl from-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                        <img src={IMAGES.WEB_ARCHITECTURE.PORTFOLIO_ECOMMERCE} alt="Proactive App Maintenance" className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    </m.div>
+                </div>
             </div>
         </div>
 
@@ -463,12 +319,12 @@ const AppEngineeringView: React.FC = () => {
               period: "/ one-time",
               description: "The perfect rapid-deployment package for pre-seed startups to demonstrate their concept without breaking the bank.",
               features: ["1 to 3 Core Screens", "Basic API Integration", "Local Data Storage", "iOS & Android Support", "~1 Week Delivery"],
-              buttonText: "Start MVP",
+              buttonText: "Start Your Custom App MVP",
               customButton: (
                 <WhatsAppButton 
                   serviceName="App Development"
                   packageLabel="The Concept MVP"
-                  buttonText="Start MVP"
+                  buttonText="Start Your Custom App MVP"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
                 />
               )
@@ -480,12 +336,12 @@ const AppEngineeringView: React.FC = () => {
               description: "Sleek, targeted problem-solving applications for local businesses looking to automate a manual process.",
               features: ["Up to 5 Screens", "Premium UI/UX Design", "Core API Integrations (AI/Map)", "Standard Database Setup", "~2 Weeks Delivery"],
               isPopular: true,
-              buttonText: "Build Utility App",
+              buttonText: "Build Your AI Utility App",
               customButton: (
                 <WhatsAppButton 
                   serviceName="App Development"
                   packageLabel="The AI & Utility App"
-                  buttonText="Build Utility App"
+                  buttonText="Build Your AI Utility App"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/30"
                 />
               )
@@ -496,12 +352,12 @@ const AppEngineeringView: React.FC = () => {
               period: "/ starting at",
               description: "Fully integrated, data-driven applications for growing operations when your logic goes beyond a simple MVP.",
               features: ["Custom User Flows", "Real-Time DB (Supabase/Firebase)", "Hardware Integration (GPS)", "User Authentication", "3 - 4 Weeks Delivery"],
-              buttonText: "Map Out Logic",
+              buttonText: "Map Out Your Custom App Logic",
               customButton: (
                 <WhatsAppButton 
                   serviceName="App Development"
                   packageLabel="Advanced Custom Application"
-                  buttonText="Map Out Logic"
+                  buttonText="Map Out Your Custom App Logic"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
                 />
               )
@@ -545,7 +401,7 @@ const AppEngineeringView: React.FC = () => {
           <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">Stop waiting on massive agency proposals. Tell us what you need to build, and let's get started on the codebase this week.</p>
           <WhatsAppButton 
             serviceName="App Engineering Inquiry"
-            buttonText="Get Your Exact Quote Today"
+            buttonText="Get Your App Engineering Quote Today"
             className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-bold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-500/30"
             showIcon={true}
           />

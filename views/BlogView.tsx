@@ -5,6 +5,7 @@ import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { Search, Calendar, Clock, ArrowRight, User } from 'lucide-react';
 import Footer from '../components/Footer';
 import { BLOG_POSTS } from '../constants';
+import { IMAGES } from '../images';
 
 const BlogView: React.FC = () => {
   const { pathname } = useLocation();
@@ -27,6 +28,18 @@ const BlogView: React.FC = () => {
           <title>Digital Insights & Engineering Blog | Omino Tech Malaysia</title>
           <meta name="description" content="Expert insights on Web Development, SEO, AI Automation, and Digital Transformation for Malaysian businesses. Read our latest engineering logs." />
           <meta name="keywords" content="Web Dev Blog Malaysia, SEO Tips, Next.js Tutorial, Business Automation, Digital Transformation" />
+          <link rel="canonical" href="https://www.ominotech.com.my/blog" />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://www.ominotech.com.my/blog" />
+          <meta property="og:title" content="Digital Insights & Engineering Blog | Omino Tech Malaysia" />
+          <meta property="og:description" content="Expert insights on Web Development, SEO, AI Automation, and Digital Transformation for Malaysian businesses. Read our latest engineering logs." />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:url" content="https://www.ominotech.com.my/blog" />
+          <meta name="twitter:title" content="Digital Insights & Engineering Blog | Omino Tech Malaysia" />
+          <meta name="twitter:description" content="Expert insights on Web Development, SEO, AI Automation, and Digital Transformation for Malaysian businesses. Read our latest engineering logs." />
+          <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+          <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+          <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
           <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
           <link rel="shortcut icon" href="/favicon.ico" />
@@ -85,11 +98,13 @@ const BlogView: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-20"
             >
-               <Link to={`/blog/${filteredPosts[0].slug}`} className="group relative block w-full aspect-[16/9] md:aspect-[21/9] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl">
+               <Link to={`/blog/${filteredPosts[0].slug}`} className="group relative block w-full aspect-[16/9] md:aspect-[21/9] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl bg-slate-100 dark:bg-slate-900">
                   <img 
                     src={filteredPosts[0].image} 
                     alt={filteredPosts[0].title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
+                    fetchPriority="high"
+                    decoding="sync"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                   
@@ -109,7 +124,7 @@ const BlogView: React.FC = () => {
                         {filteredPosts[0].excerpt}
                      </p>
                      <div className="flex items-center gap-3 text-white font-bold text-sm group-hover:gap-4 transition-all">
-                        Read Article <ArrowRight size={18} />
+                        Read {filteredPosts[0].category} Insight <ArrowRight size={18} />
                      </div>
                   </div>
                </Link>
@@ -127,11 +142,11 @@ const BlogView: React.FC = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                  >
                     <Link to={`/blog/${post.slug}`} className="group block h-full bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden hover:border-indigo-500/30 transition-all duration-500 hover:-translate-y-1 shadow-sm dark:shadow-none flex flex-col">
-                        <div className="aspect-video w-full overflow-hidden relative">
+                        <div className="aspect-video w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800">
                             <img 
                                 src={post.image} 
                                 alt={post.title} 
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -160,7 +175,7 @@ const BlogView: React.FC = () => {
                                     <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{post.author}</span>
                                 </div>
                                 <span className="text-indigo-600 dark:text-indigo-400 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
-                                    Read Article <ArrowRight size={16} />
+                                    Read {post.category} Insight <ArrowRight size={16} />
                                 </span>
                             </div>
                         </div>

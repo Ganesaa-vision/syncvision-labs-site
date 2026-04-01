@@ -16,7 +16,7 @@ const Features: React.FC = () => {
            <img 
              src={IMAGES.COMPONENTS.FEATURE_STONE}
              alt="Natural Stone Texture" 
-             className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-[1.5s]"
+             className="absolute inset-0 w-full h-full object-contain hover:scale-105 transition-transform duration-[1.5s]"
            />
         </div>
         <div className="order-1 lg:order-2 flex flex-col justify-center p-12 lg:p-24 bg-[#EBE7DE]">
@@ -46,7 +46,7 @@ const Features: React.FC = () => {
            <img 
              src={IMAGES.COMPONENTS.FEATURE_READING}
              alt="Woman sitting on wooden floor reading" 
-             className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-[1.5s] brightness-90"
+             className="absolute inset-0 w-full h-full object-contain hover:scale-105 transition-transform duration-[1.5s] brightness-90"
            />
         </div>
       </div>

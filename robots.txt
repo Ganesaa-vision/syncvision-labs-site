@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ominostech.com/sitemap.xml
+Sitemap: https://www.ominotech.com.my/sitemap.xml

@@ -5,6 +5,7 @@ import {
   Code, Cpu, Globe, Zap, Quote, 
   Terminal, BrainCircuit, Target 
 } from 'lucide-react';
+import { IMAGES } from '../images';
 import Founders from './Founders';
 
 const About: React.FC = () => {
@@ -13,6 +14,8 @@ const About: React.FC = () => {
       <Helmet>
         <title>About Us | The Architects - Omino Tech</title>
         <meta name="description" content="We are not an agency. We are a digital foundry. Meet the architects building the future of Malaysian digital infrastructure." />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
       </Helmet>
 
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">

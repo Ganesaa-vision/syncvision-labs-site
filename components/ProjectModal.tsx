@@ -33,7 +33,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ item, onClose }) => {
             <motion.img
               src={item.image}
               alt={item.title}
-              className="w-full h-64 object-cover"
+              className="w-full h-64 object-contain"
               layoutId={`image-${item.id}`}
             />
             <motion.div className="p-8">

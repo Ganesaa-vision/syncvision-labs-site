@@ -5,6 +5,7 @@ import {
   ArrowUpRight, Factory, BrainCircuit, HeartPulse, 
   Cpu, GitBranch, Terminal, Globe, Lock, TrendingUp, MessageSquare, ShoppingCart
 } from 'lucide-react'; 
+import { IMAGES } from '../images';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
@@ -31,7 +32,7 @@ const Work: React.FC = () => {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Omino Tech" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
       </Helmet>
 
       {/* Background Ambient Glow */}

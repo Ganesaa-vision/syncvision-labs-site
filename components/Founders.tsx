@@ -51,7 +51,7 @@ const Founders: React.FC = () => {
                 alt={founder.name} 
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover object-top transition-transform duration-700"
+                className="w-full h-full object-contain object-top transition-transform duration-700"
               />
             </div>
 

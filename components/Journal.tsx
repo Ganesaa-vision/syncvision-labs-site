@@ -4,7 +4,7 @@
 */
 
 import React from 'react';
-import { JOURNAL_ARTICLES } from '../constants';
+import { BLOG_POSTS } from '../constants';
 import { JournalArticle } from '../types';
 
 interface JournalProps {
@@ -26,7 +26,7 @@ const Journal: React.FC<JournalProps> = ({ onArticleClick }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {JOURNAL_ARTICLES.map((article) => (
+            {BLOG_POSTS.map((article) => (
                 <div 
                   key={article.id} 
                   className="group cursor-pointer bg-white/5 border border-white/5 p-6 rounded-2xl hover:border-indigo-500/30 transition-all" 
@@ -36,7 +36,7 @@ const Journal: React.FC<JournalProps> = ({ onArticleClick }) => {
                         <img 
                             src={article.image} 
                             alt={article.title} 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 brightness-75"
+                            className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 brightness-75"
                         />
                     </div>
                     <div className="flex flex-col">

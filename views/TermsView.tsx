@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { IMAGES } from '../images';
 
 const TermsView: React.FC = () => {
   const { pathname } = useLocation();
@@ -22,6 +23,8 @@ const TermsView: React.FC = () => {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 

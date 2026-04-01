@@ -220,6 +220,17 @@ const WebArchitectureView: React.FC = () => {
         <title>Affordable & High-Performance Web Developers in Malaysia | Omino Tech</title>
         <meta name="description" content="Looking for a reliable web development company in Malaysia? We build high-speed websites starting at RM 590. No hidden fees. 100% ownership." />
         <meta name="keywords" content="Web development company Malaysia, Cheap web design Malaysia, Next js developer Malaysia, React website developer Selangor, SME website package KL, Corporate website design Malaysia" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ominotech.com.my/services/web-architecture" />
+        <meta property="og:title" content="Affordable & High-Performance Web Developers in Malaysia | Omino Tech" />
+        <meta property="og:description" content="Looking for a reliable web development company in Malaysia? We build high-speed websites starting at RM 590. No hidden fees. 100% ownership." />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.ominotech.com.my/services/web-architecture" />
+        <meta name="twitter:title" content="Affordable & High-Performance Web Developers in Malaysia | Omino Tech" />
+        <meta name="twitter:description" content="Looking for a reliable web development company in Malaysia? We build high-speed websites starting at RM 590. No hidden fees. 100% ownership." />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="canonical" href="https://www.ominotech.com.my/services/web-architecture" />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -258,7 +269,7 @@ const WebArchitectureView: React.FC = () => {
                     </p>
                     <WhatsAppButton 
                         serviceName="RM590 Landing Page"
-                        buttonText="Start for RM 590"
+                        buttonText="Start Web Development for RM 590"
                         className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold text-sm hover:bg-indigo-700 transition-colors"
                         showIcon={false}
                     />
@@ -307,13 +318,13 @@ const WebArchitectureView: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-32"
         >
             <div className="flex items-center justify-between mb-12">
                 <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Recent Deployments</h2>
                 <Link to="/work" className="text-indigo-600 dark:text-indigo-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-mono uppercase tracking-widest flex items-center gap-2">
-                    View Full Portfolio <ArrowRight size={16} />
+                    View Our Custom Web Design Portfolio <ArrowRight size={16} />
                 </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -331,13 +342,12 @@ const WebArchitectureView: React.FC = () => {
                         tag: "Healthcare SaaS"
                     }
                 ].map((item, i) => (
-                    <div key={i} className="group relative h-[400px] rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl cursor-pointer">
+                    <div key={i} className="group relative h-[400px] rounded-[2rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl cursor-pointer bg-slate-100 dark:bg-slate-900">
                         {/* Background Image */}
                         <img 
                             src={item.image} 
                             alt={item.title}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            className="absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-700 group-hover:scale-110"
+                            className="absolute inset-0 w-full h-full object-contain transform-gpu transition-transform duration-700 group-hover:scale-110"
                             loading="lazy"
                             decoding="async"
                         />
@@ -368,89 +378,116 @@ const WebArchitectureView: React.FC = () => {
         </m.div>
 
         {/* === SEMANTIC DEPTH: ARCHITECTURAL PHILOSOPHY === */}
-        <m.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-32"
-        >
-            <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Built for Speed & Sales in Malaysia</h2>
-                <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        <div className="mb-32">
+            <m.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-center mb-24"
+            >
+                <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-6 block">Architectural Philosophy</span>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
+                    Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">Speed & Sales</span> in Malaysia.
+                </h2>
+                <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
                     We move beyond basic drag-and-drop templates. Here is how we engineer performance that makes us the top e-commerce website developer in Malaysia.
                 </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[
-                    {
-                        title: "E-Commerce & Custom Business Logic",
-                        desc: "We don't just build digital brochures; we build business tools. If you need complex features—like dynamic shipping calculators for East Malaysia (Sabah & Sarawak), seamless FPX payment integrations (ToyyibPay, Billplz), or inventory syncing with your local retail store—we write the custom code to make it happen. We ensure your transactions are 100% accurate and secure.",
-                        image: IMAGES.WEB_ARCHITECTURE.PHILOSOPHY_LOGIC,
-                        icon: <Database className="w-6 h-6 text-indigo-400" />,
-                        tag: "Business Logic"
-                    },
-                    {
-                        title: "Google Speed Optimization (Core Web Vitals)",
-                        desc: "A slow website destroys your Google ranking and kills your sales. While other agencies rely on heavy, slow WordPress themes, we strip out the bloated code. Whether we are optimizing an Elementor corporate site or building a custom Next.js web application, we engineer sub-second load times. This passes Google’s strict speed tests, ensuring your customers never wait and your competitors never outrank you.",
-                        image: IMAGES.WEB_ARCHITECTURE.PHILOSOPHY_SPEED,
-                        icon: <Zap className="w-6 h-6 text-yellow-400" />,
-                        tag: "Core Web Vitals"
-                    }
-                ].map((item, i) => (
-                    <div key={i} className="group relative min-h-[600px] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl cursor-default">
-                        {/* Background Image */}
-                        <img 
-                            src={item.image} 
-                            alt={item.title}
-                            className="absolute inset-0 w-full h-full object-cover transform-gpu transition-transform duration-1000 group-hover:scale-110"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                        
-                        {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/80 to-slate-950 opacity-95 transition-opacity duration-500"></div>
-                        
-                        {/* Content */}
-                        <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                            <div className="transform translate-y-0 transition-transform duration-500">
-                                <div className="flex items-center justify-between mb-6">
-                                    <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 text-white shadow-lg">
-                                        {item.icon}
-                                    </div>
-                                    <span className="inline-block px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-white bg-white/10 backdrop-blur-md rounded-full border border-white/10 shadow-lg">
-                                        {item.tag}
-                                    </span>
-                                </div>
-                                
-                                <h3 className="text-3xl font-bold text-white mb-4 leading-tight">{item.title}</h3>
-                                <p className="text-slate-300 text-sm leading-relaxed opacity-100 transition-opacity duration-500">
-                                    {item.desc}
-                                </p>
-                            </div>
+            </m.div>
+
+            <div className="space-y-32">
+                {/* Block 1: Image Left, Text Right */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <m.div 
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group aspect-[3/2] w-full"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                        <img src={IMAGES.WEB_ARCHITECTURE.PHILOSOPHY_LOGIC} alt="Custom Business Logic" className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    </m.div>
+                    <m.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                    >
+                        <div className="w-14 h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-8 border border-indigo-100 dark:border-indigo-500/20 shadow-sm">
+                            <Database size={24} />
                         </div>
-                    </div>
-                ))}
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">E-Commerce & Custom Business Logic</h3>
+                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                            We don't just build digital brochures; we build business tools. If you need complex features, we write the custom code to make it happen accurately and securely.
+                        </p>
+                        <ul className="space-y-4">
+                            {['Dynamic Shipping Calculators (Sabah/Sarawak)', 'FPX Payment Integrations (ToyyibPay/Billplz)', 'Real-Time Inventory Syncing'].map((feat, i) => (
+                                <li key={i} className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold text-sm bg-slate-50 dark:bg-slate-900/50 w-fit px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800">
+                                    <CheckCircle2 className="w-4 h-4 text-indigo-500" /> {feat}
+                                </li>
+                            ))}
+                        </ul>
+                    </m.div>
+                </div>
+
+                {/* Block 2: Text Left, Image Right */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <m.div
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                        className="order-2 lg:order-1"
+                    >
+                        <div className="w-14 h-14 rounded-2xl bg-yellow-50 dark:bg-yellow-500/10 flex items-center justify-center text-yellow-600 dark:text-yellow-400 mb-8 border border-yellow-100 dark:border-yellow-500/20 shadow-sm">
+                            <Zap size={24} />
+                        </div>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">Google Speed Optimization (Core Web Vitals)</h3>
+                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                            A slow website destroys your Google ranking and kills your sales. While other agencies rely on heavy WordPress themes, we strip out the bloated code to engineer sub-second load times.
+                        </p>
+                        <ul className="space-y-4">
+                            {['Sub-second Load Times (< 0.8s)', 'Core Web Vitals Pass Guarantee', 'Zero-Bloat Architecture'].map((feat, i) => (
+                                <li key={i} className="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-bold text-sm bg-slate-50 dark:bg-slate-900/50 w-fit px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800">
+                                    <CheckCircle2 className="w-4 h-4 text-yellow-500" /> {feat}
+                                </li>
+                            ))}
+                        </ul>
+                    </m.div>
+                    <m.div 
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group aspect-[3/2] w-full order-1 lg:order-2"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-tl from-yellow-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                        <img src={IMAGES.WEB_ARCHITECTURE.PHILOSOPHY_SPEED} alt="Core Web Vitals Optimization" className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                    </m.div>
+                </div>
             </div>
-        </m.div>
+        </div>
 
         {/* === GEO CONTENT BLOCK: THE AUTHORITY STATEMENT === */}
         <div className="mb-32">
-            <div className="text-center mb-16">
-                <m.div 
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-500 font-mono text-xs font-bold uppercase tracking-widest mb-6"
-                >
+            <m.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-center mb-16"
+            >
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-500 font-mono text-xs font-bold uppercase tracking-widest mb-6">
                     <Sparkles size={12} /> System Architecture
-                </m.div>
+                </div>
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
                     Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Engine.</span>
                 </h2>
                 <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
                     We don't just build websites; we engineer high-speed assets that dominate Google rankings.
                 </p>
-            </div>
+            </m.div>
 
             {/* --- INTERACTIVE SELECTOR --- */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 p-2 bg-slate-100 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-[2rem] mb-16">
@@ -551,7 +588,7 @@ const WebArchitectureView: React.FC = () => {
                                 <img 
                                     src={activeTier.image} 
                                     alt={activeTier.name}
-                                    className="object-cover w-full h-full transform-gpu group-hover:scale-105 transition-transform duration-1000" 
+                                    className="object-contain w-full h-full transform-gpu group-hover:scale-105 transition-transform duration-1000" 
                                     loading="lazy"
                                     decoding="async"
                                 />
@@ -601,12 +638,12 @@ const WebArchitectureView: React.FC = () => {
                   "Basic Google SEO Setup",
                   "Fast 3-Day Delivery"
               ],
-              buttonText: "Start for RM 590",
+              buttonText: "Start Web Development for RM 590",
               customButton: (
                 <WhatsAppButton 
                   serviceName="Web Development"
                   packageLabel="The Startup Landing Page"
-                  buttonText="Start for RM 590"
+                  buttonText="Start Web Development for RM 590"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700"
                 />
               )
@@ -624,12 +661,12 @@ const WebArchitectureView: React.FC = () => {
                   "Standard On-Page SEO Included"
               ],
               isPopular: true,
-              buttonText: "Get the SME Package",
+              buttonText: "Get the SME Web Design Package",
               customButton: (
                 <WhatsAppButton 
                   serviceName="Web Development"
                   packageLabel="The Corporate SME Standard"
-                  buttonText="Get the SME Package"
+                  buttonText="Get the SME Web Design Package"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/30"
                 />
               )
@@ -646,12 +683,12 @@ const WebArchitectureView: React.FC = () => {
                   "Interactive UI/UX Animations",
                   "Scalable Enterprise Database"
               ],
-              buttonText: "Build a Custom Web App",
+              buttonText: "Build a Custom Next.js Web App",
               customButton: (
                 <WhatsAppButton 
                   serviceName="Web Development"
                   packageLabel="The Innovator Stack"
-                  buttonText="Build a Custom Web App"
+                  buttonText="Build a Custom Next.js Web App"
                   className="w-full py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all bg-purple-600 text-white hover:bg-purple-700 shadow-lg shadow-purple-500/30"
                 />
               )
@@ -660,7 +697,13 @@ const WebArchitectureView: React.FC = () => {
         />
 
         {/* === E-COMMERCE UPGRADE === */}
-        <div className="mb-32">
+        <m.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-32"
+        >
             <div className="p-10 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-500/20 rounded-[2.5rem] relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-12 opacity-10 text-yellow-500"><ShoppingBag size={200} /></div>
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
@@ -692,10 +735,16 @@ const WebArchitectureView: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </m.div>
 
         {/* === MAINTENANCE PLANS === */}
-        <div className="mb-32">
+        <m.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-32"
+        >
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Domain & Hosting Maintenance</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Plan 1 */}
@@ -733,10 +782,16 @@ const WebArchitectureView: React.FC = () => {
                     </ul>
                 </div>
             </div>
-        </div>
+        </m.div>
 
         {/* === AEO FAQ SECTION === */}
-        <div className="mb-32 max-w-4xl mx-auto">
+        <m.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-32 max-w-4xl mx-auto"
+        >
            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Technical FAQ</h2>
            <div className="space-y-4">
               {faqs.map((item, i) => (
@@ -763,13 +818,13 @@ const WebArchitectureView: React.FC = () => {
                  </div>
               ))}
            </div>
-        </div>
+        </m.div>
 
         {/* CTA */}
         <div className="text-center">
           <WhatsAppButton 
             serviceName="Custom Web Architecture"
-            buttonText="View Our Packages & Pricing"
+            buttonText="View Our Web Design Packages in Malaysia"
             className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-bold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-500/30"
             showIcon={true}
           />

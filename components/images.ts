@@ -7,6 +7,7 @@ export const IMAGES = {
   GLOBAL: {
     LOGO: "/Images/logodark1.png",
     LOGO_LIGHT: "/Images/logolite1.png",
+    OG_IMAGE: "https://www.ominotech.com.my/Images/logodark1.png",
     FAVICON: "https://www.ominotech.com.my/favicon.ico",
   },
   HOME: {

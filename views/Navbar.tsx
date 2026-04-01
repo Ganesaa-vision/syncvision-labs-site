@@ -56,8 +56,10 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
           <Link to="/" className="flex items-center gap-2 group relative z-50">
             <img 
               src={theme === 'dark' ? IMAGES.GLOBAL.LOGO : IMAGES.GLOBAL.LOGO_LIGHT} 
-              alt="Omino Tech" 
+              alt="Omino Tech - High-Performance Web Development and SEO Company in Malaysia" 
               className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              fetchPriority="high"
+              decoding="sync"
             />
             <span className={`font-bold text-xl tracking-tight transition-colors ${
                isScrolled || isMobileMenuOpen ? 'text-slate-900 dark:text-white' : 'text-white'

@@ -31,7 +31,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBack, onAddToC
             <img 
               src={product.imageUrl} 
               alt={product.name} 
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
+              className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>

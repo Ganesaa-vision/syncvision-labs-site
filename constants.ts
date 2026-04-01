@@ -6,7 +6,7 @@ export const PRODUCTS = [
     description: 'A revolutionary productivity ecosystem built on the "Second Brain" methodology. LifeSync integrates tasks, notes, and goals into a single "Universal Mind" powered by AI.',
     status: 'In Development',
     category: 'Productivity',
-    imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/custom-nextjs-react-web-developer-malaysia.webp',
     features: ['Flutter Architecture', 'AI Integration', 'Realtime Sync', 'Offline First'],
     longDescription: 'LifeSync is not just a todo list. It is a complete operating system for your life. By leveraging local-first databases and edge syncing, we ensure your data is always available, instantly.'
   },
@@ -17,7 +17,7 @@ export const PRODUCTS = [
     description: 'A comprehensive Clinic Management System (CMS) designed for modern healthcare facilities. Handles patient records, appointment scheduling, and inventory in one secure dashboard.',
     status: 'Beta',
     category: 'Healthcare',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1000&auto=format&fit=crop',
+    imageUrl: '/images/products/medimy-clinic-os-dashboard.webp',
     features: ['Patient Records', 'Inventory Management', 'End-to-End Encryption', 'Telemedicine Ready'],
     longDescription: 'MediMy streamlines the chaotic workflow of modern clinics. From patient registration to drug dispensing, every step is tracked and optimized for speed and compliance.'
   }
@@ -33,7 +33,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Oct 28, 2024",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/ai-whatsapp-automation-chatbot-agency-malaysia.webp",
     slug: "ai-era-neural-core-website",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -73,7 +73,7 @@ export const BLOG_POSTS = [
     author: "Dev Team",
     date: "Oct 15, 2024",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/blog/full-stack-vs-wordpress-performance.webp",
     slug: "full-stack-vs-wordpress-wix",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -105,7 +105,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Oct 10, 2024",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/blog/seo-vs-aeo-strategy.webp",
     slug: "seo-dead-aeo-strategy",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -137,7 +137,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Sep 28, 2024",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/blog/digital-sovereignty-2025.webp",
     slug: "future-era-digital-sovereignty",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">

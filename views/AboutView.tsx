@@ -26,6 +26,18 @@ const AboutView: React.FC = () => {
       <Helmet>
         <title>About Us | The Rebellion - Omino Tech</title>
         <meta name="description" content="We are the glitch in the matrix. A team of student innovators building the future while agencies bill for meeting hours." />
+        <link rel="canonical" href="https://www.ominotech.com.my/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ominotech.com.my/about" />
+        <meta property="og:title" content="About Us | The Rebellion - Omino Tech" />
+        <meta property="og:description" content="We are the glitch in the matrix. A team of student innovators building the future while agencies bill for meeting hours." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.ominotech.com.my/about" />
+        <meta name="twitter:title" content="About Us | The Rebellion - Omino Tech" />
+        <meta name="twitter:description" content="We are the glitch in the matrix. A team of student innovators building the future while agencies bill for meeting hours." />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -283,8 +295,8 @@ const AboutView: React.FC = () => {
                             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10 transform-gpu">
                             <img 
                                 src={IMAGES.ABOUT.FOUNDER_GANESAA}
-                                alt="Ganesaa" 
-                                className="w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
+                                alt="Omino Tech software engineering team building a custom Next.js web application in Selangor" 
+                                className="w-full h-full object-contain transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
                                 loading="lazy"
                                 decoding="async"
                             />
@@ -324,8 +336,8 @@ const AboutView: React.FC = () => {
                             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10 transform-gpu">
                             <img 
                                 src={IMAGES.ABOUT.CO_FOUNDER}
-                                alt="Co-Founder" 
-                                className="w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
+                                alt="Omino Tech leadership team optimizing Google Rankings in Malaysia" 
+                                className="w-full h-full object-contain transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
                                 loading="lazy"
                                 decoding="async"
                             />

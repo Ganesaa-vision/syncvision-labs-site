@@ -6,6 +6,7 @@ import { Terminal, Activity, ArrowRight } from 'lucide-react';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { IMAGES } from '../images';
 
 const ProductsView: React.FC = () => {
   const { pathname } = useLocation();
@@ -20,6 +21,18 @@ const ProductsView: React.FC = () => {
       <Helmet>
         <title>Internal R&D Labs | Omino Tech</title>
         <meta name="description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
+        <link rel="canonical" href="https://www.ominotech.com.my/products" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.ominotech.com.my/products" />
+        <meta property="og:title" content="Internal R&D Labs | Omino Tech" />
+        <meta property="og:description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.ominotech.com.my/products" />
+        <meta name="twitter:title" content="Internal R&D Labs | Omino Tech" />
+        <meta name="twitter:description" content="In-house innovation and high-logic internal systems. Explore our proprietary behavioral tech and architectural engineering." />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -47,9 +60,10 @@ const ProductsView: React.FC = () => {
                    <img 
                      src={product.imageUrl} 
                      alt={product.name} 
-                     loading="lazy"
-                     decoding="async"
-                     className="w-full h-full object-cover brightness-[0.4] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s]"
+                     loading={idx === 0 ? "eager" : "lazy"}
+                     fetchPriority={idx === 0 ? "high" : "auto"}
+                     decoding={idx === 0 ? "sync" : "async"}
+                     className="w-full h-full object-contain brightness-[0.4] grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[2s]"
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
                    <div className="absolute bottom-10 left-10 flex gap-4">

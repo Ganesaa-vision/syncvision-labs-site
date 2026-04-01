@@ -8,7 +8,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Oct 28, 2024",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/ai-whatsapp-automation-chatbot-agency-malaysia.webp",
     slug: "ai-era-neural-core-website",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -48,7 +48,7 @@ export const BLOG_POSTS = [
     author: "Dev Team",
     date: "Oct 15, 2024",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/blog/full-stack-vs-wordpress-performance.webp",
     slug: "full-stack-vs-wordpress-wix",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -80,7 +80,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Oct 10, 2024",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/blog/seo-vs-aeo-strategy.webp",
     slug: "seo-dead-aeo-strategy",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -112,7 +112,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Sep 28, 2024",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop",
+    image: "/images/blog/digital-sovereignty-2025.webp",
     slug: "future-era-digital-sovereignty",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">

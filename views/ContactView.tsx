@@ -3,7 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { CheckCircle2, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
 import Footer from '../components/Footer';
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import { IMAGES } from '../images';
 
 const ContactView: React.FC = () => {
   const [sent, setSent] = useState(false);
@@ -12,6 +13,21 @@ const ContactView: React.FC = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
+
+  // Performant framer-motion variants for staggered entrance
+  const formContainer = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.3 } }
+  };
+
+  const formItem = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 120, damping: 20 } }
+  };
 
   return (
     <LazyMotion features={domAnimation}>
@@ -25,6 +41,8 @@ const ContactView: React.FC = () => {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
@@ -53,36 +71,55 @@ const ContactView: React.FC = () => {
           </div>
 
           <div className="lg:col-span-7">
+            <AnimatePresence mode="wait">
             {sent ? (
-              <div className="p-20 bg-white dark:bg-white/[0.02] backdrop-blur-xl border border-emerald-500/40 rounded-[3rem] text-center shadow-3xl flex flex-col items-center animate-fade-in">
+              <m.div 
+                key="success-message"
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="p-20 bg-white dark:bg-white/[0.02] backdrop-blur-xl border border-emerald-500/40 rounded-[3rem] text-center shadow-3xl flex flex-col items-center"
+              >
                  <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mb-10 ring-4 ring-emerald-500/20">
                    <CheckCircle2 size={40} className="text-emerald-500" />
                  </div>
                  <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-slate-100 mb-4 leading-[1.1]">SIGNAL RECEIVED</h3>
                  <p className="text-slate-600 dark:text-slate-200 text-xs uppercase tracking-widest mb-12 font-bold">Decoding objectives. Expect a protocol update shortly.</p>
                  <button onClick={() => setSent(false)} className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-widest border-b-2 border-indigo-500/20 hover:border-indigo-500 transition-all pb-1">New Transmission</button>
-              </div>
+              </m.div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="p-12 md:p-16 bg-white dark:bg-white/[0.02] backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-[3rem] space-y-10 shadow-2xl relative overflow-hidden">
+              <m.form 
+                key="contact-form"
+                variants={formContainer}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                onSubmit={(e) => { e.preventDefault(); setSent(true); }} 
+                className="p-12 md:p-16 bg-white dark:bg-white/[0.02] backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-[3rem] space-y-10 shadow-2xl relative overflow-hidden"
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                   <div className="space-y-4">
+                   <m.div variants={formItem} className="space-y-4">
                      <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Identity / Organization</label>
-                     <input required type="text" placeholder="Name or Company" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
-                   </div>
-                   <div className="space-y-4">
+                     <input required type="text" placeholder="Name or Company" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-500 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50" />
+                   </m.div>
+                   <m.div variants={formItem} className="space-y-4">
                      <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Signal Channel (Email)</label>
-                     <input required type="email" placeholder="contact@ominotech.com.my" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-inner" />
-                   </div>
+                     <input required type="email" placeholder="contact@ominotech.com.my" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-500 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50" />
+                   </m.div>
                 </div>
-                <div className="space-y-4">
+                <m.div variants={formItem} className="space-y-4">
                   <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Mission Objective</label>
-                  <textarea rows={5} required placeholder="Detailed technical requirements, ROI goals, or architectural objectives..." className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 outline-none transition-all resize-none placeholder-slate-400 dark:placeholder-slate-500 shadow-inner"></textarea>
-                </div>
-                <button type="submit" className="w-full py-6 md:py-8 bg-indigo-600 text-white font-mono text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-indigo-500 transition-all flex items-center justify-center gap-6 shadow-xl shadow-indigo-500/20 active:scale-95">
+                  <textarea rows={5} required placeholder="Detailed technical requirements, ROI goals, or architectural objectives..." className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 resize-none placeholder-slate-400 dark:placeholder-slate-500 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50"></textarea>
+                </m.div>
+                <m.div variants={formItem}>
+                  <button type="submit" className="w-full py-6 md:py-8 bg-indigo-600 text-white font-mono text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-indigo-500 transition-all duration-300 flex items-center justify-center gap-6 shadow-xl shadow-indigo-500/20 active:scale-95 hover:shadow-indigo-500/40 hover:-translate-y-1 transform-gpu">
                   DEPLOY TRANSMISSION <ArrowRight size={20} />
                 </button>
-              </form>
+                </m.div>
+              </m.form>
             )}
+            </AnimatePresence>
           </div>
         </div>
       </m.main>

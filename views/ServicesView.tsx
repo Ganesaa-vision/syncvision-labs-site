@@ -46,7 +46,7 @@ const services = [
     title: 'AI Chatbot Development',
     description: 'Automate your customer service. Custom AI agents and WhatsApp auto-reply systems for business automation.',
     icon: <Bot className="w-8 h-8 text-purple-400 group-hover:text-white dark:group-hover:text-purple-600 transition-colors duration-300" />,
-    link: '/services/automation',
+    link: '/contact',
     tags: ['WhatsApp', 'Chatbots', 'AI']
   },
   {
@@ -54,7 +54,7 @@ const services = [
     title: 'E-Commerce Web Design',
     description: 'Launch a secure, high-converting online store. Custom WooCommerce expert development with Stripe/FPX integration.',
     icon: <ShoppingBag className="w-8 h-8 text-yellow-400 group-hover:text-white dark:group-hover:text-yellow-600 transition-colors duration-300" />,
-    link: '/services/ecommerce',
+    link: '/contact',
     tags: ['Billplz', 'Stripe', 'FPX']
   },
   {
@@ -62,7 +62,7 @@ const services = [
     title: 'Website Maintenance',
     description: 'Keep your website fast and secure. Professional website management, hosting setup, and legacy redesign services.',
     icon: <ShieldCheck className="w-8 h-8 text-cyan-400 group-hover:text-white dark:group-hover:text-cyan-600 transition-colors duration-300" />,
-    link: '/services/web-management',
+    link: '/contact',
     tags: ['Security', 'Backups', 'Updates']
   },
   {
@@ -70,7 +70,7 @@ const services = [
     title: 'Domain & Hosting',
     description: 'We handle the technical setup. Domain registration, fast hosting, and professional company email.',
     icon: <HardDrive className="w-8 h-8 text-slate-400 group-hover:text-white dark:group-hover:text-slate-600 transition-colors duration-300" />,
-    link: '/services/server-setup',
+    link: '/contact',
     tags: ['Email', 'Domain', 'Hosting']
   }
 ];
@@ -130,12 +130,20 @@ const ServicesView: React.FC = () => {
         <title>Omino Tech | Web Design & App Development Agency Malaysia (Selangor)</title>
         <meta name="description" content="Strategic Digital Agency in Malaysia (Selangor & KL). We provide Custom Web Development, Mobile Apps, and SME Digital Grant solutions. SSM Registered." />
         <meta name="keywords" content="Web Design Malaysia, Mobile App Developer KL, SEO Expert Malaysia, SME Digital Grant, SSM Registered, Selangor, Kuala Lumpur, Negeri Sembilan, Payment Gateway Integration" />
+        <link rel="canonical" href="https://www.ominotech.com.my/services" />
         
         {/* GEO: Open Graph for Social Sharing (WhatsApp/LinkedIn) */}
         <meta property="og:title" content="Omino Tech - Web Design & App Development Agency Malaysia" />
         <meta property="og:description" content="We build high-performance websites and AI systems for Malaysian businesses." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={IMAGES.GLOBAL.LOGO} />
+        <meta property="og:url" content="https://www.ominotech.com.my/services" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.ominotech.com.my/services" />
+        <meta name="twitter:title" content="Omino Tech - Web Design & App Development Agency Malaysia" />
+        <meta name="twitter:description" content="We build high-performance websites and AI systems for Malaysian businesses." />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />

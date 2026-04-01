@@ -30,7 +30,8 @@ const EcommerceView: React.FC = () => {
         <title>E-Commerce Development & Payment Gateway Integration | Malaysia - Omino Tech</title>
         <meta name="description" content="Build a high-converting online store. We integrate FPX Payment Gateways (Billplz, ToyyibPay, Stripe) and build on WooCommerce or Shopify. Sell to Malaysian customers instantly." />
         <meta name="keywords" content="E-commerce Malaysia, Payment Gateway Integration, WooCommerce Developer, Shopify Expert, FPX Payment, Billplz, Stripe Malaysia" />
-        <meta property="og:image" content={IMAGES.GLOBAL.LOGO} />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />

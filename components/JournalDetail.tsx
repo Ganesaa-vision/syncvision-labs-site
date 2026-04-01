@@ -20,7 +20,7 @@ const JournalDetail: React.FC<JournalDetailProps> = ({ article, onBack }) => {
           <img 
              src={article.image} 
              alt={article.title} 
-             className="w-full h-full object-cover"
+             className="w-full h-full object-contain"
           />
           <div className="absolute inset-0 bg-black/20"></div>
        </div>

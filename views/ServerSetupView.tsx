@@ -5,6 +5,7 @@ import { Mail, Globe, Lock, Cloud } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { IMAGES } from '../images';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 
 const ServerSetupView: React.FC = () => {
@@ -26,6 +27,8 @@ const ServerSetupView: React.FC = () => {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 

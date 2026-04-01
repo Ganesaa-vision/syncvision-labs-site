@@ -68,7 +68,7 @@ const BlogPostView: React.FC = () => {
       "name": "Omino Tech",
       "logo": {
         "@type": "ImageObject",
-        "url": IMAGES.GLOBAL.LOGO
+        "url": IMAGES.GLOBAL.OG_IMAGE
       }
     },
     "datePublished": "2024-10-12", // In a real app, use post.date
@@ -85,6 +85,7 @@ const BlogPostView: React.FC = () => {
             <Helmet>
                 <title>{post.title} | Omino Tech Insights</title>
                 <meta name="description" content={post.excerpt} />
+                <link rel="canonical" href={`https://www.ominotech.com.my/blog/${post.slug}`} />
                 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="article" />
@@ -92,6 +93,7 @@ const BlogPostView: React.FC = () => {
                 <meta property="og:title" content={post.title} />
                 <meta property="og:description" content={post.excerpt} />
                 <meta property="og:image" content={post.image} />
+                <meta property="og:image:alt" content={post.title} />
 
                 {/* Twitter */}
                 <meta name="twitter:card" content="summary_large_image" />
@@ -128,7 +130,7 @@ const BlogPostView: React.FC = () => {
                 </nav>
 
                 <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors mb-12 group">
-                    <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Insights
+                    <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to All Digital Insights
                 </Link>
 
                 <m.div
@@ -174,8 +176,14 @@ const BlogPostView: React.FC = () => {
                     </div>
 
                     {/* Featured Image */}
-                    <div className="aspect-video w-full rounded-[2rem] overflow-hidden mb-16 shadow-2xl border border-slate-200 dark:border-white/10">
-                        <img src={post.image} alt={post.title} className="w-full h-full object-cover" decoding="async" />
+                    <div className="aspect-video w-full rounded-[2rem] overflow-hidden mb-16 shadow-2xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-slate-900">
+                        <img 
+                            src={post.image} 
+                            alt={post.title} 
+                            className="w-full h-full object-contain"
+                            fetchPriority="high" 
+                            decoding="sync" 
+                        />
                     </div>
 
                     {/* Article Content */}
@@ -245,11 +253,11 @@ const BlogPostView: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {relatedPosts.map(related => (
                                 <Link key={related.id} to={`/blog/${related.slug}`} className="group block h-full bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-white/5 rounded-3xl overflow-hidden hover:border-indigo-500/30 transition-all duration-500 hover:-translate-y-1 shadow-sm dark:shadow-none flex flex-col">
-                                    <div className="aspect-video w-full overflow-hidden relative">
+                                    <div className="aspect-video w-full overflow-hidden relative bg-slate-100 dark:bg-slate-800">
                                         <img 
                                             src={related.image} 
                                             alt={related.title} 
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                                             loading="lazy"
                                             decoding="async"
                                         />
@@ -268,7 +276,7 @@ const BlogPostView: React.FC = () => {
                                             {related.title}
                                         </h3>
                                         <span className="text-indigo-600 dark:text-indigo-400 font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
-                                            Read Article <ArrowRight size={16} />
+                                            Read {related.category} Insight <ArrowRight size={16} />
                                         </span>
                                     </div>
                                 </Link>
@@ -311,7 +319,7 @@ const BlogPostView: React.FC = () => {
                             </p>
                             <WhatsAppButton 
                                 serviceName="Blog Inquiry"
-                                buttonText="Start Your Project"
+                                buttonText="Start Your Custom Web Development Project"
                                 className="block w-full py-3 bg-indigo-600 text-white text-center font-bold rounded-xl hover:bg-indigo-700 transition-colors"
                                 showIcon={false}
                             />

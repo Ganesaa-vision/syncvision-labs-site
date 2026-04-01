@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ item, onClick }) => {
       <motion.img
         src={item.image}
         alt={item.title}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-contain"
         layoutId={`image-${item.id}`}
       />
       <motion.div

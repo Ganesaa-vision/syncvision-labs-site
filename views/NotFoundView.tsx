@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { m } from 'framer-motion';
 import { ArrowLeft, Terminal } from 'lucide-react';
 import { PageTransition } from '../PageTransition';
+import { IMAGES } from '../images';
 import Footer from '../components/Footer';
 
 const NotFoundView: React.FC = () => {
@@ -12,6 +13,8 @@ const NotFoundView: React.FC = () => {
       <Helmet>
         <title>404 - System Offline | Omino Tech</title>
         <meta name="robots" content="noindex, follow" />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#030303] text-slate-900 dark:text-slate-200 transition-colors duration-300">

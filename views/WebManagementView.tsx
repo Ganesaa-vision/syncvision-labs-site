@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ShieldCheck, RefreshCw, Server, Activity, ArrowRight, Check, X, HelpCircle, Unlock, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
+import { IMAGES } from '../images';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 
@@ -28,6 +29,8 @@ const WebManagementView: React.FC = () => {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Omino Tech" />
+        <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
+        <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
