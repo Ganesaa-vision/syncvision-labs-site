@@ -97,7 +97,7 @@ export const HoverRevealProjects = () => {
             {/* Floating Image Reveal (Hidden on Mobile) */}
             <m.div className="fixed top-0 left-0 w-[350px] h-[250px] rounded-2xl overflow-hidden pointer-events-none z-50 shadow-2xl hidden md:block" style={{ x: imageX, y: imageY, opacity: activeProject !== null ? 1 : 0, scale: activeProject !== null ? 1 : 0.8 }} transition={{ opacity: { duration: 0.2 }, scale: { duration: 0.2 } }}>
                 {projects.map((project, i) => (
-                    <img key={i} src={project.image} alt={project.title} loading="lazy" decoding="async" className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${activeProject === i ? 'opacity-100' : 'opacity-0'}`} />
+                    <img key={i} src={project.image} alt={`${project.title} - ${project.result} | High-performance web developer Malaysia`} loading="lazy" decoding="async" className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${activeProject === i ? 'opacity-100' : 'opacity-0'}`} />
                 ))}
             </m.div>
         </section>

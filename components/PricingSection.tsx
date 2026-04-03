@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { WhatsAppButton } from './WhatsAppButton';
+import { m } from 'framer-motion';
 
 interface Plan {
   name: string;
@@ -24,7 +25,13 @@ const PricingSection: React.FC<PricingSectionProps> = ({ title, description, pla
   if (!plans || !Array.isArray(plans)) return null;
 
   return (
-    <section className="py-8 md:py-12">
+    <m.section 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="py-8 md:py-12"
+    >
       <div className="text-center mb-10 md:mb-16">
         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6">{title}</h2>
         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-base md:text-lg">{description}</p>
@@ -81,7 +88,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ title, description, pla
           </div>
         ))}
       </div>
-    </section>
+    </m.section>
   );
 };
 

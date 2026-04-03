@@ -14,28 +14,34 @@ const Footer = () => {
             <Link to="/" className="mb-4 md:mb-6 block">
               <img 
                 src={IMAGES.GLOBAL.LOGO_LIGHT} 
-                alt="Omino Tech" 
+                alt="Omino Tech - Strategic Digital Foundry Malaysia" 
                 className="h-14 w-auto block dark:hidden" 
+              width="754"
+              height="270"
+              loading="lazy"
               />
               <img 
                 src={IMAGES.GLOBAL.LOGO} 
-                alt="Omino Tech" 
+                alt="Omino Tech - Strategic Digital Foundry Malaysia" 
                 className="h-14 w-auto hidden dark:block" 
+              width="754"
+              height="270"
+              loading="lazy"
               />
             </Link>
             <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
               Strategic Digital Foundry. We engineer high-performance digital assets for Malaysian businesses.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="text-slate-400 hover:text-indigo-500 transition-colors"><Linkedin size={20} /></a>
+            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our Facebook"><Facebook size={20} /></a>
+            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our Twitter"><Twitter size={20} /></a>
+            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our Instagram"><Instagram size={20} /></a>
+            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our LinkedIn"><Linkedin size={20} /></a>
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Menu</h4>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Menu</h2>
             <ul className="space-y-3 md:space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <li><Link to="/" className="hover:text-indigo-500 transition-colors">Home</Link></li>
               <li><Link to="/services" className="hover:text-indigo-500 transition-colors">Services</Link></li>
@@ -47,7 +53,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Contact</h4>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Contact</h2>
             <ul className="space-y-3 md:space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="mt-1 text-indigo-500" />
@@ -65,11 +71,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>&copy; {currentYear} Omino Tech. All rights reserved.</p>
+        <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-700 dark:text-slate-300">
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <p className="font-medium">&copy; {currentYear} Omino Tech. All rights reserved.</p>
+            <p className="font-medium text-slate-500 dark:text-slate-500">
+              <a href="https://www.ssm.com.my/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">SSM</a> Registration No: 202603055630 (NS0319680-K)
+            </p>
+          </div>
           <div className="flex gap-8">
-            <Link to="/privacy" className="hover:text-slate-900 dark:hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

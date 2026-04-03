@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState, useEffect, useLayoutEffect } from 'react';
+import React, { Suspense, lazy, useState, useLayoutEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
@@ -23,6 +23,7 @@ const WebManagementView = lazy(() => import('./views/WebManagementView'));
 const ServerSetupView = lazy(() => import('./views/ServerSetupView'));
 const PrivacyView = lazy(() => import('./views/PrivacyView'));
 const TermsView = lazy(() => import('./views/TermsView'));
+const NotFoundView = lazy(() => import('./views/NotFoundView'));
 
 const PageLoader = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-[#030303] relative overflow-hidden transition-colors duration-300">
@@ -51,7 +52,6 @@ const PageLoader = () => (
 );
 
 export default function App() {
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const location = useLocation();
 
   // 1. Lift theme state to the very top of the app
@@ -73,11 +73,6 @@ export default function App() {
 
   const toggleTheme = () => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
 
-  useEffect(() => {
-    const checkTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    setIsTouchDevice(checkTouchDevice());
-  }, []);
-
   return (
     <HelmetProvider>
       <LazyMotion features={domAnimation}>
@@ -90,7 +85,7 @@ export default function App() {
       <div className="min-h-screen bg-slate-50 dark:bg-[#030303] transition-colors duration-300">
         <Suspense fallback={<PageLoader />}>
           <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
+            <Routes location={location} key={location.pathname as any}>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<ServicesView />} />
               <Route path="/services/web-architecture" element={<WebArchitectureView />} />
@@ -107,6 +102,7 @@ export default function App() {
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/privacy" element={<PrivacyView />} />
               <Route path="/terms" element={<TermsView />} />
+              <Route path="*" element={<NotFoundView />} />
             </Routes>
           </AnimatePresence>
         </Suspense>

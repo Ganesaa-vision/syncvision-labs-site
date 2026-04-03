@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { 
-  ArrowUpRight, Factory, BrainCircuit, HeartPulse, 
+  Factory, BrainCircuit, HeartPulse, 
   Cpu, GitBranch, Terminal, Globe, Lock, TrendingUp, MessageSquare, ShoppingCart
 } from 'lucide-react'; 
+import { PageTransition } from '../PageTransition';
 import { IMAGES } from '../images';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import Footer from '../components/Footer';
@@ -18,6 +19,7 @@ const Work: React.FC = () => {
   }, [pathname]);
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 relative overflow-hidden transition-colors duration-300">
       
@@ -347,6 +349,7 @@ const Work: React.FC = () => {
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

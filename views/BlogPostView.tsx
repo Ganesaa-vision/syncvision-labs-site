@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Facebook, Mail, ChevronRight, ChevronDown, ChevronUp, Check, ArrowRight } from 'lucide-react';
 import { BLOG_POSTS } from '../constants';
+import { PageTransition } from '../PageTransition';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { IMAGES } from '../images';
@@ -80,6 +81,7 @@ const BlogPostView: React.FC = () => {
   };
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
         <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300 relative">
             <Helmet>
@@ -121,7 +123,7 @@ const BlogPostView: React.FC = () => {
 
             <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-32 pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
                 {/* Breadcrumbs (SEO Structure) */}
-                <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-500 mb-8">
+                <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-8">
                     <Link to="/" className="hover:text-indigo-500 transition-colors">Home</Link>
                     <ChevronRight size={12} />
                     <Link to="/blog" className="hover:text-indigo-500 transition-colors">Insights</Link>
@@ -169,9 +171,9 @@ const BlogPostView: React.FC = () => {
                             </div>
                         </div>
                         <div className="flex gap-2">
-                            <button className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-500 transition-all"><Twitter size={18} /></button>
-                            <button className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-700 transition-all"><Linkedin size={18} /></button>
-                            <button className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 text-slate-400 hover:text-indigo-500 transition-all"><Share2 size={18} /></button>
+                            <button aria-label="Share on Twitter" className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-500 transition-all"><Twitter size={18} /></button>
+                            <button aria-label="Share on LinkedIn" className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-blue-50 dark:hover:bg-blue-900/30 text-slate-400 hover:text-blue-700 transition-all"><Linkedin size={18} /></button>
+                            <button aria-label="Share link" className="p-3 rounded-full bg-slate-100 dark:bg-slate-900 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 text-slate-400 hover:text-indigo-500 transition-all"><Share2 size={18} /></button>
                         </div>
                     </div>
 
@@ -343,12 +345,13 @@ const BlogPostView: React.FC = () => {
                     >
                         <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mr-2">Share</span>
                         <div className="flex gap-1">
-                            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#1DA1F2] transition-colors"><Twitter size={18} /></button>
-                            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#0A66C2] transition-colors"><Linkedin size={18} /></button>
-                            <button className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#1877F2] transition-colors"><Facebook size={18} /></button>
+                            <button aria-label="Share on Twitter" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#1DA1F2] transition-colors"><Twitter size={18} /></button>
+                            <button aria-label="Share on LinkedIn" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#0A66C2] transition-colors"><Linkedin size={18} /></button>
+                            <button aria-label="Share on Facebook" className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-[#1877F2] transition-colors"><Facebook size={18} /></button>
                             <div className="w-px h-4 bg-slate-200 dark:bg-slate-700 my-auto mx-1"></div>
                             <button 
                                 onClick={handleCopyLink}
+                                aria-label="Copy link"
                                 className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-indigo-500 transition-colors"
                             >
                                 {copied ? <Check size={18} className="text-green-500" /> : <Share2 size={18} />}
@@ -359,6 +362,7 @@ const BlogPostView: React.FC = () => {
             </AnimatePresence>
         </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

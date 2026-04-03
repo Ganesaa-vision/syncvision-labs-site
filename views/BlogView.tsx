@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { Search, Calendar, Clock, ArrowRight, User } from 'lucide-react';
+import { PageTransition } from '../PageTransition';
 import Footer from '../components/Footer';
 import { BLOG_POSTS } from '../constants';
 import { IMAGES } from '../images';
@@ -22,6 +23,7 @@ const BlogView: React.FC = () => {
   ), [searchQuery]);
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
         <Helmet>
@@ -78,11 +80,11 @@ const BlogView: React.FC = () => {
             <div className="max-w-md mx-auto relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
                 <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full flex items-center px-6 py-4 shadow-lg">
-                    <Search className="w-5 h-5 text-slate-400 mr-4" />
+                    <Search className="w-5 h-5 text-slate-500 dark:text-slate-400 mr-4" />
                     <input 
                         type="text" 
                         placeholder="Search articles..." 
-                        className="bg-transparent border-none outline-none flex-grow text-slate-900 dark:text-white placeholder-slate-400 font-medium"
+                        className="bg-transparent border-none outline-none flex-grow text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 font-medium"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
@@ -157,7 +159,7 @@ const BlogView: React.FC = () => {
                             </div>
                         </div>
                         <div className="p-8 flex flex-col flex-grow">
-                            <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-4 font-mono">
+                            <div className="flex items-center gap-4 text-xs text-slate-600 dark:text-slate-400 mb-4 font-mono">
                                 <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
                                 <span className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</span>
                             </div>
@@ -187,6 +189,7 @@ const BlogView: React.FC = () => {
         <Footer />
       </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

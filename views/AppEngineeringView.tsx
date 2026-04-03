@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
-import { Smartphone, Cpu, Layers, ArrowRight, Database, Cloud, ChevronDown, ChevronUp, Zap, CheckCircle2, Lock, Rocket, Map, ShieldCheck } from 'lucide-react';
+import { Smartphone, Cpu, Database, Cloud, ChevronDown, ChevronUp, Zap, CheckCircle2, Lock, Rocket, ShieldCheck } from 'lucide-react';
+import { PageTransition } from '../PageTransition';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
@@ -56,6 +57,7 @@ const AppEngineeringView: React.FC = () => {
   };
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300 flex flex-col">
       <Helmet>
@@ -85,7 +87,12 @@ const AppEngineeringView: React.FC = () => {
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         {/* === HERO SECTION === */}
-        <div className="mb-24 relative">
+        <m.div 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8, ease: "easeOut" }} 
+          className="mb-24 relative"
+        >
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
           <span className="font-mono text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-[0.4em] mb-6 block">STARTUP & SME APP ENGINEERING</span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
@@ -122,10 +129,16 @@ const AppEngineeringView: React.FC = () => {
                 </div>
             </div>
           </div>
-        </div>
+        </m.div>
 
         {/* === THE PROOF SECTION === */}
-        <div className="mb-32 relative group">
+        <m.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-32 relative group"
+        >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-indigo-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
             <div className="relative bg-white dark:bg-[#0f0f0f] border border-slate-200 dark:border-white/10 rounded-[2rem] p-8 md:p-20 overflow-hidden shadow-xl dark:shadow-none">
                 <div className="absolute top-0 right-0 p-20 opacity-[0.03] text-blue-500 pointer-events-none">
@@ -157,7 +170,7 @@ const AppEngineeringView: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </m.div>
 
         {/* === SEMANTIC DEPTH: ENGINEERING STACK === */}
         <m.div 
@@ -193,7 +206,7 @@ const AppEngineeringView: React.FC = () => {
                     <div key={i} className="group relative min-h-[600px] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 shadow-2xl cursor-default bg-slate-100 dark:bg-slate-900">
                         <img 
                             src={item.image} 
-                            alt={item.title}
+                            alt={`${item.title} - Custom Flutter App Development Malaysia`}
                             className="absolute inset-0 w-full h-full object-contain transform-gpu transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
                             loading="lazy"
                             decoding="async"
@@ -245,7 +258,7 @@ const AppEngineeringView: React.FC = () => {
                         className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group aspect-[4/3] md:aspect-[3/2] lg:aspect-auto lg:h-[500px]"
                     >
                         <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                        <img src={IMAGES.WEB_ARCHITECTURE.PORTFOLIO_HEALTHCARE} alt="Scalable Cloud Architecture" className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                        <img src={IMAGES.WEB_ARCHITECTURE.PORTFOLIO_HEALTHCARE} alt="Scalable cloud architecture and mobile app engineering for local Malaysian startups." className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                     </m.div>
                     <m.div
                         initial={{ opacity: 0, x: 40 }}
@@ -302,7 +315,7 @@ const AppEngineeringView: React.FC = () => {
                         className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group aspect-[4/3] md:aspect-[3/2] lg:aspect-auto lg:h-[500px] order-1 lg:order-2"
                     >
                         <div className="absolute inset-0 bg-gradient-to-tl from-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                        <img src={IMAGES.WEB_ARCHITECTURE.PORTFOLIO_ECOMMERCE} alt="Proactive App Maintenance" className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                        <img src={IMAGES.WEB_ARCHITECTURE.PORTFOLIO_ECOMMERCE} alt="Proactive mobile app maintenance, DevOps, and deployment for iOS and Android." className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                     </m.div>
                 </div>
             </div>
@@ -396,7 +409,13 @@ const AppEngineeringView: React.FC = () => {
         </div>
         
         {/* === FINAL CTA === */}
-        <div className="text-center">
+        <m.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center"
+        >
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">Ready to Build? Let’s Talk Logic.</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto">Stop waiting on massive agency proposals. Tell us what you need to build, and let's get started on the codebase this week.</p>
           <WhatsAppButton 
@@ -405,11 +424,12 @@ const AppEngineeringView: React.FC = () => {
             className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full font-bold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-500/30"
             showIcon={true}
           />
-        </div>
+        </m.div>
       </m.main>
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

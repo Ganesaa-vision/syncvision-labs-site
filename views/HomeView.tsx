@@ -6,7 +6,7 @@ import CountUp from 'react-countup';
 import { 
     ArrowRight, Code2, Cpu, Globe, Zap, Bot, Terminal, 
     ShieldCheck, TrendingUp, Activity, Rocket, MessageSquare,
-    ChevronDown, ChevronUp, CheckCircle2, CreditCard, Lock, Database, Calendar, Clock,
+    ChevronDown, ChevronUp, CheckCircle2, CreditCard, Lock, Calendar, Clock,
     LineChart, Network
 } from 'lucide-react';
 import Footer from '../components/Footer';
@@ -45,7 +45,7 @@ const MetricCounter = ({ end, suffix = "", title, description, icon: Icon, delay
                     {hasEntered ? <CountUp end={end} duration={2.5} separator="," /> : "0"}{suffix}
                 </div>
                 <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1 tracking-tight">{title}</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{description}</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">{description}</p>
             </div>
         </m.article>
     );
@@ -135,7 +135,7 @@ const BlogPreview = () => {
                                 <div className="absolute top-4 left-4"><span className="px-3 py-1 bg-white/90 dark:bg-black/80 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider rounded-lg border border-slate-200 dark:border-white/10 text-indigo-600 dark:text-indigo-300">{post.category}</span></div>
                             </div>
                             <div className="p-8 flex flex-col justify-between">
-                                <div className="flex items-center gap-4 text-xs text-slate-500 mb-4 font-mono"><span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span><span className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</span></div>
+                            <div className="flex items-center gap-4 text-xs text-slate-600 dark:text-slate-400 mb-4 font-mono"><span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span><span className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</span></div>
                                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 leading-snug group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors tracking-tight">{post.title}</h3>
                             </div>
                         </Link>
@@ -184,6 +184,7 @@ const HomeView: React.FC = () => {
             {
                 "@type": "ProfessionalService",
                 "name": "Omino Tech",
+                "url": "https://www.ominotech.com.my",
                 "description": "Specialized custom web development and technical SEO engineering firm for Malaysian SMEs and modern businesses.",
                 "areaServed": "Malaysia",
                 "address": {
@@ -203,7 +204,7 @@ const HomeView: React.FC = () => {
                         "name": "What makes Omino Tech different from traditional web agencies in Malaysia?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Unlike traditional agencies that rely on slow, pre-built templates, Omino Tech specializes in high-performance, custom web architecture. We write clean code using Next.js and React to ensure sub-second load times and elite Google Core Web Vitals scores."
+                            "text": "Unlike traditional agencies that rely on slow, pre-built templates, Omino Tech specializes in high-performance, custom web architecture. We write clean code using <a href=\"https://nextjs.org/\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-indigo-600 dark:text-indigo-400 hover:underline\">Next.js</a> and React to ensure sub-second load times and elite <a href=\"https://web.dev/vitals/\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-indigo-600 dark:text-indigo-400 hover:underline\">Google Core Web Vitals</a> scores."
                         }
                     },
                     {
@@ -406,37 +407,16 @@ const HomeView: React.FC = () => {
                             </span>
                         </m.h1>
 
-                        {/* CTAs */}
-                        <m.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto mb-16 md:mb-20"
-                        >
-                            <Link to="/services" className="w-full sm:w-auto group relative inline-flex items-center justify-center px-8 py-4 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.15)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]">
-                                <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
-                                <span className="relative flex items-center gap-3 group-hover:text-white transition-colors duration-500">
-                                    View Our Custom Web Development Packages <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                                </span>
-                            </Link>
-                            <Link to="/services/seo-service" className="w-full sm:w-auto group relative inline-flex items-center justify-center px-8 py-4 font-bold text-sm uppercase tracking-[0.2em] text-slate-700 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-transparent hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
-                                <span className="absolute inset-0 bg-slate-100 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
-                                <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
-                                    Explore our SEO Ranking Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                                </span>
-                            </Link>
-                        </m.div>
-
                         {/* The Text Block / Manifesto Panel */}
                         <m.div
-                            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                            className="relative w-full max-w-4xl mx-auto"
+                            className="relative w-full max-w-4xl mx-auto mb-12 md:mb-16 group"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-cyan-500/20 blur-3xl rounded-[2rem] opacity-50 pointer-events-none"></div>
-                            <div className="relative p-[1px] rounded-[2.5rem] bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-white/0 overflow-hidden shadow-2xl">
-                                <div className="relative bg-white/60 dark:bg-[#030303]/80 backdrop-blur-2xl p-8 md:p-12 rounded-[2.5rem]">
+                            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-cyan-500/20 blur-3xl rounded-[2rem] opacity-50 pointer-events-none transform-gpu"></div>
+                            <div className="relative p-[1px] rounded-[2.5rem] bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-white/0 overflow-hidden shadow-2xl transform-gpu">
+                                <div className="relative bg-white/60 dark:bg-[#030303]/80 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] transform-gpu">
                                     {/* Mac window dots for aesthetic */}
                                     <div className="relative flex items-center justify-between mb-8 pb-5 border-b border-slate-200 dark:border-white/5">
                                         <div className="flex gap-2 relative z-10">
@@ -491,6 +471,27 @@ const HomeView: React.FC = () => {
                                 </div>
                             </div>
                         </m.div>
+
+                        {/* CTAs */}
+                        <m.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto mb-16 md:mb-20"
+                        >
+                            <Link to="/services" className="w-full sm:w-auto group relative inline-flex items-center justify-center px-8 py-4 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.15)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]">
+                                <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
+                                <span className="relative flex items-center gap-3 group-hover:text-white transition-colors duration-500">
+                                    View Our Custom Web Development Packages <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                </span>
+                            </Link>
+                            <Link to="/services/seo-service" className="w-full sm:w-auto group relative inline-flex items-center justify-center px-8 py-4 font-bold text-sm uppercase tracking-[0.2em] text-slate-700 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-transparent hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-sm hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
+                                <span className="absolute inset-0 bg-slate-100 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
+                                <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
+                                    Explore our SEO Ranking Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                </span>
+                            </Link>
+                        </m.div>
                         </div>
                     </header>
                     
@@ -502,7 +503,7 @@ const HomeView: React.FC = () => {
                             transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
                         >
                             {[...Array(8)].map((_, i) => (
-                                <div key={i} className="flex gap-16 md:gap-32 text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 items-center">
+                            <div key={i} className="flex gap-16 md:gap-32 text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 items-center">
                                     <span className="flex items-center gap-3"><TrendingUp size={14} className="text-purple-600 dark:text-purple-500"/> <span className="text-slate-900 dark:text-slate-200">Rank #1 on Google</span></span>
                                     <span className="flex items-center gap-3"><Zap size={14} className="text-indigo-600 dark:text-indigo-500"/> <span className="text-slate-900 dark:text-slate-200">AI Overview Captured</span></span>
                                     <span className="flex items-center gap-3"><Activity size={14} className="text-cyan-600 dark:text-cyan-500"/> <span className="text-slate-900 dark:text-slate-200">420% Lead Increase</span></span>
@@ -550,8 +551,8 @@ const HomeView: React.FC = () => {
 
                             <BentoCard 
                                 className="lg:col-span-2" 
-                                title="Asset Ownership (No Rent)" 
-                                description="Stop paying monthly 'rent' to Shopify or Wix. We build custom digital assets that you own 100%. No platform fees. No hidden commissions. Just pure scalable profit." 
+                                title="Full Ownership (No Rent)" 
+                                description="Stop paying monthly 'rent' to Shopify or Wix. We build custom digital platforms that you own 100%. No platform fees. No hidden commissions. Just pure scalable profit." 
                                 icon={Lock}
                             >
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-50 dark:bg-white/[0.03] border border-indigo-100 dark:border-white/10 text-indigo-600 dark:text-indigo-300 text-xs font-bold font-mono uppercase tracking-wider">
@@ -582,7 +583,7 @@ const HomeView: React.FC = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
                                 <MetricCounter delay={0.1} end={95} suffix="%" title="Faster Load Times" description="Sub-second speed via modern JS payloads." icon={Zap} />
                                 <MetricCounter delay={0.2} end={420} suffix="%" title="Lead Increase" description="Conversion-optimized UX." icon={TrendingUp} />
-                                <MetricCounter delay={0.3} end={400} suffix="+" title="Projects Deployed" description="Verifiable engineering scale." icon={ShieldCheck} />
+                                <MetricCounter delay={0.3} end={100} suffix="%" title="Full Ownership" description="Zero vendor lock-in or hidden rent." icon={ShieldCheck} />
                                 <MetricCounter delay={0.4} end={17} suffix="" title="Days to Rank #1" description="Aggressive Programmatic SEO." icon={Rocket} />
                             </div>
                         </div>
@@ -622,7 +623,7 @@ const HomeView: React.FC = () => {
                             </div>
                             <div className="flex-1 w-full">
                                 <div className="relative aspect-square md:aspect-video bg-slate-100 dark:bg-[#050505] rounded-[2.5rem] border border-slate-200 dark:border-white/5 overflow-hidden shadow-xl dark:shadow-2xl group">
-                                    <img src={IMAGES.HOME.FUTURE_TECH_AI_NETWORK} alt="Omino Tech deploying 24/7 AI WhatsApp automation and sales chatbots for Malaysian businesses." loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-contain opacity-60 dark:opacity-40 group-hover:opacity-80 dark:group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000" />
+                                    <img src={IMAGES.HOME.FUTURE_TECH_AI_NETWORK} alt="Deploying 24/7 AI WhatsApp chatbots and business workflow automation systems to scale operations in Malaysia." loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-contain opacity-60 dark:opacity-40 group-hover:opacity-80 dark:group-hover:opacity-60 group-hover:scale-105 transition-all duration-1000" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-100 dark:from-[#030303] via-transparent to-transparent"></div>
                                     <div className="absolute bottom-8 left-8 right-8 p-6 bg-white/80 dark:bg-white/[0.02] backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 shadow-xl dark:shadow-2xl">
                                         <div className="flex items-center gap-4 mb-3">
@@ -657,7 +658,7 @@ const HomeView: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                             <PremiumServiceCard 
                                 title="Custom Web Architecture"
-                                description="We write the code. From high-speed corporate sites to complex web applications, we engineer scalable digital assets starting at just RM 590."
+                                description="We write the code. From high-speed corporate sites to complex web applications, we engineer scalable platforms starting at just RM 590."
                                 icon={Code2}
                                 features={["High-Speed Corporate Sites", "Starting at RM 590"]}
                                 delay={0.1}
@@ -789,7 +790,7 @@ const HomeView: React.FC = () => {
                                         </div>
                                         <h3 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-2">Our Engineering Solution</h3>
                                         <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                                            We do not rely on drag-and-drop shortcuts. By engineering custom solutions using modern stacks like Next.js, React, and Vite, we guarantee <strong className="text-slate-900 dark:text-white">sub-second load times</strong> that easily pass Google's strictest Core Web Vitals speed tests. This uncompromising technical superiority serves as the foundation for our aggressive SEO strategies, ensuring our clients achieve high-visibility search rankings across the entire country while retaining <strong className="text-indigo-600 dark:text-indigo-400">absolute ownership</strong> of their digital assets.
+                                            We do not rely on drag-and-drop shortcuts. By engineering custom solutions using modern stacks like Next.js, React, and Vite, we guarantee <strong className="text-slate-900 dark:text-white">sub-second load times</strong> that easily pass Google's strictest Core Web Vitals speed tests. This uncompromising technical superiority serves as the foundation for our aggressive SEO strategies, ensuring our clients achieve high-visibility search rankings across the entire country while retaining <strong className="text-indigo-600 dark:text-indigo-400">absolute ownership</strong> of their digital platforms.
                                         </p>
                                     </div>
                                 </div>
@@ -859,7 +860,7 @@ const HomeView: React.FC = () => {
                             <div className="inline-flex items-center gap-2 mb-6">
                                 <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-bold uppercase tracking-[0.2em]">Initiate Protocol</span>
                             </div>
-                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">Ready to Build Your <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-indigo-400 dark:to-cyan-300">Digital Asset?</span></h2>
+                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">Ready to Build Your <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-indigo-400 dark:to-cyan-300">Digital Platform?</span></h2>
                             <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-12 max-w-2xl font-medium">Get enterprise-grade engineering at local market rates. Stop paying rent, start owning your code.</p>
                             <Link to="/contact" className="group relative inline-flex items-center justify-center px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-base uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 duration-500 shadow-[0_0_50px_rgba(0,0,0,0.1)] dark:shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(99,102,241,0.6)]">
                                 <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>

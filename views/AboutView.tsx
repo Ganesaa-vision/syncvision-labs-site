@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation, Link } from 'react-router-dom';
 import { 
-  Code, BrainCircuit, 
-  Terminal, Zap, ShieldCheck, Rocket,
-  Target, Users, Quote
+  Code, BrainCircuit, Terminal, Zap, ShieldCheck,
+  Target, Users, Quote, Globe, Cpu
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { IMAGES } from '../images';
+import { PageTransition } from '../PageTransition';
+import Founders from '../components/Founders';
 
 const AboutView: React.FC = () => {
   const { pathname } = useLocation();
@@ -18,9 +19,22 @@ const AboutView: React.FC = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
-  
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Omino Tech",
+    "url": "https://www.ominotech.com.my",
+    "logo": "https://www.ominotech.com.my/favicon-96x96.png",
+    "description": "A team of student innovators specializing in high-performance web architecture, mobile apps, and AI automation in Malaysia.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Selangor",
+      "addressCountry": "MY"
+    }
+  };
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="bg-white dark:bg-[#050505] min-h-screen flex flex-col text-slate-900 dark:text-slate-100 font-sans selection:bg-green-500/30 overflow-x-hidden transition-colors duration-300">
       <Helmet>
@@ -44,6 +58,7 @@ const AboutView: React.FC = () => {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Omino Tech" />
         <link rel="manifest" href="/site.webmanifest" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 
       {/* Background Elements */}
@@ -133,11 +148,11 @@ const AboutView: React.FC = () => {
                  </p>
                  <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-white/10 flex items-center justify-center">
-                        <span className="font-bold text-xs text-indigo-500">GL</span>
+                        <span className="font-bold text-xs text-indigo-600 dark:text-indigo-400">GL</span>
                     </div>
                     <div>
                         <div className="text-slate-900 dark:text-white font-bold text-sm">Ganesaa</div>
-                        <div className="text-slate-500 text-xs uppercase tracking-widest">Founder, Omino Tech</div>
+                        <div className="text-slate-600 dark:text-slate-400 text-xs uppercase tracking-widest">Founder, Omino Tech</div>
                     </div>
                  </div>
               </div>
@@ -147,7 +162,7 @@ const AboutView: React.FC = () => {
         {/* 2. THE STUDENT INNOVATOR ADVANTAGE */}
         <div className="mb-40">
            <div className="text-center mb-20">
-              <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Advantage</span>
+             <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Advantage</span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">The Student Advantage</h2>
               <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Most people think hiring a student is a risk. <br/>Here is why hiring an agency is the real risk.</p>
            </div>
@@ -203,7 +218,7 @@ const AboutView: React.FC = () => {
         {/* 3. PHILOSOPHY */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-40 items-center">
            <div>
-              <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">Our Philosophy</span>
+             <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">Our Philosophy</span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">Innovation at the <br/> Speed of Thought</h2>
               <p className="text-slate-600 dark:text-slate-400 text-lg mb-8">
                 We don't believe in 6-month timelines for a website. That’s absurd. We believe in Agile Innovation.
@@ -223,7 +238,7 @@ const AboutView: React.FC = () => {
                       whileHover={{ scale: 1.02, x: 10 }}
                       className="flex gap-6 p-6 bg-white dark:bg-slate-900/20 border border-slate-200 dark:border-white/5 rounded-2xl hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 hover:border-indigo-500/30 transition-all shadow-sm dark:shadow-none group"
                     >
-                       <div className="text-indigo-500 font-mono font-bold text-xl">0{i+1}</div>
+                     <div className="text-indigo-600 dark:text-indigo-400 font-mono font-bold text-xl">0{i+1}</div>
                        <div>
                           <h4 className="text-slate-900 dark:text-white font-bold mb-2">{item.title}</h4>
                           <p className="text-slate-600 dark:text-slate-400 text-sm">{item.desc}</p>
@@ -241,7 +256,7 @@ const AboutView: React.FC = () => {
                  
                  <div className="space-y-8">
                     <div>
-                       <div className="text-xs text-indigo-500 font-mono uppercase tracking-widest mb-2">Core Stack</div>
+                  <div className="text-xs text-indigo-600 dark:text-indigo-400 font-mono uppercase tracking-widest mb-2">Core Stack</div>
                        <div className="flex flex-wrap gap-2">
                           {['Flutter (Mobile)', 'React/Next.js (Web)', 'Python/AI'].map(tag => (
                              <span key={tag} className="px-3 py-1 bg-indigo-900/20 border border-indigo-500/20 rounded text-indigo-400 text-xs font-mono">{tag}</span>
@@ -249,11 +264,11 @@ const AboutView: React.FC = () => {
                        </div>
                     </div>
                     <div>
-                       <div className="text-xs text-indigo-500 font-mono uppercase tracking-widest mb-2">Mission</div>
+                  <div className="text-xs text-indigo-600 dark:text-indigo-400 font-mono uppercase tracking-widest mb-2">Mission</div>
                        <p className="text-slate-700 dark:text-slate-300 text-sm">To lower the barrier of entry for Malaysian businesses to go digital.</p>
                     </div>
                     <div>
-                       <div className="text-xs text-indigo-500 font-mono uppercase tracking-widest mb-2">Standard</div>
+                  <div className="text-xs text-indigo-600 dark:text-indigo-400 font-mono uppercase tracking-widest mb-2">Standard</div>
                        <p className="text-slate-700 dark:text-slate-300 text-sm">We don't ship code we aren't proud of.</p>
                     </div>
                  </div>
@@ -264,7 +279,7 @@ const AboutView: React.FC = () => {
         {/* 4. LEADERSHIP CORE */}
         <div className="mb-40 relative">
            <div className="text-center mb-24 relative z-10">
-              <span className="text-indigo-500 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">System Architects</span>
+             <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">System Architects</span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
                 THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">CORE.</span>
               </h2>
@@ -295,7 +310,7 @@ const AboutView: React.FC = () => {
                             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10 transform-gpu">
                             <img 
                                 src={IMAGES.ABOUT.FOUNDER_GANESAA}
-                                alt="Omino Tech software engineering team building a custom Next.js web application in Selangor" 
+                                alt="Ganesaa, Lead Architect at Omino Tech, specializing in high-performance custom Next.js web applications in Malaysia." 
                                 className="w-full h-full object-contain transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
                                 loading="lazy"
                                 decoding="async"
@@ -336,7 +351,7 @@ const AboutView: React.FC = () => {
                             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10 transform-gpu">
                             <img 
                                 src={IMAGES.ABOUT.CO_FOUNDER}
-                                alt="Omino Tech leadership team optimizing Google Rankings in Malaysia" 
+                                alt="Omino Tech Strategy Lead planning technical SEO dominance and local search optimization in Kuala Lumpur." 
                                 className="w-full h-full object-contain transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
                                 loading="lazy"
                                 decoding="async"
@@ -364,7 +379,7 @@ const AboutView: React.FC = () => {
            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-indigo-500/10 to-transparent blur-3xl pointer-events-none" style={{ backgroundImage: `url(${IMAGES.ABOUT.NOISE_TEXTURE})`, opacity: 0.05 }}></div>
            
            <div className="relative z-10">
-              <h3 className="text-indigo-500 font-mono text-sm font-black uppercase tracking-[0.3em] mb-8">The Omino Tech Promise</h3>
+          <h3 className="text-indigo-600 dark:text-indigo-400 font-mono text-sm font-black uppercase tracking-[0.3em] mb-8">The Omino Tech Promise</h3>
               
               <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 max-w-4xl mx-auto mb-12 leading-relaxed font-medium">
                 "We are not the cheapest because we cut corners. We are the most affordable because we cut out the nonsense. If you want a team that wears suits and talks about 'synergy,' hire an agency. <br/><br/>
@@ -385,6 +400,7 @@ const AboutView: React.FC = () => {
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

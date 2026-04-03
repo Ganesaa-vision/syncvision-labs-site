@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
-import { Globe, Code2, ShoppingBag, ShieldCheck, Server, ArrowRight, CheckCircle2, Zap, Layout, Smartphone, Lock, Database, PenTool, Gauge, ChevronDown, ChevronUp, Rocket, Layers, Cpu, Sparkles } from 'lucide-react';
+import { Globe, ShoppingBag, Server, ArrowRight, CheckCircle2, Zap, Layout, Lock, Database, Gauge, ChevronDown, ChevronUp, Rocket, Layers, Cpu, Sparkles, Target, Code2 } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { IMAGES } from '../images';
+import { PageTransition } from '../PageTransition';
 
 const WebArchitectureView: React.FC = () => {
   const { pathname } = useLocation();
@@ -146,9 +147,11 @@ const WebArchitectureView: React.FC = () => {
       {
         "@type": "Service",
         "serviceType": "Web Development",
+        "url": "https://www.ominotech.com.my/services/web-architecture",
         "provider": {
           "@type": "LocalBusiness",
-          "name": "Omino Tech",
+          "name": "Omino Tech - Web Development Company",
+          "url": "https://www.ominotech.com.my",
           "address": "Selangor, Malaysia"
         },
         "areaServed": "Malaysia",
@@ -214,6 +217,7 @@ const WebArchitectureView: React.FC = () => {
   };
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
       <Helmet>
@@ -241,39 +245,105 @@ const WebArchitectureView: React.FC = () => {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 
-      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-28 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         {/* HERO */}
-        <div className="mb-24 relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-6 block">TOP-RATED WEB DEVELOPMENT COMPANY IN MALAYSIA</span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
-            Affordable & High-Performance <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">Web Developers in Malaysia</span>
-          </h1>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7">
-                <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                    Are you looking for a reliable web development company in Malaysia that won't overcharge you? Most agencies hide their prices and trap you in expensive monthly contracts. At Omino Tech, we build high-speed, professional websites for Malaysian SMEs with 100% transparent pricing. Whether you need a quick RM 590 landing page or a custom Next.js web application, you get exactly what you pay for—with zero hidden fees and full ownership of your site.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                    <div className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-sm font-medium flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> One-Time Payment (No Hidden Monthly Traps)</div>
-                    <div className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-sm font-medium flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> 100% Code & Domain Ownership</div>
-                    <div className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-sm font-medium flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-green-500" /> Built-in WhatsApp & SEO Setup</div>
-                </div>
-            </div>
-            <div className="lg:col-span-5">
-                <div className="p-8 bg-slate-100 dark:bg-slate-900/50 rounded-3xl border border-slate-200 dark:border-slate-800">
-                    <h3 className="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2"><Rocket className="w-5 h-5 text-indigo-500" /> Quick Launch</h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-                        We are the only tech agency in Selangor offering a fully optimized business landing page for just <span className="text-slate-900 dark:text-white font-bold">RM 590</span>—the most affordable rate in the country.
-                    </p>
-                    <WhatsAppButton 
-                        serviceName="RM590 Landing Page"
-                        buttonText="Start Web Development for RM 590"
-                        className="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold text-sm hover:bg-indigo-700 transition-colors"
-                        showIcon={false}
-                    />
-                </div>
+        <div className="mb-24 md:mb-32 relative pt-6 md:pt-12">
+          <div className="w-full relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                {/* LEFT COLUMN: Title & CTAs */}
+                <m.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="lg:col-span-7 flex flex-col items-start text-left"
+                >
+                    <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/80 dark:bg-[#0a0a0a]/80 border border-slate-200/50 dark:border-white/10 mb-6 md:mb-8 backdrop-blur-xl shadow-lg shadow-indigo-500/5 transform-gpu transition-all hover:scale-105 hover:border-indigo-500/30">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(99,102,241,0.8)]"></div>
+                      <span className="font-mono text-slate-800 dark:text-slate-300 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em]">TOP-RATED WEB DEVELOPMENT COMPANY IN MALAYSIA</span>
+                    </div>
+
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1] mb-8">
+                      Affordable & <span className="whitespace-nowrap">High-Performance</span> <br />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">
+                        Web Developers in Malaysia
+                      </span>
+                    </h1>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-start gap-4 sm:gap-6 w-full sm:w-auto mb-10">
+                        <WhatsAppButton 
+                            serviceName="Web Architecture"
+                            buttonText="Start Your Project"
+                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.15)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]"
+                            showIcon={false}
+                        >
+                            <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
+                            <span className="relative flex items-center gap-3 group-hover:text-white transition-colors duration-500">
+                                Start Your Project
+                            </span>
+                        </WhatsAppButton>
+                        
+                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-700 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
+                            <span className="absolute inset-0 bg-slate-100 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
+                            <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
+                                View Packages
+                            </span>
+                        </a>
+                    </div>
+
+                    <div className="inline-flex flex-wrap justify-start items-center gap-x-6 gap-y-3 px-8 py-4 rounded-full bg-white/40 dark:bg-white/[0.02] border border-slate-200/50 dark:border-white/5 backdrop-blur-xl shadow-sm">
+                        <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> One-Time Payment</div>
+                        <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
+                        <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 100% Ownership</div>
+                        <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 hidden sm:block"></div>
+                        <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> SEO Optimized</div>
+                    </div>
+                </m.div>
+
+                {/* RIGHT COLUMN: Promise Card */}
+                <m.div 
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="lg:col-span-5 relative w-full group mt-10 lg:mt-0"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-cyan-500/20 blur-2xl rounded-[2rem] opacity-40 pointer-events-none transform-gpu transition-opacity duration-500 group-hover:opacity-60"></div>
+                    
+                    <div className="relative p-[1px] rounded-[2.5rem] bg-gradient-to-br from-indigo-500/40 via-slate-300/50 to-cyan-500/40 dark:from-indigo-500/40 dark:via-slate-700/50 dark:to-cyan-500/40 overflow-hidden shadow-2xl transform-gpu hover:-translate-y-2 transition-all duration-500">
+                        <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-8 md:p-10 rounded-[2.5rem] text-left flex flex-col h-full">
+                            
+                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-200/60 dark:border-white/5">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-500/10 dark:to-purple-500/10 flex items-center justify-center border border-indigo-100 dark:border-white/5 shadow-sm flex-shrink-0">
+                                        <Target className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-base md:text-lg font-black uppercase tracking-[0.1em] text-slate-900 dark:text-white mb-0.5">Our Promise</h3>
+                                        <div className="text-[10px] font-mono text-indigo-600 dark:text-indigo-400 uppercase tracking-widest font-bold">Omino Tech Standards</div>
+                                    </div>
+                                </div>
+                                
+                                <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-slate-100/50 dark:bg-white/[0.03] rounded-lg border border-slate-200/50 dark:border-white/5">
+                                    <div className="flex items-end gap-[2px] h-2.5">
+                                        <span className="w-1 h-full bg-emerald-500 rounded-sm animate-[pulse_1s_ease-in-out_Infinity]"></span>
+                                        <span className="w-1 h-1.5 bg-emerald-500 rounded-sm animate-[pulse_1.5s_ease-in-out_Infinity]"></span>
+                                        <span className="w-1 h-2 bg-emerald-500 rounded-sm animate-[pulse_2s_ease-in-out_Infinity]"></span>
+                                    </div>
+                                    <span className="text-[9px] font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400">100% Transparent</span>
+                                </div>
+                            </div>
+                            
+                            <div className="space-y-4 text-base text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                                <p>
+                                    Are you looking for a reliable <Link to="/" className="text-indigo-600 dark:text-indigo-400 font-black hover:underline">web development company in Malaysia</Link> that won't overcharge you? Most agencies hide their prices and trap you in expensive monthly contracts. 
+                                </p>
+                                <p>
+                                    At Omino Tech, we build high-speed, professional websites for Malaysian SMEs with <span className="text-indigo-600 dark:text-indigo-400 font-bold bg-indigo-500/10 px-2 py-0.5 rounded">100% transparent pricing</span>. Whether you need a quick <strong className="text-slate-900 dark:text-white font-black">RM 590 landing page</strong> or a custom <strong className="text-slate-900 dark:text-white font-black">Next.js web application</strong>, you get exactly what you pay for—with zero hidden fees and full ownership of your site.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </m.div>
             </div>
           </div>
         </div>
@@ -295,7 +365,7 @@ const WebArchitectureView: React.FC = () => {
                     </h2>
 
                     <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed max-w-4xl font-medium">
-                        A slow website kills your sales. If your site takes more than 3 seconds to load on a Malaysian 4G network, customers will leave. You are experiencing the speed of our custom-engineered Next.js architecture right now. Zero lag. Instant clicks. This is the standard our web developers in Malaysia build for your business.
+                        A slow website kills your sales. If your site takes more than 3 seconds to load on a Malaysian 4G network, customers will leave. You are experiencing the speed of our custom-engineered Vite / React architecture right now. Zero lag. Instant clicks. This is the standard our web developers in Malaysia build for your business.
                     </p>
 
                     <div className="mt-12 flex flex-wrap gap-6">
@@ -346,7 +416,7 @@ const WebArchitectureView: React.FC = () => {
                         {/* Background Image */}
                         <img 
                             src={item.image} 
-                            alt={item.title}
+                            alt={`${item.title} - ${item.desc} | Custom web design portfolio Malaysia`}
                             className="absolute inset-0 w-full h-full object-contain transform-gpu transition-transform duration-700 group-hover:scale-110"
                             loading="lazy"
                             decoding="async"
@@ -406,7 +476,7 @@ const WebArchitectureView: React.FC = () => {
                         className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group aspect-[3/2] w-full"
                     >
                         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                        <img src={IMAGES.WEB_ARCHITECTURE.PHILOSOPHY_LOGIC} alt="Custom Business Logic" className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                        <img src={IMAGES.WEB_ARCHITECTURE.PHILOSOPHY_LOGIC} alt="Custom e-commerce web development and backend business logic for Malaysian SMEs." className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                     </m.div>
                     <m.div
                         initial={{ opacity: 0, x: 40 }}
@@ -445,7 +515,7 @@ const WebArchitectureView: React.FC = () => {
                         </div>
                         <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">Google Speed Optimization (Core Web Vitals)</h3>
                         <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                            A slow website destroys your Google ranking and kills your sales. While other agencies rely on heavy WordPress themes, we strip out the bloated code to engineer sub-second load times.
+                            A slow website destroys your Google ranking and kills your sales. While other agencies rely on heavy, slow WordPress themes, we strip out the bloated code. Whether we are optimizing an Elementor corporate site or building a custom <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer" className="text-yellow-600 dark:text-yellow-400 font-bold hover:underline">Next.js</a> web application, we engineer sub-second load times. This passes Google’s strict <a href="https://web.dev/vitals/" target="_blank" rel="noopener noreferrer" className="text-yellow-600 dark:text-yellow-400 font-bold hover:underline">Core Web Vitals</a> speed tests, ensuring your customers never wait and your competitors never outrank you.
                         </p>
                         <ul className="space-y-4">
                             {['Sub-second Load Times (< 0.8s)', 'Core Web Vitals Pass Guarantee', 'Zero-Bloat Architecture'].map((feat, i) => (
@@ -463,7 +533,7 @@ const WebArchitectureView: React.FC = () => {
                         className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group aspect-[3/2] w-full order-1 lg:order-2"
                     >
                         <div className="absolute inset-0 bg-gradient-to-tl from-yellow-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                        <img src={IMAGES.WEB_ARCHITECTURE.PHILOSOPHY_SPEED} alt="Core Web Vitals Optimization" className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                        <img src={IMAGES.WEB_ARCHITECTURE.PHILOSOPHY_SPEED} alt="High-performance web architecture passing Google Core Web Vitals with sub-second load times." className="absolute inset-0 w-full h-full object-cover transform-gpu group-hover:scale-105 transition-transform duration-700" loading="lazy" />
                     </m.div>
                 </div>
             </div>
@@ -587,7 +657,7 @@ const WebArchitectureView: React.FC = () => {
                             >
                                 <img 
                                     src={activeTier.image} 
-                                    alt={activeTier.name}
+                                    alt={`${activeTier.name} - Affordable web development package in Malaysia`}
                                     className="object-contain w-full h-full transform-gpu group-hover:scale-105 transition-transform duration-1000" 
                                     loading="lazy"
                                     decoding="async"
@@ -621,6 +691,7 @@ const WebArchitectureView: React.FC = () => {
         </div>
 
         {/* PRICING */}
+        <div id="pricing">
         <PricingSection 
           serviceName="Web Architecture"
           title="Website Design Packages in Malaysia"
@@ -695,6 +766,7 @@ const WebArchitectureView: React.FC = () => {
             }
           ]}
         />
+        </div>
 
         {/* === E-COMMERCE UPGRADE === */}
         <m.div 
@@ -752,11 +824,11 @@ const WebArchitectureView: React.FC = () => {
                     <div className="flex justify-between items-start mb-6">
                         <Globe className="w-10 h-10 text-slate-400" />
                         <div className="text-right">
-                            <div className="text-2xl font-bold text-slate-900 dark:text-white">RM 80<span className="text-sm text-slate-500 font-normal">/mo</span></div>
+                        <div className="text-2xl font-bold text-slate-900 dark:text-white">RM 80<span className="text-sm text-slate-600 dark:text-slate-400 font-normal">/mo</span></div>
                         </div>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Just Hosting</h3>
-                    <p className="text-slate-500 text-sm mb-6">Perfect for our RM 1,190 WordPress package.</p>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Just Hosting</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6">Perfect for our RM 1,190 WordPress package.</p>
                     <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
                         <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-slate-500" /> High-speed Malaysian Cloud Hosting</li>
                         <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-slate-500" /> SSL Included</li>
@@ -770,11 +842,11 @@ const WebArchitectureView: React.FC = () => {
                     <div className="flex justify-between items-start mb-6">
                         <Server className="w-10 h-10 text-indigo-400" />
                         <div className="text-right">
-                            <div className="text-2xl font-bold text-slate-900 dark:text-white">RM 250<span className="text-sm text-slate-500 font-normal">/mo</span></div>
+                        <div className="text-2xl font-bold text-slate-900 dark:text-white">RM 250<span className="text-sm text-slate-600 dark:text-slate-400 font-normal">/mo</span></div>
                         </div>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">The Tech Partner</h3>
-                    <p className="text-slate-500 text-sm mb-6">Required for our RM 2,750 Next.js apps.</p>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">The Tech Partner</h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6">Required for our RM 2,750 Next.js apps.</p>
                     <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
                         <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Premium AWS/Vercel Server Management</li>
                         <li className="flex gap-3"><CheckCircle2 className="w-4 h-4 text-indigo-500" /> Monthly Code Updates</li>
@@ -834,6 +906,7 @@ const WebArchitectureView: React.FC = () => {
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

@@ -15,7 +15,7 @@ const Features: React.FC = () => {
         <div className="order-2 lg:order-1 relative h-[500px] lg:h-auto overflow-hidden">
            <img 
              src={IMAGES.COMPONENTS.FEATURE_STONE}
-             alt="Natural Stone Texture" 
+             alt="Premium digital infrastructure built with robust, long-lasting software architecture." 
              className="absolute inset-0 w-full h-full object-contain hover:scale-105 transition-transform duration-[1.5s]"
            />
         </div>
@@ -45,7 +45,7 @@ const Features: React.FC = () => {
         <div className="relative h-[500px] lg:h-auto overflow-hidden">
            <img 
              src={IMAGES.COMPONENTS.FEATURE_READING}
-             alt="Woman sitting on wooden floor reading" 
+             alt="Seamless user experience and distraction-free interface design for modern web applications." 
              className="absolute inset-0 w-full h-full object-contain hover:scale-105 transition-transform duration-[1.5s] brightness-90"
            />
         </div>

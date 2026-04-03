@@ -5,10 +5,11 @@ import {
   Code, Smartphone, ShoppingBag, 
   Bot, BarChart, HardDrive, ArrowRight, ShieldCheck,
   MapPin, Phone, Mail, Building2, ChevronDown, ChevronUp,
-  CheckCircle2, MessageSquare
+  CircleCheck, MessageSquare
 } from 'lucide-react'; 
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
+import { PageTransition } from '../PageTransition';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { IMAGES } from '../images';
 
@@ -46,7 +47,7 @@ const services = [
     title: 'AI Chatbot Development',
     description: 'Automate your customer service. Custom AI agents and WhatsApp auto-reply systems for business automation.',
     icon: <Bot className="w-8 h-8 text-purple-400 group-hover:text-white dark:group-hover:text-purple-600 transition-colors duration-300" />,
-    link: '/contact',
+    link: '/services/automation',
     tags: ['WhatsApp', 'Chatbots', 'AI']
   },
   {
@@ -54,7 +55,7 @@ const services = [
     title: 'E-Commerce Web Design',
     description: 'Launch a secure, high-converting online store. Custom WooCommerce expert development with Stripe/FPX integration.',
     icon: <ShoppingBag className="w-8 h-8 text-yellow-400 group-hover:text-white dark:group-hover:text-yellow-600 transition-colors duration-300" />,
-    link: '/contact',
+    link: '/services/ecommerce',
     tags: ['Billplz', 'Stripe', 'FPX']
   },
   {
@@ -62,7 +63,7 @@ const services = [
     title: 'Website Maintenance',
     description: 'Keep your website fast and secure. Professional website management, hosting setup, and legacy redesign services.',
     icon: <ShieldCheck className="w-8 h-8 text-cyan-400 group-hover:text-white dark:group-hover:text-cyan-600 transition-colors duration-300" />,
-    link: '/contact',
+    link: '/services/web-management',
     tags: ['Security', 'Backups', 'Updates']
   },
   {
@@ -70,7 +71,7 @@ const services = [
     title: 'Domain & Hosting',
     description: 'We handle the technical setup. Domain registration, fast hosting, and professional company email.',
     icon: <HardDrive className="w-8 h-8 text-slate-400 group-hover:text-white dark:group-hover:text-slate-600 transition-colors duration-300" />,
-    link: '/contact',
+    link: '/services/server-setup',
     tags: ['Email', 'Domain', 'Hosting']
   }
 ];
@@ -105,29 +106,44 @@ const ServicesView: React.FC = () => {
     visible: { opacity: 1, y: 0 }
   };
 
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": services.map((service, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Service",
-        "name": service.title,
-        "description": service.description,
-        "url": `https://www.ominotech.com.my${service.link}`
-      }
-    }))
-  };
+  const schemaData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description,
+          "url": `https://www.ominotech.com.my${service.link}`
+        }
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    }
+  ];
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-indigo-500/30 transition-colors duration-300">
       
       {/* === ULTIMATE SEO HEAD === */}
       {/* Targeted specifically for Malaysian Business Owners */}
       <Helmet>
-        <title>Omino Tech | Web Design & App Development Agency Malaysia (Selangor)</title>
+        <title>Omino Tech | Web Design &amp; App Development Agency Malaysia (Selangor)</title>
         <meta name="description" content="Strategic Digital Agency in Malaysia (Selangor & KL). We provide Custom Web Development, Mobile Apps, and SME Digital Grant solutions. SSM Registered." />
         <meta name="keywords" content="Web Design Malaysia, Mobile App Developer KL, SEO Expert Malaysia, SME Digital Grant, SSM Registered, Selangor, Kuala Lumpur, Negeri Sembilan, Payment Gateway Integration" />
         <link rel="canonical" href="https://www.ominotech.com.my/services" />
@@ -301,7 +317,7 @@ const ServicesView: React.FC = () => {
                         ].map((point, i) => (
                             <div key={i} className="flex items-center gap-4">
                                 <div className="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 flex-shrink-0">
-                                    <CheckCircle2 size={14} />
+                                    <CircleCheck size={14} />
                                 </div>
                                 <span className="text-slate-300 font-medium">{point}</span>
                             </div>
@@ -364,7 +380,7 @@ const ServicesView: React.FC = () => {
           <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-indigo-500 to-purple-500">
             <WhatsAppButton
                 serviceName="Free Consultation Inquiry"
-                buttonText="Get a Free Consultation &rarr;"
+                buttonText="Get a Free Consultation →"
                 className="block bg-white dark:bg-[#0a0a0a] rounded-full px-10 py-4 text-slate-900 dark:text-white font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
                 showIcon={false}
             />
@@ -392,6 +408,7 @@ const ServicesView: React.FC = () => {
                     <AnimatePresence>
                         {openFaq === i && (
                            <m.div
+                              key="faq-content"
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
@@ -411,24 +428,31 @@ const ServicesView: React.FC = () => {
         </div>
 
         {/* SEO CONTENT BLOCK (Ghost Town Fix) */}
-        <div className="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800">
+        <m.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800"
+        >
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Why Choose Omino Tech for Your Digital Transformation?</h2>
           <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
             <p className="mb-4">
-              As a premier <strong>Web Design Agency in Malaysia</strong>, Omino Tech is dedicated to helping local SMEs and startups in <strong>Kuala Lumpur, Selangor, and Negeri Sembilan</strong> thrive in the digital economy. We don't just build websites; we engineer digital assets that drive sales and improve operational efficiency.
+              As a premier <Link to="/" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Web Design Agency in Malaysia</Link>, Omino Tech is dedicated to helping local SMEs and startups in <strong>Kuala Lumpur, Selangor, and Negeri Sembilan</strong> thrive in the digital economy. We don't just build websites; we engineer digital assets that drive sales and improve operational efficiency.
             </p>
             <p className="mb-4">
-              Whether you are looking to apply for the <strong>SME Digital Grant</strong> or need a robust <strong>E-commerce</strong> platform with <strong>Payment Gateway Integration</strong> (ToyyibPay, iPay88, Stripe), our team has the technical expertise to deliver. We are <strong>SSM Registered</strong> and committed to long-term partnerships with our clients.
+              Whether you are looking to apply for the <a href="https://mdec.my/smedigitalgrant" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">SME Digital Grant</a> or need a robust <strong>E-commerce</strong> platform with <strong>Payment Gateway Integration</strong> (ToyyibPay, iPay88, Stripe), our team has the technical expertise to deliver. We are a verified <a href="https://www.ssm.com.my/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">SSM Registered</a> entity, committed to long-term partnerships with our clients.
             </p>
             <p>
               From <strong>Corporate Website Design</strong> to <strong>Custom Mobile App Development</strong>, we ensure your business stands out. Our solutions are hosted on high-speed NVMe servers in Singapore/Malaysia to ensure your customers experience zero lag.
             </p>
           </div>
-        </div>
+        </m.div>
       </m.main>
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

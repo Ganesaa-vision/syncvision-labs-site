@@ -30,7 +30,12 @@ export const GrandRevealFooter = () => {
                     <Link to="/about" className="hover:text-white transition-colors">Manifesto</Link>
                     <Link to="/services" className="hover:text-white transition-colors">Ecosystem</Link>
                 </nav>
-                <p className="text-center md:text-right">&copy; {currentYear} Omino Tech. All rights reserved.</p>
+                <div className="text-center md:text-right flex flex-col gap-1">
+                  <p>&copy; {currentYear} Omino Tech. All rights reserved.</p>
+                  <p className="text-neutral-600 text-[10px]">
+                    <a href="https://www.ssm.com.my/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">SSM</a> Reg No: 202603055630 (NS0319680-K)
+                  </p>
+                </div>
             </div>
         </div>
     </footer>

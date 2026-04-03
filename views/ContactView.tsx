@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { CheckCircle2, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
+import { PageTransition } from '../PageTransition';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { IMAGES } from '../images';
@@ -29,7 +30,24 @@ const ContactView: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 120, damping: 20 } }
   };
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Omino Tech",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@ominotech.com.my",
+        "contactType": "customer service",
+        "areaServed": "MY",
+        "availableLanguage": ["English", "Malay"]
+      }
+    }
+  };
+
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-3xl rounded-full pointer-events-none transform-gpu"></div>
@@ -44,6 +62,7 @@ const ContactView: React.FC = () => {
         <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="manifest" href="/site.webmanifest" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
@@ -66,7 +85,7 @@ const ContactView: React.FC = () => {
              </div>
              <div className="mt-20 pt-12 border-t border-slate-200 dark:border-slate-100/5 space-y-8">
                <div className="flex items-center gap-4 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.5em]"><div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_#10b981]"></div> Secure Channel Active</div>
-               <div className="flex items-center gap-4 text-slate-500 dark:text-slate-400/40 font-mono text-xs font-black uppercase tracking-[0.5em]"><ShieldCheck size={14}/> Encrypted Handshake Ready</div>
+             <div className="flex items-center gap-4 text-slate-600 dark:text-slate-400 font-mono text-xs font-black uppercase tracking-[0.5em]"><ShieldCheck size={14}/> Encrypted Handshake Ready</div>
              </div>
           </div>
 
@@ -85,7 +104,7 @@ const ContactView: React.FC = () => {
                    <CheckCircle2 size={40} className="text-emerald-500" />
                  </div>
                  <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-slate-100 mb-4 leading-[1.1]">SIGNAL RECEIVED</h3>
-                 <p className="text-slate-600 dark:text-slate-200 text-xs uppercase tracking-widest mb-12 font-bold">Decoding objectives. Expect a protocol update shortly.</p>
+             <p className="text-slate-700 dark:text-slate-200 text-xs uppercase tracking-widest mb-12 font-bold">Decoding objectives. Expect a protocol update shortly.</p>
                  <button onClick={() => setSent(false)} className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-widest border-b-2 border-indigo-500/20 hover:border-indigo-500 transition-all pb-1">New Transmission</button>
               </m.div>
             ) : (
@@ -100,17 +119,17 @@ const ContactView: React.FC = () => {
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                    <m.div variants={formItem} className="space-y-4">
-                     <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Identity / Organization</label>
-                     <input required type="text" placeholder="Name or Company" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-500 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50" />
+                 <label className="font-mono text-xs uppercase text-slate-600 dark:text-slate-400 tracking-widest font-black block">Identity / Organization</label>
+                 <input required type="text" placeholder="Name or Company" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 placeholder-slate-500 dark:placeholder-slate-400 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50" />
                    </m.div>
                    <m.div variants={formItem} className="space-y-4">
-                     <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Signal Channel (Email)</label>
-                     <input required type="email" placeholder="contact@ominotech.com.my" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-500 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50" />
+                 <label className="font-mono text-xs uppercase text-slate-600 dark:text-slate-400 tracking-widest font-black block">Signal Channel (Email)</label>
+                 <input required type="email" placeholder="contact@ominotech.com.my" className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 placeholder-slate-500 dark:placeholder-slate-400 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50" />
                    </m.div>
                 </div>
                 <m.div variants={formItem} className="space-y-4">
-                  <label className="font-mono text-xs uppercase text-slate-500 dark:text-slate-400 tracking-widest font-black block">Mission Objective</label>
-                  <textarea rows={5} required placeholder="Detailed technical requirements, ROI goals, or architectural objectives..." className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 resize-none placeholder-slate-400 dark:placeholder-slate-500 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50"></textarea>
+              <label className="font-mono text-xs uppercase text-slate-600 dark:text-slate-400 tracking-widest font-black block">Mission Objective</label>
+              <textarea rows={5} required placeholder="Detailed technical requirements, ROI goals, or architectural objectives..." className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 resize-none placeholder-slate-500 dark:placeholder-slate-400 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50"></textarea>
                 </m.div>
                 <m.div variants={formItem}>
                   <button type="submit" className="w-full py-6 md:py-8 bg-indigo-600 text-white font-mono text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-indigo-500 transition-all duration-300 flex items-center justify-center gap-6 shadow-xl shadow-indigo-500/20 active:scale-95 hover:shadow-indigo-500/40 hover:-translate-y-1 transform-gpu">
@@ -126,6 +145,7 @@ const ContactView: React.FC = () => {
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation, Link } from 'react-router-dom';
 import { PRODUCTS } from '../constants';
-import { Terminal, Activity, ArrowRight } from 'lucide-react';
+import { Terminal, Activity } from 'lucide-react';
+import { PageTransition } from '../PageTransition';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
@@ -15,7 +16,23 @@ const ProductsView: React.FC = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": PRODUCTS.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": product.name,
+        "applicationCategory": "BusinessApplication",
+        "description": product.description
+      }
+    }))
+  };
+
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="bg-white dark:bg-slate-950 min-h-screen flex flex-col relative transition-colors duration-300">
       <Helmet>
@@ -39,10 +56,16 @@ const ProductsView: React.FC = () => {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Omino Tech" />
         <link rel="manifest" href="/site.webmanifest" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="py-24 md:py-40 px-6 max-w-7xl mx-auto flex-grow w-full">
-        <div className="mb-24 text-center">
+        <m.div 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8, ease: "easeOut" }} 
+          className="mb-24 text-center"
+        >
           <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Internal R&D Labs</span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1]">
             IN-HOUSE <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400 italic">INNOVATION.</span>
@@ -50,16 +73,23 @@ const ProductsView: React.FC = () => {
           <p className="mt-8 text-slate-600 dark:text-slate-200 font-mono text-sm md:text-base max-w-2xl mx-auto uppercase tracking-widest leading-relaxed font-bold">
             These are our high-logic internal systems. Proof of our architectural engineering capability.
           </p>
-        </div>
+        </m.div>
 
         <div className="space-y-40">
           {PRODUCTS.map((product, idx) => (
-            <div key={product.id} className={`grid grid-cols-1 lg:grid-cols-12 gap-16 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+            <m.div 
+              key={product.id} 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              className={`grid grid-cols-1 lg:grid-cols-12 gap-16 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+            >
               <div className={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <div className="relative rounded-[3rem] overflow-hidden border border-slate-200 dark:border-white/5 aspect-video group shadow-3xl bg-white dark:bg-slate-900">
                    <img 
                      src={product.imageUrl} 
-                     alt={product.name} 
+                     alt={`${product.name} - Custom digital infrastructure and AI business automation engineered to scale operations.`} 
                      loading={idx === 0 ? "eager" : "lazy"}
                      fetchPriority={idx === 0 ? "high" : "auto"}
                      decoding={idx === 0 ? "sync" : "async"}
@@ -70,7 +100,7 @@ const ProductsView: React.FC = () => {
                       <div className="px-5 py-2 bg-interstellar/90 backdrop-blur-md rounded-xl text-xs font-mono font-black text-slate-100 uppercase tracking-widest flex items-center gap-3 shadow-xl">
                         <Activity size={14} className="text-growth animate-pulse" /> {product.status}
                       </div>
-                      <div className="px-5 py-2 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-xl text-xs font-mono font-black text-slate-900 dark:text-slate-100 uppercase tracking-widest border border-slate-200 dark:border-white/10 shadow-xl">
+                      <div className="px-5 py-2 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-xl text-xs font-mono font-black text-slate-800 dark:text-slate-100 uppercase tracking-widest border border-slate-200 dark:border-white/10 shadow-xl">
                         {product.category}
                       </div>
                    </div>
@@ -103,13 +133,14 @@ const ProductsView: React.FC = () => {
                    />
                  </div>
               </div>
-            </div>
+            </m.div>
           ))}
         </div>
       </m.main>
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

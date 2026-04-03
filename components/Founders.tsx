@@ -48,7 +48,7 @@ const Founders: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
               <img 
                 src={founder.image} 
-                alt={founder.name} 
+                alt={`${founder.name} - ${founder.role} at Omino Tech Malaysia`} 
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-contain object-top transition-transform duration-700"

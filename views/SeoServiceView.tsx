@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, BarChart, ArrowRight, FileText, Trophy, Bot, Cpu, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, BarChart, FileText, Trophy, Bot, Cpu, CheckCircle2, ChevronDown, ChevronUp, ShieldCheck, Activity, Gauge } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
 import { m, LazyMotion, domAnimation, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Footer from '../components/Footer';
+import { PageTransition } from '../PageTransition';
 import { WhatsAppButton } from '../components/WhatsAppButton';
 import { IMAGES } from '../images';
 
@@ -35,7 +36,7 @@ const ImageSlider = ({ images, duration = 3000 }: { images: string[], duration?:
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full object-contain"
-          alt="Omino Tech SEO and Web Development Portfolio Preview"
+          alt="Advanced technical SEO strategies implemented by Omino Tech to secure top Google search rankings."
           loading="lazy"
         />
       </AnimatePresence>
@@ -101,7 +102,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, a
     >
       <img 
         src={afterImage} 
-        alt="After SEO - Rank #1 on Google Malaysia" 
+        alt="Verified organic traffic growth and first-page Google rankings achieved for our clients in Malaysia." 
         loading="lazy"
         className="absolute inset-0 w-full h-full object-contain pointer-events-none" 
         draggable={false}
@@ -114,7 +115,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage }: { beforeImage: string, a
       >
         <img 
           src={beforeImage} 
-          alt="Before SEO - Poor Google Ranking" 
+          alt="Before technical SEO optimization - poor search visibility and low local ranking." 
           loading="lazy"
           className="absolute inset-0 w-full h-full object-contain" 
           draggable={false}
@@ -179,7 +180,7 @@ const SeoServiceView: React.FC = () => {
         "name": "How fast can you rank my business in Balakong?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For local keywords like 'Factory in Balakong', we have achieved Rank #1 in as little as 17 days using our Programmatic SEO strategy."
+          "text": "For local keywords like 'Factory in Balakong', we have achieved Rank #1 in as little as 17 days using our Programmatic SEO strategy. We engineer search dominance for SMEs across Balakong, Seri Kembangan, Puchong, and the wider Selangor tech ecosystem."
         }
       },
       {
@@ -200,6 +201,53 @@ const SeoServiceView: React.FC = () => {
       }
     ]
   };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Omino Tech SEO Services",
+    "url": "https://www.ominotech.com.my/services/seo-service",
+    "provider": {
+        "@type": "LocalBusiness",
+        "name": "Omino Tech - Web Development Company",
+        "url": "https://www.ominotech.com.my"
+    },
+    "description": "Expert SEO and AEO services in Malaysia, specializing in technical Next.js/React optimization, local SEO, and Generative Engine Optimization.",
+    "areaServed": ["Balakong", "Seri Kembangan", "Puchong", "Selangor", "Kuala Lumpur", "Malaysia"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jalan KPB 12, Balakong",
+      "addressLocality": "Seri Kembangan",
+      "addressRegion": "Selangor",
+      "addressCountry": "MY"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "SEO Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Local Hero SEO" },
+          "price": "399.00",
+          "priceCurrency": "MYR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Traffic Builder SEO" },
+          "price": "899.00",
+          "priceCurrency": "MYR"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Market Dominator SEO" },
+          "price": "1999.00",
+          "priceCurrency": "MYR"
+        }
+      ]
+    }
+  };
+
+  const combinedSchema = [faqSchema, serviceSchema];
 
   const engines = [
     {
@@ -232,7 +280,7 @@ const SeoServiceView: React.FC = () => {
         id: 'geo',
         title: 'GEO (Generative Engine)',
         tag: 'The AI Era',
-        desc: 'The future of search. We train AI models (Gemini, ChatGPT) to recognize your brand as the industry authority through entity graphing and sentiment optimization.',
+        desc: 'The future of search. We structure your digital footprint so that when AI engines like Gemini or ChatGPT scan the web for real-time answers, your brand is the verified, authoritative source they retrieve and cite.',
         points: ['Brand Entity Graphing', 'Sentiment Optimization', 'AI Citation Building'],
         color: 'from-emerald-500 to-teal-500',
         icon: <Cpu className="w-6 h-6 text-white" />,
@@ -244,6 +292,7 @@ const SeoServiceView: React.FC = () => {
   ];
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-emerald-500/30 relative transition-colors duration-300">
 
@@ -269,27 +318,69 @@ const SeoServiceView: React.FC = () => {
         <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <meta property="og:image:alt" content="Omino Tech Digital Growth Engine - Custom Web Development and SEO Services Malaysia" />
         <link rel="manifest" href="/site.webmanifest" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedSchema) }} />
       </Helmet>
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
         
         {/* HERO SECTION */}
-        <m.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-24"
-        >
+        <div className="mb-24 relative pt-6 md:pt-12">
+            {/* Grid Background Overlay */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#80808015_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10"></div>
 
-          <span className="font-mono text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Search Dominance</span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
-            The Best SEO Service in Malaysia: <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">Total Search Dominance</span>
-          </h1>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            We don't just target keywords; we target <strong>Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
-          </p>
-        </m.div>
+            <m.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col items-center w-full mb-8 text-center"
+            >
+                <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/80 dark:bg-[#0a0a0a]/80 border border-slate-200/50 dark:border-white/10 mb-6 md:mb-8 backdrop-blur-xl shadow-lg shadow-emerald-500/5 transform-gpu transition-all hover:scale-105 hover:border-emerald-500/30">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.8)]"></div>
+                    <span className="font-mono text-slate-800 dark:text-slate-300 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em]">Search Dominance</span>
+                </div>
+
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05] mb-8">
+                    The Best SEO Service in Malaysia: <br/> <span className="text-transparent bg-clip-text bg-gradient-to-br from-emerald-500 via-cyan-500 to-blue-500 dark:from-emerald-400 dark:via-cyan-400 dark:to-blue-400">Total Search Dominance</span>
+                </h1>
+            </m.div>
+
+            <m.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="relative w-full max-w-4xl mx-auto mb-10 group"
+            >
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 blur-3xl rounded-[2rem] opacity-50 pointer-events-none transform-gpu transition-opacity duration-500 group-hover:opacity-80"></div>
+                <div className="relative p-[1px] rounded-[2.5rem] bg-gradient-to-b from-emerald-500/30 to-transparent dark:from-emerald-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(16,185,129,0.2)] transform-gpu hover:-translate-y-2 transition-all duration-500">
+                    <div className="relative bg-white/70 dark:bg-[#030303]/80 backdrop-blur-2xl p-8 md:p-12 rounded-[2.5rem] text-center flex flex-col items-center">
+                        <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                            We don't just target keywords; we target <strong className="text-slate-900 dark:text-white font-black">Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
+                        </p>
+                    </div>
+                </div>
+            </m.div>
+            
+            <m.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-2xl mx-auto"
+            >
+                <WhatsAppButton
+                    serviceName="SEO Service"
+                    buttonText="Start Ranking #1"
+                    className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.4)]"
+                    showIcon={false}
+                />
+                <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
+                    <span className="absolute inset-0 bg-slate-100 dark:bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
+                    <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
+                        View Packages
+                    </span>
+                </a>
+            </m.div>
+        </div>
 
         {/* === NEW: ACHIEVEMENTS SECTION === */}
         <m.div 
@@ -461,16 +552,101 @@ const SeoServiceView: React.FC = () => {
         </div>
 
         {/* === GEO CONTENT BLOCK === */}
-        <div className="mb-32 p-10 md:p-16 bg-gradient-to-br from-emerald-50 to-white dark:from-slate-900 dark:to-[#0a0a0a] border border-emerald-100 dark:border-slate-800 rounded-[3rem] shadow-lg">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-                Why We Are the Top SEO Company in Malaysia
-            </h2>
-            <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                The era of traditional SEO is dead. To rank #1 on Google today, you need a flawless technical foundation. Because Omino Tech operates as both elite web developers and the best SEO service in Malaysia, we control the entire pipeline. We don't just optimize your keywords; we optimize your server response time, rewrite your DOM structure, and implement Generative Engine Optimization (GEO). Whether you are running a simple RM 590 landing page or a complex React-based application, our SEO strategies are mathematically engineered to capture high-intent traffic, dominate Google Maps, and ensure AI engines like ChatGPT cite your business first.
-            </p>
-        </div>
+        <m.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-32 relative group"
+        >
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-blue-500/10 blur-3xl rounded-[3rem] opacity-50 transition-opacity duration-500 group-hover:opacity-80"></div>
+            <div className="relative p-[1px] rounded-[3rem] bg-gradient-to-b from-emerald-500/30 to-transparent dark:from-emerald-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-10 md:p-16 rounded-[3rem] flex flex-col xl:flex-row gap-12 lg:gap-16 items-center">
+                    
+                    <div className="flex-1">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-widest mb-8">
+                            <Cpu className="w-4 h-4" /> Core Architecture
+                        </div>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
+                            Why We Are the Top SEO Company in Malaysia
+                        </h2>
+                        
+                        <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium mb-6">
+                            Traditional SEO is no longer enough. To rank #1 on Google today, your website needs a flawless technical foundation. Because we operate as an elite <Link to="/" className="text-emerald-600 dark:text-emerald-400 font-bold hover:underline">web development company in Malaysia</Link> alongside our SEO division, we fix the root of the problem: <strong className="text-slate-900 dark:text-white">the code itself.</strong>
+                        </p>
+                        
+                        <ul className="space-y-4 text-base md:text-lg text-slate-700 dark:text-slate-300 font-medium mb-8">
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                                <span><strong className="text-slate-900 dark:text-white">Beyond Keywords:</strong> We don't just write blogs; we optimize your server speed and clean up messy code so Google loves your site.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                                <span><strong className="text-slate-900 dark:text-white">Technical Perfection:</strong> We eliminate lag (TBT) and prevent layout jumps (CLS). Google rewards this smooth experience with maximum authority, passing the <a href="https://web.dev/vitals/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-500 font-bold hover:underline">Core Web Vitals</a> assessment.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-0.5" />
+                                <span><strong className="text-slate-900 dark:text-white">AI-Ready (GEO):</strong> We structure your data so AI engines like ChatGPT and Gemini actually recommend your business to users.</span>
+                            </li>
+                        </ul>
+                        
+                        <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                            From dominating Google Maps to capturing ready-to-buy traffic, our strategies are mathematically engineered to grow your revenue.
+                        </p>
+                    </div>
+
+                    <div className="w-full xl:w-[400px] flex flex-col gap-4 flex-shrink-0">
+                        <div className="p-6 rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-between group/metric hover:border-emerald-500/30 transition-colors">
+                            <div>
+                                <div className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mb-1">Performance Metric</div>
+                                <div className="text-slate-900 dark:text-white font-bold text-sm">Total Blocking Time (TBT)</div>
+                            </div>
+                            <div className="text-2xl font-black text-emerald-500 font-mono">0<span className="text-sm">ms</span></div>
+                        </div>
+                        <div className="p-6 rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-between group/metric hover:border-cyan-500/30 transition-colors">
+                            <div>
+                                <div className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mb-1">Google Assessment</div>
+                                <div className="text-slate-900 dark:text-white font-bold text-sm">Core Web Vitals</div>
+                            </div>
+                            <div className="text-2xl font-black text-cyan-500 font-mono">100<span className="text-sm text-slate-400">/100</span></div>
+                        </div>
+                        <div className="p-6 rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 shadow-sm flex items-center justify-between group/metric hover:border-blue-500/30 transition-colors">
+                            <div>
+                                <div className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mb-1">Visual Stability</div>
+                                <div className="text-slate-900 dark:text-white font-bold text-sm">Layout Shift (CLS)</div>
+                            </div>
+                            <div className="text-2xl font-black text-blue-500 font-mono">0.00</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </m.div>
+
+        {/* === THE PRICING BRIDGE === */}
+        <m.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-24 relative max-w-5xl mx-auto px-6"
+        >
+            <div className="relative p-[1px] rounded-[2.5rem] bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 dark:from-white/5 dark:via-white/10 dark:to-white/5 overflow-hidden shadow-xl">
+                <div className="relative bg-white dark:bg-[#0a0a0a] p-10 md:p-16 rounded-[2.5rem] text-center">
+                    <div className="w-16 h-16 mx-auto bg-rose-50 dark:bg-rose-500/10 text-rose-500 rounded-2xl flex items-center justify-center mb-8 border border-rose-100 dark:border-rose-500/20">
+                        <ShieldCheck size={32} />
+                    </div>
+                    <h3 className="text-2xl md:text-4xl font-black tracking-tight text-slate-900 dark:text-white mb-6">Web Development is an Asset. <br className="hidden sm:block"/> <span className="text-rose-500">SEO is Ongoing Warfare.</span></h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-medium">
+                        You might be wondering: <em>"Why do you charge one-time fees for websites, but monthly retainers for SEO?"</em> <br/><br/>
+                        A website is digital real estate—you buy it once, and you own it forever. But SEO is an ongoing battle against your competitors and Google's ever-changing algorithm. A retainer isn't "rent"; it's your monthly ammunition to secure and defend your rank at the top of the search results.
+                    </p>
+                </div>
+            </div>
+        </m.div>
 
         {/* PRICING */}
+        <div id="pricing">
         <PricingSection 
           serviceName="SEO Services"
           title="SEO Packages"
@@ -527,6 +703,7 @@ const SeoServiceView: React.FC = () => {
             }
           ]}
         />
+        </div>
 
         {/* === AEO FAQ SECTION === */}
         <div className="mb-32 max-w-4xl mx-auto">
@@ -559,34 +736,46 @@ const SeoServiceView: React.FC = () => {
         </div>
 
         {/* ONE TIME FIX UPSELL */}
-        <div className="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-12 flex flex-col md:flex-row items-center gap-12 mb-32">
-           <div className="md:w-2/3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-yellow-500/30 bg-yellow-900/10 text-yellow-400 text-xs font-mono mb-6">
-                <FileText className="w-3 h-3" />
-                ONE-TIME FIX
-              </div>
-              <h2 className="text-3xl font-bold text-white mb-4">The SEO Rescue Audit</h2>
-              <p className="text-slate-400 leading-relaxed mb-6">
-                 Hate monthly fees? Get a one-time comprehensive fix. We run a deep report, fix your Meta Titles & Descriptions, submit your sitemap to Google Console, and give you a "Fixed" PDF report.
-              </p>
-              <div className="flex items-center gap-6">
-                <span className="text-2xl font-bold text-white">RM 450 <span className="text-sm text-slate-500 font-normal">/one-time</span></span>
-                <WhatsAppButton 
-                  serviceName="SEO Rescue Audit"
-                  buttonText="Get Your SEO Rescue Audit"
-                  className="text-emerald-400 font-bold hover:text-emerald-300 inline-flex items-center gap-2"
-                  showIcon={true}
-                />
-              </div>
-           </div>
-           <div className="md:w-1/3 flex justify-center">
-              <BarChart size={120} className="text-slate-800" />
-           </div>
-        </div>
+        <m.div 
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: "-50px" }}
+           transition={{ duration: 0.8, ease: "easeOut" }}
+           className="relative mb-32 group"
+        >
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 blur-2xl rounded-[3rem] opacity-50 transition-opacity duration-500 group-hover:opacity-70"></div>
+            <div className="relative p-[1px] rounded-[3rem] bg-gradient-to-br from-emerald-500/40 via-slate-800 to-cyan-500/40 overflow-hidden shadow-2xl">
+                <div className="bg-slate-950 border border-white/5 rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center gap-12">
+                   <div className="md:w-2/3">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-emerald-500/30 bg-emerald-900/20 text-emerald-400 text-xs font-mono font-bold uppercase tracking-widest mb-6">
+                        <FileText className="w-4 h-4" />
+                        ONE-TIME FIX
+                      </div>
+                      <h2 className="text-3xl md:text-4xl font-black text-white mb-6">The SEO Rescue Audit</h2>
+                      <p className="text-slate-400 text-lg leading-relaxed mb-8">
+                         Hate monthly fees? Get a one-time comprehensive fix. We run a deep report, fix your Meta Titles & Descriptions, submit your sitemap to <a href="https://search.google.com/search-console/about" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold hover:underline">Google Search Console</a>, and give you a "Fixed" PDF report.
+                      </p>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <span className="text-3xl font-black text-white">RM 450 <span className="text-xs text-slate-500 font-bold uppercase tracking-widest block sm:inline sm:ml-2">/ one-time</span></span>
+                        <WhatsAppButton 
+                          serviceName="SEO Rescue Audit"
+                          buttonText="Get Your SEO Rescue Audit"
+                          className="text-slate-900 bg-emerald-400 font-bold hover:bg-emerald-300 px-8 py-4 rounded-full inline-flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20"
+                          showIcon={false}
+                        />
+                      </div>
+                   </div>
+                   <div className="md:w-1/3 flex justify-center opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+                      <BarChart size={200} className="text-emerald-500" />
+                   </div>
+                </div>
+            </div>
+        </m.div>
       </m.main>
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

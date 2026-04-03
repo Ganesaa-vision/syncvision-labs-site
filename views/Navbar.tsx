@@ -56,8 +56,10 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
           <Link to="/" className="flex items-center gap-2 group relative z-50">
             <img 
               src={theme === 'dark' ? IMAGES.GLOBAL.LOGO : IMAGES.GLOBAL.LOGO_LIGHT} 
-              alt="Omino Tech - High-Performance Web Development and SEO Company in Malaysia" 
+              alt="Omino Tech - Top-Rated Web Development & SEO Agency in Malaysia" 
               className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            width="754"
+            height="270"
               fetchPriority="high"
               decoding="sync"
             />

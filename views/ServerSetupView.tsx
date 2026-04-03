@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Globe, Lock, Cloud } from 'lucide-react';
+import { PageTransition } from '../PageTransition';
 import PricingSection from '../components/PricingSection';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
@@ -15,7 +16,20 @@ const ServerSetupView: React.FC = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Domain, Hosting & Corporate Email Setup",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Omino Tech",
+      "address": "Malaysia"
+    },
+    "description": "Professional IT setup for businesses. We register .com.my domains, configure high-speed Cloud Hosting (VPS), and set up Corporate Emails (Google Workspace/Titan)."
+  };
+
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans selection:bg-slate-500/30 transition-colors duration-300">
       <Helmet>
@@ -30,20 +44,32 @@ const ServerSetupView: React.FC = () => {
         <meta property="og:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <meta name="twitter:image" content={IMAGES.GLOBAL.OG_IMAGE} />
         <link rel="manifest" href="/site.webmanifest" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 
       <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-24 md:pt-32 pb-12 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
-        <div className="text-center mb-24">
-          <span className="font-mono text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">IT Infrastructure</span>
+        <m.div 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8, ease: "easeOut" }} 
+          className="text-center mb-24"
+        >
+        <span className="font-mono text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-[0.4em] mb-4 block">IT Infrastructure</span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
             FOUNDATION <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">SETUP.</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
             Stop struggling with DNS records and CPanel. We handle the boring but critical "plumbing" of your digital business. Professional, secure, and done right the first time.
           </p>
-        </div>
+        </m.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-32">
+        <m.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-32"
+        >
             {/* Domain */}
             <div className="p-6 md:p-8 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-[2rem] hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
                 <Globe className="w-12 h-12 text-blue-400 mb-6" />
@@ -70,7 +96,7 @@ const ServerSetupView: React.FC = () => {
                     Look professional with <strong>name@yourcompany.com</strong>. We set up Google Workspace or Titan Email, ensuring high deliverability and spam protection.
                 </p>
             </div>
-        </div>
+        </m.div>
 
         {/* PRICING */}
         <PricingSection 
@@ -127,7 +153,13 @@ const ServerSetupView: React.FC = () => {
           ]}
         />
 
-        <div className="p-12 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-8">
+        <m.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="p-12 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-8"
+        >
             <div className="flex items-center gap-6">
                 <div className="p-4 bg-green-100 dark:bg-green-500/10 rounded-2xl text-green-600 dark:text-green-500">
                     <Lock size={32} />
@@ -143,11 +175,12 @@ const ServerSetupView: React.FC = () => {
               className="px-8 py-4 bg-indigo-600 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:bg-indigo-500 dark:hover:bg-slate-200 transition-all"
               showIcon={true}
             />
-        </div>
+        </m.div>
       </m.main>
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

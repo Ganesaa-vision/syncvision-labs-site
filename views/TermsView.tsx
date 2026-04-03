@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
+import { PageTransition } from '../PageTransition';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { IMAGES } from '../images';
 
@@ -13,6 +14,7 @@ const TermsView: React.FC = () => {
   }, [pathname]);
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-slate-200 font-sans transition-colors duration-300">
       <Helmet>
@@ -52,6 +54,7 @@ const TermsView: React.FC = () => {
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 

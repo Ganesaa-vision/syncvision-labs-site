@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
 import { TrendingUp, MapPin, Search, BarChart, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import PricingSection from '../components/PricingSection';
+import { PageTransition } from '../PageTransition';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { IMAGES } from '../images';
@@ -32,6 +33,7 @@ const SeoDominanceView: React.FC = () => {
   };
 
   return (
+    <PageTransition>
     <LazyMotion features={domAnimation}>
     <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
       <Helmet>
@@ -205,6 +207,7 @@ const SeoDominanceView: React.FC = () => {
       <Footer />
     </div>
     </LazyMotion>
+    </PageTransition>
   );
 };
 
