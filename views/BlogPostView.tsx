@@ -3,7 +3,8 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { m, LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Twitter, Linkedin, Facebook, Mail, ChevronRight, ChevronDown, ChevronUp, Check, ArrowRight } from 'lucide-react';
-import { BLOG_POSTS } from '../constants';
+import { PortableText } from '@portabletext/react';
+import { getBlogPostBySlug, getBlogPosts } from '../src/lib/sanity';
 import { PageTransition } from '../PageTransition';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
@@ -16,11 +17,43 @@ const BlogPostView: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
   
-  const post = BLOG_POSTS?.find(p => p.slug === slug);
+  const [post, setPost] = useState<any>(null);
+  const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
+
+  useEffect(() => {
+    async function fetchData() {
+      if (slug) {
+        setLoading(true);
+        try {
+          const fetchedPost = await getBlogPostBySlug(slug);
+          if (fetchedPost) {
+             fetchedPost.date = fetchedPost.date ? new Date(fetchedPost.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+          }
+          setPost(fetchedPost);
+
+          const allPosts = await getBlogPosts();
+          const related = allPosts
+             .filter((p: any) => p.slug !== slug)
+             .slice(0, 2)
+             .map((p: any) => ({
+                 ...p,
+                 date: p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''
+             }));
+          setRelatedPosts(related);
+        } catch (error) {
+          console.error("Failed to fetch post:", error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    }
+    fetchData();
+  }, [slug]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +72,16 @@ const BlogPostView: React.FC = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  if (loading) {
+      return (
+          <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-white">
+              <div className="text-center">
+                  <div className="text-indigo-400 text-xl animate-pulse">Loading article...</div>
+              </div>
+          </div>
+      );
+  }
+
   if (!post) {
       return (
           <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#0a0a0a] text-slate-900 dark:text-white">
@@ -52,8 +95,6 @@ const BlogPostView: React.FC = () => {
           </div>
       );
   }
-
-  const relatedPosts = BLOG_POSTS?.filter(p => p.id !== post.id).slice(0, 2) || [];
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -189,15 +230,16 @@ const BlogPostView: React.FC = () => {
                     </div>
 
                     {/* Article Content */}
-                    <div 
-                        className="space-y-8 text-lg leading-relaxed text-slate-600 dark:text-slate-300"
-                        dangerouslySetInnerHTML={{ __html: post.content || "" }}
-                    />
+                    <div className="prose prose-invert prose-indigo prose-lg md:prose-xl text-slate-300 max-w-none 
+                      prose-headings:text-white prose-headings:font-bold prose-a:text-indigo-400 
+                      prose-p:leading-relaxed prose-li:marker:text-indigo-500 prose-img:rounded-xl">
+                        {post.body ? <PortableText value={post.body} /> : <div dangerouslySetInnerHTML={{ __html: post.content || "" }} />}
+                    </div>
 
                     {/* Author Bio (E-E-A-T Signal) */}
                     <div className="mt-16 p-8 bg-slate-100 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
                         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg flex-shrink-0">
-                            {post.author.charAt(0)}
+                            {post.author?.charAt(0) || 'A'}
                         </div>
                         <div className="text-center sm:text-left">
                             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">About the Author</h3>

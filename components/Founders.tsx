@@ -1,13 +1,11 @@
 import React from 'react';
 import { Linkedin, Mail } from 'lucide-react';
-import { IMAGES } from '../images';
 
 const founders = [
   {
     name: "Ganesaa", // Placeholder: Update with your actual name
     role: "Co-Founder & Strategic Lead",
     bio: "Driving the strategic vision of Omino Tech. With a focus on scalable digital infrastructure and business growth, I ensure our partners stay ahead of the curve.",
-    image: IMAGES.COMPONENTS.FOUNDER_GANESAA_LARGE,
     social: {
       linkedin: "#",
       email: "mailto:contact@ominotech.com"
@@ -17,7 +15,6 @@ const founders = [
     name: "Co-Founder", // Placeholder: Update with co-founder's name
     role: "Co-Founder & Technical Director",
     bio: "The engineering mind behind our high-performance systems. Specializing in Next.js architecture and AI integration to deliver robust, future-proof solutions.",
-    image: IMAGES.COMPONENTS.CO_FOUNDER_LARGE,
     social: {
       linkedin: "#",
       email: "mailto:tech@ominotech.com"
@@ -41,41 +38,51 @@ const Founders: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         {founders.map((founder, index) => (
-          <div key={index} className="group relative bg-slate-900/50 border border-slate-800 rounded-3xl overflow-hidden hover:border-indigo-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-indigo-500/10">
-            
-            {/* Image Section */}
-            <div className="h-80 overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
-              <img 
-                src={founder.image} 
-                alt={`${founder.name} - ${founder.role} at Omino Tech Malaysia`} 
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-contain object-top transition-transform duration-700"
-              />
-            </div>
+          <div 
+            key={index} 
+            className="group relative bg-slate-900/40 backdrop-blur-sm border border-slate-800 rounded-3xl overflow-hidden hover:border-indigo-500/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(99,102,241,0.15)] p-1"
+          >
+            {/* Inner content container */}
+            <div className="relative h-full bg-slate-950/90 rounded-[22px] p-8 md:p-10 overflow-hidden flex flex-col">
+              
+              {/* Background Glow Effects */}
+              <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all duration-700" />
+              <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-all duration-700" />
+              
+              {/* Top subtle gradient line */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-            {/* Content Section */}
-            <div className="p-8 relative z-20 -mt-12">
-              <div className="bg-slate-950/80 backdrop-blur-md border border-slate-800 p-6 rounded-2xl shadow-xl">
-                <div className="flex justify-between items-start mb-4">
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-8">
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-1">{founder.name}</h3>
-                    <p className="text-indigo-400 font-mono text-sm tracking-wide">{founder.role}</p>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">{founder.name}</h3>
+                    <div className="inline-block px-4 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full">
+                      <p className="text-indigo-400 font-mono text-xs md:text-sm tracking-widest uppercase">{founder.role}</p>
+                    </div>
                   </div>
-                  <a href={founder.social.linkedin} className="p-2 bg-slate-900 rounded-full text-slate-400 hover:text-white hover:bg-indigo-600 transition-all">
-                    <Linkedin className="w-5 h-5" />
+                  <a 
+                    href={founder.social.linkedin} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-slate-900/80 border border-slate-800 rounded-xl text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300 shadow-lg group-hover:shadow-indigo-500/25 group-hover:-translate-y-1"
+                  >
+                    <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
                   </a>
                 </div>
                 
-                <p className="text-slate-400 leading-relaxed text-sm mb-6">
+                <p className="text-slate-300 leading-relaxed text-base md:text-lg mb-10 flex-grow">
                   {founder.bio}
                 </p>
 
-                <div className="flex items-center gap-4 pt-4 border-t border-slate-800/50">
-                   <a href={founder.social.email} className="flex items-center gap-2 text-sm text-slate-300 hover:text-indigo-400 transition-colors">
-                    <Mail className="w-4 h-4" />
-                    <span>Get in touch</span>
+                <div className="flex items-center gap-4 pt-6 border-t border-slate-800/50 mt-auto">
+                   <a 
+                    href={founder.social.email} 
+                    className="group/email flex items-center gap-3 text-sm text-slate-400 hover:text-indigo-400 transition-colors"
+                   >
+                    <div className="p-2.5 bg-slate-900 rounded-lg group-hover/email:bg-indigo-500/20 transition-colors border border-slate-800 group-hover/email:border-indigo-500/30">
+                      <Mail className="w-4 h-4 md:w-5 md:h-5" />
+                    </div>
+                    <span className="font-medium tracking-wide text-base">Get in touch</span>
                   </a>
                 </div>
               </div>

@@ -276,9 +276,18 @@ const ServicesView: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 flex justify-center items-center p-8 bg-slate-100 dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 w-full">
-               {/* Placeholder for Logo */}
-               <div className="text-2xl font-bold text-slate-600 tracking-widest uppercase">Allied Group</div>
+            <div className="flex-1 w-full relative rounded-xl overflow-hidden shadow-xl border border-slate-200/50 dark:border-slate-800/50 group">
+               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent z-10 opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+               <img 
+                 src={IMAGES.WORK.ALLIED_PREMISES} 
+                 alt="Allied Group Premises" 
+                 className="w-full h-full object-cover aspect-video md:aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-out"
+                 loading="lazy"
+               />
+               <div className="absolute bottom-6 left-6 z-20">
+                 <div className="text-xl font-bold text-white tracking-widest uppercase mb-1 drop-shadow-lg">Allied Group</div>
+                 <div className="text-sm text-slate-300 font-medium">Manufacturing Facility</div>
+               </div>
             </div>
           </div>
         </m.div>

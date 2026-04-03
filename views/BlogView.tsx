@@ -5,22 +5,42 @@ import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { Search, Calendar, Clock, ArrowRight, User } from 'lucide-react';
 import { PageTransition } from '../PageTransition';
 import Footer from '../components/Footer';
-import { BLOG_POSTS } from '../constants';
+import { getBlogPosts } from '../src/lib/sanity';
 import { IMAGES } from '../images';
 
 const BlogView: React.FC = () => {
   const { pathname } = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
+  const [posts, setPosts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 
-  const filteredPosts = useMemo(() => BLOG_POSTS.filter(post => 
-    post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    post.category.toLowerCase().includes(searchQuery.toLowerCase())
-  ), [searchQuery]);
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const fetchedPosts = await getBlogPosts();
+        const formattedPosts = fetchedPosts.map((p: any) => ({
+            ...p,
+            date: p.date ? new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''
+        }));
+        setPosts(formattedPosts);
+      } catch (error) {
+        console.error("Failed to fetch blog posts from Sanity:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPosts();
+  }, []);
+
+  const filteredPosts = useMemo(() => posts.filter(post => 
+    post.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    post.excerpt?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    post.category?.toLowerCase().includes(searchQuery.toLowerCase())
+  ), [searchQuery, posts]);
 
   return (
     <PageTransition>

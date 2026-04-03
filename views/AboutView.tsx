@@ -295,38 +295,36 @@ const AboutView: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
-                className="group relative"
+                className="group relative h-full flex"
               >
                  <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[3rem] opacity-0 group-hover:opacity-60 blur-2xl transition-opacity duration-500 transform-gpu will-change-transform" />
-                 <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center text-center overflow-hidden group-hover:border-indigo-500/50 transition-colors duration-500 transform-gpu">
+                 <div className="relative w-full h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center justify-center text-center overflow-hidden group-hover:border-indigo-500/50 transition-colors duration-500 transform-gpu shadow-xl shadow-indigo-500/5 group-hover:shadow-indigo-500/20">
                     
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#6366f1_1px,transparent_1px)] [background-size:16px_16px]" />
                     
-                    <div className="relative w-40 h-40 md:w-48 md:h-48 mb-8">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md transform-gpu will-change-transform" />
-                        <div className="relative w-full h-full rounded-full p-1 bg-slate-200 dark:bg-slate-800">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform-gpu will-change-transform" />
-                            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10 transform-gpu">
-                            <img 
-                                src={IMAGES.ABOUT.FOUNDER_GANESAA}
-                                alt="Ganesaa, Lead Architect at Omino Tech, specializing in high-performance custom Next.js web applications in Malaysia." 
-                                className="w-full h-full object-contain transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                            </div>
-                        </div>
-                    </div>
+                    {/* Ambient Glow Effects instead of image */}
+                    <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all duration-700" />
+                    <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-all duration-700" />
 
-                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-2 relative z-10">Ganesaa</h3>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-[10px] font-mono font-bold uppercase tracking-widest mb-8 relative z-10">
-                        <Terminal size={12} /> Lead Architect
+                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4 relative z-10">Ganesaa</h3>
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-mono font-bold uppercase tracking-widest mb-8 relative z-10 shadow-sm">
+                        <Terminal size={14} /> Lead Architect
                     </div>
                     
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium relative z-10">
+                    <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-medium relative z-10 max-w-sm">
                         "We don't just write code; we engineer digital dominance. My vision is to provide Malaysian businesses with Silicon Valley caliber technology."
                     </p>
+                    
+                    {/* Social/Contact Icons */}
+                    <div className="mt-8 flex gap-4 relative z-10">
+                        <a href="#" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-indigo-600 transition-all duration-300 shadow-sm hover:shadow-indigo-500/25">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="mailto:contact@ominotech.com" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-indigo-600 transition-all duration-300 shadow-sm hover:shadow-indigo-500/25">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
                  </div>
               </m.div>
 
@@ -336,38 +334,36 @@ const AboutView: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 }}
-                className="group relative"
+                className="group relative h-full flex"
               >
                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-[3rem] opacity-0 group-hover:opacity-60 blur-2xl transition-opacity duration-500 transform-gpu will-change-transform" />
-                 <div className="relative h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center text-center overflow-hidden group-hover:border-blue-500/50 transition-colors duration-500 transform-gpu">
+                 <div className="relative w-full h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 flex flex-col items-center justify-center text-center overflow-hidden group-hover:border-blue-500/50 transition-colors duration-500 transform-gpu shadow-xl shadow-blue-500/5 group-hover:shadow-blue-500/20">
                     
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]" />
                     
-                    <div className="relative w-40 h-40 md:w-48 md:h-48 mb-8">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-spin-slow opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md transform-gpu will-change-transform" />
-                        <div className="relative w-full h-full rounded-full p-1 bg-slate-200 dark:bg-slate-800">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform-gpu will-change-transform" />
-                            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-950 relative z-10 transform-gpu">
-                            <img 
-                                src={IMAGES.ABOUT.CO_FOUNDER}
-                                alt="Omino Tech Strategy Lead planning technical SEO dominance and local search optimization in Kuala Lumpur." 
-                                className="w-full h-full object-contain transform-gpu group-hover:scale-105 transition-transform duration-700 will-change-transform"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                            </div>
-                        </div>
-                    </div>
+                    {/* Ambient Glow Effects instead of image */}
+                    <div className="absolute top-0 left-0 -mt-20 -ml-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all duration-700" />
+                    <div className="absolute bottom-0 right-0 -mb-20 -mr-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all duration-700" />
 
-                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-2 relative z-10">Co-Founder</h3>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 text-[10px] font-mono font-bold uppercase tracking-widest mb-8 relative z-10">
-                        <Target size={12} /> Strategy Lead
+                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4 relative z-10">Syed Hakim</h3>
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-mono font-bold uppercase tracking-widest mb-8 relative z-10 shadow-sm">
+                        <Target size={14} /> Strategy Lead
                     </div>
                     
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium relative z-10">
+                    <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-medium relative z-10 max-w-sm">
                         "Innovation is not just about new technology, it's about new value. We ensure every system translates directly into operational efficiency."
                     </p>
+
+                    {/* Social/Contact Icons */}
+                    <div className="mt-8 flex gap-4 relative z-10">
+                        <a href="#" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-sm hover:shadow-blue-500/25">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="mailto:tech@ominotech.com" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-sm hover:shadow-blue-500/25">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
                  </div>
               </m.div>
            </div>

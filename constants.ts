@@ -1,3 +1,5 @@
+import { IMAGES } from './images';
+
 export const PRODUCTS = [
   {
     id: 'lifesync',
@@ -6,7 +8,7 @@ export const PRODUCTS = [
     description: 'A revolutionary productivity ecosystem built on the "Second Brain" methodology. LifeSync integrates tasks, notes, and goals into a single "Universal Mind" powered by AI.',
     status: 'In Development',
     category: 'Productivity',
-    imageUrl: '/images/custom-nextjs-react-web-developer-malaysia.webp',
+    imageUrl: IMAGES.PRODUCTS.LIFESYNC,
     features: ['Flutter Architecture', 'AI Integration', 'Realtime Sync', 'Offline First'],
     longDescription: 'LifeSync is not just a todo list. It is a complete operating system for your life. By leveraging local-first databases and edge syncing, we ensure your data is always available, instantly.'
   },
@@ -17,7 +19,7 @@ export const PRODUCTS = [
     description: 'A comprehensive Clinic Management System (CMS) designed for modern healthcare facilities. Handles patient records, appointment scheduling, and inventory in one secure dashboard.',
     status: 'Beta',
     category: 'Healthcare',
-    imageUrl: '/images/products/medimy-clinic-os-dashboard.webp',
+    imageUrl: IMAGES.PRODUCTS.MEDIMY,
     features: ['Patient Records', 'Inventory Management', 'End-to-End Encryption', 'Telemedicine Ready'],
     longDescription: 'MediMy streamlines the chaotic workflow of modern clinics. From patient registration to drug dispensing, every step is tracked and optimized for speed and compliance.'
   }
@@ -33,7 +35,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Oct 28, 2024",
     readTime: "6 min read",
-    image: "/images/ai-whatsapp-automation-chatbot-agency-malaysia.webp",
+    image: IMAGES.BLOG.POST_1,
     slug: "ai-era-neural-core-website",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -73,7 +75,7 @@ export const BLOG_POSTS = [
     author: "Dev Team",
     date: "Oct 15, 2024",
     readTime: "8 min read",
-    image: "/images/blog/full-stack-vs-wordpress-performance.webp",
+    image: IMAGES.BLOG.POST_2,
     slug: "full-stack-vs-wordpress-wix",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -105,7 +107,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Oct 10, 2024",
     readTime: "5 min read",
-    image: "/images/blog/seo-vs-aeo-strategy.webp",
+    image: IMAGES.BLOG.POST_3,
     slug: "seo-dead-aeo-strategy",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -137,7 +139,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Sep 28, 2024",
     readTime: "7 min read",
-    image: "/images/blog/digital-sovereignty-2025.webp",
+    image: IMAGES.BLOG.POST_4,
     slug: "future-era-digital-sovereignty",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">

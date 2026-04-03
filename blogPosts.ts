@@ -1,3 +1,5 @@
+import { IMAGES } from './images';
+
 // Blog Data Source - Single Source of Truth
 export const BLOG_POSTS = [
   {
@@ -8,7 +10,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Oct 28, 2024",
     readTime: "6 min read",
-    image: "/images/ai-whatsapp-automation-chatbot-agency-malaysia.webp",
+    image: IMAGES.BLOG.POST_1,
     slug: "ai-era-neural-core-website",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -48,7 +50,7 @@ export const BLOG_POSTS = [
     author: "Dev Team",
     date: "Oct 15, 2024",
     readTime: "8 min read",
-    image: "/images/blog/full-stack-vs-wordpress-performance.webp",
+    image: IMAGES.BLOG.POST_2,
     slug: "full-stack-vs-wordpress-wix",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -80,7 +82,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Oct 10, 2024",
     readTime: "5 min read",
-    image: "/images/blog/seo-vs-aeo-strategy.webp",
+    image: IMAGES.BLOG.POST_3,
     slug: "seo-dead-aeo-strategy",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">
@@ -112,7 +114,7 @@ export const BLOG_POSTS = [
     author: "Ganesaa",
     date: "Sep 28, 2024",
     readTime: "7 min read",
-    image: "/images/blog/digital-sovereignty-2025.webp",
+    image: IMAGES.BLOG.POST_4,
     slug: "future-era-digital-sovereignty",
     content: `
       <p class="font-medium text-xl text-slate-900 dark:text-slate-100 leading-loose mb-8">

@@ -328,7 +328,7 @@ const AppEngineeringView: React.FC = () => {
           plans={[
             {
               name: "The Concept MVP",
-              price: "RM 500",
+              price: "RM 599",
               period: "/ one-time",
               description: "The perfect rapid-deployment package for pre-seed startups to demonstrate their concept without breaking the bank.",
               features: ["1 to 3 Core Screens", "Basic API Integration", "Local Data Storage", "iOS & Android Support", "~1 Week Delivery"],
