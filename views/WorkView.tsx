@@ -110,7 +110,7 @@ const Work: React.FC = () => {
                 {clientImages.map((img, idx) => (
                   <div 
                     key={idx}
-                    className={`absolute inset-0 transition-all duration-1000 ease-in-out ${idx === currentImg ? 'opacity-100 scale-100 z-0' : 'opacity-0 scale-105 z-0'}`}
+                    className={`absolute inset-0 transition-all duration-1000 ease-in-out ${idx === currentImg ?'opacity-100 scale-100 z-0' : 'opacity-0 scale-105 z-0'}`}
                   >
                     {/* Blurred Background to soften any empty edges gracefully */}
                     <img 
@@ -138,7 +138,7 @@ const Work: React.FC = () => {
                     <button 
                       key={idx}
                       onClick={() => setCurrentImg(idx)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentImg ? 'w-10 bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.8)]' : 'w-3 bg-white/30 hover:bg-white/60'}`}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentImg ?'w-10 bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.8)]' : 'w-3 bg-white/30 hover:bg-white/60'}`}
                       aria-label={`Go to slide ${idx + 1}`}
                     />
                   ))}
@@ -198,7 +198,7 @@ const Work: React.FC = () => {
                 </h3>
 
                 {/* Detailed Description */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-slate-600 dark:text-slate-300 text-base leading-relaxed border-b border-slate-200 dark:border-slate-800 pb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-slate-600 dark:text-slate-300 text-base leading-relaxed border-b border-slate-200 dark:border-slate-800 pb-6 md:pb-12">
                   <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/50">
                     <strong className="text-slate-900 dark:text-white flex items-center gap-2 mb-3 text-lg">
                       <Lock className="w-5 h-5 text-indigo-400" /> THE MISSION
@@ -403,7 +403,7 @@ const Work: React.FC = () => {
 
         {/* === CTA SECTION === */}
         <section className="px-6 max-w-4xl mx-auto text-center">
-          <div className="p-12 rounded-3xl bg-gradient-to-b from-indigo-900/20 to-transparent border border-indigo-500/30 backdrop-blur-sm">
+          <div className="p-6 md:p-12 rounded-3xl bg-gradient-to-b from-indigo-900/20 to-transparent border border-indigo-500/30 backdrop-blur-sm">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
               Have a Vision? Let's Engineer It.
             </h2>
@@ -413,7 +413,7 @@ const Work: React.FC = () => {
             <WhatsAppButton 
               serviceName="Project Inquiry"
               buttonText="Start Your Project"
-              className="inline-block bg-indigo-600 dark:bg-white text-white dark:text-black px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(99,102,241,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+              className="inline-block bg-indigo-600 dark:bg-white text-white dark:text-black px-6 md:px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(99,102,241,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
               showIcon={true}
             />
           </div>

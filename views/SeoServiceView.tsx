@@ -370,10 +370,10 @@ const SeoServiceView: React.FC = () => {
                 <WhatsAppButton
                     serviceName="SEO Service"
                     buttonText="Start Ranking #1"
-                    className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.4)]"
+                    className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(16,185,129,0.4)]"
                     showIcon={false}
                 />
-                <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
+                <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
                     <span className="absolute inset-0 bg-slate-100 dark:bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
                     <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
                         View Packages
@@ -473,7 +473,7 @@ const SeoServiceView: React.FC = () => {
                             }}
                         >
                             {/* Active Indicator Line */}
-                            <div className={`hidden lg:block absolute left-[-2px] top-0 h-full w-[2px] bg-gradient-to-b ${engine.color} transition-opacity duration-500 ${activeEngine === index ? 'opacity-100' : 'opacity-0'}`}></div>
+                            <div className={`hidden lg:block absolute left-[-2px] top-0 h-full w-[2px] bg-gradient-to-b ${engine.color} transition-opacity duration-500 ${activeEngine === index ?'opacity-100' : 'opacity-0'}`}></div>
 
                             {/* Mobile Image Preview */}
                             <div className="lg:hidden mb-8 w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 relative group">
@@ -484,12 +484,12 @@ const SeoServiceView: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border mb-6 transition-colors duration-300 ${activeEngine === index ? 'bg-slate-100 dark:bg-white/10 border-transparent text-slate-900 dark:text-white' : 'border-slate-200 dark:border-slate-800 text-slate-500'}`}>
+                            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border mb-6 transition-colors duration-300 ${activeEngine === index ?'bg-slate-100 dark:bg-white/10 border-transparent text-slate-900 dark:text-white' : 'border-slate-200 dark:border-slate-800 text-slate-500'}`}>
                                 <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${engine.color}`}></span>
                                 <span className="text-xs font-mono font-bold uppercase tracking-widest">{engine.tag}</span>
                             </div>
 
-                            <h3 className={`text-4xl md:text-5xl font-black mb-6 transition-colors duration-300 ${activeEngine === index ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-slate-600'}`}>
+                            <h3 className={`text-4xl md:text-5xl font-black mb-6 transition-colors duration-300 ${activeEngine === index ?'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-slate-600'}`}>
                                 {engine.title}
                             </h3>
                             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
@@ -712,13 +712,13 @@ const SeoServiceView: React.FC = () => {
               {faqSchema.mainEntity.map((item, i) => (
                  <div 
                     key={i} 
-                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-emerald-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-emerald-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
                  >
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
                        className="w-full flex items-center justify-between p-6 text-left"
                     >
-                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>{item.name}</h3>
+                       <h3 className={`font-bold text-lg ${openFaq === i ?'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>{item.name}</h3>
                        {openFaq === i ? <ChevronUp /> : <ChevronDown />}
                     </button>
                     <AnimatePresence>

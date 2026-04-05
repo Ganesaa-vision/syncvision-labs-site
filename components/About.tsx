@@ -85,7 +85,7 @@ const About: React.FC = () => {
         {/* === NEW SECTION: THE COLLECTIVE === */}
         <div className="mb-32 relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-purple-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
-            <div className="relative bg-[#0f0f0f] border border-white/10 rounded-[2rem] p-12 md:p-20 overflow-hidden">
+            <div className="relative bg-[#0f0f0f] border border-white/10 rounded-[2rem] p-6 md:p-12 lg:p-20 overflow-hidden">
                 <div className="absolute top-0 right-0 p-20 opacity-[0.03] text-indigo-500 pointer-events-none">
                     <BrainCircuit size={400} />
                 </div>
@@ -171,7 +171,7 @@ const About: React.FC = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <div className="p-12 rounded-[3rem] bg-gradient-to-b from-indigo-900/20 to-transparent border border-indigo-500/30 relative overflow-hidden">
+          <div className="p-6 md:p-12 lg:p-16 rounded-[3rem] bg-gradient-to-b from-indigo-900/20 to-transparent border border-indigo-500/30 relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">

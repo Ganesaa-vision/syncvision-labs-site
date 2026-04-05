@@ -18,7 +18,7 @@ const NotFoundView: React.FC = () => {
       </Helmet>
 
       <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#030303] text-slate-900 dark:text-slate-200 transition-colors duration-300">
-        <main className="flex-grow flex flex-col items-center justify-center relative px-6 overflow-hidden pt-32 pb-20">
+        <main className="flex-grow flex flex-col items-center justify-center relative px-6 overflow-hidden pt-16 md:pt-32 pb-10 md:pb-20">
           {/* Ambient Error Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-red-500/10 dark:bg-red-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -93,7 +93,7 @@ const NotFoundView: React.FC = () => {
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-slate-800 dark:text-slate-200 mb-6 uppercase leading-[1.1]" style={{ animation: 'flicker 1.5s infinite alternate' }}>
-              System <span className="text-red-600 dark:text-red-500 ">Offline</span>
+              System <span className="text-red-600 dark:text-red-500">Offline</span>
             </h2>
 
             <p className="text-slate-600 dark:text-slate-400 max-w-lg mb-12 text-lg font-medium leading-relaxed">

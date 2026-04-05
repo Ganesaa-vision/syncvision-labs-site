@@ -117,7 +117,7 @@ const EcommerceView: React.FC = () => {
                         <WhatsAppButton 
                             serviceName="E-Commerce Architecture"
                             buttonText="Build Your Store"
-                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(234,179,8,0.4)]"
+                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(234,179,8,0.4)]"
                             showIcon={false}
                         >
                             <span className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
@@ -126,7 +126,7 @@ const EcommerceView: React.FC = () => {
                             </span>
                         </WhatsAppButton>
                         
-                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
+                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
                             <span className="absolute inset-0 bg-slate-100 dark:bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
                             <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
                                 View Packages
@@ -214,7 +214,7 @@ const EcommerceView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32 pt-12"
+            className="mb-32 pt-6 md:pt-12"
         >
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Store Packages</h2>
@@ -288,8 +288,8 @@ const EcommerceView: React.FC = () => {
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32"
         >
             {/* Gateway Rescue */}
-            <div className="p-10 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] hover:border-red-500/30 transition-all relative overflow-hidden group shadow-lg dark:shadow-none">
-                <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity"><ShieldCheck size={150} /></div>
+            <div className="p-6 md:p-10 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] hover:border-red-500/30 transition-all relative overflow-hidden group shadow-lg dark:shadow-none">
+                <div className="absolute top-0 right-0 p-6 md:p-10 opacity-5 group-hover:opacity-10 transition-opacity"><ShieldCheck size={150} /></div>
                 <div className="relative z-10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-red-500/30 bg-red-100 dark:bg-red-900/10 text-red-600 dark:text-red-400 text-xs font-mono mb-6">
                         <Zap className="w-3 h-3" /> TECHNICAL FIX
@@ -309,7 +309,7 @@ const EcommerceView: React.FC = () => {
             </div>
 
             {/* Calculator / Value Prop */}
-            <div className="p-10 bg-gradient-to-br from-yellow-50 to-slate-100 dark:from-yellow-900/20 dark:to-slate-900 border border-yellow-500/20 rounded-[2.5rem] flex flex-col justify-center shadow-lg dark:shadow-none">
+            <div className="p-6 md:p-10 bg-gradient-to-br from-yellow-50 to-slate-100 dark:from-yellow-900/20 dark:to-slate-900 border border-yellow-500/20 rounded-[2.5rem] flex flex-col justify-center shadow-lg dark:shadow-none">
                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Calculate Your Savings</h3>
                 
                 <div className="mb-10">
@@ -366,7 +366,7 @@ const EcommerceView: React.FC = () => {
                       <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter">The "No-Rent" Advantage</h2>
                   </div>
                   <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 shadow-sm">
-                    <table className="w-full text-left border-collapse min-w-[800px]">
+                    <table className="w-full text-left border-collapse min-w-0 md:min-w-[800px]">
                       <thead>
                         <tr>
                       <th className="p-6 border-b border-slate-200 dark:border-slate-800 text-slate-500 font-mono text-xs uppercase tracking-widest w-1/3">Feature</th>
@@ -418,14 +418,14 @@ const EcommerceView: React.FC = () => {
               {faqs.map((item, i) => (
                  <div 
                     key={i} 
-                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-yellow-500 bg-white dark:bg-slate-900 shadow-lg shadow-yellow-500/10' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 hover:border-yellow-500/30'}`}
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-yellow-500 bg-white dark:bg-slate-900 shadow-lg shadow-yellow-500/10' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 hover:border-yellow-500/30'}`}
                  >
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
                        className="w-full flex items-center justify-between p-6 text-left"
                     >
-                       <h3 className={`font-bold text-lg md:text-xl ${openFaq === i ? 'text-yellow-600 dark:text-yellow-500' : 'text-slate-900 dark:text-white'}`}>{item.q}</h3>
-                       <div className={`p-2 rounded-full transition-colors flex-shrink-0 ${openFaq === i ? 'bg-yellow-100 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-500' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+                       <h3 className={`font-bold text-lg md:text-xl ${openFaq === i ?'text-yellow-600 dark:text-yellow-500' : 'text-slate-900 dark:text-white'}`}>{item.q}</h3>
+                       <div className={`p-2 rounded-full transition-colors flex-shrink-0 ${openFaq === i ?'bg-yellow-100 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-500' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
                           {openFaq === i ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                        </div>
                     </button>
@@ -456,7 +456,7 @@ const EcommerceView: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center p-12 bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-950 rounded-[3rem] border border-slate-200 dark:border-slate-800"
+          className="text-center p-6 md:p-12 bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-950 rounded-[3rem] border border-slate-200 dark:border-slate-800"
         >
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Ready to take payments?</h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">

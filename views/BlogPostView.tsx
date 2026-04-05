@@ -162,7 +162,7 @@ const BlogPostView: React.FC = () => {
 
             {/* Progress Bar could go here */}
 
-            <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-32 pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
+            <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="relative z-10 pt-16 md:pt-32 pb-10 md:pb-20 px-6 max-w-7xl mx-auto flex-grow w-full">
                 {/* Breadcrumbs (SEO Structure) */}
                 <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-8">
                     <Link to="/" className="hover:text-indigo-500 transition-colors">Home</Link>
@@ -263,13 +263,13 @@ const BlogPostView: React.FC = () => {
                             ].map((faq, i) => (
                                 <m.div 
                                     key={i} 
-                                    className={`border rounded-xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg shadow-indigo-500/10' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:border-indigo-500/30'}`}
+                                    className={`border rounded-xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg shadow-indigo-500/10' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:border-indigo-500/30'}`}
                                 >
                                     <button 
                                         onClick={() => setOpenFaq(openFaq === i ? null : i)}
                                         className="w-full flex items-center justify-between p-4 text-left"
                                     >
-                                        <span className={`font-bold text-sm md:text-base ${openFaq === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{faq.q}</span>
+                                        <span className={`font-bold text-sm md:text-base ${openFaq === i ?'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{faq.q}</span>
                                         {openFaq === i ? <ChevronUp size={16} className="text-indigo-500" /> : <ChevronDown size={16} className="text-slate-500" />}
                                     </button>
                                     <AnimatePresence>
@@ -292,7 +292,7 @@ const BlogPostView: React.FC = () => {
                     </div>
 
                     {/* Related Posts */}
-                    <div className="mt-24 pt-12 border-t border-slate-200 dark:border-white/10">
+                    <div className="mt-24 pt-6 md:pt-12 border-t border-slate-200 dark:border-white/10">
                         <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Related Insights</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {relatedPosts.map(related => (

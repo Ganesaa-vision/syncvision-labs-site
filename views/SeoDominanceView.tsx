@@ -63,7 +63,7 @@ const SeoDominanceView: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32">
-          <div className="p-10 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-emerald-500/30 transition-all group">
+          <div className="p-6 md:p-10 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-emerald-500/30 transition-all group">
             <div className="flex items-center justify-between mb-8">
                <Search className="w-12 h-12 text-emerald-400" />
                <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">Traditional SEO</span>
@@ -80,7 +80,7 @@ const SeoDominanceView: React.FC = () => {
             </ul>
           </div>
 
-          <div className="p-10 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-blue-500/30 transition-all group">
+          <div className="p-6 md:p-10 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-blue-500/30 transition-all group">
             <div className="flex items-center justify-between mb-8">
                <MapPin className="w-12 h-12 text-blue-400" />
                <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">Local SEO</span>
@@ -156,7 +156,7 @@ const SeoDominanceView: React.FC = () => {
           ]}
         />
 
-        <div className="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-12 flex flex-col md:flex-row items-center gap-12">
+        <div className="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 md:p-12 flex flex-col md:flex-row items-center gap-12">
            <div className="md:w-2/3">
               <h2 className="text-2xl font-bold text-white mb-4">The Future: AEO (Answer Engine Optimization)</h2>
               <p className="text-slate-400 leading-relaxed mb-6">
@@ -181,13 +181,13 @@ const SeoDominanceView: React.FC = () => {
               {faqSchema.mainEntity.map((item, i) => (
                  <div 
                     key={i} 
-                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-emerald-500 bg-slate-900 shadow-lg' : 'border-slate-800 bg-slate-900/30'}`}
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-emerald-500 bg-slate-900 shadow-lg' : 'border-slate-800 bg-slate-900/30'}`}
                  >
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
                        className="w-full flex items-center justify-between p-6 text-left"
                     >
-                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-emerald-400' : 'text-white'}`}>{item.name}</h3>
+                       <h3 className={`font-bold text-lg ${openFaq === i ?'text-emerald-400' : 'text-white'}`}>{item.name}</h3>
                        {openFaq === i ? <ChevronUp className="text-slate-400" /> : <ChevronDown className="text-slate-400" />}
                     </button>
                     <AnimatePresence>

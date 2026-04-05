@@ -30,7 +30,7 @@ const TermsView: React.FC = () => {
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
 
-      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-32 pb-20 px-6 max-w-4xl mx-auto flex-grow w-full">
+      <m.main initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: "easeOut" }} className="pt-16 md:pt-32 pb-10 md:pb-20 px-6 max-w-4xl mx-auto flex-grow w-full">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400 mb-8 leading-[1.1]">Terms of Service</h1>
         <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
           <p className="font-mono text-xs uppercase tracking-widest mb-8">Last Updated: {new Date().getFullYear()}</p>

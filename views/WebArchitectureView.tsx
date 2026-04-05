@@ -274,7 +274,7 @@ const WebArchitectureView: React.FC = () => {
                         <WhatsAppButton 
                             serviceName="Web Architecture"
                             buttonText="Start Your Project"
-                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.15)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]"
+                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.15)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]"
                             showIcon={false}
                         >
                             <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
@@ -283,7 +283,7 @@ const WebArchitectureView: React.FC = () => {
                             </span>
                         </WhatsAppButton>
                         
-                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-700 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
+                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-700 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
                             <span className="absolute inset-0 bg-slate-100 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
                             <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
                                 View Packages
@@ -352,7 +352,7 @@ const WebArchitectureView: React.FC = () => {
         <div className="mb-32 relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
             <div className="relative bg-white dark:bg-[#0f0f0f] border border-slate-200 dark:border-white/10 rounded-[2rem] p-8 md:p-20 overflow-hidden shadow-xl dark:shadow-none">
-                <div className="absolute top-0 right-0 p-20 opacity-[0.03] text-indigo-500 pointer-events-none">
+                <div className="absolute top-0 right-0 p-10 md:p-20 opacity-[0.03] text-indigo-500 pointer-events-none">
                     <Gauge size={400} />
                 </div>
                 
@@ -578,7 +578,7 @@ const WebArchitectureView: React.FC = () => {
                         
                         <div className="relative z-10 flex flex-col h-full">
                             <div className="flex justify-between items-center mb-4">
-                                <div className={`p-3 rounded-2xl transition-colors duration-300 ${selectedTier === tier.id ? 'bg-indigo-500 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}>
+                                <div className={`p-3 rounded-2xl transition-colors duration-300 ${selectedTier === tier.id ?'bg-indigo-500 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}>
                                     {tier.icon}
                                 </div>
                                 {selectedTier === tier.id && (
@@ -587,7 +587,7 @@ const WebArchitectureView: React.FC = () => {
                                     </m.div>
                                 )}
                             </div>
-                            <h3 className={`text-lg font-bold mb-1 transition-colors duration-300 ${selectedTier === tier.id ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400'}`}>
+                            <h3 className={`text-lg font-bold mb-1 transition-colors duration-300 ${selectedTier === tier.id ?'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-400'}`}>
                                 {tier.name}
                             </h3>
                         </div>
@@ -609,7 +609,7 @@ const WebArchitectureView: React.FC = () => {
                         {/* Background Glow */}
                         <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-1/2 ${activeTier.glowColor} blur-3xl rounded-full pointer-events-none opacity-50`} />
 
-                        <div className={`flex flex-col lg:flex-row gap-12 items-center relative z-10 ${selectedTier === 'business' ? 'lg:flex-row-reverse' : ''}`}>
+                        <div className={`flex flex-col lg:flex-row gap-12 items-center relative z-10 ${selectedTier ==='business' ? 'lg:flex-row-reverse' : ''}`}>
                         {/* TEXT CONTENT */}
                         <div className="flex-1 space-y-8">
                             <m.div variants={itemVariants}>
@@ -776,8 +776,8 @@ const WebArchitectureView: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mb-32"
         >
-            <div className="p-10 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-500/20 rounded-[2.5rem] relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-12 opacity-10 text-yellow-500"><ShoppingBag size={200} /></div>
+            <div className="p-6 md:p-10 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-500/20 rounded-[2.5rem] relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-6 md:p-12 opacity-10 text-yellow-500"><ShoppingBag size={200} /></div>
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
                     <div className="flex-1">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-yellow-500/30 bg-yellow-100 dark:bg-yellow-900/10 text-yellow-600 dark:text-yellow-400 text-xs font-mono mb-6">
@@ -869,13 +869,13 @@ const WebArchitectureView: React.FC = () => {
               {faqs.map((item, i) => (
                  <div 
                     key={i} 
-                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
                  >
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
                        className="w-full flex items-center justify-between p-6 text-left"
                     >
-                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</h3>
+                       <h3 className={`font-bold text-lg ${openFaq === i ?'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</h3>
                        {openFaq === i ? <ChevronUp /> : <ChevronDown />}
                     </button>
                     <AnimatePresence>

@@ -92,7 +92,7 @@ const PremiumServiceCard = ({ title, description, icon: Icon, features, delay = 
  */
 const BentoCard = ({ className, title, description, icon: Icon, children }: { className?: string, title: string, description: string, icon: React.ElementType, children?: React.ReactNode }) => (
     <article className={`p-6 md:p-10 bg-gradient-to-br from-slate-50 to-white dark:from-white/[0.03] dark:to-transparent border border-slate-200 dark:border-white/5 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden group hover:border-indigo-500/30 hover:bg-slate-100 dark:hover:bg-white/[0.04] transition-all duration-500 shadow-sm dark:shadow-none ${className}`}>
-        <div className="absolute top-0 right-0 p-10 opacity-[0.02] group-hover:opacity-10 transition-all duration-700 transform-gpu group-hover:scale-110 pointer-events-none text-slate-900 dark:text-white"><Icon size={180} /></div>
+        <div className="absolute top-0 right-0 p-6 md:p-10 opacity-[0.02] group-hover:opacity-10 transition-all duration-700 transform-gpu group-hover:scale-110 pointer-events-none text-slate-900 dark:text-white"><Icon size={180} /></div>
         <div className="relative z-10 flex flex-col h-full">
             <div className="w-12 h-12 md:w-14 md:h-14 bg-indigo-50 dark:bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-500 border border-indigo-200 dark:border-indigo-500/20"><Icon size={24} className="md:w-[26px] md:h-[26px]" /></div>
             <h3 className="text-xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3 md:mb-4 tracking-tight">{title}</h3>
@@ -311,7 +311,7 @@ const HomeView: React.FC = () => {
                     <header 
                         id="hero-header"
                         onMouseMove={handleMouseMove}
-                        className="relative min-h-[100svh] flex flex-col justify-center pt-32 pb-20 overflow-hidden"
+                        className="relative min-h-[100svh] flex flex-col justify-center pt-16 md:pt-32 pb-10 md:pb-20 overflow-hidden"
                     >
                         {/* --- Hero Isolated Background Effects --- */}
                         <div className="absolute inset-0 z-0 pointer-events-none bg-slate-50 dark:bg-[#030303] transition-colors duration-300">
@@ -498,12 +498,12 @@ const HomeView: React.FC = () => {
                     {/* --- MARQUEE / TICKER --- */}
                     <section aria-label="Performance Metrics" className="w-full border-y border-slate-200 dark:border-white/5 bg-white/80 dark:bg-[#030303]/80 backdrop-blur-md overflow-hidden py-5 md:py-6 relative z-10">
                         <m.div 
-                            className="flex gap-16 md:gap-32 whitespace-nowrap items-center transform-gpu will-change-transform"
+                            className="flex flex-col md:flex-row gap-16 md:gap-32 whitespace-nowrap items-center transform-gpu will-change-transform"
                             animate={{ x: ["0%", "-50%"] }}
                             transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
                         >
                             {[...Array(8)].map((_, i) => (
-                            <div key={i} className="flex gap-16 md:gap-32 text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 items-center">
+                            <div key={i} className="flex flex-col md:flex-row gap-16 md:gap-32 text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 items-center">
                                     <span className="flex items-center gap-3"><TrendingUp size={14} className="text-purple-600 dark:text-purple-500"/> <span className="text-slate-900 dark:text-slate-200">Rank #1 on Google</span></span>
                                     <span className="flex items-center gap-3"><Zap size={14} className="text-indigo-600 dark:text-indigo-500"/> <span className="text-slate-900 dark:text-slate-200">AI Overview Captured</span></span>
                                     <span className="flex items-center gap-3"><Activity size={14} className="text-cyan-600 dark:text-cyan-500"/> <span className="text-slate-900 dark:text-slate-200">420% Lead Increase</span></span>
@@ -820,15 +820,15 @@ const HomeView: React.FC = () => {
                                 <m.article 
                                     key={i} 
                                     initial={false}
-                                    className={`border rounded-[1.5rem] overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-indigo-500/50 bg-indigo-50 dark:bg-white/[0.04] shadow-[0_0_30px_rgba(99,102,241,0.1)]' : 'border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-white/[0.01] hover:border-indigo-500/30'}`}
+                                    className={`border rounded-[1.5rem] overflow-hidden transition-all duration-300 ${openFaq === i ?'border-indigo-500/50 bg-indigo-50 dark:bg-white/[0.04] shadow-[0_0_30px_rgba(99,102,241,0.1)]' : 'border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-white/[0.01] hover:border-indigo-500/30'}`}
                                 >
                                     <button 
                                         onClick={() => setOpenFaq(openFaq === i ? null : i)}
                                         className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                                         aria-expanded={openFaq === i}
                                     >
-                                        <h3 className={`font-black text-lg md:text-xl tracking-tight pr-4 ${openFaq === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</h3>
-                                        <div className={`p-2 rounded-full transition-colors flex-shrink-0 ${openFaq === i ? 'bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400' : 'bg-slate-200 dark:bg-white/5 text-slate-500 dark:text-slate-400'}`}>
+                                        <h3 className={`font-black text-lg md:text-xl tracking-tight pr-4 ${openFaq === i ?'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</h3>
+                                        <div className={`p-2 rounded-full transition-colors flex-shrink-0 ${openFaq === i ?'bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400' : 'bg-slate-200 dark:bg-white/5 text-slate-500 dark:text-slate-400'}`}>
                                             {openFaq === i ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                         </div>
                                     </button>

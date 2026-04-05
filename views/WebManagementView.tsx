@@ -114,7 +114,7 @@ const WebManagementView: React.FC = () => {
                         <WhatsAppButton 
                             serviceName="Maintenance Inquiry"
                             buttonText="Protect Your Website"
-                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(6,182,212,0.4)]"
+                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(6,182,212,0.4)]"
                             showIcon={false}
                         >
                             <span className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
@@ -123,7 +123,7 @@ const WebManagementView: React.FC = () => {
                             </span>
                         </WhatsAppButton>
                         
-                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
+                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
                             <span className="absolute inset-0 bg-slate-100 dark:bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
                             <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
                                 View Packages
@@ -320,7 +320,7 @@ const WebManagementView: React.FC = () => {
                       <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tighter">Compare Features</h2>
                   </div>
                   <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 shadow-sm">
-                    <table className="w-full text-left border-collapse min-w-[800px]">
+                    <table className="w-full text-left border-collapse min-w-0 md:min-w-[800px]">
                       <thead>
                         <tr>
                       <th className="p-6 border-b border-slate-200 dark:border-slate-800 text-slate-500 font-mono text-xs uppercase tracking-widest w-1/4">Feature</th>
@@ -379,14 +379,14 @@ const WebManagementView: React.FC = () => {
             {faqs.map((item, i) => (
                <m.div 
                   key={i} 
-                  className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-cyan-500 bg-white dark:bg-slate-900 shadow-lg shadow-cyan-500/10' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 hover:border-cyan-500/30'}`}
+                  className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-cyan-500 bg-white dark:bg-slate-900 shadow-lg shadow-cyan-500/10' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30 hover:border-cyan-500/30'}`}
                >
                   <button 
                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
                      className="w-full flex items-center justify-between p-6 text-left"
                   >
-                     <span className={`font-bold text-lg ${openFaq === i ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</span>
-                     <div className={`p-2 rounded-full transition-colors ${openFaq === i ? 'bg-cyan-100 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+                     <span className={`font-bold text-lg ${openFaq === i ?'text-cyan-600 dark:text-cyan-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</span>
+                     <div className={`p-2 rounded-full transition-colors ${openFaq === i ?'bg-cyan-100 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
                         {openFaq === i ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                      </div>
                   </button>

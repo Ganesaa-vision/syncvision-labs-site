@@ -141,7 +141,7 @@ const AppEngineeringView: React.FC = () => {
         >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-indigo-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
             <div className="relative bg-white dark:bg-[#0f0f0f] border border-slate-200 dark:border-white/10 rounded-[2rem] p-8 md:p-20 overflow-hidden shadow-xl dark:shadow-none">
-                <div className="absolute top-0 right-0 p-20 opacity-[0.03] text-blue-500 pointer-events-none">
+                <div className="absolute top-0 right-0 p-10 md:p-20 opacity-[0.03] text-blue-500 pointer-events-none">
                     <Cpu size={400} />
                 </div>
                 
@@ -213,7 +213,7 @@ const AppEngineeringView: React.FC = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/80 to-slate-950 opacity-95 transition-opacity duration-500"></div>
                         
-                        <div className="absolute inset-0 p-10 flex flex-col justify-end">
+                        <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end">
                             <div className="transform translate-y-0 transition-transform duration-500">
                                 <div className="flex items-center justify-between mb-6">
                                     <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 text-white shadow-lg">
@@ -385,13 +385,13 @@ const AppEngineeringView: React.FC = () => {
               {faqSchema.mainEntity.map((item, i) => (
                  <div 
                     key={i} 
-                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
                  >
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
                        className="w-full flex items-center justify-between p-6 text-left"
                     >
-                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.name}</h3>
+                       <h3 className={`font-bold text-lg ${openFaq === i ?'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.name}</h3>
                        {openFaq === i ? <ChevronUp /> : <ChevronDown />}
                     </button>
                     <AnimatePresence>

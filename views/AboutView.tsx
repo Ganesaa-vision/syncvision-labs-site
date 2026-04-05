@@ -116,7 +116,7 @@ const AboutView: React.FC = () => {
              className="relative"
            >
               <div className="absolute -inset-4 bg-indigo-500/10 rounded-3xl blur-xl"></div>
-              <div className="relative bg-white/50 dark:bg-slate-900/50 border border-indigo-500/20 p-10 rounded-3xl backdrop-blur-sm shadow-lg dark:shadow-none">
+              <div className="relative bg-white/50 dark:bg-slate-900/50 border border-indigo-500/20 p-6 md:p-10 rounded-3xl backdrop-blur-sm shadow-lg dark:shadow-none">
                  <Code className="w-12 h-12 text-indigo-500 mb-6" />
                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">The Rebellion Against Bloat</h2>
                  <div className="space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
@@ -236,7 +236,7 @@ const AboutView: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
                       whileHover={{ scale: 1.02, x: 10 }}
-                      className="flex gap-6 p-6 bg-white dark:bg-slate-900/20 border border-slate-200 dark:border-white/5 rounded-2xl hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 hover:border-indigo-500/30 transition-all shadow-sm dark:shadow-none group"
+                      className="flex flex-col md:flex-row gap-6 p-6 bg-white dark:bg-slate-900/20 border border-slate-200 dark:border-white/5 rounded-2xl hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 hover:border-indigo-500/30 transition-all shadow-sm dark:shadow-none group"
                     >
                      <div className="text-indigo-600 dark:text-indigo-400 font-mono font-bold text-xl">0{i+1}</div>
                        <div>
@@ -386,7 +386,7 @@ const AboutView: React.FC = () => {
                  <WhatsAppButton
                     serviceName="Rebellion Inquiry"
                     buttonText="Join the Rebellion"
-                    className="px-10 py-5 bg-indigo-500 text-white font-bold rounded-full hover:bg-indigo-400 transition-all flex items-center gap-2 shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:scale-105"
+                    className="px-6 md:px-10 py-5 bg-indigo-500 text-white font-bold rounded-full hover:bg-indigo-400 transition-all flex items-center gap-2 shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:scale-105"
                     showIcon={true}
                  />
               </div>

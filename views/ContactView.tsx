@@ -78,12 +78,12 @@ const ContactView: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-5 p-12 bg-white dark:bg-white/[0.02] backdrop-blur-xl rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-2xl flex flex-col justify-between">
+          <div className="lg:col-span-5 p-6 md:p-12 bg-white dark:bg-white/[0.02] backdrop-blur-xl rounded-[3rem] border border-slate-200 dark:border-white/10 shadow-2xl flex flex-col justify-between">
              <div className="space-y-12">
-               <div className="flex items-center gap-6 text-indigo-600 dark:text-indigo-400"><MessageSquare size={32} /><h3 className="font-mono font-black uppercase tracking-widest text-slate-900 dark:text-slate-100">Technical Intake</h3></div>
+               <div className="flex flex-col md:flex-row items-center gap-6 text-indigo-600 dark:text-indigo-400"><MessageSquare size={32} /><h3 className="font-mono font-black uppercase tracking-widest text-slate-900 dark:text-slate-100">Technical Intake</h3></div>
                <p className="text-slate-600 dark:text-slate-200 font-bold uppercase tracking-widest text-sm leading-loose">Transmissions are encrypted. Direct engineering lead access provided upon objective validation.</p>
              </div>
-             <div className="mt-20 pt-12 border-t border-slate-200 dark:border-slate-100/5 space-y-8">
+             <div className="mt-20 pt-6 md:pt-12 border-t border-slate-200 dark:border-slate-100/5 space-y-8">
                <div className="flex items-center gap-4 text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.5em]"><div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_#10b981]"></div> Secure Channel Active</div>
              <div className="flex items-center gap-4 text-slate-600 dark:text-slate-400 font-mono text-xs font-black uppercase tracking-[0.5em]"><ShieldCheck size={14}/> Encrypted Handshake Ready</div>
              </div>
@@ -98,7 +98,7 @@ const ContactView: React.FC = () => {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="p-20 bg-white dark:bg-white/[0.02] backdrop-blur-xl border border-emerald-500/40 rounded-[3rem] text-center shadow-3xl flex flex-col items-center"
+                className="p-10 md:p-20 bg-white dark:bg-white/[0.02] backdrop-blur-xl border border-emerald-500/40 rounded-[3rem] text-center shadow-3xl flex flex-col items-center"
               >
                  <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mb-10 ring-4 ring-emerald-500/20">
                    <CheckCircle2 size={40} className="text-emerald-500" />
@@ -132,7 +132,7 @@ const ContactView: React.FC = () => {
               <textarea rows={5} required placeholder="Detailed technical requirements, ROI goals, or architectural objectives..." className="w-full bg-slate-100 dark:bg-slate-950 border border-slate-300 dark:border-white/10 rounded-2xl p-4 md:p-6 text-slate-900 dark:text-slate-200 font-mono text-sm font-black focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 outline-none transition-all duration-300 resize-none placeholder-slate-500 dark:placeholder-slate-400 shadow-inner transform-gpu focus:-translate-y-1 hover:bg-slate-50 dark:hover:bg-slate-900/50"></textarea>
                 </m.div>
                 <m.div variants={formItem}>
-                  <button type="submit" className="w-full py-6 md:py-8 bg-indigo-600 text-white font-mono text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-indigo-500 transition-all duration-300 flex items-center justify-center gap-6 shadow-xl shadow-indigo-500/20 active:scale-95 hover:shadow-indigo-500/40 hover:-translate-y-1 transform-gpu">
+                  <button type="submit" className="w-full py-6 md:py-8 bg-indigo-600 text-white font-mono text-sm font-black uppercase tracking-widest rounded-2xl hover:bg-indigo-500 transition-all duration-300 flex flex-col md:flex-row items-center justify-center gap-6 shadow-xl shadow-indigo-500/20 active:scale-95 hover:shadow-indigo-500/40 hover:-translate-y-1 transform-gpu">
                   DEPLOY TRANSMISSION <ArrowRight size={20} />
                 </button>
                 </m.div>

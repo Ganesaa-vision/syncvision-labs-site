@@ -150,7 +150,7 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl pt-24 pb-8 px-6 md:hidden flex flex-col overflow-y-auto h-[100dvh]"
+            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl pt-12 md:pt-24 pb-8 px-6 md:hidden flex flex-col overflow-y-auto h-[100dvh]"
           >
             <div className="flex flex-col gap-0">
               {navLinks.map((link, i) => (

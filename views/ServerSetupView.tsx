@@ -158,9 +158,9 @@ const ServerSetupView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="p-12 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-8"
+            className="p-6 md:p-12 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-8"
         >
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col md:flex-row items-center gap-6">
                 <div className="p-4 bg-green-100 dark:bg-green-500/10 rounded-2xl text-green-600 dark:text-green-500">
                     <Lock size={32} />
                 </div>

@@ -390,7 +390,7 @@ const ServicesView: React.FC = () => {
             <WhatsAppButton
                 serviceName="Free Consultation Inquiry"
                 buttonText="Get a Free Consultation →"
-                className="block bg-white dark:bg-[#0a0a0a] rounded-full px-10 py-4 text-slate-900 dark:text-white font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
+                className="block bg-white dark:bg-[#0a0a0a] rounded-full px-6 md:px-10 py-4 text-slate-900 dark:text-white font-bold hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
                 showIcon={false}
             />
           </div>
@@ -403,14 +403,14 @@ const ServicesView: React.FC = () => {
               {faqs.map((item, i) => (
                  <m.div 
                     key={i} 
-                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg shadow-indigo-500/10' : 'border-slate-200 dark:border-white/10 bg-white/50 dark:bg-slate-900/30 hover:border-indigo-500/30'}`}
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-indigo-500 bg-white dark:bg-slate-900 shadow-lg shadow-indigo-500/10' : 'border-slate-200 dark:border-white/10 bg-white/50 dark:bg-slate-900/30 hover:border-indigo-500/30'}`}
                  >
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
                        className="w-full flex items-center justify-between p-6 text-left"
                     >
-                       <span className={`font-bold text-lg ${openFaq === i ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</span>
-                       <div className={`p-2 rounded-full transition-colors ${openFaq === i ? 'bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+                       <span className={`font-bold text-lg ${openFaq === i ?'text-indigo-600 dark:text-indigo-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</span>
+                       <div className={`p-2 rounded-full transition-colors ${openFaq === i ?'bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
                           {openFaq === i ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                        </div>
                     </button>
@@ -442,7 +442,7 @@ const ServicesView: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800"
+          className="mt-24 pt-6 md:pt-12 border-t border-slate-200 dark:border-slate-800"
         >
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Why Choose Omino Tech for Your Digital Transformation?</h2>
           <div className="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">

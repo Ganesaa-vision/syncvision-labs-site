@@ -121,7 +121,7 @@ const AutomationView: React.FC = () => {
                         <WhatsAppButton 
                             serviceName="AI Automation"
                             buttonText="Deploy AI Agent"
-                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(168,85,247,0.4)]"
+                            className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.2)] hover:shadow-[0_20px_50px_-10px_rgba(168,85,247,0.4)]"
                             showIcon={false}
                         >
                             <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
@@ -130,7 +130,7 @@ const AutomationView: React.FC = () => {
                             </span>
                         </WhatsAppButton>
                         
-                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
+                        <a href="#pricing" onClick={(e) => { e.preventDefault(); document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' }); }} className="w-full sm:w-auto group relative inline-flex items-center justify-center px-6 md:px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-slate-800 dark:text-white overflow-hidden rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/5 hover:scale-105 active:scale-95 transition-all duration-500 backdrop-blur-md hover:shadow-[0_0_30px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:border-slate-400 dark:hover:border-white/40">
                             <span className="absolute inset-0 bg-slate-100 dark:bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
                             <span className="relative flex items-center gap-3 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-500">
                                 View Packages
@@ -284,7 +284,7 @@ const AutomationView: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
            <div className="order-2 lg:order-1">
               <div className="space-y-8">
-                 <div className="flex gap-6">
+                 <div className="flex flex-col md:flex-row gap-6">
                     <div className="w-12 h-12 rounded-xl bg-green-100 dark:bg-green-500/10 flex items-center justify-center flex-shrink-0 text-green-600 dark:text-green-500">
                        <MessageSquare size={24} />
                     </div>
@@ -296,7 +296,7 @@ const AutomationView: React.FC = () => {
                     </div>
                  </div>
                  
-                 <div className="flex gap-6">
+                 <div className="flex flex-col md:flex-row gap-6">
                     <div className="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-500/10 flex items-center justify-center flex-shrink-0 text-purple-600 dark:text-purple-500">
                        <Bot size={24} />
                     </div>
@@ -308,7 +308,7 @@ const AutomationView: React.FC = () => {
                     </div>
                  </div>
 
-                 <div className="flex gap-6">
+                 <div className="flex flex-col md:flex-row gap-6">
                     <div className="w-12 h-12 rounded-xl bg-yellow-100 dark:bg-yellow-500/10 flex items-center justify-center flex-shrink-0 text-yellow-600 dark:text-yellow-500">
                        <Zap size={24} />
                     </div>
@@ -454,13 +454,13 @@ const AutomationView: React.FC = () => {
               {faqs.map((item, i) => (
                  <div 
                     key={i} 
-                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ? 'border-purple-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
+                    className={`border rounded-2xl overflow-hidden transition-all duration-300 ${openFaq === i ?'border-purple-500 bg-white dark:bg-slate-900 shadow-lg' : 'border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/30'}`}
                  >
                     <button 
                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
                        className="w-full flex items-center justify-between p-6 text-left"
                     >
-                       <h3 className={`font-bold text-lg ${openFaq === i ? 'text-purple-600 dark:text-purple-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</h3>
+                       <h3 className={`font-bold text-lg ${openFaq === i ?'text-purple-600 dark:text-purple-400' : 'text-slate-900 dark:text-white'}`}>{item.q}</h3>
                        {openFaq === i ? <ChevronUp className="text-slate-500" /> : <ChevronDown className="text-slate-500" />}
                     </button>
                     <AnimatePresence>

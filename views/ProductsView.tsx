@@ -83,9 +83,9 @@ const ProductsView: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className={`grid grid-cols-1 lg:grid-cols-12 gap-16 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+              className={`grid grid-cols-1 lg:grid-cols-12 gap-16 items-center ${idx % 2 === 1 ?'lg:flex-row-reverse' : ''}`}
             >
-              <div className={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <div className={`lg:col-span-7 ${idx % 2 === 1 ?'lg:order-2' : ''}`}>
                 <div className="relative rounded-[3rem] overflow-hidden border border-slate-200 dark:border-white/5 aspect-video group shadow-3xl bg-white dark:bg-slate-900">
                    <img 
                      src={product.imageUrl} 
@@ -107,7 +107,7 @@ const ProductsView: React.FC = () => {
                 </div>
               </div>
 
-              <div className={`lg:col-span-5 ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <div className={`lg:col-span-5 ${idx % 2 === 1 ?'lg:order-1' : ''}`}>
                  <div className="space-y-8">
                    <h3 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-slate-100 leading-[1.1] mb-2">{product.name}</h3>
                    <p className="text-interstellar font-mono text-sm font-black uppercase tracking-[0.3em]">{product.tagline}</p>
