@@ -10,28 +10,21 @@ import { IMAGES } from '../images';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import Footer from '../components/Footer';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { CoverFlowCarousel } from '../components/CoverFlowCarousel';
 
 const clientImages = [
-  { src: IMAGES.WORK.ALLIED_PREMISES, alt: 'Allied Group Manufacturing Facility' },
-  { src: IMAGES.WORK.ALLIED_HOMEPAGE, alt: 'Allied Group Digital Homepage' },
-  { src: IMAGES.WORK.ALLIED_CATALOGUE, alt: 'Allied Group E-Commerce Catalogue' },
-  { src: IMAGES.WORK.ALLIED_SEO, alt: 'Rank #1 SEO Search Result' }
+  { src: IMAGES.WORK.ALLIED_PREMISES, alt: 'Allied Group Manufacturing Facility', category: 'Facility' },
+  { src: IMAGES.WORK.ALLIED_HOMEPAGE, alt: 'Allied Group Digital Homepage', category: 'Website' },
+  { src: IMAGES.WORK.ALLIED_CATALOGUE, alt: 'Allied Group E-Commerce Catalogue', category: 'E-Commerce' },
+  { src: IMAGES.WORK.ALLIED_SEO, alt: 'Rank #1 SEO Search Result - Google Rankings', category: 'SEO Results' }
 ];
 
 const Work: React.FC = () => {
   const { pathname } = useLocation();
-  const [currentImg, setCurrentImg] = useState(0);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImg((prev) => (prev + 1) % clientImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <PageTransition>
@@ -96,93 +89,20 @@ const Work: React.FC = () => {
             <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
           </div>
 
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mb-16 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mb-12 leading-relaxed">
             We engineer high-performance websites for Malaysian SMEs and Startups. Whether you need a proprietary Next.js Web App or an easy-to-edit WordPress (Elementor) site, we guarantee &lt;2s load times.
           </p>
 
-          {/* === CLIENT PROJECT: PIPE MANUFACTURING GIANT === */}
-          <div className="group relative rounded-[2.5rem] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 overflow-hidden hover:border-indigo-500/50 transition-all duration-500 shadow-2xl dark:shadow-none">
-            <div className="flex flex-col">
+          {/* === ALLIED GROUP - PREMIUM DETAILED SECTION === */}
+          <div className="group relative rounded-2xl md:rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40 overflow-hidden hover:border-indigo-500/50 transition-all duration-500 shadow-xl dark:shadow-none">
+            
+            {/* Top: Header + Gallery */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               
-              {/* TOP BANNER: INTERACTIVE IMAGE SLIDESHOW & BADGES */}
-              <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-slate-950 relative overflow-hidden group/slideshow border-b border-slate-200 dark:border-slate-800">
-                {/* Image Slideshow Layers */}
-                {clientImages.map((img, idx) => (
-                  <div 
-                    key={idx}
-                    className={`absolute inset-0 transition-all duration-1000 ease-in-out ${idx === currentImg ?'opacity-100 scale-100 z-0' : 'opacity-0 scale-105 z-0'}`}
-                  >
-                    {/* Blurred Background to soften any empty edges gracefully */}
-                    <img 
-                      src={img.src} 
-                      alt="" 
-                      className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-50 scale-125" 
-                      aria-hidden="true"
-                    />
-                    {/* Main image with object-contain to prevent cropping, but filling out space beautifully without huge padding */}
-                    <div className="absolute inset-0 flex items-center justify-center p-0 md:p-4">
-                      <img 
-                        src={img.src} 
-                        alt={img.alt} 
-                        className="w-full h-full object-contain drop-shadow-2xl rounded-xl ring-1 ring-white/10" 
-                      />
-                    </div>
-                    {/* Premium Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-900/50 pointer-events-none opacity-90"></div>
-                  </div>
-                ))}
-
-                {/* Slideshow Indicators */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-                  {clientImages.map((_, idx) => (
-                    <button 
-                      key={idx}
-                      onClick={() => setCurrentImg(idx)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentImg ?'w-10 bg-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.8)]' : 'w-3 bg-white/30 hover:bg-white/60'}`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-                
-                {/* Floating Overlay Badge (Top Right) */}
-                <div className="absolute top-6 right-6 z-20 opacity-0 group-hover/slideshow:opacity-100 transition-opacity duration-500 hidden md:block">
-                  <div className="bg-slate-900/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-lg shadow-2xl">
-                    <span className="font-mono text-white/90 text-xs tracking-widest uppercase block text-right">
-                      {clientImages[currentImg].alt}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Floating Stats Overlay (Bottom Left) */}
-                <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-20">
-                  <div className="flex flex-wrap gap-4">
-                    <div className="bg-slate-900/80 backdrop-blur-md border border-green-500/40 px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-default">
-                      <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
-                        <TrendingUp className="w-6 h-6 text-green-400" />
-                      </div>
-                      <div>
-                        <div className="text-green-400 font-black text-xl leading-none mb-1">RANK #1</div>
-                        <div className="text-[10px] text-slate-300 font-mono tracking-widest">IN 17 DAYS</div>
-                      </div>
-                    </div>
-                    <div className="bg-slate-900/80 backdrop-blur-md border border-indigo-500/40 px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-default">
-                      <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
-                        <ShoppingCart className="w-6 h-6 text-indigo-400" />
-                      </div>
-                      <div>
-                        <div className="text-indigo-400 font-black text-xl leading-none mb-1">1,000+</div>
-                        <div className="text-[10px] text-slate-300 font-mono tracking-widest">PRODUCTS LIVE</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* BOTTOM SECTION: THE "AFTER ACTION REPORT" CONTENT */}
-              <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-                
-                {/* Header Tags */}
-                <div className="flex items-center gap-3 mb-8">
+              {/* Left: Main Header */}
+              <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+                {/* Status Tags */}
+                <div className="flex items-center gap-3 mb-6">
                   <span className="px-4 py-1.5 bg-green-500/10 text-green-500 dark:text-green-400 text-xs font-bold rounded-full border border-green-500/20 flex items-center gap-2 shadow-inner">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></div>
                     LIVE SYSTEM
@@ -192,74 +112,121 @@ const Work: React.FC = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 leading-tight tracking-tight">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
                   Pipe Manufacturing <br className="hidden md:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-400">Digital Transformation</span>
                 </h3>
 
-                {/* Detailed Description */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-slate-600 dark:text-slate-300 text-base leading-relaxed border-b border-slate-200 dark:border-slate-800 pb-6 md:pb-12">
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/50">
-                    <strong className="text-slate-900 dark:text-white flex items-center gap-2 mb-3 text-lg">
-                      <Lock className="w-5 h-5 text-indigo-400" /> THE MISSION
-                    </strong> 
-                    <p>Transform a manual, paper-based catalog into a high-volume digital sales engine. The client needed to manage massive inventory without expanding their workforce.</p>
-                  </div>
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/50">
-                    <strong className="text-slate-900 dark:text-white flex items-center gap-2 mb-3 text-lg">
-                      <Cpu className="w-5 h-5 text-indigo-400" /> EXECUTION
-                    </strong> 
-                    <p>Deployed a robust <span className="text-indigo-500 dark:text-indigo-400 font-medium">E-Commerce Infrastructure</span>. Replaced manual support with a custom <span className="text-indigo-500 dark:text-indigo-400 font-medium">WhatsApp Automation Bot</span> handling 95% of daily chats.</p>
-                  </div>
-                  <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/50">
-                    <strong className="text-slate-900 dark:text-white flex items-center gap-2 mb-3 text-lg">
-                      <Globe className="w-5 h-5 text-indigo-400" /> SEO DOMINANCE
-                    </strong> 
-                    <p>Using "Programmatic SEO," we targeted industrial keywords aggressively. The site surged to <span className="text-green-500 dark:text-green-400 font-bold">Rank #1 on Google in just 17 days</span>.</p>
-                  </div>
-                </div>
-
-                {/* The Achievement Grid (Specific Stats) */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-                  <div className="p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                    <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold mb-2">
-                      <div className="p-2 rounded bg-green-100 dark:bg-green-500/10"><TrendingUp className="w-5 h-5 text-green-600 dark:text-green-400" /></div>
-                      <span className="text-lg">TOP 3</span>
-                    </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium tracking-wide">4 MAJOR KEYWORDS</p>
-                  </div>
-                  <div className="p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                    <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold mb-2">
-                      <div className="p-2 rounded bg-green-100 dark:bg-green-500/10"><TrendingUp className="w-5 h-5 text-green-600 dark:text-green-400" /></div>
-                      <span className="text-lg">TOP 10</span>
-                    </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium tracking-wide">10+ SECONDARY KW</p>
-                  </div>
-                  <div className="p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                    <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold mb-2">
-                      <div className="p-2 rounded bg-purple-100 dark:bg-purple-500/10"><MessageSquare className="w-5 h-5 text-purple-600 dark:text-purple-400" /></div>
-                      <span className="text-lg">95% AUTOMATED</span>
-                    </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium tracking-wide">WHATSAPP EFFICIENCY</p>
-                  </div>
-                  <div className="p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
-                    <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold mb-2">
-                      <div className="p-2 rounded bg-yellow-100 dark:bg-yellow-500/10"><ShoppingCart className="w-5 h-5 text-yellow-600 dark:text-yellow-400" /></div>
-                      <span className="text-lg">1K+ SKUS</span>
-                    </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium tracking-wide">INVENTORY OS</p>
-                  </div>
-                </div>
-
-                {/* Tech Stack Tags */}
+                {/* Quick Stats Row */}
                 <div className="flex flex-wrap gap-3">
-                  {['WhatsApp API', 'SEO Schema', 'E-Commerce', 'Automation', 'Next.js Architecture'].map((tag) => (
-                    <span key={tag} className="text-xs font-mono px-4 py-2 bg-slate-100 dark:bg-slate-900/80 rounded-lg text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors cursor-default">
-                      {tag}
-                    </span>
-                  ))}
+                  <div className="flex items-center gap-2 px-4 py-2 bg-green-50 dark:bg-green-500/10 rounded-xl border border-green-200 dark:border-green-500/20">
+                    <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    <span className="text-sm font-bold text-green-700 dark:text-green-400">RANK #1 in 17 Days</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-4 py-2 bg-indigo-50 dark:bg-indigo-500/10 rounded-xl border border-indigo-200 dark:border-indigo-500/20">
+                    <ShoppingCart className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-400">1,000+ Products</span>
+                  </div>
                 </div>
+              </div>
 
+              {/* Right: Image Gallery */}
+              <div className="p-6 md:p-8 bg-slate-50 dark:bg-slate-950/50 border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-slate-800 flex items-center">
+                <CoverFlowCarousel
+                  images={clientImages}
+                  autoplayDelay={4000}
+                />
+              </div>
+            </div>
+
+            {/* Middle: Detailed Descriptions */}
+            <div className="border-t border-slate-200 dark:border-slate-800 p-8 md:p-10 lg:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-indigo-500/30 transition-colors">
+                  <strong className="text-slate-900 dark:text-white flex items-center gap-2 mb-4 text-lg">
+                    <div className="p-2 rounded-lg bg-indigo-100 dark:bg-indigo-500/20">
+                      <Lock className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    THE MISSION
+                  </strong> 
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Transform a manual, paper-based catalog into a high-volume digital sales engine. The client needed to manage massive inventory without expanding their workforce.
+                  </p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-indigo-500/30 transition-colors">
+                  <strong className="text-slate-900 dark:text-white flex items-center gap-2 mb-4 text-lg">
+                    <div className="p-2 rounded-lg bg-indigo-100 dark:bg-indigo-500/20">
+                      <Cpu className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    EXECUTION
+                  </strong> 
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Deployed a robust <span className="text-indigo-600 dark:text-indigo-400 font-semibold">E-Commerce Infrastructure</span>. Replaced manual support with a custom <span className="text-indigo-600 dark:text-indigo-400 font-semibold">WhatsApp Automation Bot</span> handling 95% of daily chats.
+                  </p>
+                </div>
+                <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-indigo-500/30 transition-colors">
+                  <strong className="text-slate-900 dark:text-white flex items-center gap-2 mb-4 text-lg">
+                    <div className="p-2 rounded-lg bg-green-100 dark:bg-green-500/20">
+                      <Globe className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    </div>
+                    SEO DOMINANCE
+                  </strong> 
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Using "Programmatic SEO," we targeted industrial keywords aggressively. The site surged to <span className="text-green-600 dark:text-green-400 font-bold">Rank #1 on Google in just 17 days</span>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom: Stats Grid + Tech Stack */}
+            <div className="border-t border-slate-200 dark:border-slate-800 p-8 md:p-10 lg:p-12 bg-slate-50/50 dark:bg-slate-950/30">
+              {/* Achievement Stats Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 hover:border-green-500/30 hover:shadow-lg transition-all">
+                  <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold mb-2">
+                    <div className="p-2.5 rounded-xl bg-green-100 dark:bg-green-500/10">
+                      <TrendingUp className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    </div>
+                    <span className="text-xl font-black">TOP 3</span>
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold tracking-wide uppercase">4 Major Keywords</p>
+                </div>
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 hover:border-green-500/30 hover:shadow-lg transition-all">
+                  <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold mb-2">
+                    <div className="p-2.5 rounded-xl bg-green-100 dark:bg-green-500/10">
+                      <TrendingUp className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    </div>
+                    <span className="text-xl font-black">TOP 10</span>
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold tracking-wide uppercase">10+ Secondary KW</p>
+                </div>
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 hover:border-purple-500/30 hover:shadow-lg transition-all">
+                  <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold mb-2">
+                    <div className="p-2.5 rounded-xl bg-purple-100 dark:bg-purple-500/10">
+                      <MessageSquare className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <span className="text-xl font-black">95%</span>
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold tracking-wide uppercase">WhatsApp Automated</p>
+                </div>
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 hover:border-yellow-500/30 hover:shadow-lg transition-all">
+                  <div className="flex items-center gap-3 text-slate-900 dark:text-white font-bold mb-2">
+                    <div className="p-2.5 rounded-xl bg-yellow-100 dark:bg-yellow-500/10">
+                      <ShoppingCart className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
+                    </div>
+                    <span className="text-xl font-black">1K+</span>
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold tracking-wide uppercase">Inventory SKUs</p>
+                </div>
+              </div>
+
+              {/* Tech Stack Tags */}
+              <div className="flex flex-wrap gap-3">
+                {['WhatsApp API', 'SEO Schema', 'E-Commerce', 'Automation', 'Next.js Architecture'].map((tag) => (
+                  <span key={tag} className="text-sm font-mono px-4 py-2 bg-white dark:bg-slate-900/80 rounded-xl text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-default shadow-sm">
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

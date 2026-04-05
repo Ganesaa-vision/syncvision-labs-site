@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Omino Tech | Strategic Digital Infrastructure</title>
     <meta name="description" content="Omino Tech - High-performance digital architecture and strategic SEO dominance." />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&amp;display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&amp;display=swap" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="/index.css">
-    <!-- Preconnect to Google Fonts to eliminate render-blocking latency -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    
+    <!-- Critical CSS Preloading -->
+    <link rel="preload" href="/index.css" as="style">
+    
+    <!-- Font Optimization: Preconnect FIRST, then preload critical font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- GEO/AEO Optimization: Structured Data for AI Crawlers -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" media="all" />
+    
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="/index.css">
+    
+    <!-- Instant Theme Application (prevents flash) -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
+    
+    <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -20,9 +35,7 @@
     <link rel="manifest" href="/site.webmanifest" />
 </head>
   <body class="bg-grid-subtle overflow-x-hidden">
-    <div id="root">
-    </div>
-
-  <script type="module" src="/index.tsx"></script>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>

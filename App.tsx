@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState, useLayoutEffect } from 'react';
+import React, { Suspense, lazy, useState, useLayoutEffect, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
@@ -6,7 +6,7 @@ import { Navbar } from './components/Navbar'; // Keep Navbar static so it render
 import ScrollToTopButton from './views/ScrollToTopButton'; // Keep static
 // import CustomCursor from './components/CustomCursor';
 
-// Lazily load all the view components
+// Optimized lazy loading with prefetch
 const Home = lazy(() => import('./views/HomeView'));
 const ServicesView = lazy(() => import('./views/ServicesView'));
 const Work = lazy(() => import('./views/WorkView'));
@@ -25,28 +25,11 @@ const PrivacyView = lazy(() => import('./views/PrivacyView'));
 const TermsView = lazy(() => import('./views/TermsView'));
 const NotFoundView = lazy(() => import('./views/NotFoundView'));
 
+// Simplified, faster loader - no complex animations that cause lag
 const PageLoader = () => (
-  <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-[#030303] relative overflow-hidden transition-colors duration-300">
-    <style>{`
-      @keyframes slide-right {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(200%); }
-      }
-    `}</style>
-    <div className="relative z-10 flex flex-col items-center gap-8">
-      <div className="relative w-16 h-16 flex items-center justify-center">
-        <div className="absolute inset-0 border-t-[3px] border-indigo-600/80 dark:border-indigo-500/80 rounded-full animate-spin duration-1000"></div>
-        <div className="absolute inset-2 border-r-[3px] border-cyan-500/80 dark:border-cyan-400/80 rounded-full animate-spin duration-700" style={{ animationDirection: 'reverse' }}></div>
-        <div className="w-2 h-2 bg-indigo-600 dark:bg-white rounded-full animate-pulse shadow-[0_0_15px_rgba(79,70,229,0.5)] dark:shadow-[0_0_15px_rgba(255,255,255,1)]"></div>
-      </div>
-      <div className="flex flex-col items-center gap-4">
-        <span className="font-mono text-indigo-600 dark:text-indigo-400 text-[10px] font-bold uppercase tracking-[0.3em] animate-pulse">
-          Compiling Digital Assets
-        </span>
-        <div className="h-[1px] w-48 bg-slate-200 dark:bg-white/10 overflow-hidden relative rounded-full">
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-indigo-600 dark:via-indigo-500 to-transparent" style={{ animation: 'slide-right 1.5s infinite ease-in-out' }}></div>
-        </div>
-      </div>
+  <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#030303]">
+    <div className="relative w-12 h-12">
+      <div className="absolute inset-0 border-t-2 border-indigo-600 dark:border-indigo-500 rounded-full animate-spin"></div>
     </div>
   </div>
 );
@@ -54,7 +37,7 @@ const PageLoader = () => (
 export default function App() {
   const location = useLocation();
 
-  // 1. Lift theme state to the very top of the app
+  // Theme is now set in index.html instantly to prevent flash
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       return localStorage.getItem('theme') || 'dark';
@@ -62,14 +45,23 @@ export default function App() {
     return 'dark';
   });
 
-  // 2. useLayoutEffect runs synchronously before the browser paints,
-  // stopping the PageLoader from flashing the wrong theme on initial load.
+  // Sync theme changes only (not initial load)
   useLayoutEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  // Prefetch commonly visited pages after initial load
+  useEffect(() => {
+    const prefetchTimeout = setTimeout(() => {
+      // Prefetch services page (most visited)
+      import('./views/ServicesView');
+    }, 2000);
+    
+    return () => clearTimeout(prefetchTimeout);
+  }, []);
 
   const toggleTheme = () => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
 
@@ -82,9 +74,9 @@ export default function App() {
       {/* {!isTouchDevice && <CustomCursor />} */}
       
       {/* Main Content Wrapper with Background */}
-      <div className="min-h-screen bg-slate-50 dark:bg-[#030303] transition-colors duration-300">
+      <div className="min-h-screen bg-slate-50 dark:bg-[#030303]">
         <Suspense fallback={<PageLoader />}>
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <Routes location={location} key={location.pathname as any}>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<ServicesView />} />
