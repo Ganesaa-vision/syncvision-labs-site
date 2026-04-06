@@ -5,8 +5,8 @@
 
 export const IMAGES = {
   GLOBAL: {
-    LOGO: "/Images/web-development-company-malaysia.png",
-    LOGO_LIGHT: "/Images/omino-tech-best-seo-company-malaysia-ranking-malaysia.png",
+    LOGO: "/Images/web-development-company-malaysia.webp",
+    LOGO_LIGHT: "/Images/omino-tech-best-seo-company-malaysia-ranking-malaysia.webp",
     OG_IMAGE: "https://www.ominotech.com.my/Images/web-development-company-malaysia.png",
     FAVICON: "https://www.ominotech.com.my/favicon.ico",
   },

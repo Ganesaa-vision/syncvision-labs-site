@@ -12,21 +12,21 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
           <div className="col-span-1 sm:col-span-2 lg:col-span-2">
             <Link to="/" className="mb-4 md:mb-6 block">
-              <img 
-                src={IMAGES.GLOBAL.LOGO_LIGHT} 
-                alt="Omino Tech - Strategic Digital Foundry Malaysia" 
-                className="h-14 w-auto block dark:hidden" 
-              width="754"
-              height="270"
-              loading="lazy"
+              <img
+                src={IMAGES.GLOBAL.LOGO_LIGHT}
+                alt="Omino Tech - Strategic Digital Foundry Malaysia"
+                className="h-14 w-auto block dark:hidden"
+                width="312"
+                height="112"
+                loading="lazy"
               />
-              <img 
-                src={IMAGES.GLOBAL.LOGO} 
-                alt="Omino Tech - Strategic Digital Foundry Malaysia" 
-                className="h-14 w-auto hidden dark:block" 
-              width="754"
-              height="270"
-              loading="lazy"
+              <img
+                src={IMAGES.GLOBAL.LOGO}
+                alt="Omino Tech - Strategic Digital Foundry Malaysia"
+                className="h-14 w-auto hidden dark:block"
+                width="312"
+                height="112"
+                loading="lazy"
               />
             </Link>
             <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 mb-6 max-w-sm">
@@ -74,7 +74,7 @@ const Footer = () => {
         <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-700 dark:text-slate-300">
           <div className="flex flex-col items-center md:items-start gap-1">
             <p className="font-medium">&copy; {currentYear} Omino Tech. All rights reserved.</p>
-            <p className="font-medium text-slate-500 dark:text-slate-500">
+            <p className="font-medium text-slate-600 dark:text-slate-400">
               <a href="https://www.ssm.com.my/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">SSM</a> Registration No: 202603055630 (NS0319680-K)
             </p>
           </div>

@@ -35,6 +35,349 @@
     <link rel="manifest" href="/site.webmanifest" />
 </head>
   <body class="bg-grid-subtle overflow-x-hidden">
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- PREMIUM PRELOADER — Pure HTML/CSS, zero JS dependency  -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div id="app-preloader">
+
+      <!-- Ambient background glow -->
+      <div class="pl-glow"></div>
+      <div class="pl-glow pl-glow--accent"></div>
+
+      <!-- Dot grid texture (matches site hero) -->
+      <div class="pl-dots"></div>
+
+      <!-- Outer orbital ring — clockwise -->
+      <div class="pl-orbit pl-orbit--outer">
+        <div class="pl-orbit-dot"></div>
+      </div>
+
+      <!-- Inner orbital ring — counter-clockwise -->
+      <div class="pl-orbit pl-orbit--inner">
+        <div class="pl-orbit-dot pl-orbit-dot--small"></div>
+      </div>
+
+      <!-- Center content -->
+      <div class="pl-center">
+        <!-- Logo with glow aura -->
+        <div class="pl-logo-wrap">
+          <div class="pl-logo-aura"></div>
+          <img
+            class="pl-logo"
+            src="/Images/web-development-company-malaysia.webp"
+            alt="Omino Tech"
+          />
+        </div>
+
+        <!-- Expanding decorative line -->
+        <div class="pl-line"></div>
+
+        <!-- Tagline text -->
+        <div class="pl-text">
+          <span>F</span><span>O</span><span>R</span><span>G</span><span>I</span><span>N</span><span>G</span>
+          <span class="pl-text-space"></span>
+          <span>D</span><span>I</span><span>G</span><span>I</span><span>T</span><span>A</span><span>L</span>
+          <span class="pl-text-space"></span>
+          <span>I</span><span>N</span><span>F</span><span>R</span><span>A</span>
+        </div>
+
+        <!-- Pulsing loading dots -->
+        <div class="pl-dots-row">
+          <span class="pl-dot"></span>
+          <span class="pl-dot"></span>
+          <span class="pl-dot"></span>
+        </div>
+      </div>
+
+      <!-- Bottom progress bar -->
+      <div class="pl-progress">
+        <div class="pl-progress-bar"></div>
+        <div class="pl-progress-glow"></div>
+      </div>
+    </div>
+
+    <style>
+      /* ── Base ── */
+      #app-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #030303;
+        overflow: hidden;
+        /* Exit animation */
+        transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                    visibility 0.6s;
+      }
+      #app-preloader.pl-exit {
+        opacity: 0;
+        transform: scale(1.04);
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      /* ── Ambient Glow ── */
+      .pl-glow {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+        animation: plPulse 3s ease-in-out infinite;
+        pointer-events: none;
+      }
+      .pl-glow--accent {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%);
+        animation-delay: 1.5s;
+      }
+
+      /* ── Dot Grid ── */
+      .pl-dots {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle at center, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 24px 24px;
+        pointer-events: none;
+      }
+
+      /* ── Orbital Rings ── */
+      .pl-orbit {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(99,102,241,0.08);
+        pointer-events: none;
+      }
+      .pl-orbit--outer {
+        width: 220px;
+        height: 220px;
+        animation: plSpin 10s linear infinite;
+        border-style: dashed;
+        border-color: rgba(99,102,241,0.12);
+      }
+      .pl-orbit--inner {
+        width: 150px;
+        height: 150px;
+        animation: plSpin 7s linear infinite reverse;
+      }
+
+      .pl-orbit-dot {
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        background: #6366f1;
+        border-radius: 50%;
+        box-shadow: 0 0 20px 4px rgba(99,102,241,0.7),
+                    0 0 60px 8px rgba(99,102,241,0.3);
+      }
+      .pl-orbit-dot--small {
+        width: 6px;
+        height: 6px;
+        top: -3px;
+        background: #a855f7;
+        box-shadow: 0 0 15px 3px rgba(168,85,247,0.7),
+                    0 0 40px 6px rgba(168,85,247,0.3);
+      }
+
+      /* ── Center Content ── */
+      .pl-center {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+
+      /* ── Logo ── */
+      .pl-logo-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pl-logo-aura {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(99,102,241,0.2), transparent 70%);
+        animation: plPulse 2.5s ease-in-out infinite;
+        pointer-events: none;
+      }
+      .pl-logo {
+        height: 52px;
+        width: auto;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: scale(0.85) translateY(8px);
+        animation: plLogoIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+        filter: drop-shadow(0 0 20px rgba(99,102,241,0.3));
+      }
+
+      /* ── Expanding Line ── */
+      .pl-line {
+        width: 0;
+        height: 1px;
+        margin-top: 28px;
+        background: linear-gradient(90deg, transparent, rgba(99,102,241,0.5), rgba(168,85,247,0.3), transparent);
+        animation: plLineExpand 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+      }
+
+      /* ── Text (letter-by-letter) ── */
+      .pl-text {
+        margin-top: 18px;
+        display: flex;
+        align-items: center;
+        gap: 1px;
+        font-family: 'Poppins', monospace;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.35em;
+        color: rgba(148, 163, 184, 0.7);
+      }
+      .pl-text span {
+        opacity: 0;
+        transform: translateY(4px);
+        animation: plLetterIn 0.25s ease-out forwards;
+      }
+      .pl-text-space { width: 8px; }
+      /* Stagger each letter */
+      .pl-text span:nth-child(1)  { animation-delay: 0.9s; }
+      .pl-text span:nth-child(2)  { animation-delay: 0.93s; }
+      .pl-text span:nth-child(3)  { animation-delay: 0.96s; }
+      .pl-text span:nth-child(4)  { animation-delay: 0.99s; }
+      .pl-text span:nth-child(5)  { animation-delay: 1.02s; }
+      .pl-text span:nth-child(6)  { animation-delay: 1.05s; }
+      .pl-text span:nth-child(7)  { animation-delay: 1.08s; }
+      .pl-text span:nth-child(8)  { animation-delay: 1.11s; }
+      .pl-text span:nth-child(9)  { animation-delay: 1.14s; }
+      .pl-text span:nth-child(10) { animation-delay: 1.17s; }
+      .pl-text span:nth-child(11) { animation-delay: 1.2s; }
+      .pl-text span:nth-child(12) { animation-delay: 1.23s; }
+      .pl-text span:nth-child(13) { animation-delay: 1.26s; }
+      .pl-text span:nth-child(14) { animation-delay: 1.29s; }
+      .pl-text span:nth-child(15) { animation-delay: 1.32s; }
+      .pl-text span:nth-child(16) { animation-delay: 1.35s; }
+      .pl-text span:nth-child(17) { animation-delay: 1.38s; }
+      .pl-text span:nth-child(18) { animation-delay: 1.41s; }
+      .pl-text span:nth-child(19) { animation-delay: 1.44s; }
+      .pl-text span:nth-child(20) { animation-delay: 1.47s; }
+      .pl-text span:nth-child(21) { animation-delay: 1.5s; }
+      .pl-text span:nth-child(22) { animation-delay: 1.53s; }
+
+      /* ── Pulsing Dots ── */
+      .pl-dots-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 24px;
+      }
+      .pl-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(99,102,241,0.6);
+        animation: plDotPulse 1.2s ease-in-out infinite;
+      }
+      .pl-dot:nth-child(2) { animation-delay: 0.2s; }
+      .pl-dot:nth-child(3) { animation-delay: 0.4s; }
+
+      /* ── Progress Bar ── */
+      .pl-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: rgba(99,102,241,0.06);
+        overflow: hidden;
+      }
+      .pl-progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #6366f1, #a855f7, #06b6d4, #6366f1);
+        background-size: 300% 100%;
+        animation: plFill 2s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+                   plShimmer 1.5s linear infinite;
+        border-radius: 0 2px 2px 0;
+      }
+      .pl-progress-glow {
+        position: absolute;
+        top: -4px;
+        height: 10px;
+        width: 80px;
+        background: radial-gradient(ellipse, rgba(99,102,241,0.6), transparent);
+        animation: plGlowSlide 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        filter: blur(4px);
+        pointer-events: none;
+      }
+
+      /* ── Keyframes ── */
+      @keyframes plPulse {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.08); }
+      }
+      @keyframes plSpin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes plLogoIn {
+        to { opacity: 1; transform: scale(1) translateY(0); }
+      }
+      @keyframes plLineExpand {
+        to { width: 220px; }
+      }
+      @keyframes plLetterIn {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes plDotPulse {
+        0%, 100% { opacity: 0.3; transform: scale(0.8); }
+        50% { opacity: 1; transform: scale(1.2); }
+      }
+      @keyframes plFill {
+        from { width: 0%; }
+        to { width: 100%; }
+      }
+      @keyframes plShimmer {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 300% 50%; }
+      }
+      @keyframes plGlowSlide {
+        from { left: -80px; }
+        to { left: 100%; }
+      }
+
+      /* ── Light Mode ── */
+      html.light #app-preloader {
+        background: #f8fafc !important;
+      }
+      html.light .pl-dots {
+        background-image: radial-gradient(circle at center, rgba(0,0,0,0.04) 1px, transparent 1px);
+      }
+      html.light .pl-logo {
+        content: url('/Images/omino-tech-best-seo-company-malaysia-ranking-malaysia.webp');
+        filter: drop-shadow(0 0 15px rgba(99,102,241,0.2));
+      }
+      html.light .pl-text {
+        color: rgba(71, 85, 105, 0.7);
+      }
+      html.light .pl-glow {
+        background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+      }
+      html.light .pl-glow--accent {
+        background: radial-gradient(circle, rgba(168,85,247,0.05) 0%, transparent 70%);
+      }
+    </style>
+
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
 </body>

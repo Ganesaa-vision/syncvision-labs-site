@@ -68,6 +68,8 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
             <img
               src={theme === 'dark' ? IMAGES.GLOBAL.LOGO : IMAGES.GLOBAL.LOGO_LIGHT}
               alt="Omino Tech - Top-Rated Web Development & SEO Agency in Malaysia"
+              width="156"
+              height="56"
               className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>

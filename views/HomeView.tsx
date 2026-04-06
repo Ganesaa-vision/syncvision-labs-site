@@ -446,8 +446,8 @@ const HomeView: React.FC = () => {
                                             visible: {
                                                 opacity: 1,
                                                 transition: {
-                                                    delayChildren: 1.2, // Waits for the window to animate in
-                                                    staggerChildren: 0.6 // Echoes each line sequentially
+                                                    delayChildren: 0.35,
+                                                    staggerChildren: 0.12
                                                 }
                                             }
                                         }}

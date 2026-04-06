@@ -23,6 +23,28 @@ root.render(
   </React.StrictMode>
 );
 
+// Premium preloader removal:
+// 1. Wait minimum 1.8s so the full animation sequence plays out
+// 2. Wait for React to commit at least one painted frame
+// 3. Then play exit animation and clean up DOM
+const PRELOADER_MIN_MS = 1800;
+const preloaderStart = Date.now();
+
+const dismissPreloader = () => {
+  const elapsed = Date.now() - preloaderStart;
+  const remaining = Math.max(0, PRELOADER_MIN_MS - elapsed);
+
+  setTimeout(() => {
+    const el = document.getElementById('app-preloader');
+    if (!el) return;
+    el.classList.add('pl-exit'); // triggers CSS scale+fade transition
+    setTimeout(() => el.remove(), 650); // cleanup after transition
+  }, remaining);
+};
+
+// Double RAF = guaranteed first React frame has been committed to DOM
+requestAnimationFrame(() => requestAnimationFrame(dismissPreloader));
+
 // Performance Metrics Logger
 window.addEventListener('load', () => {
   const timing = window.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
