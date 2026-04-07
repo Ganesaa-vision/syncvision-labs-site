@@ -24,20 +24,41 @@ export default defineConfig(({ mode }) => {
         // Performance optimizations
         rollupOptions: {
           output: {
-            manualChunks: {
-              // Separate vendor chunks for better caching
-              'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-              'animation-vendor': ['framer-motion'],
-              'ui-vendor': ['lucide-react'],
-            }
+            // Function-based manualChunks — more reliable in Vite 6 than the object form
+            // because it matches actual file paths, not just package entry points.
+            manualChunks: (id) => {
+              if (!id.includes('/node_modules/')) return;
+              if (
+                id.includes('/react-dom/') ||
+                id.includes('/react/') ||
+                id.includes('/scheduler/') ||
+                id.includes('/react-router') ||
+                id.includes('/react-is/')
+              ) return 'react-vendor';
+              if (id.includes('/framer-motion/')) return 'animation-vendor';
+              if (id.includes('/lucide-react/')) return 'ui-vendor';
+              if (
+                id.includes('/@sanity/') ||
+                id.includes('/sanity/') ||
+                id.includes('/@portabletext/')
+              ) return 'sanity-vendor';
+            },
           }
         },
         // Reduce chunk size warnings threshold
         chunkSizeWarningLimit: 1000,
-        // Use esbuild for faster minification
-        minify: 'esbuild',
-        // Target modern browsers for smaller bundles
-        target: 'es2015',
+        // Terser gives ~10-15% better compression than esbuild
+        minify: 'terser',
+        terserOptions: {
+          compress: {
+            drop_console: true,
+            drop_debugger: true,
+            pure_funcs: ['console.log', 'console.groupCollapsed', 'console.groupEnd'],
+          },
+          mangle: true,
+        },
+        // Target modern browsers — avoids transpiling async/await, optional chaining etc.
+        target: 'es2020',
       },
       // Optimize dependencies
       optimizeDeps: {
