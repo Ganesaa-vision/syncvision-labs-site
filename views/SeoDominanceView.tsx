@@ -58,11 +58,11 @@ const SeoDominanceView: React.FC = () => {
             Expert SEO Services & <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">Digital Visibility in Malaysia</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            We don't just target keywords; we target <strong>Intent</strong>. As the <strong>best SEO agency Malaysia</strong> has produced and a recognized <strong>SEO expert Kuala Lumpur</strong> trusts, we optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
+            We don't just target keywords; we target <strong>Intent</strong>. As the <strong>best SEO agency Malaysia</strong> has produced and a recognized <strong>SEO expert Kuala Lumpur</strong> trusts, we optimize your digital presence for the three engines that matter: <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold hover:underline">Google Search</a>, <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold hover:underline">Google Maps</a>, and AI Answer Engines (<a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold hover:underline">ChatGPT</a>/<a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold hover:underline">Gemini</a>).
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 md:mb-32">
           <div className="p-6 md:p-10 bg-slate-900/40 border border-slate-800 rounded-3xl hover:border-emerald-500/30 transition-all group">
             <div className="flex items-center justify-between mb-8">
                <Search className="w-12 h-12 text-emerald-400" />
@@ -87,7 +87,7 @@ const SeoDominanceView: React.FC = () => {
             </div>
             <h3 className="text-3xl font-bold text-white mb-4">Google Map Pack</h3>
             <p className="text-slate-400 mb-6 leading-relaxed">
-              For local businesses, the "Map Pack" (Top 3 Map Results) is more valuable than the website link. We provide <strong>Local SEO services near me</strong> and optimize your Google Business Profile (GBP) to ensure you dominate your local radius.
+              For local businesses, the "Map Pack" (Top 3 Map Results) is more valuable than the website link. We provide <strong>Local SEO services near me</strong> and optimize your <a href="https://www.google.com/business/" target="_blank" rel="noopener noreferrer" className="text-blue-400 font-bold hover:underline">Google Business Profile</a> (GBP) to ensure you dominate your local radius.
             </p>
             <div className="h-px w-full bg-slate-800 mb-6"></div>
             <ul className="space-y-2 text-sm text-slate-300 font-mono">
@@ -156,11 +156,11 @@ const SeoDominanceView: React.FC = () => {
           ]}
         />
 
-        <div className="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 md:p-12 flex flex-col md:flex-row items-center gap-12">
+        <div className="bg-gradient-to-r from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-12">
            <div className="md:w-2/3">
               <h2 className="text-2xl font-bold text-white mb-4">The Future: AEO (Answer Engine Optimization)</h2>
               <p className="text-slate-400 leading-relaxed mb-6">
-                 People are starting to ask ChatGPT and Gemini for recommendations instead of Googling. We use advanced <strong>Schema Markup</strong> and structured data to ensure AI models understand your business and recommend you as the answer.
+                 People are starting to ask ChatGPT and Gemini for recommendations instead of Googling. We use advanced <a href="https://schema.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 font-bold hover:underline"><strong>Schema Markup</strong></a> and structured data to ensure AI models understand your business and recommend you as the answer.
               </p>
               <WhatsAppButton
                 serviceName="SEO Audit Inquiry"
@@ -175,7 +175,7 @@ const SeoDominanceView: React.FC = () => {
         </div>
 
         {/* === FAQ SECTION === */}
-        <div className="mt-32 max-w-4xl mx-auto">
+        <div className="mt-16 md:mt-32 max-w-4xl mx-auto">
            <h2 className="text-3xl font-bold text-white mb-12 text-center">SEO Frequently Asked Questions</h2>
            <div className="space-y-4">
               {faqSchema.mainEntity.map((item, i) => (

@@ -100,7 +100,7 @@ const AppEngineeringView: React.FC = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">Built for Startups in Malaysia.</span>
           </h1>
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-7">
                 <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
                     Why pay bloated agency fees to validate your business idea? We engineer lightning-fast, cross-platform mobile applications, AI utilities, and custom MVPs. Get native performance for iOS and Android from a single codebase—starting at just RM 500.
@@ -137,10 +137,10 @@ const AppEngineeringView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32 relative group"
+            className="mb-16 md:mb-32 relative group"
         >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-500 to-indigo-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
-            <div className="relative bg-white dark:bg-[#0f0f0f] border border-slate-200 dark:border-white/10 rounded-[2rem] p-8 md:p-20 overflow-hidden shadow-xl dark:shadow-none">
+            <div className="relative bg-white dark:bg-[#0f0f0f] border border-slate-200 dark:border-white/10 rounded-[2rem] p-8 md:p-16 lg:p-20 overflow-hidden shadow-xl dark:shadow-none">
                 <div className="absolute top-0 right-0 p-10 md:p-20 opacity-[0.03] text-blue-500 pointer-events-none">
                     <Cpu size={400} />
                 </div>
@@ -154,7 +154,7 @@ const AppEngineeringView: React.FC = () => {
                     </h2>
 
                     <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed max-w-4xl font-medium">
-                        Traditional app development agencies in Malaysia will quote you RM 30,000 before even writing a line of code. We do things differently. By leveraging modern frameworks like Flutter and serverless backends like Supabase and Firebase, we strip away the fluff and focus purely on functional, beautiful code. Whether you are a solo founder validating a new tech startup, or a local business looking to streamline your daily operations with a custom utility tool, we deliver exactly what you need. Fast, affordable, and fully functional.
+                        Traditional app development agencies in Malaysia will quote you RM 30,000 before even writing a line of code. We do things differently. By leveraging modern frameworks like <a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">Flutter</a> and serverless backends like <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">Supabase</a> and <a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">Firebase</a>, we strip away the fluff and focus purely on functional, beautiful code. Whether you are a solo founder validating a new tech startup, or a local business looking to streamline your daily operations with a custom utility tool, we deliver exactly what you need. Fast, affordable, and fully functional.
                     </p>
 
                     <div className="mt-12 flex flex-wrap gap-6">
@@ -173,12 +173,12 @@ const AppEngineeringView: React.FC = () => {
         </m.div>
 
         {/* === SEMANTIC DEPTH: ENGINEERING STACK === */}
-        <m.div 
+        <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-32"
+            className="mb-16 md:mb-32"
         >
             <div className="text-center mb-16">
                 <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Built on Modern, Scalable Infrastructure</h2>
@@ -236,8 +236,8 @@ const AppEngineeringView: React.FC = () => {
         </m.div>
 
         {/* === STRATEGIC LIFECYCLE (ALTERNATING LAYOUT) === */}
-        <div className="mb-32">
-            <div className="text-center mb-24">
+        <div className="mb-16 md:mb-32">
+            <div className="text-center mb-12 md:mb-24">
                 <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-[0.4em] mb-6 block">Beyond the Code</span>
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
                     End-to-End <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">App Lifecycle.</span>
@@ -247,7 +247,7 @@ const AppEngineeringView: React.FC = () => {
                 </p>
             </div>
 
-            <div className="space-y-32">
+            <div className="space-y-16 md:space-y-32">
                 {/* Block 1: Image Left, Text Right */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <m.div 
@@ -379,8 +379,8 @@ const AppEngineeringView: React.FC = () => {
         />
 
         {/* === AEO FAQ SECTION === */}
-        <div className="mb-32 max-w-4xl mx-auto">
-           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Technical FAQ</h2>
+        <div className="mb-16 md:mb-32 max-w-4xl mx-auto">
+           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Technical FAQ</h2>
            <div className="space-y-4">
               {faqSchema.mainEntity.map((item, i) => (
                  <div 

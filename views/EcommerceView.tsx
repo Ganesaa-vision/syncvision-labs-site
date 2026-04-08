@@ -194,9 +194,9 @@ const EcommerceView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32"
+            className="mb-16 md:mb-32"
         >
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Supported Payment Infrastructures</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Supported Payment Infrastructures</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {['Billplz (FPX)', 'ToyyibPay', 'Stripe (Cards)', 'GrabPay / TnG'].map((gateway, i) => (
                     <div key={i} className="p-6 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl flex flex-col items-center justify-center gap-4 hover:border-yellow-500/30 transition-all shadow-sm dark:shadow-none">
@@ -214,10 +214,10 @@ const EcommerceView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32 pt-6 md:pt-12"
+            className="mb-16 md:mb-32 pt-6 md:pt-12"
         >
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Store Packages</h2>
+                <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Store Packages</h2>
                 <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Transparent pricing for your digital storefront. No hidden fees. Perfectly optimized for Malaysian businesses.</p>
             </div>
             
@@ -285,7 +285,7 @@ const EcommerceView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 md:mb-32"
         >
             {/* Gateway Rescue */}
             <div className="p-6 md:p-10 bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] hover:border-red-500/30 transition-all relative overflow-hidden group shadow-lg dark:shadow-none">
@@ -354,11 +354,11 @@ const EcommerceView: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-32 relative group"
+          className="mb-16 md:mb-32 relative group"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-orange-500/10 to-red-500/10 blur-3xl rounded-[3rem] opacity-50 transition-opacity duration-500 group-hover:opacity-80"></div>
-          <div className="relative p-[1px] rounded-[3rem] bg-gradient-to-b from-yellow-500/30 to-transparent dark:from-yellow-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
-              <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-8 md:p-16 rounded-[3rem]">
+          <div className="relative p-[1px] rounded-[2rem] md:rounded-[3rem] bg-gradient-to-b from-yellow-500/30 to-transparent dark:from-yellow-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
+              <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-8 md:p-16 rounded-[2rem] md:rounded-[3rem]">
                   <div className="text-center mb-12">
                       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-yellow-500/30 bg-yellow-50 dark:bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 text-xs font-mono font-bold uppercase tracking-widest mb-6">
                           <CheckCircle2 className="w-4 h-4" /> Market Comparison
@@ -408,11 +408,11 @@ const EcommerceView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32 max-w-4xl mx-auto"
+            className="mb-16 md:mb-32 max-w-4xl mx-auto"
         >
            <div className="text-center mb-12">
                <span className="font-mono text-yellow-600 dark:text-yellow-400 text-xs font-bold uppercase tracking-[0.2em] mb-4 block">Knowledge Base</span>
-               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">E-Commerce FAQ</h2>
+               <h2 className="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white">E-Commerce FAQ</h2>
            </div>
            <div className="space-y-4">
               {faqs.map((item, i) => (

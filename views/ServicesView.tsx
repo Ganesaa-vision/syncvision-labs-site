@@ -304,7 +304,7 @@ const ServicesView: React.FC = () => {
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
             
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div>
                     <span className="text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-6 block">Custom Solutions</span>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-white mb-8 leading-[1.1]">

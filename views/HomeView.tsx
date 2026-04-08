@@ -189,8 +189,8 @@ const HomeView: React.FC = () => {
                 "areaServed": "Malaysia",
                 "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "Jalan KPB 12, Balakong",
-                    "addressLocality": "Seri Kembangan",
+                    "streetAddress": "Balakong",
+                    "addressLocality": "Selangor",
                     "addressRegion": "Selangor",
                     "addressCountry": "MY"
                 },
@@ -497,20 +497,16 @@ const HomeView: React.FC = () => {
                     
                     {/* --- MARQUEE / TICKER --- */}
                     <section aria-label="Performance Metrics" className="w-full border-y border-slate-200 dark:border-white/5 bg-white/80 dark:bg-[#030303]/80 backdrop-blur-md overflow-hidden py-5 md:py-6 relative z-10">
-                        <m.div 
-                            className="flex flex-col md:flex-row gap-16 md:gap-32 whitespace-nowrap items-center transform-gpu will-change-transform"
-                            animate={{ x: ["0%", "-50%"] }}
-                            transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
-                        >
+                        <div className="omino-marquee-track">
                             {[...Array(8)].map((_, i) => (
-                            <div key={i} className="flex flex-col md:flex-row gap-16 md:gap-32 text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 items-center">
+                            <div key={i} className="flex flex-row gap-16 md:gap-32 text-[10px] md:text-xs font-mono font-bold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 items-center">
                                     <span className="flex items-center gap-3"><TrendingUp size={14} className="text-purple-600 dark:text-purple-500"/> <span className="text-slate-900 dark:text-slate-200">Rank #1 on Google</span></span>
                                     <span className="flex items-center gap-3"><Zap size={14} className="text-indigo-600 dark:text-indigo-500"/> <span className="text-slate-900 dark:text-slate-200">AI Overview Captured</span></span>
                                     <span className="flex items-center gap-3"><Activity size={14} className="text-cyan-600 dark:text-cyan-500"/> <span className="text-slate-900 dark:text-slate-200">420% Lead Increase</span></span>
                                     <span className="flex items-center gap-3"><Code2 size={14} className="text-indigo-600 dark:text-indigo-500" /> <span className="text-slate-900 dark:text-slate-200">Active R&D Labs</span></span>
                                 </div>
                             ))}
-                        </m.div>
+                        </div>
                     </section>
 
                     {/* --- BENTO GRID: THE MALAYSIAN ADVANTAGE --- */}
@@ -591,7 +587,7 @@ const HomeView: React.FC = () => {
 
                     {/* --- THE FUTURE IS AUTONOMOUS --- */}
                     <section aria-labelledby="autonomous-title" className="py-24 md:py-32 lg:py-40 px-6 max-w-7xl mx-auto relative z-10">
-                        <div className="flex flex-col md:flex-row gap-16 items-center">
+                        <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
                             <div className="flex-1 space-y-8">
                                 <div className="inline-flex items-center gap-2 mb-6">
                                     <Cpu className="w-4 h-4 text-indigo-500" />
@@ -680,7 +676,7 @@ const HomeView: React.FC = () => {
                                 delay={0.3}
                                 link="/contact"
                             />
-                            <PremiumServiceCard 
+                            <PremiumServiceCard
                                 title="Mobile App Engineering"
                                 description="We build robust, native iOS and Android applications using Flutter to streamline your internal operations and engage your user base."
                                 icon={Cpu}
@@ -689,17 +685,37 @@ const HomeView: React.FC = () => {
                                 link="/services/app-engineering"
                             />
                         </div>
+
+                        {/* --- VIEW ALL SERVICES CTA --- */}
+                        <m.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="flex justify-center mt-16 md:mt-20"
+                        >
+                            <Link
+                                to="/services"
+                                aria-label="View all services offered by Omino Tech"
+                                className="group relative inline-flex items-center justify-center px-10 py-5 font-bold text-sm uppercase tracking-[0.2em] text-white dark:text-slate-900 overflow-hidden rounded-full bg-slate-900 dark:bg-white hover:scale-105 active:scale-95 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.15)] dark:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(99,102,241,0.5)]"
+                            >
+                                <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
+                                <span className="relative flex items-center gap-3 group-hover:text-white transition-colors duration-500">
+                                    View All Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                </span>
+                            </Link>
+                        </m.div>
                     </section>
 
                     {/* --- THE BUNDLE PITCH (VALUE ANCHOR) --- */}
                     <section aria-labelledby="bundle-title" className="py-24 md:py-32 px-6 max-w-7xl mx-auto relative z-10">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
                             <div className="space-y-10">
                                 <div>
                                     <div className="inline-flex items-center gap-2 mb-6">
                                         <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-bold uppercase tracking-[0.2em]">THE ALL-IN-ONE SOLUTION</span>
                                     </div>
-                                    <h2 id="bundle-title" className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1] mb-8">
+                                    <h2 id="bundle-title" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1] mb-8">
                                         The Complete Digital <br/>
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-cyan-500 to-purple-600 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">Growth Engine.</span>
                                     </h2>
@@ -756,13 +772,13 @@ const HomeView: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="relative p-[1px] rounded-[3rem] bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-transparent overflow-hidden shadow-2xl"
+                            className="relative p-[1px] rounded-[2rem] md:rounded-[3rem] bg-gradient-to-b from-slate-200 to-transparent dark:from-white/10 dark:to-transparent overflow-hidden shadow-2xl"
                         >
                             <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-transparent to-purple-500/10 blur-3xl"></div>
-                            <div className="relative bg-white dark:bg-[#050505] p-10 md:p-20 rounded-[3rem] overflow-hidden">
+                            <div className="relative bg-white dark:bg-[#050505] p-8 md:p-20 rounded-[2rem] md:rounded-[3rem] overflow-hidden">
                                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                                
-                                <div className="text-center mb-20 relative z-10">
+
+                                <div className="text-center mb-12 md:mb-20 relative z-10">
                                     <div className="inline-flex items-center gap-2 mb-6">
                                         <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-bold uppercase tracking-[0.2em]">The GEO Engine</span>
                                     </div>
@@ -790,7 +806,7 @@ const HomeView: React.FC = () => {
                                         </div>
                                         <h3 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 dark:text-white mb-2">Our Engineering Solution</h3>
                                         <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                                            We do not rely on drag-and-drop shortcuts. By engineering custom solutions using modern stacks like Next.js, React, and Vite, we guarantee <strong className="text-slate-900 dark:text-white">sub-second load times</strong> that easily pass Google's strictest Core Web Vitals speed tests. This uncompromising technical superiority serves as the foundation for our aggressive SEO strategies, ensuring our clients achieve high-visibility search rankings across the entire country while retaining <strong className="text-indigo-600 dark:text-indigo-400">absolute ownership</strong> of their digital platforms.
+                                            We do not rely on drag-and-drop shortcuts. By engineering custom solutions using modern stacks like <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Next.js</a>, <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">React</a>, and <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Vite</a>, we guarantee <strong className="text-slate-900 dark:text-white">sub-second load times</strong> that easily pass Google's strictest <a href="https://web.dev/vitals/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Core Web Vitals</a> speed tests. This uncompromising technical superiority serves as the foundation for our aggressive SEO strategies, ensuring our clients achieve high-visibility search rankings across the entire country while retaining <strong className="text-indigo-600 dark:text-indigo-400">absolute ownership</strong> of their digital platforms.
                                         </p>
                                     </div>
                                 </div>
@@ -800,7 +816,7 @@ const HomeView: React.FC = () => {
 
                     {/* --- AEO/GEO OPTIMIZED FAQ SECTION --- */}
                     <section className="py-24 md:py-32 lg:py-40 px-6 max-w-7xl mx-auto relative z-10">
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
                             <div className="lg:col-span-1">
                                 <div className="inline-flex items-center gap-2 mb-6">
                                     <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-bold uppercase tracking-[0.2em]">Knowledge Base</span>
@@ -860,7 +876,7 @@ const HomeView: React.FC = () => {
                             <div className="inline-flex items-center gap-2 mb-6">
                                 <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-bold uppercase tracking-[0.2em]">Initiate Protocol</span>
                             </div>
-                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">Ready to Build Your <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-indigo-400 dark:to-cyan-300">Digital Platform?</span></h2>
+                            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">Ready to Build Your <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500 dark:from-indigo-400 dark:to-cyan-300">Digital Platform?</span></h2>
                             <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-12 max-w-2xl font-medium">Get enterprise-grade engineering at local market rates. Stop paying rent, start owning your code.</p>
                             <Link to="/contact" className="group relative inline-flex items-center justify-center px-8 py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-base uppercase tracking-[0.2em] rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 duration-500 shadow-[0_0_50px_rgba(0,0,0,0.1)] dark:shadow-[0_0_50px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(99,102,241,0.6)]">
                                 <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>

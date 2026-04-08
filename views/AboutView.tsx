@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation, Link } from 'react-router-dom';
-import { 
+import {
   Code, BrainCircuit, Terminal, Zap, ShieldCheck,
-  Target, Users, Quote, Globe, Cpu
+  Target, Users, Quote, Globe, Cpu, Facebook, Instagram
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
@@ -108,7 +108,7 @@ const AboutView: React.FC = () => {
         </div>
 
         {/* 1. THE ORIGIN STORY */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20 md:mb-40">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-20 md:mb-40">
            <m.div 
              initial={{ opacity: 0, x: -20 }}
              whileInView={{ opacity: 1, x: 0 }}
@@ -160,7 +160,7 @@ const AboutView: React.FC = () => {
         </div>
 
         {/* 2. THE STUDENT INNOVATOR ADVANTAGE */}
-        <div className="mb-40">
+        <div className="mb-16 md:mb-40">
            <div className="text-center mb-20">
              <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Advantage</span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">The Student Advantage</h2>
@@ -194,7 +194,7 @@ const AboutView: React.FC = () => {
                  </div>
                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">They Use Yesterday's Tools. <br/> We Build Tomorrow's.</h3>
                  <p className="text-slate-700 dark:text-indigo-100/80 leading-relaxed">
-                    While agencies are still struggling to understand AI, we are native to it. We use Gemini, Flutter, and Next.js—the tech stack of 2026—not the dusty PHP templates of 2010.
+                    While agencies are still struggling to understand AI, we are native to it. We use <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Gemini</a>, <a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Flutter</a>, and <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Next.js</a>—the tech stack of 2026—not the dusty PHP templates of 2010.
                  </p>
               </m.div>
 
@@ -216,7 +216,7 @@ const AboutView: React.FC = () => {
         </div>
 
         {/* 3. PHILOSOPHY */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-40 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-16 md:mb-40 items-center">
            <div>
              <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">Our Philosophy</span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">Innovation at the <br/> Speed of Thought</h2>
@@ -277,14 +277,14 @@ const AboutView: React.FC = () => {
         </div>
 
         {/* 4. LEADERSHIP CORE */}
-        <div className="mb-40 relative">
+        <div className="mb-16 md:mb-40 relative">
            <div className="text-center mb-24 relative z-10">
-             <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">System Architects</span>
+             <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Founding Team</span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">
-                THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">CORE.</span>
+                MEET THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">FOUNDERS.</span>
               </h2>
               <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg font-medium">
-                The minds behind the machine. We engineer digital dominance.
+                Two people. One shared mission — to build digital products that actually move the needle for Malaysian businesses.
               </p>
            </div>
 
@@ -307,21 +307,31 @@ const AboutView: React.FC = () => {
                     <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-all duration-700" />
                     <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/20 transition-all duration-700" />
 
-                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4 relative z-10">Ganesaa</h3>
+                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-2 relative z-10">Ganesaa</h3>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mb-4 relative z-10">Founder</p>
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-mono font-bold uppercase tracking-widest mb-8 relative z-10 shadow-sm">
-                        <Terminal size={14} /> Lead Architect
+                        <Terminal size={14} /> Technical Lead & Lead Developer
                     </div>
-                    
+
                     <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-medium relative z-10 max-w-sm">
-                        "We don't just write code; we engineer digital dominance. My vision is to provide Malaysian businesses with Silicon Valley caliber technology."
+                        I build the systems that power our clients' growth — from architecture to deployment. My focus is writing clean, performant code that solves real business problems, not just passing tests.
                     </p>
+
+                    <div className="mt-6 flex flex-wrap justify-center gap-2 relative z-10">
+                        <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-full border border-indigo-200 dark:border-indigo-500/20">Full-Stack Dev</span>
+                        <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-full border border-indigo-200 dark:border-indigo-500/20">System Architecture</span>
+                        <span className="px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-full border border-indigo-200 dark:border-indigo-500/20">AI Integration</span>
+                    </div>
                     
                     {/* Social/Contact Icons */}
                     <div className="mt-8 flex gap-4 relative z-10">
-                        <a href="#" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-indigo-600 transition-all duration-300 shadow-sm hover:shadow-indigo-500/25">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <a href="https://www.facebook.com/profile.php?id=61576647099551&sk=about" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-indigo-600 transition-all duration-300 shadow-sm hover:shadow-indigo-500/25" aria-label="Facebook">
+                           <Facebook size={20} />
                         </a>
-                        <a href="mailto:contact@ominotech.com" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-indigo-600 transition-all duration-300 shadow-sm hover:shadow-indigo-500/25">
+                        <a href="https://www.instagram.com/ominotech?igsh=MWxhdTZhNjF4cWR6eA==" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-indigo-600 transition-all duration-300 shadow-sm hover:shadow-indigo-500/25" aria-label="Instagram">
+                           <Instagram size={20} />
+                        </a>
+                        <a href="mailto:ominotechofficial@gmail.com" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-indigo-600 transition-all duration-300 shadow-sm hover:shadow-indigo-500/25" aria-label="Email">
                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </a>
                     </div>
@@ -346,21 +356,31 @@ const AboutView: React.FC = () => {
                     <div className="absolute top-0 left-0 -mt-20 -ml-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all duration-700" />
                     <div className="absolute bottom-0 right-0 -mb-20 -mr-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all duration-700" />
 
-                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-4 relative z-10">Syed Hakim</h3>
+                    <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-2 relative z-10">Syed Hakim</h3>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mb-4 relative z-10">Co-Founder</p>
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-mono font-bold uppercase tracking-widest mb-8 relative z-10 shadow-sm">
-                        <Target size={14} /> Strategy Lead
+                        <Target size={14} /> Head of Operations & Growth
                     </div>
-                    
+
                     <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-medium relative z-10 max-w-sm">
-                        "Innovation is not just about new technology, it's about new value. We ensure every system translates directly into operational efficiency."
+                        I keep the business running and the clients growing. From onboarding to delivery, I make sure every project is on time, on budget, and exceeds expectations.
                     </p>
+
+                    <div className="mt-6 flex flex-wrap justify-center gap-2 relative z-10">
+                        <span className="px-3 py-1 bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full border border-blue-200 dark:border-blue-500/20">Operations</span>
+                        <span className="px-3 py-1 bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full border border-blue-200 dark:border-blue-500/20">Client Relations</span>
+                        <span className="px-3 py-1 bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full border border-blue-200 dark:border-blue-500/20">Growth Strategy</span>
+                    </div>
 
                     {/* Social/Contact Icons */}
                     <div className="mt-8 flex gap-4 relative z-10">
-                        <a href="#" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-sm hover:shadow-blue-500/25">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        <a href="https://www.facebook.com/profile.php?id=61576647099551&sk=about" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-sm hover:shadow-blue-500/25" aria-label="Facebook">
+                           <Facebook size={20} />
                         </a>
-                        <a href="mailto:tech@ominotech.com" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-sm hover:shadow-blue-500/25">
+                        <a href="https://www.instagram.com/ominotech?igsh=MWxhdTZhNjF4cWR6eA==" target="_blank" rel="noopener noreferrer" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-sm hover:shadow-blue-500/25" aria-label="Instagram">
+                           <Instagram size={20} />
+                        </a>
+                        <a href="mailto:ominotechofficial@gmail.com" className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-slate-600 dark:text-slate-400 hover:text-white hover:bg-blue-600 transition-all duration-300 shadow-sm hover:shadow-blue-500/25" aria-label="Email">
                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </a>
                     </div>
@@ -370,7 +390,7 @@ const AboutView: React.FC = () => {
         </div>
 
         {/* 5. PROMISE & CTA */}
-        <div className="relative rounded-[3rem] overflow-hidden bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-500/20 p-12 md:p-24 text-center">
+        <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-500/20 p-8 md:p-16 lg:p-24 text-center">
            {/* Removed noise texture for performance */}
            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-indigo-500/10 to-transparent blur-3xl pointer-events-none" style={{ backgroundImage: `url(${IMAGES.ABOUT.NOISE_TEXTURE})`, opacity: 0.05 }}></div>
            

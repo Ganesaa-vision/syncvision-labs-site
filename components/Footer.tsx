@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 import { IMAGES } from '../images';
 
 const Footer = () => {
@@ -33,10 +33,8 @@ const Footer = () => {
               Strategic Digital Foundry. We engineer high-performance digital assets for Malaysian businesses.
             </p>
             <div className="flex gap-4">
-            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our Facebook"><Facebook size={20} /></a>
-            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our Twitter"><Twitter size={20} /></a>
-            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our Instagram"><Instagram size={20} /></a>
-            <a href="#" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our LinkedIn"><Linkedin size={20} /></a>
+            <a href="https://www.facebook.com/profile.php?id=61576647099551&sk=about" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our Facebook"><Facebook size={20} /></a>
+            <a href="https://www.instagram.com/ominotech?igsh=MWxhdTZhNjF4cWR6eA==" target="_blank" rel="noopener noreferrer" className="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors" aria-label="Visit our Instagram"><Instagram size={20} /></a>
             </div>
           </div>
 
@@ -57,7 +55,7 @@ const Footer = () => {
             <ul className="space-y-3 md:space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="mt-1 text-indigo-500" />
-                <span>Jalan KPB 12, Balakong<br />43300 Seri Kembangan, Selangor</span>
+                <span>Balakong, Selangor, Malaysia</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-indigo-500" />
@@ -65,7 +63,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-indigo-500" />
-                <span>hello@ominotech.com</span>
+                <span>ominotechofficial@gmail.com</span>
               </li>
             </ul>
           </div>

@@ -202,11 +202,11 @@ const AutomationView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32 relative group"
+            className="mb-16 md:mb-32 relative group"
         >
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-fuchsia-500/10 to-pink-500/10 blur-3xl rounded-[3rem] opacity-50 transition-opacity duration-500 group-hover:opacity-80 pointer-events-none"></div>
-            <div className="relative p-[1px] rounded-[3rem] bg-gradient-to-b from-purple-500/30 to-transparent dark:from-purple-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-10 md:p-16 rounded-[3rem] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative p-[1px] rounded-[2rem] md:rounded-[3rem] bg-gradient-to-b from-purple-500/30 to-transparent dark:from-purple-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     <div>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-100 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-black uppercase tracking-widest mb-8">
                             <Zap size={14} /> Verified Efficiency
@@ -281,7 +281,7 @@ const AutomationView: React.FC = () => {
             </div>
         </m.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 md:mb-32">
            <div className="order-2 lg:order-1">
               <div className="space-y-8">
                  <div className="flex flex-col md:flex-row gap-6">
@@ -349,12 +349,12 @@ const AutomationView: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32 relative group"
+            className="mb-16 md:mb-32 relative group"
         >
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-indigo-500/10 blur-3xl rounded-[3rem] opacity-50 transition-opacity duration-500 group-hover:opacity-80 pointer-events-none"></div>
-            <div className="relative p-[1px] rounded-[3rem] bg-gradient-to-b from-purple-500/30 to-transparent dark:from-purple-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-10 md:p-16 rounded-[3rem]">
-                    <div className="text-center mb-16">
+            <div className="relative p-[1px] rounded-[2rem] md:rounded-[3rem] bg-gradient-to-b from-purple-500/30 to-transparent dark:from-purple-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-8 md:p-16 rounded-[2rem] md:rounded-[3rem]">
+                    <div className="text-center mb-10 md:mb-16">
                         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 leading-[1.1]">Why Robots Win.</h2>
                         <p className="text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-medium text-lg">
                             It's not about replacing humans. It's about removing the bottleneck. Let automation handle the repetitive noise so your team can focus on closing deals.

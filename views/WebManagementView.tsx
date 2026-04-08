@@ -184,7 +184,7 @@ const WebManagementView: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 relative z-10"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 md:mb-32 relative z-10"
         >
           <div className="p-8 bg-white/80 dark:bg-white/[0.03] backdrop-blur-xl border border-slate-200 dark:border-white/5 rounded-3xl hover:border-cyan-500/40 transition-all duration-300 shadow-xl dark:shadow-none transform-gpu hover:-translate-y-2 group">
             <Activity className="w-10 h-10 text-cyan-400 mb-6" />
@@ -215,12 +215,12 @@ const WebManagementView: React.FC = () => {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true, margin: "-50px" }}
            transition={{ duration: 0.8, ease: "easeOut" }}
-           className="relative mb-32 group"
+           className="relative mb-16 md:mb-32 group"
         >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 blur-3xl rounded-[3rem] opacity-50 transition-opacity duration-500 group-hover:opacity-80"></div>
-            <div className="relative p-[1px] rounded-[3rem] bg-gradient-to-b from-cyan-500/30 to-transparent dark:from-cyan-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-10 md:p-16 rounded-[3rem] flex flex-col md:flex-row items-center gap-12">
-                   <div className="md:w-2/3">
+            <div className="relative p-[1px] rounded-[2rem] md:rounded-[3rem] bg-gradient-to-b from-cyan-500/30 to-transparent dark:from-cyan-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                   <div className="w-full md:w-2/3">
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-bold uppercase tracking-widest mb-6">
                         <Code2 className="w-4 h-4" /> The Omino Tech Advantage
                       </div>

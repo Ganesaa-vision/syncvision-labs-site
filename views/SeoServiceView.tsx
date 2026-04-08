@@ -216,8 +216,8 @@ const SeoServiceView: React.FC = () => {
     "areaServed": ["Balakong", "Seri Kembangan", "Puchong", "Selangor", "Kuala Lumpur", "Malaysia"],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Jalan KPB 12, Balakong",
-      "addressLocality": "Seri Kembangan",
+      "streetAddress": "Balakong",
+      "addressLocality": "Selangor",
       "addressRegion": "Selangor",
       "addressCountry": "MY"
     },
@@ -340,7 +340,7 @@ const SeoServiceView: React.FC = () => {
                     <span className="font-mono text-slate-800 dark:text-slate-300 text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em]">Search Dominance</span>
                 </div>
 
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05] mb-8">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black tracking-tighter text-slate-900 dark:text-white leading-[1.05] mb-8">
                     The Best SEO Service in Malaysia: <br/> <span className="text-transparent bg-clip-text bg-gradient-to-br from-emerald-500 via-cyan-500 to-blue-500 dark:from-emerald-400 dark:via-cyan-400 dark:to-blue-400">Total Search Dominance</span>
                 </h1>
             </m.div>
@@ -355,7 +355,7 @@ const SeoServiceView: React.FC = () => {
                 <div className="relative p-[1px] rounded-[2.5rem] bg-gradient-to-b from-emerald-500/30 to-transparent dark:from-emerald-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(16,185,129,0.2)] transform-gpu hover:-translate-y-2 transition-all duration-500">
                     <div className="relative bg-white/70 dark:bg-[#030303]/80 backdrop-blur-2xl p-8 md:p-12 rounded-[2.5rem] text-center flex flex-col items-center">
                         <p className="text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-                            We don't just target keywords; we target <strong className="text-slate-900 dark:text-white font-black">Intent</strong>. We optimize your digital presence for the three engines that matter: Google Search, Google Maps, and AI Answer Engines (ChatGPT/Gemini).
+                            We don't just target keywords; we target <strong className="text-slate-900 dark:text-white font-black">Intent</strong>. We optimize your digital presence for the three engines that matter: <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-500 font-bold hover:underline">Google Search</a>, <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-500 font-bold hover:underline">Google Maps</a>, and AI Answer Engines (<a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-500 font-bold hover:underline">ChatGPT</a>/<a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 dark:text-emerald-500 font-bold hover:underline">Gemini</a>).
                         </p>
                     </div>
                 </div>
@@ -383,18 +383,18 @@ const SeoServiceView: React.FC = () => {
         </div>
 
         {/* === NEW: ACHIEVEMENTS SECTION === */}
-        <m.div 
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-32 relative"
+          className="mb-16 md:mb-32 relative"
         >
-            
-            <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[3rem] p-6 md:p-16 overflow-hidden shadow-xl">
+
+            <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-[2rem] md:rounded-[3rem] p-6 md:p-16 overflow-hidden shadow-xl">
                 <div className="absolute inset-0 bg-grid-slate-900/[0.05] dark:bg-grid-white/[0.02]"></div>
 
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     <div>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-black uppercase tracking-widest mb-8">
                             <Trophy size={14} /> Verified Case Study
@@ -445,9 +445,9 @@ const SeoServiceView: React.FC = () => {
         </m.div>
 
         {/* === NEW: TRI-ENGINE EXPLANATION (STICKY SCROLL) === */}
-        <div className="mb-40">
+        <div className="mb-20 md:mb-40">
             {/* Header */}
-            <div className="text-center mb-20">
+            <div className="text-center mb-12 md:mb-20">
                 <span className="font-mono text-indigo-600 dark:text-indigo-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">The Strategy</span>
                 <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white mb-8 leading-[1.1]">
                     TRI-ENGINE <span className="text-slate-400 dark:text-slate-600">OPTIMIZATION.</span>
@@ -459,7 +459,7 @@ const SeoServiceView: React.FC = () => {
 
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24" ref={containerRef}>
                 {/* Left Side: Scrolling Content */}
-                <div className="space-y-24 lg:space-y-[30vh] pb-24 lg:pb-[20vh]">
+                <div className="space-y-16 lg:space-y-[30vh] pb-16 lg:pb-[20vh]">
                     {engines.map((engine, index) => (
                         <m.div 
                             key={engine.id}
@@ -552,16 +552,16 @@ const SeoServiceView: React.FC = () => {
         </div>
 
         {/* === GEO CONTENT BLOCK === */}
-        <m.div 
+        <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32 relative group"
+            className="mb-16 md:mb-32 relative group"
         >
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-blue-500/10 blur-3xl rounded-[3rem] opacity-50 transition-opacity duration-500 group-hover:opacity-80"></div>
-            <div className="relative p-[1px] rounded-[3rem] bg-gradient-to-b from-emerald-500/30 to-transparent dark:from-emerald-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-10 md:p-16 rounded-[3rem] flex flex-col xl:flex-row gap-12 lg:gap-16 items-center">
+            <div className="relative p-[1px] rounded-[2rem] md:rounded-[3rem] bg-gradient-to-b from-emerald-500/30 to-transparent dark:from-emerald-500/30 overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                <div className="relative bg-white/80 dark:bg-[#050505]/90 backdrop-blur-2xl p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] flex flex-col xl:flex-row gap-8 lg:gap-16 items-center">
                     
                     <div className="flex-1">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold uppercase tracking-widest mb-8">
@@ -706,8 +706,8 @@ const SeoServiceView: React.FC = () => {
         </div>
 
         {/* === AEO FAQ SECTION === */}
-        <div className="mb-32 max-w-4xl mx-auto">
-           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">SEO Strategy FAQ</h2>
+        <div className="mb-16 md:mb-32 max-w-4xl mx-auto">
+           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">SEO Strategy FAQ</h2>
            <div className="space-y-4">
               {faqSchema.mainEntity.map((item, i) => (
                  <div 
@@ -741,12 +741,12 @@ const SeoServiceView: React.FC = () => {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true, margin: "-50px" }}
            transition={{ duration: 0.8, ease: "easeOut" }}
-           className="relative mb-32 group"
+           className="relative mb-16 md:mb-32 group"
         >
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 blur-2xl rounded-[3rem] opacity-50 transition-opacity duration-500 group-hover:opacity-70"></div>
-            <div className="relative p-[1px] rounded-[3rem] bg-gradient-to-br from-emerald-500/40 via-slate-800 to-cyan-500/40 overflow-hidden shadow-2xl">
-                <div className="bg-slate-950 border border-white/5 rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row items-center gap-12">
-                   <div className="md:w-2/3">
+            <div className="relative p-[1px] rounded-[2rem] md:rounded-[3rem] bg-gradient-to-br from-emerald-500/40 via-slate-800 to-cyan-500/40 overflow-hidden shadow-2xl">
+                <div className="bg-slate-950 border border-white/5 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                   <div className="w-full md:w-2/3">
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-emerald-500/30 bg-emerald-900/20 text-emerald-400 text-xs font-mono font-bold uppercase tracking-widest mb-6">
                         <FileText className="w-4 h-4" />
                         ONE-TIME FIX

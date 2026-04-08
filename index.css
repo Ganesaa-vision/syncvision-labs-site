@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === OMINO MARQUEE (compositor-driven, immune to main-thread blocking) === */
+@keyframes omino-marquee-scroll {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.omino-marquee-track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+  white-space: nowrap;
+  width: max-content;
+  will-change: transform;
+  animation: omino-marquee-scroll 35s linear infinite;
+}
+@media (min-width: 768px) {
+  .omino-marquee-track {
+    gap: 8rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .omino-marquee-track { animation: none; }
+}
+
 html {
   scroll-behavior: smooth;
   background-color: #020617; /* matches slate-950 */

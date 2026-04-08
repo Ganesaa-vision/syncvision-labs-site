@@ -82,15 +82,15 @@ const Work: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="px-6 max-w-7xl mx-auto mb-32"
+          className="px-6 max-w-7xl mx-auto mb-16 md:mb-32"
         >
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">CLIENT OPERATIONS</h2>
-            <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+          <div className="flex items-center gap-4 mb-12 flex-wrap">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">CLIENT OPERATIONS</h2>
+            <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow hidden sm:block"></div>
           </div>
 
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mb-12 leading-relaxed">
-            We engineer high-performance websites for Malaysian SMEs and Startups. Whether you need a proprietary Next.js Web App or an easy-to-edit WordPress (Elementor) site, we guarantee &lt;2s load times.
+            We engineer high-performance websites for Malaysian SMEs and Startups. Whether you need a proprietary <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Next.js</a> Web App or an easy-to-edit <a href="https://wordpress.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">WordPress</a> (<a href="https://elementor.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Elementor</a>) site, we guarantee &lt;2s load times.
           </p>
 
           {/* === ALLIED GROUP - PREMIUM DETAILED SECTION === */}
@@ -150,7 +150,7 @@ const Work: React.FC = () => {
                     THE MISSION
                   </strong> 
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Transform a manual, paper-based catalog into a high-volume digital sales engine. The client needed to manage massive inventory without expanding their workforce.
+                    Transform a manual, paper-based catalog into a high-volume digital sales engine. <a href="https://alliedgroup.com.my" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Allied Group</a> needed to manage massive inventory without expanding their workforce.
                   </p>
                 </div>
                 <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-indigo-500/30 transition-colors">
@@ -238,11 +238,11 @@ const Work: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="px-6 max-w-7xl mx-auto mb-32"
+          className="px-6 max-w-7xl mx-auto mb-16 md:mb-32"
         >
-          <div className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">OMINO TECH R&D LABS</h2>
-            <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow"></div>
+          <div className="flex items-center gap-4 mb-12 flex-wrap">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">OMINO TECH R&D LABS</h2>
+            <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-grow hidden sm:block"></div>
             <span className="text-xs font-mono text-indigo-400 animate-pulse">2 PROJECTS IN DEVELOPMENT</span>
           </div>
 
@@ -339,10 +339,10 @@ const Work: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="px-6 max-w-7xl mx-auto mb-32"
+          className="px-6 max-w-7xl mx-auto mb-16 md:mb-32"
         >
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">ENGINEERING PROTOCOL</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">ENGINEERING PROTOCOL</h2>
             <p className="text-slate-600 dark:text-slate-400">We don't guess. We follow a strict military-grade development cycle.</p>
           </div>
 

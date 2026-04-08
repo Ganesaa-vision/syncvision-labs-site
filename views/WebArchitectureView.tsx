@@ -264,7 +264,7 @@ const WebArchitectureView: React.FC = () => {
                     </div>
 
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-slate-900 dark:text-white leading-[1.1] mb-8">
-                      Affordable & <span className="whitespace-nowrap">High-Performance</span> <br />
+                      Affordable & High-Performance <br />
                       <span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-cyan-500 to-fuchsia-500 dark:from-indigo-400 dark:via-cyan-300 dark:to-purple-400">
                         Web Developers in Malaysia
                       </span>
@@ -349,7 +349,7 @@ const WebArchitectureView: React.FC = () => {
         </div>
 
         {/* === THE PROOF SECTION === */}
-        <div className="mb-32 relative group">
+        <div className="mb-16 md:mb-32 relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-[2.5rem] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-1000"></div>
             <div className="relative bg-white dark:bg-[#0f0f0f] border border-slate-200 dark:border-white/10 rounded-[2rem] p-8 md:p-20 overflow-hidden shadow-xl dark:shadow-none">
                 <div className="absolute top-0 right-0 p-10 md:p-20 opacity-[0.03] text-indigo-500 pointer-events-none">
@@ -365,7 +365,7 @@ const WebArchitectureView: React.FC = () => {
                     </h2>
 
                     <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl leading-relaxed max-w-4xl font-medium">
-                        A slow website kills your sales. If your site takes more than 3 seconds to load on a Malaysian 4G network, customers will leave. You are experiencing the speed of our custom-engineered Vite / React architecture right now. Zero lag. Instant clicks. This is the standard our web developers in Malaysia build for your business.
+                        A slow website kills your sales. If your site takes more than 3 seconds to load on a Malaysian 4G network, customers will leave. You are experiencing the speed of our custom-engineered <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer" className="text-yellow-600 dark:text-yellow-400 font-bold hover:underline">Vite</a> / <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="text-yellow-600 dark:text-yellow-400 font-bold hover:underline">React</a> architecture right now. Zero lag. Instant clicks. This is the standard our web developers in Malaysia build for your business.
                     </p>
 
                     <div className="mt-12 flex flex-wrap gap-6">
@@ -384,15 +384,15 @@ const WebArchitectureView: React.FC = () => {
         </div>
 
         {/* === PORTFOLIO PREVIEW === */}
-        <m.div 
+        <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32"
+            className="mb-16 md:mb-32"
         >
-            <div className="flex items-center justify-between mb-12">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Recent Deployments</h2>
+            <div className="flex items-center justify-between mb-12 flex-wrap gap-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Recent Deployments</h2>
                 <Link to="/work" className="text-indigo-600 dark:text-indigo-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-mono uppercase tracking-widest flex items-center gap-2">
                     View Our Custom Web Design Portfolio <ArrowRight size={16} />
                 </Link>
@@ -448,7 +448,7 @@ const WebArchitectureView: React.FC = () => {
         </m.div>
 
         {/* === SEMANTIC DEPTH: ARCHITECTURAL PHILOSOPHY === */}
-        <div className="mb-32">
+        <div className="mb-16 md:mb-32">
             <m.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -465,7 +465,7 @@ const WebArchitectureView: React.FC = () => {
                 </p>
             </m.div>
 
-            <div className="space-y-32">
+            <div className="space-y-16 md:space-y-32">
                 {/* Block 1: Image Left, Text Right */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     <m.div 
@@ -540,7 +540,7 @@ const WebArchitectureView: React.FC = () => {
         </div>
 
         {/* === GEO CONTENT BLOCK: THE AUTHORITY STATEMENT === */}
-        <div className="mb-32">
+        <div className="mb-16 md:mb-32">
             <m.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -769,16 +769,16 @@ const WebArchitectureView: React.FC = () => {
         </div>
 
         {/* === E-COMMERCE UPGRADE === */}
-        <m.div 
+        <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32"
+            className="mb-16 md:mb-32"
         >
             <div className="p-6 md:p-10 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 border border-yellow-500/20 rounded-[2.5rem] relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-6 md:p-12 opacity-10 text-yellow-500"><ShoppingBag size={200} /></div>
-                <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12">
                     <div className="flex-1">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded border border-yellow-500/30 bg-yellow-100 dark:bg-yellow-900/10 text-yellow-600 dark:text-yellow-400 text-xs font-mono mb-6">
                             <Zap className="w-3 h-3" /> UPGRADE OPTION
@@ -810,14 +810,14 @@ const WebArchitectureView: React.FC = () => {
         </m.div>
 
         {/* === MAINTENANCE PLANS === */}
-        <m.div 
+        <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32"
+            className="mb-16 md:mb-32"
         >
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Domain & Hosting Maintenance</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Domain & Hosting Maintenance</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Plan 1 */}
                 <div className="p-6 md:p-8 bg-white dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800 rounded-3xl hover:border-slate-400 dark:hover:border-slate-600 transition-all shadow-sm dark:shadow-none">
@@ -857,14 +857,14 @@ const WebArchitectureView: React.FC = () => {
         </m.div>
 
         {/* === AEO FAQ SECTION === */}
-        <m.div 
+        <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="mb-32 max-w-4xl mx-auto"
+            className="mb-16 md:mb-32 max-w-4xl mx-auto"
         >
-           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Technical FAQ</h2>
+           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Technical FAQ</h2>
            <div className="space-y-4">
               {faqs.map((item, i) => (
                  <div 

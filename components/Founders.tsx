@@ -1,23 +1,23 @@
 import React from 'react';
-import { Linkedin, Mail } from 'lucide-react';
+import { Facebook, Mail } from 'lucide-react';
 
 const founders = [
   {
-    name: "Ganesaa", // Placeholder: Update with your actual name
-    role: "Co-Founder & Strategic Lead",
-    bio: "Driving the strategic vision of Omino Tech. With a focus on scalable digital infrastructure and business growth, I ensure our partners stay ahead of the curve.",
+    name: "Ganesaa",
+    role: "Founder & Technical Lead",
+    bio: "I build the systems that power our clients' growth — from architecture to deployment. My focus is writing clean, performant code that solves real business problems.",
     social: {
-      linkedin: "#",
-      email: "mailto:contact@ominotech.com"
+      facebook: "https://www.facebook.com/profile.php?id=61576647099551&sk=about",
+      email: "mailto:ominotechofficial@gmail.com"
     }
   },
   {
-    name: "Co-Founder", // Placeholder: Update with co-founder's name
-    role: "Co-Founder & Technical Director",
-    bio: "The engineering mind behind our high-performance systems. Specializing in Next.js architecture and AI integration to deliver robust, future-proof solutions.",
+    name: "Syed Hakim",
+    role: "Co-Founder & Head of Operations",
+    bio: "I keep the business running and the clients growing. From onboarding to delivery, I ensure every project is on time, on budget, and exceeds expectations.",
     social: {
-      linkedin: "#",
-      email: "mailto:tech@ominotech.com"
+      facebook: "https://www.facebook.com/profile.php?id=61576647099551&sk=about",
+      email: "mailto:ominotechofficial@gmail.com"
     }
   }
 ];
@@ -25,7 +25,7 @@ const founders = [
 const Founders: React.FC = () => {
   return (
     <section className="mb-32 relative">
-      <div className="text-center mb-20">
+      <div className="text-center mb-10 md:mb-20">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
           Built by <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Engineers</span>, <br />
           Driven by <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Strategy</span>.
@@ -60,13 +60,13 @@ const Founders: React.FC = () => {
                       <p className="text-indigo-400 font-mono text-xs md:text-sm tracking-widest uppercase">{founder.role}</p>
                     </div>
                   </div>
-                  <a 
-                    href={founder.social.linkedin} 
+                  <a
+                    href={founder.social.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 bg-slate-900/80 border border-slate-800 rounded-xl text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all duration-300 shadow-lg group-hover:shadow-indigo-500/25 group-hover:-translate-y-1"
                   >
-                    <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
+                    <Facebook className="w-5 h-5 md:w-6 md:h-6" />
                   </a>
                 </div>
                 

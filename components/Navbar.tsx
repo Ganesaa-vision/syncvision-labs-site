@@ -8,6 +8,7 @@ import { IMAGES } from '../images';
 export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   
@@ -200,7 +201,7 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
             </button>
             <button 
                 className="p-2 text-slate-900 dark:text-white"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                onClick={() => { setIsMobileMenuOpen(!isMobileMenuOpen); setIsServicesOpen(false); }}
                 aria-label={isMobileMenuOpen ? "Close Menu" : "Open Menu"}
             >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -212,48 +213,98 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <m.div 
+          <m.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 pt-32 px-6 md:hidden flex flex-col transform-gpu will-change-transform"
+            className="fixed inset-0 z-40 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl pt-20 sm:pt-24 px-6 pb-8 md:hidden flex flex-col overflow-y-auto h-[100dvh] transform-gpu will-change-transform"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-0 mt-4">
               {navLinks.map((link, i) => (
                 <m.div
                     key={link.path}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
+                    transition={{ delay: i * 0.07 }}
                 >
-                    <Link 
-                    to={link.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-4xl font-black tracking-tighter flex items-center justify-between py-6 border-b border-slate-100 dark:border-white/5 group ${
-                        location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-500 dark:text-slate-200'
-                    }`}
+                  {link.name === 'Services' ? (
+                    <div>
+                      <div className={`flex items-center justify-between py-4 border-b border-slate-100 dark:border-white/5 ${
+                        location.pathname.startsWith('/services') ? 'text-indigo-600 dark:text-white' : 'text-slate-500 dark:text-slate-200'
+                      }`}>
+                        <Link
+                          to="/services"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="text-2xl sm:text-3xl font-black tracking-tighter flex-1"
+                        >
+                          Services
+                        </Link>
+                        <button
+                          onClick={() => setIsServicesOpen(!isServicesOpen)}
+                          className="p-2 -mr-2 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
+                          aria-label="Expand service links"
+                        >
+                          <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''} ${
+                            location.pathname.startsWith('/services') ? 'text-indigo-600 dark:text-white' : 'text-slate-400 dark:text-slate-500'
+                          }`} />
+                        </button>
+                      </div>
+                      <AnimatePresence>
+                        {isServicesOpen && (
+                          <m.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="py-3 grid grid-cols-2 gap-2 border-b border-slate-100 dark:border-white/5">
+                              {serviceLinks.map((service) => (
+                                <Link
+                                  key={service.path}
+                                  to={service.path}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="flex items-center gap-2 p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                                >
+                                  <service.icon size={15} className="text-indigo-500 flex-shrink-0" />
+                                  <span className="text-xs font-bold leading-tight">{service.name}</span>
+                                </Link>
+                              ))}
+                            </div>
+                          </m.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-2xl sm:text-3xl font-black tracking-tighter flex items-center justify-between py-4 border-b border-slate-100 dark:border-white/5 group ${
+                          location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-500 dark:text-slate-200'
+                      }`}
                     >
-                    {link.name}
-                    <ChevronRight className={`w-6 h-6 transition-transform group-hover:translate-x-2 ${
-                        location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-500 dark:text-slate-200'
-                    }`} />
+                      {link.name}
+                      <ChevronRight className={`w-6 h-6 transition-transform group-hover:translate-x-2 ${
+                          location.pathname === link.path ? 'text-indigo-600 dark:text-white' : 'text-slate-400 dark:text-slate-500'
+                      }`} />
                     </Link>
+                  )}
                 </m.div>
               ))}
             </div>
-            
-            <m.div 
+
+            <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mt-auto mb-12"
+                className="mt-auto pt-8"
             >
-                <WhatsAppButton 
+                <WhatsAppButton
                     serviceName="General Inquiry"
                     buttonText="Start Project"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-full py-6 bg-indigo-600 text-white text-center font-bold text-xl rounded-2xl block shadow-xl shadow-indigo-500/20 active:scale-95 transition-transform"
+                    className="w-full py-4 bg-indigo-600 text-white text-center font-bold text-base sm:text-lg rounded-xl block shadow-xl shadow-indigo-500/20 active:scale-95 transition-transform"
                     showIcon={false}
                 />
             </m.div>
