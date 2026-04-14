@@ -22,9 +22,7 @@
     gap: 8rem;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .omino-marquee-track { animation: none; }
-}
+
 
 html {
   scroll-behavior: smooth;
