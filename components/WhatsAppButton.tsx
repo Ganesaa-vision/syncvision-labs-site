@@ -35,7 +35,7 @@ const generateWhatsAppLink = (
 };
 
 export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
-  phoneNumber = "60126019733", // Default Omino Tech Hotline
+  phoneNumber = "601127117920", // Default Omino Tech Hotline
   serviceName,
   packageLabel,
   buttonText = "Chat on WhatsApp",

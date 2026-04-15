@@ -14,7 +14,7 @@ export const GrandRevealFooter = () => {
                     Ready to <br className="hidden md:block"/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Build?</span>
                 </h2>
                 <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-                    <a href="https://wa.me/60126019733" target="_blank" rel="noopener noreferrer" className="group px-8 py-5 bg-white text-black rounded-full font-bold uppercase tracking-widest text-sm hover:bg-blue-50 transition-colors flex items-center gap-3 w-full md:w-auto justify-center">
+                    <a href="https://wa.me/601127117920" target="_blank" rel="noopener noreferrer" className="group px-8 py-5 bg-white text-black rounded-full font-bold uppercase tracking-widest text-sm hover:bg-blue-50 transition-colors flex items-center gap-3 w-full md:w-auto justify-center">
                         Start Project <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </a>
                     <a href="mailto:ominotechofficial@gmail.com" className="text-neutral-400 font-mono text-sm uppercase tracking-widest hover:text-white transition-colors border-b border-transparent hover:border-white pb-1">

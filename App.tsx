@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { AnimatePresence, LazyMotion, domAnimation } from 'framer-motion';
 import { Navbar } from './components/Navbar'; // Keep Navbar static so it renders immediately
 import ScrollToTopButton from './views/ScrollToTopButton'; // Keep static
+import FloatingWhatsAppFAB from './components/FloatingWhatsAppFAB'; // Site-wide WhatsApp contact shortcut
 // import CustomCursor from './components/CustomCursor';
 
 // Optimized lazy loading with prefetch
@@ -101,6 +102,7 @@ export default function App() {
       </div>
       
       <ScrollToTopButton />
+      <FloatingWhatsAppFAB />
       </LazyMotion>
     </HelmetProvider>
   );

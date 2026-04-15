@@ -37,6 +37,7 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
     { name: 'Work', path: '/work' },
     { name: 'About', path: '/about' },
     { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const serviceLinks = [

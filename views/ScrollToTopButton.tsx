@@ -31,7 +31,7 @@ const ScrollToTopButton: React.FC = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-[101] flex items-center justify-center group focus:outline-none"
+          className="fixed bottom-24 right-6 md:bottom-28 md:right-8 z-[101] flex items-center justify-center group focus:outline-none"
           aria-label="Scroll to top"
         >
           {/* Outer Glow on Hover */}

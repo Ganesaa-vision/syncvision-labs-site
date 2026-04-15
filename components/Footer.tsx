@@ -53,17 +53,39 @@ const Footer = () => {
           <div>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Contact</h2>
             <ul className="space-y-3 md:space-y-4 text-sm text-slate-600 dark:text-slate-400">
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="mt-1 text-indigo-500" />
-                <span>Balakong, Selangor, Malaysia</span>
+              <li>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Balakong%2C+Selangor%2C+Malaysia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  aria-label="View our location on Google Maps"
+                >
+                  <MapPin size={16} className="mt-1 text-indigo-500 flex-shrink-0" />
+                  <span>Balakong, Selangor, Malaysia</span>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-indigo-500" />
-                <span>+60 12 345 6789</span>
+              <li>
+                <a
+                  href="https://wa.me/601127117920"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  aria-label="Chat with us on WhatsApp"
+                >
+                  <Phone size={16} className="text-indigo-500 flex-shrink-0" />
+                  <span>+60 11 2711 7920</span>
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="text-indigo-500" />
-                <span>ominotechofficial@gmail.com</span>
+              <li>
+                <a
+                  href="mailto:ominotechofficial@gmail.com"
+                  className="flex items-center gap-3 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors break-all"
+                  aria-label="Send us an email"
+                >
+                  <Mail size={16} className="text-indigo-500 flex-shrink-0" />
+                  <span>ominotechofficial@gmail.com</span>
+                </a>
               </li>
             </ul>
           </div>

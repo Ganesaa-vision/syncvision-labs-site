@@ -31,7 +31,7 @@ export const IMAGES = {
     AEO_2: "/Images/Seo_Page/local-seo-google-business-profile-ranking.webp",
     GEO_1: "/Images/Seo_Page/best-top-seo-chatgpt-ai.webp",
     GEO_2: "/Images/Seo_Page/chatgpt1.webp",
-    CASE_STUDY_BEFORE: "/Images/Seo_Page/sarah-b-evcG0YvLFoY-unsplash.webp",
+    CASE_STUDY_BEFORE: "/Images/Seo_Page/page-not-ranking-on-google.jpeg.webp",
     CASE_STUDY_AFTER: "/Images/Seo_Page/google-search-first-page-results-proof.webp",
   },
   ABOUT: {
