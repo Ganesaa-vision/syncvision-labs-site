@@ -112,7 +112,7 @@ const BlogPreview = () => {
     if (posts.length === 0) return null;
 
     return (
-        <section aria-labelledby="insights-title" className="py-24 md:py-32 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 relative z-10">
+        <section aria-labelledby="insights-title" className="cv-auto py-24 md:py-32 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-white/5 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
                 <div>
                     <div className="inline-flex items-center gap-2 mb-6">
@@ -510,7 +510,7 @@ const HomeView: React.FC = () => {
                     </section>
 
                     {/* --- BENTO GRID: THE MALAYSIAN ADVANTAGE --- */}
-                    <section aria-labelledby="advantage-title" className="py-24 md:py-32 lg:py-40 px-6 max-w-7xl mx-auto relative z-10">
+                    <section aria-labelledby="advantage-title" className="cv-auto py-24 md:py-32 lg:py-40 px-6 max-w-7xl mx-auto relative z-10">
                         <div className="text-center mb-16 md:mb-24 max-w-3xl mx-auto">
                             <div className="inline-flex items-center gap-2 mb-6">
                                 <span className="text-indigo-600 dark:text-indigo-400 font-mono text-xs font-bold uppercase tracking-[0.2em]">Local Ecosystem</span>
@@ -586,7 +586,7 @@ const HomeView: React.FC = () => {
                     </section>
 
                     {/* --- THE FUTURE IS AUTONOMOUS --- */}
-                    <section aria-labelledby="autonomous-title" className="py-24 md:py-32 lg:py-40 px-6 max-w-7xl mx-auto relative z-10">
+                    <section aria-labelledby="autonomous-title" className="cv-auto py-24 md:py-32 lg:py-40 px-6 max-w-7xl mx-auto relative z-10">
                         <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
                             <div className="flex-1 space-y-8">
                                 <div className="inline-flex items-center gap-2 mb-6">
@@ -708,7 +708,7 @@ const HomeView: React.FC = () => {
                     </section>
 
                     {/* --- THE BUNDLE PITCH (VALUE ANCHOR) --- */}
-                    <section aria-labelledby="bundle-title" className="py-24 md:py-32 px-6 max-w-7xl mx-auto relative z-10">
+                    <section aria-labelledby="bundle-title" className="cv-auto py-24 md:py-32 px-6 max-w-7xl mx-auto relative z-10">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
                             <div className="space-y-10">
                                 <div>
@@ -766,7 +766,7 @@ const HomeView: React.FC = () => {
                     <BlogPreview />
 
                     {/* --- THE ENTITY AUTHORITY BLOCK (GEO ENGINE) --- */}
-                    <section className="py-24 md:py-32 px-6 max-w-7xl mx-auto relative z-10 border-t border-slate-200 dark:border-white/5">
+                    <section className="cv-auto py-24 md:py-32 px-6 max-w-7xl mx-auto relative z-10 border-t border-slate-200 dark:border-white/5">
                         <m.div 
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -815,7 +815,7 @@ const HomeView: React.FC = () => {
                     </section>
 
                     {/* --- AEO/GEO OPTIMIZED FAQ SECTION --- */}
-                    <section className="py-24 md:py-32 lg:py-40 px-6 max-w-7xl mx-auto relative z-10">
+                    <section className="cv-auto py-24 md:py-32 lg:py-40 px-6 max-w-7xl mx-auto relative z-10">
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
                             <div className="lg:col-span-1">
                                 <div className="inline-flex items-center gap-2 mb-6">

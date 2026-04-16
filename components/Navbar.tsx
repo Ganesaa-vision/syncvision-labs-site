@@ -54,7 +54,7 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
     <>
       <LazyMotion features={domAnimation}>
       <m.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 origin-left z-[100]"
+        className="hidden md:block fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 origin-left z-[100]"
         style={{ scaleX }}
       />
       <nav 

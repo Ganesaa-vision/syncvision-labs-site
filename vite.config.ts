@@ -34,8 +34,12 @@ export default defineConfig(({ mode }) => {
         },
         // Reduce chunk size warnings threshold
         chunkSizeWarningLimit: 1000,
-        // Use esbuild for faster minification
-        minify: 'esbuild',
+        // Full Terser minification for smallest output
+        minify: 'terser',
+        terserOptions: {
+          compress: { passes: 2, drop_console: true },
+          format: { comments: false },
+        },
         // Target modern browsers for smaller bundles
         target: 'es2015',
       },
