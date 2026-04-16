@@ -664,24 +664,6 @@ const WebArchitectureView: React.FC = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60"></div>
                                 
-                                {/* Floating UI Element */}
-                                <m.div 
-                                    initial={{ y: 20, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.4 }}
-                                    className="absolute bottom-8 left-8 right-8 p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-between">
-                                    <div className="flex items-center gap-4">
-                                        <div className={`p-3 rounded-xl bg-white/10 text-white`}>
-                                            {activeTier.icon}
-                                        </div>
-                                        <div>
-                                            <div className="text-white font-bold text-sm">System Status</div>
-                                            <div className="text-emerald-400 text-xs font-mono uppercase tracking-wider flex items-center gap-2">
-                                                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span> Online
-                                            </div>
-                                        </div>
-                                    </div>
-                                </m.div>
                             </m.div>
                         </div>
                         </div>

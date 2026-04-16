@@ -87,11 +87,3 @@ body {
   border-color: #6366f1;
   box-shadow: 0 0 25px rgba(99, 102, 241, 0.2);
 }
-
-/* Mobile perf: skip rendering off-screen sections until scrolled near */
-@media (max-width: 767px) {
-  .cv-auto {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 500px;
-  }
-}

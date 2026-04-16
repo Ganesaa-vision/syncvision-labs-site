@@ -187,9 +187,10 @@ export const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () 
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-4 md:hidden relative z-50">
-             <button 
+             <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-200"
+                aria-label="Toggle Theme"
             >
                 <m.div
                   key={theme}
