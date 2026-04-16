@@ -426,14 +426,6 @@ const HomeView: React.FC = () => {
                                             <div className="w-3.5 h-3.5 rounded-full bg-[#27C93F] border border-[#1AAB29] shadow-sm hover:brightness-110 transition-all cursor-pointer"></div>
                                         </div>
                                         
-                                        {/* Absolute centered title bar like Safari/Terminal */}
-                                        <div className="absolute left-0 right-0 flex justify-center pointer-events-none">
-                                            <div className="flex items-center gap-2 text-[11px] font-mono font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400 bg-slate-100/50 dark:bg-white/[0.03] px-4 py-1.5 rounded-lg border border-slate-200/50 dark:border-white/5 shadow-sm backdrop-blur-md">
-                                                <Terminal size={14} className="text-indigo-500 dark:text-indigo-400" />
-                                                <span>Omino_Tech_Manifesto.sh</span>
-                                            </div>
-                                        </div>
-                                        
                                         {/* Spacer to perfectly balance the flex-between layout */}
                                         <div className="w-[54px]"></div>
                                     </div>
